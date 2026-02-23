@@ -247,7 +247,7 @@ CheckAbleToSwitch:
 
 	call CheckPlayerMoveTypeMatchups
 	ld a, [wEnemyAISwitchScore]
-	cp BASE_AI_SWITCH_SCORE
+	cp 10
 	ret nc
 
 	ld a, b

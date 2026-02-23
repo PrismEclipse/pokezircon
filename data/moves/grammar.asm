@@ -1,6 +1,7 @@
 ; Used by GetMoveGrammar (see engine/battle/used_move_text.asm)
 ; Each move is given an identifier for what usedmovetext to use (0-4).
 ; Made redundant in English localization, where all are just "[mon]<LINE>used [move]!"
+; TODO: Research how move Grammar for Gen 3+ Moves are shown in-game for Japanese Games to apply to English.
 
 MoveGrammar:
 ; 0: originally "[mon]は<LINE>[move]を　つかった！" ("[mon]<LINE>used [move]!")

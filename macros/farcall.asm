@@ -1,13 +1,20 @@
 ; Far calls to another bank
 
-; There is no difference between `farcall` and `callfar`, except the arbitrary
-; order in which they set `a` and `hl` before calling `FarCall`.
-; We use the more natural name "farcall" for the more common order.
-
 MACRO farcall ; bank, address
 	ld a, BANK(\1)
 	ld hl, \1
 	rst FarCall
+ENDM
+
+MACRO newfarcall ; bank, address
+	; We can't replace previous farcalls because it breaks saves...
+	rst BetterFarCall
+	dbw BANK(\1), \1
+ENDM
+
+MACRO newfarjp
+	rst BetterFarCall
+	dbw BANK(\1) | $80, \1
 ENDM
 
 MACRO callfar ; address, bank

@@ -1,5 +1,7 @@
 ; Maps that roaming monsters can be on, and possible maps they can jump to.
 ; Notably missing are Route 40 and Route 41, which are water routes.
+; TODO: Ultra Beasts Stakataka and Blacephalon are planned to be pseudo-roamers, perhaps could code it someway to make them spawn always in one map and never leave.
+; TODO: Zygarde-10% is also planned to be the only roamer in Zircon, as part of a side-quest, will be reworking how roamers go around maps a bit by making it less random by having it go in a set order.
 
 DEF __roam_maps__ = 0
 
