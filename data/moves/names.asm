@@ -1,5 +1,5 @@
 MoveNames::
-	list_start MOVE_NAME_LENGTH - 1
+	list_start
 	li "POUND"
 	li "KARATE CHOP"
 	li "DOUBLESLAP"

@@ -190,15 +190,15 @@ LoadMenuMonIcon:
 	dw Trade_LoadMonIconGFX             ; MONICON_TRADE
 	dw Mobile_InitAnimatedMonIcon       ; MONICON_MOBILE1
 	dw Mobile_InitPartyMenuBGPal71      ; MONICON_MOBILE2
-	dw Unused_InitFastAnimatedMonIcon   ; MONICON_UNUSED
+	dw Unused_GetPartyMenuMonIcon       ; MONICON_UNUSED
 
-Unused_InitFastAnimatedMonIcon:
+Unused_GetPartyMenuMonIcon:
 	call InitPartyMenuIcon
-	call .SpawnItemIcon
+	call .GetPartyMonItemGFX
 	call SetPartyMonIconAnimSpeed
 	ret
 
-.SpawnItemIcon:
+.GetPartyMonItemGFX:
 	push bc
 	ldh a, [hObjectStructIndex]
 	ld hl, wPartyMon1Item
@@ -214,16 +214,16 @@ Unused_InitFastAnimatedMonIcon:
 	callfar ItemIsMail
 	pop bc
 	pop hl
-	jr c, .mail
-	ld a, SPRITE_ANIM_FRAMESET_PARTY_MON_WITH_ITEM_FAST
-	jr .got_frameset
-.mail
-	ld a, SPRITE_ANIM_FRAMESET_PARTY_MON_WITH_MAIL_FAST
+	jr c, .not_mail
+	ld a, $06
+	jr .got_tile
+.not_mail
+	ld a, $05
 	; fallthrough
 
 .no_item
-	ld a, SPRITE_ANIM_FRAMESET_PARTY_MON_FAST
-.got_frameset
+	ld a, $04
+.got_tile
 	ld hl, SPRITEANIMSTRUCT_FRAMESET_ID
 	add hl, bc
 	ld [hl], a
@@ -290,11 +290,11 @@ PartyMenu_InitAnimatedMonIcon:
 	pop hl
 	jr c, .mail
 	ld a, SPRITE_ANIM_FRAMESET_PARTY_MON_WITH_ITEM
-	jr .got_frameset
+	jr .okay
 
 .mail
 	ld a, SPRITE_ANIM_FRAMESET_PARTY_MON_WITH_MAIL
-.got_frameset
+.okay
 	ld hl, SPRITEANIMSTRUCT_FRAMESET_ID
 	add hl, bc
 	ld [hl], a
