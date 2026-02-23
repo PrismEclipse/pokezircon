@@ -1,6 +1,6 @@
 StatNames:
 ; entries correspond to stat ids
-	list_start STRING_BUFFER_LENGTH - 1
+	list_start
 	li "ATTACK"
 	li "DEFENSE"
 	li "SPEED"

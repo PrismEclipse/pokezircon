@@ -6,7 +6,7 @@ DEF UNOWNWORD_{d:UNOWNWORDS_HO_OH}  EQUS "HO-OH"
 
 UnownWalls:
 ; entries correspond to UNOWNWORDS_* constants
-	list_start 9
+	list_start
 	for x, NUM_UNOWN_WALLS
 		li #UNOWNWORD_{d:x}
 	endr

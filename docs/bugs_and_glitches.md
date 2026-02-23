@@ -47,7 +47,6 @@ Fixes in the [multi-player battle engine](#multi-player-battle-engine) category 
   - [Love Ball boosts catch rate for the wrong gender](#love-ball-boosts-catch-rate-for-the-wrong-gender)
   - [Fast Ball only boosts catch rate for three Pokémon](#fast-ball-only-boosts-catch-rate-for-three-pok%C3%A9mon)
   - [Heavy Ball uses wrong weight value for three Pokémon](#heavy-ball-uses-wrong-weight-value-for-three-pok%C3%A9mon)
-  - [Catch rate formula breaks for Pokémon with max HP > 341](#catch-rate-formula-breaks-for-pok%C3%A9mon-with-max-hp--341)
   - [PRZ and BRN stat reductions don't apply to switched Pokémon](#prz-and-brn-stat-reductions-dont-apply-to-switched-pok%C3%A9mon)
   - [Glacier Badge may not boost Special Defense depending on the value of Special Attack](#glacier-badge-may-not-boost-special-defense-depending-on-the-value-of-special-attack)
   - ["Smart" AI encourages Mean Look if its own Pokémon is badly poisoned](#smart-ai-encourages-mean-look-if-its-own-pok%C3%A9mon-is-badly-poisoned)
@@ -58,7 +57,6 @@ Fixes in the [multi-player battle engine](#multi-player-battle-engine) category 
   - [AI makes a false assumption about `CheckTypeMatchup`](#ai-makes-a-false-assumption-about-checktypematchup)
   - [AI use of Full Heal or Full Restore does not cure Nightmare status](#ai-use-of-full-heal-or-full-restore-does-not-cure-nightmare-status)
   - [AI use of Full Heal does not cure confusion status](#ai-use-of-full-heal-does-not-cure-confusion-status)
-  - [AI use of Full Heal or Full Restore does not cure Attack or Speed drops from burn or paralysis](#ai-use-of-full-heal-or-full-restore-does-not-cure-attack-or-speed-drops-from-Burn-or-Paralysis)
   - [AI might use its base reward value as an item](#ai-might-use-its-base-reward-value-as-an-item)
   - [Wild Pokémon can always Teleport regardless of level difference](#wild-pok%C3%A9mon-can-always-teleport-regardless-of-level-difference)
   - [`RIVAL2` has lower DVs than `RIVAL1`](#rival2-has-lower-dvs-than-rival1)
@@ -1198,41 +1196,6 @@ Note that this fix only accounts for Pokémon that evolve via Moon Stone as thei
 ```
 
 
-### Catch rate formula breaks for Pokémon with max HP > 341
-
-HP values above 341 remain larger than 1 byte after division.
-
-**Fix:** Edit `PokeBallEffect` in [engine/items/item_effects.asm](https://github.com/pret/pokecrystal/blob/master/engine/items/item_effects.asm):
-
-```diff
-	srl d
-	rr e
-	srl d
-	rr e
-	srl b
-	rr c
-	srl b
-	rr c
-
--	; BUG: Catch rate formula breaks for Pokémon with max HP > 341 (see docs/bugs_and_glitches.md)
-+	; Divide by 2 again if there's still something in the high byte
-+	ld a, d
-+	and a
-+	jr z, .check_cur_low
-+	srl d
-+	rr e
-+	srl b
-+	rr c
-+.check_cur_low
-	ld a, c
-	and a
-	jr nz, .okay_1
-	ld c, $1
-.okay_1
-	ld b, e
-```
-
-
 ### PRZ and BRN stat reductions don't apply to switched Pokémon
 
 This does not affect link battles or Battle Tower battles because those jump from `LoadEnemyMon` to `InitEnemyMon`, which already calls `ApplyStatusEffectOnEnemyStats`.
@@ -1407,7 +1370,6 @@ AI_Cautious:
 ```diff
  AI_HealStatus:
 -; BUG: AI use of Full Heal or Full Restore does not cure Nightmare status (see docs/bugs_and_glitches.md)
- ; BUG: AI use of Full Heal or Full Restore does not cure Attack or Speed drops from burn or paralysis (see docs/bugs_and_glitches.md)
  	ld a, [wCurOTMon]
  	ld hl, wOTPartyMon1Status
  	ld bc, PARTYMON_STRUCT_LENGTH
@@ -1443,7 +1405,6 @@ AI_Cautious:
 ```diff
  AI_HealStatus:
  ; BUG: AI use of Full Heal or Full Restore does not cure Nightmare status (see docs/bugs_and_glitches.md)
- ; BUG: AI use of Full Heal or Full Restore does not cure Attack or Speed drops from burn or paralysis (see docs/bugs_and_glitches.md)
  	ld a, [wCurOTMon]
  	ld hl, wOTPartyMon1Status
  	ld bc, PARTYMON_STRUCT_LENGTH
@@ -1456,27 +1417,6 @@ AI_Cautious:
 +	res SUBSTATUS_CONFUSED, [hl]
  	ld hl, wEnemySubStatus5
  	res SUBSTATUS_TOXIC, [hl]
- 	ret
-```
-
-### AI use of Full Heal or Full Restore does not cure Attack or Speed drops from burn or paralysis
-
-**Fix:** Edit `AI_HealStatus` in [engine/battle/ai/items.asm](https://github.com/pret/pokecrystal/blob/master/engine/battle/ai/items.asm):
-
-```diff
- AI_HealStatus:
- ; BUG: AI use of Full Heal or Full Restore does not cure Nightmare status (see docs/bugs_and_glitches.md)
--; BUG: AI use of Full Heal or Full Restore does not cure Attack or Speed drops from burn or paralysis (see docs/bugs_and_glitches.md)
- 	ld a, [wCurOTMon]
- 	ld hl, wOTPartyMon1Status
- 	ld bc, PARTYMON_STRUCT_LENGTH
- 	call AddNTimes
- 	xor a
- 	ld [hl], a
- 	ld [wEnemyMonStatus], a
- 	ld hl, wEnemySubStatus5
- 	res SUBSTATUS_TOXIC, [hl]
-+	farcall CalcEnemyStats
  	ret
 ```
 

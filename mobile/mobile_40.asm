@@ -62,6 +62,8 @@ SetRAMStateForMobile:
 	call ByteFill
 	ldh a, [rIE]
 	ld [wBGMapBuffer], a
+	ld a, RETI_INSTRUCTION
+	ldh [hFunctionInstruction], a
 	xor a
 	ldh [hMapAnims], a
 	ldh [hLCDCPointer], a
@@ -79,6 +81,8 @@ EnableMobile:
 	ldh [rIF], a
 	ld a, IE_DEFAULT
 	ldh [rIE], a
+	ld a, RETI_INSTRUCTION
+	ldh [hFunctionInstruction], a
 	xor a
 	ldh [hMapAnims], a
 	ldh [hLCDCPointer], a
@@ -4561,7 +4565,7 @@ String_101fd2:
 	next "に　でんわを　かけています@"
 
 String_101fe1:
-	db   "でんわが　つながりました！@"
+	db   "でんわが　つながりました!@"
 
 String_101fef:
 	db   "つうわを"
@@ -5120,7 +5124,7 @@ Function1023c6:
 	ld [wCurPartyMon], a
 	xor a ; REMOVE_PARTY
 	ld [wPokemonWithdrawDepositParameter], a
-	farcall RemoveMonFromPartyOrBox
+	farcall RemoveMonFromParty
 	ld hl, wPartyCount
 	inc [hl]
 	ld a, [hli]
@@ -6673,8 +6677,8 @@ Function102f85:
 	ret
 
 String_102fb2:
-	db   "あいてがわ<GA>えらんだ　"
-	next "いじょう<GA>あるようです！！"
+	db   "あいてがわ<PKMN>えらんだ　"
+	next "いじょう<PKMN>あるようです！！"
 	db   "@"
 
 String_102fcc:
@@ -6689,7 +6693,7 @@ Function102fce:
 
 String_102fdb:
 	db   "あいてがわ<NO>せんたくに"
-	next "いじょう<GA>あるようです！！"
+	next "いじょう<PKMN>あるようです！！"
 	done
 
 Function102ff5:
@@ -6700,7 +6704,7 @@ Function102ff5:
 	ret
 
 String_103002:
-	db   "その<POKEMON>を　こうかんすると"
+	db   "その#を　こうかんすると"
 	next "せんとう　できなく　なっちゃうよ！"
 	db   "@"
 

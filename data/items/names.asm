@@ -1,10 +1,10 @@
 ItemNames::
-	list_start ITEM_NAME_LENGTH - 1
+	list_start
 	li "MASTER BALL"
 	li "ULTRA BALL"
 	li "BRIGHTPOWDER"
 	li "GREAT BALL"
-	li "# BALL"
+	li "POKé BALL" ; VWF can't print "# BALL"
 	li "TERU-SAMA"
 	li "BICYCLE"
 	li "MOON STONE"
@@ -36,7 +36,7 @@ ItemNames::
 	li "LEAF STONE"
 	li "METAL POWDER"
 	li "NUGGET"
-	li "# DOLL"
+	li "POKé DOLL" ; VWF can't print "# DOLL"
 	li "FULL HEAL"
 	li "REVIVE"
 	li "MAX REVIVE"

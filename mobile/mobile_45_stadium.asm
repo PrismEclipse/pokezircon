@@ -429,7 +429,7 @@ Function117984:
 	call MenuBoxCoord2Tile
 	farcall HDMATransferTilemapAndAttrmap_Overworld
 	hlcoord 1, 14
-	ld de, EmptyPasswordString
+	ld de, NotAPokemonPasswordString
 	call PlaceString
 	ld a, $1e
 	ld [wcd4e], a
@@ -464,8 +464,8 @@ AskSavePasswordString:
 	db   "こ<NO>パスワード<WO>ほぞんして"
 	line "おきますか？@"
 
-EmptyPasswordString:
-	db   "パスワード<GA>にゅうりょく"
+NotAPokemonPasswordString:
+	db   "パスワード<PKMN>にゅうりょく"
 	line "されていません！@"
 
 SavedPasswordString:
