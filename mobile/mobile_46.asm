@@ -6021,7 +6021,7 @@ MenuHeader_11afe8:
 
 String_11aff0:
 	db   "この　じょうけんで"
-	next "よろしいですか？@"
+	next "よろしいですか?@"
 
 String_11b003:
 	db   "こうかんを"
@@ -6548,10 +6548,10 @@ Function11b295:
 	ret
 
 String_11b2fe: ; unreferenced
-	db "あげる<POKEMON>@"
+	db "あげる#@"
 
 String_11b303: ; unreferenced
-	db "ほしい<POKEMON>@"
+	db "ほしい#@"
 
 String_11b308:
 	db "　　　　　@"
@@ -7059,7 +7059,7 @@ TradeCornerHoldMon_RemoveFromParty:
 	ld [wCurPartyMon], a
 	xor a ; REMOVE_PARTY
 	ld [wPokemonWithdrawDepositParameter], a
-	farcall RemoveMonFromPartyOrBox
+	farcall RemoveMonFromParty
 	farcall BattleTowerAction_16
 	farcall SaveAfterLinkTrade
 	jp MobileIncJumptableIndex

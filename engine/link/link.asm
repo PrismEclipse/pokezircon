@@ -1937,7 +1937,7 @@ LinkTrade:
 
 	xor a ; REMOVE_PARTY
 	ld [wPokemonWithdrawDepositParameter], a
-	callfar RemoveMonFromPartyOrBox
+	callfar RemoveMonFromParty
 	ld a, [wPartyCount]
 	dec a
 	ld [wCurPartyMon], a
@@ -2267,13 +2267,13 @@ WaitForOtherPlayerToExit:
 	ret
 
 SetBitsForLinkTradeRequest:
-	ld a, CABLECLUBROOM_TRADECENTER
+	ld a, LINK_TRADECENTER - 1
 	ld [wPlayerLinkAction], a
 	ld [wChosenCableClubRoom], a
 	ret
 
 SetBitsForBattleRequest:
-	ld a, CABLECLUBROOM_COLOSSEUM
+	ld a, LINK_COLOSSEUM - 1
 	ld [wPlayerLinkAction], a
 	ld [wChosenCableClubRoom], a
 	ret
@@ -2287,7 +2287,7 @@ SetBitsForTimeCapsuleRequest:
 	ldh [rSC], a
 	ld a, SC_START | SC_EXTERNAL
 	ldh [rSC], a
-	xor a ; CABLECLUBROOM_NULL
+	xor a ; LINK_NULL
 	ld [wPlayerLinkAction], a
 	ld [wChosenCableClubRoom], a
 	ret
