@@ -38,7 +38,7 @@ ItemEffects:
 	dw EvoStoneEffect      ; FIRE_STONE
 	dw EvoStoneEffect      ; THUNDERSTONE
 	dw EvoStoneEffect      ; WATER_STONE
-	dw NoEffect            ; ITEM_19
+	dw PokeBallEffect      ; PRIDE_BALL
 	dw VitaminEffect       ; HP_UP
 	dw VitaminEffect       ; PROTEIN
 	dw VitaminEffect       ; IRON
@@ -210,10 +210,12 @@ ItemEffects:
 ; NoEffect would be appropriate, with the table then being NUM_ITEMS long.
 
 PokeBallEffect:
-; BUG: The Dude's catching tutorial may crash if his Poké Ball can't be used (see docs/bugs_and_glitches.md)
 	ld a, [wBattleMode]
 	dec a
 	jp nz, UseBallInTrainerBattle
+	ld a, [wBattleType]
+	cp BATTLETYPE_TUTORIAL
+	jr z, .room_in_party
 
 	ld a, [wPartyCount]
 	cp PARTY_LENGTH
@@ -303,7 +305,15 @@ PokeBallEffect:
 	rr c
 	srl b
 	rr c
-
+	; Divide by 2 again if there's still something in the high byte
+	ld a, d
+	and a
+	jr z, .check_cur_low
+	srl d
+	rr e
+	srl b
+	rr c
+.check_cur_low
 	ld a, c
 	and a
 	jr nz, .okay_1
@@ -332,12 +342,12 @@ PokeBallEffect:
 	jr nz, .statuscheck
 	ld a, 1
 .statuscheck
-; BUG: BRN/PSN/PAR do not affect catch rate (see docs/bugs_and_glitches.md)
 	ld b, a
 	ld a, [wEnemyMonStatus]
 	and 1 << FRZ | SLP_MASK
 	ld c, 10
 	jr nz, .addstatus
+	ld a, [wEnemyMonStatus]
 	and a
 	ld c, 5
 	jr nz, .addstatus
@@ -349,10 +359,10 @@ PokeBallEffect:
 	ld a, $ff
 .max_1
 
-; BUG: HELD_CATCH_CHANCE has no effect (see docs/bugs_and_glitches.md)
 	ld d, a
 	push de
 	ld a, [wBattleMonItem]
+	ld b, a
 	farcall GetItemHeldEffect
 	ld a, b
 	cp HELD_CATCH_CHANCE
@@ -436,18 +446,9 @@ PokeBallEffect:
 	push af
 	set SUBSTATUS_TRANSFORMED, [hl]
 
-; BUG: Catching a Transformed Pokémon always catches a Ditto (see docs/bugs_and_glitches.md)
 	bit SUBSTATUS_TRANSFORMED, a
-	jr nz, .ditto
-	jr .not_ditto
-
-.ditto
-	ld a, DITTO
-	ld [wTempEnemyMonSpecies], a
-	jr .load_data
-
-.not_ditto
-	set SUBSTATUS_TRANSFORMED, [hl]
+	jr nz, .load_data
+	
 	ld hl, wEnemyBackupDVs
 	ld a, [wEnemyMonDVs]
 	ld [hli], a
@@ -739,6 +740,7 @@ BallMultiplierFunctionTable:
 	dbw FAST_BALL,   FastBallMultiplier
 	dbw MOON_BALL,   MoonBallMultiplier
 	dbw LOVE_BALL,   LoveBallMultiplier
+	dbw PRIDE_BALL,  PrideBallMultiplier
 	dbw PARK_BALL,   ParkBallMultiplier
 	db -1 ; end
 
@@ -762,10 +764,10 @@ ParkBallMultiplier:
 	ret
 
 HeavyBall_GetDexEntryBank:
-; BUG: Heavy Ball uses wrong weight value for three Pokémon (see docs/bugs_and_glitches.md)
 	push hl
 	push de
 	ld a, [wEnemyMonSpecies]
+	dec a
 	rlca
 	rlca
 	maskbits NUM_DEX_ENTRY_BANKS
@@ -922,15 +924,13 @@ MoonBallMultiplier:
 	pop bc
 	ret nz
 
-; BUG: Moon Ball does not boost catch rate (see docs/bugs_and_glitches.md)
 	inc hl
-	inc hl
-	inc hl
+
 
 	push bc
 	ld a, BANK("Evolutions and Attacks")
 	call GetFarByte
-	cp MOON_STONE_RED ; BURN_HEAL
+	cp MOON_STONE
 	pop bc
 	ret nz
 
@@ -982,7 +982,69 @@ LoveBallMultiplier:
 	inc d   ; female
 .got_wild_gender
 
-; BUG: Love Ball boosts catch rate for the wrong gender (see docs/bugs_and_glitches.md)
+	ld a, d
+	pop de
+	cp d
+	pop bc
+	ret z
+
+	sla b
+	jr c, .max
+	sla b
+	jr c, .max
+	sla b
+	ret nc
+.max
+	ld b, $ff
+	ret
+
+.done2
+	pop de
+
+.done1
+	pop bc
+	ret
+
+PrideBallMultiplier:
+
+	; does species match?
+	ld a, [wTempEnemyMonSpecies]
+	ld c, a
+	ld a, [wTempBattleMonSpecies]
+	cp c
+	ret nz
+
+	; check player mon species
+	push bc
+	ld a, [wTempBattleMonSpecies]
+	ld [wCurPartySpecies], a
+	xor a ; PARTYMON
+	ld [wMonType], a
+	ld a, [wCurBattleMon]
+	ld [wCurPartyMon], a
+	farcall GetGender
+	jr c, .done1 ; no effect on genderless
+
+	ld d, 0 ; male
+	jr nz, .got_player_gender
+	inc d   ; female
+.got_player_gender
+
+	; check wild mon species
+	push de
+	ld a, [wTempEnemyMonSpecies]
+	ld [wCurPartySpecies], a
+	ld a, WILDMON
+	ld [wMonType], a
+	farcall GetGender
+	jr c, .done2 ; no effect on genderless
+
+	ld d, 0 ; male
+	jr nz, .got_wild_gender
+	inc d   ; female
+.got_wild_gender
+
+; Originally a bug, now a feature.
 	ld a, d
 	pop de
 	cp d
@@ -1013,7 +1075,6 @@ FastBallMultiplier:
 	ld d, 3
 
 .loop
-; BUG: Fast Ball only boosts catch rate for three Pokémon (see docs/bugs_and_glitches.md)
 	ld a, BANK(FleeMons)
 	call GetFarByte
 
@@ -1021,7 +1082,7 @@ FastBallMultiplier:
 	cp -1
 	jr z, .next
 	cp c
-	jr nz, .next
+	jr nz, .loop
 	sla b
 	jr c, .max
 
