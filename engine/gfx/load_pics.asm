@@ -119,22 +119,20 @@ GetFrontpicPointer:
 	ld a, [wCurPartySpecies]
 	cp UNOWN
 	jr z, .unown
+	ld hl, PokemonPicPointers
 	ld a, [wCurPartySpecies]
 	ld d, BANK(PokemonPicPointers)
 	jr .ok
 .unown
+	ld hl, UnownPicPointers
 	ld a, [wUnownLetter]
 	ld d, BANK(UnownPicPointers)
 .ok
-	; These are assumed to be at the same address in their respective banks.
-	assert PokemonPicPointers == UnownPicPointers
-	ld hl, PokemonPicPointers
 	dec a
 	ld bc, 6
 	call AddNTimes
 	ld a, d
 	call GetFarByte
-	call FixPicBank
 	push af
 	inc hl
 	ld a, d
@@ -220,13 +218,13 @@ GetMonBackpic:
 	ldh [rWBK], a
 	push de
 
-	; These are assumed to be at the same address in their respective banks.
-	assert PokemonPicPointers == UnownPicPointers
+
 	ld hl, PokemonPicPointers
 	ld a, b
 	ld d, BANK(PokemonPicPointers)
 	cp UNOWN
 	jr nz, .ok
+	ld hl, UnownPicPointers
 	ld a, c
 	ld d, BANK(UnownPicPointers)
 .ok
@@ -237,7 +235,6 @@ GetMonBackpic:
 	add hl, bc
 	ld a, d
 	call GetFarByte
-	call FixPicBank
 	push af
 	inc hl
 	ld a, d
@@ -256,9 +253,6 @@ GetMonBackpic:
 	pop af
 	ldh [rWBK], a
 	ret
-
-FixPicBank:
-; This is a thing for some reason.
 
 EXPORT DEF PICS_FIX EQU $36
 
@@ -309,7 +303,6 @@ GSIntro_GetMonFrontpic: ; unreferenced
 	call AddNTimes
 	ld a, BANK(PokemonPicPointers)
 	call GetFarByte
-	call FixPicBank
 	push af
 	inc hl
 	ld a, BANK(PokemonPicPointers)
@@ -340,7 +333,6 @@ GetTrainerPic:
 	push de
 	ld a, BANK(TrainerPicPointers)
 	call GetFarByte
-	call FixPicBank
 	push af
 	inc hl
 	ld a, BANK(TrainerPicPointers)

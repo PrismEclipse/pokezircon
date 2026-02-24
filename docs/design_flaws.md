@@ -19,10 +19,10 @@ These are parts of the code that do not work *incorrectly*, like [bugs and glitc
 
 ## Pic banks are offset by `PICS_FIX`
 
-[data/pokemon/pic_pointers.asm](https://github.com/pret/pokecrystal/blob/master/data/pokemon/pic_pointers.asm), [data/pokemon/unown_pic_pointers.asm](https://github.com/pret/pokecrystal/blob/master/data/pokemon/unown_pic_pointers.asm), and [data/trainers/pic_pointers.asm](https://github.com/pret/pokecrystal/blob/master/data/trainers/pic_pointers.asm) all have to use `dba_pic` instead of `dba`. This is a macro in [macros/data.asm](https://github.com/pret/pokecrystal/blob/master/macros/data.asm) that offsets banks by `PICS_FIX`:
+[data/pokemon/pic_pointers.asm](https://github.com/pret/pokecrystal/blob/master/data/pokemon/pic_pointers.asm), [data/pokemon/unown_pic_pointers.asm](https://github.com/pret/pokecrystal/blob/master/data/pokemon/unown_pic_pointers.asm), and [data/trainers/pic_pointers.asm](https://github.com/pret/pokecrystal/blob/master/data/trainers/pic_pointers.asm) all have to use `dba` instead of `dba`. This is a macro in [macros/data.asm](https://github.com/pret/pokecrystal/blob/master/macros/data.asm) that offsets banks by `PICS_FIX`:
 
 ```asm
-MACRO dba_pic ; dbw bank, address
+MACRO dba ; dbw bank, address
 	db BANK(\1) - PICS_FIX
 	dw \1
 ENDM
@@ -54,7 +54,7 @@ EXPORT DEF PICS_FIX EQU $36
 	db BANK("Pics 24") ; BANK("Pics 1") + 23
 ```
 
-**Fix:** Delete `FixPicBank` and remove all four calls to `FixPicBank` in [engine/gfx/load_pics.asm](https://github.com/pret/pokecrystal/blob/master/engine/gfx/load_pics.asm). Then use `dba` instead of `dba_pic` everywhere.
+**Fix:** Delete `FixPicBank` and remove all four calls to `FixPicBank` in [engine/gfx/load_pics.asm](https://github.com/pret/pokecrystal/blob/master/engine/gfx/load_pics.asm). Then use `dba` instead of `dba` everywhere.
 
 
 ## `PokemonPicPointers` and `UnownPicPointers` are assumed to start at the same address
