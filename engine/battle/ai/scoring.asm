@@ -316,7 +316,6 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_ALWAYS_HIT,       AI_Smart_AlwaysHit
 	dbw EFFECT_ACCURACY_DOWN,    AI_Smart_AccuracyDown
 	dbw EFFECT_RESET_STATS,      AI_Smart_ResetStats
-	dbw EFFECT_BIDE,             AI_Smart_Bide
 	dbw EFFECT_FORCE_SWITCH,     AI_Smart_ForceSwitch
 	dbw EFFECT_HEAL,             AI_Smart_Heal
 	dbw EFFECT_TOXIC,            AI_Smart_Toxic
@@ -325,7 +324,6 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_RAZOR_WIND,       AI_Smart_RazorWind
 	dbw EFFECT_SUPER_FANG,       AI_Smart_SuperFang
 	dbw EFFECT_TRAP_TARGET,      AI_Smart_TrapTarget
-	dbw EFFECT_UNUSED_2B,        AI_Smart_Unused2B
 	dbw EFFECT_CONFUSE,          AI_Smart_Confuse
 	dbw EFFECT_SP_DEF_UP_2,      AI_Smart_SpDefenseUp2
 	dbw EFFECT_REFLECT,          AI_Smart_Reflect
@@ -365,7 +363,6 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_FURY_CUTTER,      AI_Smart_FuryCutter
 	dbw EFFECT_ATTRACT,          AI_Smart_Attract
 	dbw EFFECT_SAFEGUARD,        AI_Smart_Safeguard
-	dbw EFFECT_MAGNITUDE,        AI_Smart_Magnitude
 	dbw EFFECT_BATON_PASS,       AI_Smart_BatonPass
 	dbw EFFECT_PURSUIT,          AI_Smart_Pursuit
 	dbw EFFECT_RAPID_SPIN,       AI_Smart_RapidSpin
@@ -911,17 +908,6 @@ AI_Smart_ResetStats:
 	inc [hl]
 	ret
 
-AI_Smart_Bide:
-; 90% chance to discourage this move unless enemy's HP is full.
-
-	call AICheckEnemyMaxHP
-	ret c
-	call Random
-	cp 10 percent
-	ret c
-	inc [hl]
-	ret
-
 AI_Smart_ForceSwitch:
 ; Whirlwind, Roar.
 
@@ -1036,7 +1022,6 @@ AI_Smart_TrapTarget:
 	ret
 
 AI_Smart_RazorWind:
-AI_Smart_Unused2B:
 	ld a, [wEnemySubStatus1]
 	bit SUBSTATUS_PERISH, a
 	jr z, .no_perish_count
@@ -2219,7 +2204,6 @@ AI_Smart_Safeguard:
 	inc [hl]
 	ret
 
-AI_Smart_Magnitude:
 AI_Smart_Earthquake:
 ; Greatly encourage this move if the player is underground and the enemy is faster.
 	ld a, [wLastPlayerCounterMove]

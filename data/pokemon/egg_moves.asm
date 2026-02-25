@@ -45,7 +45,7 @@ PidgeyEggMoves:
 RattataEggMoves:
 	db SCREECH
 	db FLAME_WHEEL
-	db FURY_SWIPES
+	db FURY_STRIKES
 	db BITE
 	db COUNTER
 	db REVERSAL
@@ -262,7 +262,7 @@ SeelEggMoves:
 
 GrimerEggMoves:
 	db HAZE
-	db MEAN_LOOK
+	db BLOCK
 	db LICK
 	db -1 ; end
 
@@ -450,7 +450,7 @@ ChikoritaEggMoves:
 	db -1 ; end
 
 CyndaquilEggMoves:
-	db FURY_SWIPES
+	db FURY_STRIKES
 	db QUICK_ATTACK
 	db REVERSAL
 	db THRASH

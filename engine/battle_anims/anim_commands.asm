@@ -1,6 +1,7 @@
 ; Battle animation command interpreter.
 
 PlayBattleAnim:
+	farcall CheckBattleAnimSubstitution
 	ldh a, [rWBK]
 	push af
 

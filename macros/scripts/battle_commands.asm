@@ -37,8 +37,6 @@ ENDM
 	command payday                  ; 1e
 	command conversion              ; 1f
 	command resetstats              ; 20
-	command storeenergy             ; 21
-	command unleashenergy           ; 22
 	command forceswitch             ; 23
 	command endloop                 ; 24
 	command flinchtarget            ; 25
@@ -64,7 +62,6 @@ ENDM
 	command charge                  ; 39
 	command checkcharge             ; 3a
 	command traptarget              ; 3b
-	command effect0x3c              ; 3c
 	command rampage                 ; 3d
 	command checkrampage            ; 3e
 	command constantdamage          ; 3f
@@ -97,16 +94,13 @@ ENDM
 	command endure                  ; 5a
 	command checkrollout            ; 5b
 	command rolloutpower            ; 5c
-	command effect0x5d              ; 5d
 	command furycutter              ; 5e
 	command attract                 ; 5f
 	command happinesspower          ; 60
-	command present                 ; 61
 	command damagecalc              ; 62
 	command frustrationpower        ; 63
 	command safeguard               ; 64
 	command checksafeguard          ; 65
-	command getmagnitude            ; 66
 	command batonpass               ; 67
 	command pursuit                 ; 68
 	command clearhazards            ; 69
@@ -169,7 +163,6 @@ ENDM
 	command ragedamage              ; a2
 	command resettypematchup        ; a3
 	command allstatsup              ; a4
-	command bidefailtext            ; a5
 	command raisesubnoanim          ; a6
 	command lowersubnoanim          ; a7
 	command beatupfailtext          ; a8

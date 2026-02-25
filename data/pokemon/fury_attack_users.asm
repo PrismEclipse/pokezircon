@@ -1,0 +1,24 @@
+FuryAttackUsers:
+; "Fury Strikes" = Fury Attack + Fury Swipes
+	db FARFETCH_D
+	db RHYHORN
+	db RHYDON
+	db HERACROSS
+	db PILOSWINE
+	db CORSOLA
+	db FARFETCH_D
+	db HOOTHOOT
+	db NOCTOWL
+	db TOTODILE
+	db CROCONAW
+	db FERALIGATR
+	db DODUO
+	db PINSIR
+	db CHIKORITA
+	db BAYLEEF
+	db MEGANIUM
+	db PIDGEY
+	db PIDGEOTTO
+	db PIDGEOT
+	db KINGDRA
+	db -1

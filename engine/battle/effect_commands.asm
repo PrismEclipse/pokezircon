@@ -338,7 +338,7 @@ CantMove:
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVarAddr
 	ld a, [hl]
-	and ~(1 << SUBSTATUS_BIDE | 1 << SUBSTATUS_RAMPAGE | 1 << SUBSTATUS_CHARGED)
+	and ~(1 << SUBSTATUS_RAMPAGE | 1 << SUBSTATUS_CHARGED)
 	ld [hl], a
 
 	call ResetFuryCutterCount
@@ -980,7 +980,7 @@ BattleCommand_DoTurn:
 	ret z
 
 	ld a, [de]
-	and 1 << SUBSTATUS_IN_LOOP | 1 << SUBSTATUS_RAMPAGE | 1 << SUBSTATUS_BIDE
+	and 1 << SUBSTATUS_IN_LOOP | 1 << SUBSTATUS_RAMPAGE
 	ret nz
 
 	call .consume_pp
@@ -1083,7 +1083,6 @@ BattleCommand_DoTurn:
 	db EFFECT_SOLARBEAM
 	db EFFECT_FLY
 	db EFFECT_ROLLOUT
-	db EFFECT_BIDE
 	db EFFECT_RAMPAGE
 	db -1
 
@@ -1210,6 +1209,12 @@ INCLUDE "data/moves/critical_hit_moves.asm"
 INCLUDE "data/battle/critical_hit_chances.asm"
 
 INCLUDE "engine/battle/move_effects/triple_kick.asm"
+
+INCLUDE "data/pokemon/fury_attack_users.asm"
+
+INCLUDE "data/pokemon/mean_look_spider_web_users.asm"
+
+INCLUDE "data/pokemon/withdraw_users.asm"
 
 BattleCommand_Stab:
 ; STAB = Same Type Attack Bonus
@@ -1657,8 +1662,8 @@ BattleCommand_CheckHit:
 	ret
 
 .LockOn:
-; Return nz if we are locked-on and aren't trying to use Earthquake,
-; Fissure or Magnitude on a monster that is flying.
+; Return nz if we are locked-on and aren't trying to use Earthquake or,
+; Fissure on a monster that is flying.
 	ld a, BATTLE_VARS_SUBSTATUS5_OPP
 	call GetBattleVarAddr
 	bit SUBSTATUS_LOCK_ON, [hl]
@@ -1677,9 +1682,7 @@ BattleCommand_CheckHit:
 	ret z
 	cp FISSURE
 	ret z
-	cp MAGNITUDE
-	ret z
-
+	
 .LockedOn:
 	ld a, 1
 	and a
@@ -1734,8 +1737,6 @@ BattleCommand_CheckHit:
 	cp EARTHQUAKE
 	ret z
 	cp FISSURE
-	ret z
-	cp MAGNITUDE
 	ret
 
 .ThunderRain:
@@ -2267,10 +2268,6 @@ FailText_CheckOpponentProtect:
 .not_protected
 	jp StdBattleTextbox
 
-BattleCommand_BideFailText:
-	ld a, [wAttackMissed]
-	and a
-	ret z
 
 	ld a, [wTypeModifier]
 	and EFFECTIVENESS_MASK
@@ -4912,7 +4909,6 @@ CalcBattleStats:
 
 	ret
 
-INCLUDE "engine/battle/move_effects/bide.asm"
 
 BattleCommand_CheckRampage:
 	ld de, wPlayerRolloutCount
@@ -5703,6 +5699,17 @@ BattleCommand_Recoil:
 	jr z, .got_hp
 	ld hl, wEnemyMonMaxHP
 .got_hp
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_RECOIL_HIT_HALF
+	jr z, .get_half_damage
+	cp EFFECT_RECOIL_HIT_THIRD
+	jp z, .get_third_damage
+	cp EFFECT_STRUGGLE
+	jp z, .struggle
+	cp EFFECT_MIND_BLOWN
+	jp z, .mind_blown
+
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
 	ld d, a
@@ -5755,6 +5762,74 @@ BattleCommand_Recoil:
 	ld [wWhichHPBar], a
 	predef AnimateHPBar
 	call RefreshBattleHuds
+	ld hl, RecoilText
+	jp StdBattleTextbox
+
+.get_half_damage
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+	ld d, a
+; get 1/2 damage or 1 HP, whichever is higher
+	ld a, [wCurDamage]
+	ld b, a
+	ld a, [wCurDamage + 1]
+	ld c, a
+	srl b
+	rr c
+	ld a, b
+	or c
+	jr nz, .min_damage
+	inc c
+	jr .min_damage
+
+.get_third_damage
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+	ld d, a
+; get 1/3 damage or 1 HP, whichever is higher
+	ld a, [wCurDamage]
+	ld b, a
+	ld a, [wCurDamage + 1]
+	ld c, a
+	xor a
+	inc b
+.third_hp_loop
+	dec b
+	inc a
+	dec bc
+	dec bc
+	dec bc
+	inc b
+	jr nz, .third_hp_loop
+	dec a
+	ld c, a
+	jr nz, .min_damage
+	inc c
+	jr .min_damage
+
+.struggle
+; Struggle's recoil is 1/4 of the user's max HP.
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+	ld d, a
+
+	ld hl, GetQuarterMaxHP
+	call CallBattleCore
+	ld hl, SubtractHPFromUser
+	call CallBattleCore
+	ld hl, RecoilText
+	jp StdBattleTextbox
+
+.mind_blown
+; Mind Blown's recoil is 1/2 of the user's max HP.
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+	ld d, a
+
+	ld hl, GetHalfMaxHP
+	call CallBattleCore
+	ld hl, SubtractHPFromUser
+	call CallBattleCore
 	ld hl, RecoilText
 	jp StdBattleTextbox
 
@@ -6392,7 +6467,6 @@ INCLUDE "engine/battle/move_effects/attract.asm"
 
 INCLUDE "engine/battle/move_effects/return.asm"
 
-INCLUDE "engine/battle/move_effects/present.asm"
 
 INCLUDE "engine/battle/move_effects/frustration.asm"
 
@@ -6426,8 +6500,6 @@ BattleCommand_CheckSafeguard:
 	ld hl, SafeguardProtectText
 	call StdBattleTextbox
 	jp EndMoveEffect
-
-INCLUDE "engine/battle/move_effects/magnitude.asm"
 
 INCLUDE "engine/battle/move_effects/baton_pass.asm"
 
@@ -6801,6 +6873,69 @@ AppearUserLowerSub:
 AppearUserRaiseSub:
 	farcall _AppearUserRaiseSub
 	ret
+	
+CheckBattleAnimSubstitution:
+; Checks the animation ID and possibly change it based on species.
+	assert !HIGH(NUM_ATTACKS), "This function is now obsolete."
+
+	; Moves are 1-255.
+	ld a, [wFXAnimID + 1]
+	and a
+	ret nz
+
+	ld a, [wFXAnimID]
+	cp SMOKESCREEN
+	ld de, ANIM_SAND_ATTACK
+	ld hl, .SandAttackUsers
+	jr z, .check_species_list
+	cp FURY_STRIKES
+	ld de, ANIM_FURY_ATTACK
+	ld hl, FuryAttackUsers
+	jr z, .check_species_list
+	cp HARDEN
+	ld de, ANIM_WITHDRAW
+	ld hl, WithdrawUsers
+	jr z, .check_species_list
+	cp BLOCK
+	ret nz
+
+	; Block has 3 variations
+	ld de, ANIM_MEAN_LOOK
+	ld hl, MeanLookUsers
+	call .check_species_list
+	ld de, ANIM_SPIDER_WEB
+	ld hl, SpiderWebUsers
+	; fallthrough
+.check_species_list
+	push hl
+	ld hl, wBattleMonSpecies
+	ld a, [hl]
+	ld bc, wBattleMonSpecies
+	add hl, bc
+	ld c, a
+	ld b, [hl]
+	pop hl
+	ret nc
+	ld a, e
+	ld [wFXAnimID], a
+	ld a, d
+	ld [wFXAnimID + 1], a
+	ret
+
+.SandAttackUsers:
+	db FARFETCH_D
+	db RHYHORN
+	db RHYDON
+	db EEVEE
+	db VAPOREON
+	db JOLTEON
+	db FLAREON
+	db ESPEON
+	db UMBREON
+	db PIDGEY
+	db PIDGEOTTO
+	db PIDGEOT
+	db 0	
 
 _CheckBattleScene:
 ; Checks the options.  Returns carry if battle animations are disabled.

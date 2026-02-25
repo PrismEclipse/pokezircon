@@ -33,7 +33,7 @@
 	const MEGA_KICK    ; 19
 	const JUMP_KICK    ; 1a
 	const ROLLING_KICK ; 1b
-	const SAND_ATTACK  ; 1c
+	const LUSTER_PURGE ; 1c
 	const HEADBUTT     ; 1d
 	const HORN_ATTACK  ; 1e
 	const FURY_ATTACK  ; 1f
@@ -115,7 +115,7 @@
 	const MINIMIZE     ; 6b
 	const SMOKESCREEN  ; 6c
 	const CONFUSE_RAY  ; 6d
-	const WITHDRAW     ; 6e
+	const MIST_BALL    ; 6e
 	const DEFENSE_CURL ; 6f
 	const BARRIER      ; 70
 	const LIGHT_SCREEN ; 71
@@ -159,7 +159,7 @@
 	const ACID_ARMOR   ; 97
 	const CRABHAMMER   ; 98
 	const EXPLOSION    ; 99
-	const FURY_SWIPES  ; 9a
+	const FURY_STRIKES  ; 9a
 	const BONEMERANG   ; 9b
 	const REST         ; 9c
 	const ROCK_SLIDE   ; 9d
@@ -174,7 +174,7 @@
 	const SKETCH       ; a6
 	const TRIPLE_KICK  ; a7
 	const THIEF        ; a8
-	const SPIDER_WEB   ; a9
+	const MIND_BLOWN   ; a9
 	const MIND_READER  ; aa
 	const NIGHTMARE    ; ab
 	const FLAME_WHEEL  ; ac
@@ -217,7 +217,7 @@
 	const SPARK        ; d1
 	const FURY_CUTTER  ; d2
 	const STEEL_WING   ; d3
-	const MEAN_LOOK    ; d4
+	const BLOCK    ; d4
 	const ATTRACT      ; d5
 	const SLEEP_TALK   ; d6
 	const HEAL_BELL    ; d7
@@ -278,6 +278,12 @@ DEF CANNOT_MOVE EQU $ff
 	const ANIM_IN_SANDSTORM      ; 10b
 	const ANIM_IN_NIGHTMARE      ; 10c
 	const ANIM_IN_WHIRLPOOL      ; 10d
+	const ANIM_SPIDER_WEB
+	const ANIM_MEAN_LOOK
+	const ANIM_WITHDRAW
+	const ANIM_FURY_ATTACK
+	const ANIM_SAND_ATTACK
+
 
 ; wBattleAfterAnim uses offsets from BATTLE_AFTERANIMS
 DEF BATTLE_AFTERANIMS EQU const_value

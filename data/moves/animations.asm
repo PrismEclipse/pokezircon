@@ -29,10 +29,10 @@ BattleAnimations::
 	dw BattleAnim_MegaKick
 	dw BattleAnim_JumpKick
 	dw BattleAnim_RollingKick
-	dw BattleAnim_SandAttack
+	dw BattleAnim_LusterPurge
 	dw BattleAnim_Headbutt
 	dw BattleAnim_HornAttack
-	dw BattleAnim_FuryAttack
+	dw BattleAnim_EnergyBall
 	dw BattleAnim_HornDrill
 	dw BattleAnim_Tackle
 	dw BattleAnim_BodySlam
@@ -111,7 +111,7 @@ BattleAnimations::
 	dw BattleAnim_Minimize
 	dw BattleAnim_Smokescreen
 	dw BattleAnim_ConfuseRay
-	dw BattleAnim_Withdraw
+	dw BattleAnim_MistBall
 	dw BattleAnim_DefenseCurl
 	dw BattleAnim_Barrier
 	dw BattleAnim_LightScreen
@@ -170,7 +170,7 @@ BattleAnimations::
 	dw BattleAnim_Sketch
 	dw BattleAnim_TripleKick
 	dw BattleAnim_Thief
-	dw BattleAnim_SpiderWeb
+	dw BattleAnim_MindBlown
 	dw BattleAnim_MindReader
 	dw BattleAnim_Nightmare
 	dw BattleAnim_FlameWheel
@@ -213,7 +213,7 @@ BattleAnimations::
 	dw BattleAnim_Spark
 	dw BattleAnim_FuryCutter
 	dw BattleAnim_SteelWing
-	dw BattleAnim_MeanLook
+	dw BattleAnim_Block
 	dw BattleAnim_Attract
 	dw BattleAnim_SleepTalk
 	dw BattleAnim_HealBell
@@ -274,6 +274,11 @@ BattleAnimations::
 	dw BattleAnim_InSandstorm
 	dw BattleAnim_InNightmare
 	dw BattleAnim_InWhirlpool
+	dw BattleAnim_SpiderWeb
+	dw BattleAnim_MeanLook
+	dw BattleAnim_Withdraw
+	dw BattleAnim_FuryAttack
+	dw BattleAnim_SandAttack
 	dw BattleAnim_Miss
 	dw BattleAnim_EnemyDamage
 	dw BattleAnim_EnemyStatDown
@@ -2242,8 +2247,28 @@ BattleAnim_HornAttack:
 	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 136, 56, $0
 	anim_wait 16
 	anim_ret
+	
+BattleAnim_EnergyBall: ;reassigned
+	anim_2gfx BATTLE_ANIM_GFX_HORN, BATTLE_ANIM_GFX_HIT
+	anim_obj BATTLE_ANIM_OBJ_HORN, 72, 72, $2
+	anim_wait 8
+	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_obj BATTLE_ANIM_OBJ_HIT, 128, 40, $0
+	anim_wait 8
+	anim_obj BATTLE_ANIM_OBJ_HORN, 80, 88, $2
+	anim_wait 8
+	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_obj BATTLE_ANIM_OBJ_HIT, 136, 56, $0
+	anim_wait 8
+	anim_obj BATTLE_ANIM_OBJ_HORN, 76, 80, $2
+	anim_wait 8
+	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_obj BATTLE_ANIM_OBJ_HIT, 132, 48, $0
+	anim_wait 8
+	anim_ret
+	
 
-BattleAnim_FuryAttack:
+BattleAnim_FuryAttack: ;reassigned
 	anim_2gfx BATTLE_ANIM_GFX_HORN, BATTLE_ANIM_GFX_HIT
 	anim_obj BATTLE_ANIM_OBJ_HORN, 72, 72, $2
 	anim_wait 8
@@ -2378,6 +2403,17 @@ BattleAnim_Barrage:
 	anim_obj BATTLE_ANIM_OBJ_EXPLOSION2, 136, 56, $0
 	anim_wait 16
 	anim_ret
+
+BattleAnim_MindBlown:
+	anim_2gfx BATTLE_ANIM_GFX_EGG, BATTLE_ANIM_GFX_EXPLOSION
+	anim_sound 6, 2, SFX_THROW_BALL
+	anim_obj BATTLE_ANIM_OBJ_SLUDGE_BOMB, 64, 92, $10
+	anim_wait 36
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj BATTLE_ANIM_OBJ_EXPLOSION2, 136, 56, $0
+	anim_wait 16
+	anim_ret
+
 
 BattleAnim_PayDay:
 	anim_2gfx BATTLE_ANIM_GFX_HIT, BATTLE_ANIM_GFX_STATUS
@@ -2524,6 +2560,7 @@ BattleAnim_Guillotine:
 	anim_wait 32
 	anim_ret
 
+BattleAnim_LusterPurge:
 BattleAnim_Flash:
 	anim_1gfx BATTLE_ANIM_GFX_SPEED
 	anim_sound 0, 1, SFX_FLASH
@@ -2649,7 +2686,7 @@ BattleAnim_TriAttack:
 	anim_wait 16
 	anim_ret
 
-BattleAnim_Withdraw:
+BattleAnim_Withdraw: ;reassigned
 	anim_1gfx BATTLE_ANIM_GFX_REFLECT
 	anim_call BattleAnim_TargetObj_2Row
 	anim_bgeffect BATTLE_BG_EFFECT_WITHDRAW, $0, BG_EFFECT_USER, $50
@@ -3156,7 +3193,7 @@ BattleAnim_Thief:
 	anim_wait 64
 	anim_ret
 
-BattleAnim_SpiderWeb:
+BattleAnim_SpiderWeb: ;reassigned
 	anim_1gfx BATTLE_ANIM_GFX_WEB
 	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
 	anim_obj BATTLE_ANIM_OBJ_SPIDER_WEB, 132, 48, $0
@@ -3875,7 +3912,7 @@ BattleAnim_SteelWing:
 	anim_wait 16
 	anim_ret
 
-BattleAnim_MeanLook:
+BattleAnim_MeanLook: ;reassigned
 	anim_1gfx BATTLE_ANIM_GFX_PSYCHIC
 	anim_obp0 $e0
 	anim_sound 0, 1, SFX_MEAN_LOOK
@@ -4003,6 +4040,7 @@ BattleAnim_Frustration:
 	anim_call BattleAnim_ShowMon_0
 	anim_ret
 
+BattleAnim_Block:
 BattleAnim_Safeguard:
 	anim_1gfx BATTLE_ANIM_GFX_MISC
 	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
@@ -4508,6 +4546,7 @@ BattleAnim_Ancientpower:
 	anim_wait 6
 	anim_ret
 
+BattleAnim_MistBall:
 BattleAnim_ShadowBall:
 	anim_2gfx BATTLE_ANIM_GFX_EGG, BATTLE_ANIM_GFX_SMOKE
 	anim_bgp $1b

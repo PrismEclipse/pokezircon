@@ -789,22 +789,6 @@ ResetStats:
 	resetstats
 	endmove
 
-Bide:
-	storeenergy
-	checkobedience
-	doturn
-	usedmovetext
-	unleashenergy
-	resettypematchup
-	checkhit
-	moveanim
-	bidefailtext
-	applydamage
-	checkfaint
-	buildopponentrage
-	kingsrock
-	endmove
-
 Rampage:
 	checkrampage
 	checkobedience
@@ -1622,27 +1606,6 @@ Return:
 	kingsrock
 	endmove
 
-Present:
-	checkobedience
-	usedmovetext
-	doturn
-	checkhit
-	critical
-	damagestats
-	present
-	damagecalc
-	stab
-	damagevariation
-	clearmissdamage
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	buildopponentrage
-	kingsrock
-	endmove
-
 Frustration:
 	checkobedience
 	usedmovetext
@@ -1691,28 +1654,6 @@ SacredFire:
 	checkfaint
 	buildopponentrage
 	burntarget
-	endmove
-
-Magnitude:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	getmagnitude
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	doubleundergrounddamage
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	buildopponentrage
-	kingsrock
 	endmove
 
 BatonPass:
