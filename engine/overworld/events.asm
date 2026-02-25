@@ -147,7 +147,6 @@ HandleMap:
 	ld a, [wMapStatus]
 	cp MAPSTATUS_HANDLE
 	ret nz
-
 	call HandleMapObjects
 	call NextOverworldFrame
 	call HandleMapBackground
@@ -156,16 +155,8 @@ HandleMap:
 
 MapEvents:
 	ld a, [wMapEventStatus]
-	ld hl, .Jumptable
-	rst JumpTable
-	ret
-
-.Jumptable:
-; entries correspond to MAPEVENTS_* constants
-	dw .events
-	dw .no_events
-
-.events:
+	and a
+	ret nz
 	call PlayerEvents
 	call DisableEvents
 	farcall ScriptEvents
@@ -178,16 +169,20 @@ MaxOverworldDelay:
 	db 2
 
 ResetOverworldDelay:
-	ld a, [MaxOverworldDelay]
-	ld [wOverworldDelay], a
+	ld hl, wOverworldDelay
+    bit SCRIPTED_MOVEMENT_STATE_F, [hl]
+	res SCRIPTED_MOVEMENT_STATE_F, [hl]
+	ret nz
+	ld [hl], 2
 	ret
 
 NextOverworldFrame:
 	ld a, [wOverworldDelay]
 	and a
-	ret z
-	ld c, a
-	call DelayFrames
+	jp nz, DelayFrame
+; reset overworld delay to leak into the next frame
+	ld a, $82
+	ld [wOverworldDelay], a
 	ret
 
 HandleMapTimeAndJoypad:
@@ -284,6 +279,13 @@ PlayerEvents:
 	xor a
 	ld [wLandmarkSignTimer], a
 
+	; Have player stand (resets running sprite to standing if event starts while running)
+	ld a, [wPlayerState]
+	cp PLAYER_RUN
+	jr nz, .ok2
+	ld a, PLAYER_NORMAL
+	ld [wPlayerState], a
+	farcall UpdatePlayerSprite
 .ok2
 	scf
 	ret
@@ -1024,7 +1026,7 @@ EdgeWarpScript:
 	reloadend MAPSETUP_CONNECTION
 
 ChangeDirectionScript:
-	deactivatefacing 3
+	callasm UnfreezeAllObjects
 	callasm EnableWildEncounters
 	end
 
