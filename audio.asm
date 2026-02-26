@@ -33,7 +33,6 @@ INCLUDE "audio/music/route1.asm"
 INCLUDE "audio/music/route3.asm"
 INCLUDE "audio/music/route12.asm"
 INCLUDE "audio/music/kantogymbattle.asm"
-INCLUDE "audio/music/kantotrainerbattle.asm"
 INCLUDE "audio/music/kantowildbattle.asm"
 INCLUDE "audio/music/pokemoncenter.asm"
 INCLUDE "audio/music/looklass.asm"
@@ -72,12 +71,10 @@ INCLUDE "audio/music/healpokemon.asm"
 INCLUDE "audio/music/evolution.asm"
 INCLUDE "audio/music/printer.asm"
 
-
 SECTION "Songs 4", ROMX
 
 INCLUDE "audio/music/viridiancity.asm"
 INCLUDE "audio/music/celadoncity.asm"
-
 INCLUDE "audio/music/wildpokemonvictory.asm"
 INCLUDE "audio/music/successfulcapture.asm"
 assert BANK(Music_WildPokemonVictory) == BANK(Music_SuccessfulCapture)
@@ -144,11 +141,13 @@ INCLUDE "audio/music/credits.asm"
 INCLUDE "audio/music/clair.asm"
 INCLUDE "audio/music/mobileadapter.asm"
 
-
 SECTION "Extra Songs 2", ROMX
 
 INCLUDE "audio/music/postcredits.asm"
 
+SECTION "Extra Songs 3", ROMX
+
+INCLUDE "audio/music/kantotrainerbattle.asm"
 
 SECTION "Sound Effects", ROMX
 

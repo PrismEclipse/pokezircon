@@ -1296,13 +1296,15 @@ BattleAnim_Thunder:
 	anim_ret
 
 BattleAnim_BurningBulwark:
-	anim_sound 0, 0, SFX_EMBER
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_FIRE
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_FIRE
 	anim_1gfx BATTLE_ANIM_GFX_FIRE
 .loop
+	anim_sound 0, 0, SFX_EMBER
 	anim_obj BATTLE_ANIM_OBJ_FLAME_WHEEL, 48, 96, $0
 	anim_wait 6
 	anim_loop 8, .loop
-	anim_sound 0, 0, SFX_EMBER
+	anim_sound 0, 1, SFX_EMBER
 	anim_wait 96
 	anim_ret
 	

@@ -48,14 +48,14 @@ ROMX $07
 ROMX $08
 	"Clock Reset"
 	"Tileset Data 3"
-	"Egg Moves"
 ROMX $09
 	"bank9"
 ROMX $0a
 	"bankA"
-	"Trainer Backpics"
+	"Egg Moves"
 ROMX $0b
 	"bankB"
+	"Trainer Backpics"
 ROMX $0c
 	"Tileset Data 4"
 ROMX $0d
@@ -77,9 +77,9 @@ ROMX $13
 	"bank13"
 	"Shrink Pics"
 	"bank13_2"
+	"Unused Egg Pic"
 ROMX $14
 	"bank14"
-	"Unused Egg Pic"
 ROMX $15
 	"Map Scripts 1"
 ROMX $16
@@ -113,7 +113,6 @@ ROMX $23
 ROMX $24
 	"bank24"
 ROMX $25
-	"Maps"
 	"Events"
 ROMX $26
 	"Map Scripts 11"
@@ -141,10 +140,9 @@ ROMX $31
 	"Sprites 2"
 ROMX $32
 	"bank32"
-	"The End"
-ROMX $33
-	"Move Animations"
 	"Extra Songs 2"
+ROMX $33
+	"Extra Songs 3"
 ROMX $34
 	"Pic Animations 1"
 ROMX $35
@@ -156,6 +154,7 @@ ROMX $37
 	"Tileset Data 6"
 ROMX $38
 	"bank38"
+	"The End"
 ROMX $39
 	"Copyright"
 	"bank39"
@@ -199,7 +198,6 @@ ROMX $48
 	"Pics 1"
 ROMX $49
 	org $4000
-	"Unown Pic Pointers"
 	"Pics 2"
 ROMX $4a
 	"Trainer Pic Pointers"
@@ -207,6 +205,7 @@ ROMX $4a
 ROMX $4b
 	"Pics 4"
 ROMX $4c
+	"Unown Pic Pointers"
 	"Pics 5"
 ROMX $4d
 	"Pics 6"
@@ -298,6 +297,10 @@ ROMX $73
 	"Pokedex Entries 129-192"
 ROMX $74
 	"Pokedex Entries 193-251"
+ROMX $75
+	"Maps"
+ROMX $76
+	"Move Animations"
 ROMX $77
 	"Unown Font"
 	"Print Party"
