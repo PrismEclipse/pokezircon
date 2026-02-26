@@ -7,10 +7,10 @@
 	const_def
 	const NO_MOVE      ; 00
 	const POUND        ; 01
-	const KARATE_CHOP  ; 02
-	const DOUBLESLAP   ; 03
-	const COMET_PUNCH  ; 04
-	const MEGA_PUNCH   ; 05
+	const FIRST_IMPRESSION  ; 02
+	const POISON_JAB   ; 03
+	const LEAF_BLADE  ; 04
+	const BLAZE_KICK   ; 05
 	const PAY_DAY      ; 06
 	const FIRE_PUNCH   ; 07
 	const ICE_PUNCH    ; 08
@@ -18,26 +18,26 @@
 	const SCRATCH      ; 0a
 	const VICEGRIP     ; 0b
 	const GUILLOTINE   ; 0c
-	const RAZOR_WIND   ; 0d
+	const BURNING_BULWARK  ; 0d
 	const SWORDS_DANCE ; 0e
 	const CUT          ; 0f
 	const GUST         ; 10
 	const WING_ATTACK  ; 11
 	const WHIRLWIND    ; 12
 	const FLY          ; 13
-	const BIND         ; 14
-	const SLAM         ; 15
+	const MUDDY_WATER  ; 14
+	const AERIAL_ACE   ; 15
 	const VINE_WHIP    ; 16
 	const STOMP        ; 17
 	const DOUBLE_KICK  ; 18
-	const MEGA_KICK    ; 19
-	const JUMP_KICK    ; 1a
-	const ROLLING_KICK ; 1b
+	const BRAVE_BIRD   ; 19
+	const BUG_BUZZ     ; 1a
+	const BULLDOZE     ; 1b
 	const LUSTER_PURGE ; 1c
 	const HEADBUTT     ; 1d
 	const HORN_ATTACK  ; 1e
 	const FURY_ATTACK  ; 1f
-	const HORN_DRILL   ; 20
+	const DRAGON_PULSE ; 20
 	const TACKLE       ; 21
 	const BODY_SLAM    ; 22
 	const WRAP         ; 23
@@ -46,7 +46,7 @@
 	const DOUBLE_EDGE  ; 26
 	const TAIL_WHIP    ; 27
 	const POISON_STING ; 28
-	const TWINEEDLE    ; 29
+	const CORE_ENFORCER ; 29
 	const PIN_MISSILE  ; 2a
 	const LEER         ; 2b
 	const BITE         ; 2c
@@ -124,7 +124,7 @@
 	const FOCUS_ENERGY ; 74
 	const BIDE         ; 75
 	const METRONOME    ; 76
-	const MIRROR_MOVE  ; 77
+	const STRENGTH_SAP ; 77
 	const SELFDESTRUCT ; 78
 	const EGG_BOMB     ; 79
 	const LICK         ; 7a

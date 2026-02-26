@@ -177,13 +177,19 @@ DreamEater:
 	buildopponentrage
 	endmove
 
-MirrorMove:
+StrengthSap:
 	checkobedience
 	usedmovetext
 	doturn
-	mirrormove
+	checkhit
+	lowersub
+	statdownanim
+	strengthsap
+	raisesub
+	statdownmessage
+	statdownfailtext
 	endmove
-
+	
 AttackUp:
 	checkobedience
 	usedmovetext
@@ -1976,33 +1982,6 @@ Teleport:
 	teleport
 	endmove
 
-BeatUp:
-	checkobedience
-	usedmovetext
-	movedelay
-	doturn
-	startloop
-	lowersub
-	checkhit
-	critical
-	beatup
-	damagecalc
-	damagevariation
-	clearmissdamage
-	moveanimnosub
-	failuretext
-	applydamage
-	criticaltext
-	cleartext
-	supereffectivetext
-	checkfaint
-	buildopponentrage
-	endloop
-	beatupfailtext
-	raisesub
-	kingsrock
-	endmove
-
 DefenseCurl:
 	checkobedience
 	usedmovetext
@@ -2015,3 +1994,115 @@ DefenseCurl:
 	statupmessage
 	statupfailtext
 	endmove
+
+ArmorCannon:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	effectchance
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	armorcannon
+	checkfaint
+	buildopponentrage
+	kingsrock
+	endmove
+CalmMind:
+	checkobedience
+	usedmovetext
+	doturn
+	calmmind
+	endmove
+	
+HydroSteam:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	checkhit
+	stab
+	damagevariation
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	endmove	
+	
+	Thunderclap:
+	checkobedience
+	usedmovetext
+	doturn
+	thunderclap
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	kingsrock
+	endmove
+	
+TrapHit:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	kingsrock
+	traphit
+	endmove	
+		
+Hurricane:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	thunderaccuracy
+	checkhit
+	effectchance
+	stab
+	damagevariation
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	kingsrock
+	confusetarget
+	endmove		

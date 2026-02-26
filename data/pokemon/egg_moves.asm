@@ -14,7 +14,7 @@ BulbasaurEggMoves:
 	db LIGHT_SCREEN
 	db SKULL_BASH
 	db SAFEGUARD
-	db RAZOR_WIND
+	db SPLASH
 	db PETAL_DANCE
 	db -1 ; end
 
@@ -61,7 +61,7 @@ SpearowEggMoves:
 
 EkansEggMoves:
 	db PURSUIT
-	db SLAM
+	db SPLASH
 	db SPITE
 	db BEAT_UP
 	db CRUNCH
@@ -194,7 +194,7 @@ AbraEggMoves:
 MachopEggMoves:
 	db LIGHT_SCREEN
 	db MEDITATE
-	db ROLLING_KICK
+	db SPLASH
 	db ENCORE
 	db -1 ; end
 
@@ -215,7 +215,7 @@ TentacoolEggMoves:
 	db -1 ; end
 
 GeodudeEggMoves:
-	db MEGA_PUNCH
+	db SPLASH
 	db ROCK_SLIDE
 	db -1 ; end
 
@@ -237,7 +237,7 @@ SlowpokeEggMoves:
 
 FarfetchDEggMoves:
 	db FORESIGHT
-	db MIRROR_MOVE
+	db SPLASH
 	db GUST
 	db QUICK_ATTACK
 	db FLAIL
@@ -256,7 +256,7 @@ SeelEggMoves:
 	db PERISH_SONG
 	db DISABLE
 	db PECK
-	db SLAM
+	db SPLASH
 	db ENCORE
 	db -1 ; end
 
@@ -295,7 +295,7 @@ KrabbyEggMoves:
 	db HAZE
 	db AMNESIA
 	db FLAIL
-	db SLAM
+	db SPLASH
 	db -1 ; end
 
 ExeggcuteEggMoves:
@@ -387,7 +387,7 @@ ScytherEggMoves:
 	db COUNTER
 	db SAFEGUARD
 	db BATON_PASS
-	db RAZOR_WIND
+	db SPLASH
 	db REVERSAL
 	db LIGHT_SCREEN
 	db -1 ; end
@@ -410,7 +410,7 @@ EeveeEggMoves:
 OmanyteEggMoves:
 	db BUBBLEBEAM
 	db AURORA_BEAM
-	db SLAM
+	db SPLASH
 	db SUPERSONIC
 	db HAZE
 	db -1 ; end
@@ -463,7 +463,7 @@ TotodileEggMoves:
 	db THRASH
 	db HYDRO_PUMP
 	db ANCIENTPOWER
-	db RAZOR_WIND
+	db SPLASH
 	db ROCK_SLIDE
 	db -1 ; end
 
@@ -476,7 +476,7 @@ SentretEggMoves:
 	db -1 ; end
 
 HoothootEggMoves:
-	db MIRROR_MOVE
+	db SPLASH
 	db SUPERSONIC
 	db FAINT_ATTACK
 	db WING_ATTACK
@@ -509,7 +509,7 @@ PichuEggMoves:
 	db BIDE
 	db PRESENT
 	db ENCORE
-	db DOUBLESLAP
+	db SPLASH
 	db -1 ; end
 
 CleffaEggMoves:
@@ -529,7 +529,7 @@ IgglybuffEggMoves:
 
 TogepiEggMoves:
 	db PRESENT
-	db MIRROR_MOVE
+	db SPLASH
 	db PECK
 	db FORESIGHT
 	db FUTURE_SIGHT
@@ -583,8 +583,8 @@ AipomEggMoves:
 	db PURSUIT
 	db AGILITY
 	db SPITE
-	db SLAM
-	db DOUBLESLAP
+	db SPLASH
+	db SPLASH
 	db BEAT_UP
 	db -1 ; end
 
@@ -604,7 +604,7 @@ MurkrowEggMoves:
 	db WHIRLWIND
 	db DRILL_PECK
 	db QUICK_ATTACK
-	db MIRROR_MOVE
+	db SPLASH
 	db WING_ATTACK
 	db SKY_ATTACK
 	db -1 ; end
@@ -640,7 +640,7 @@ DunsparceEggMoves:
 GligarEggMoves:
 	db METAL_CLAW
 	db WING_ATTACK
-	db RAZOR_WIND
+	db SPLASH
 	db COUNTER
 	db -1 ; end
 
@@ -729,7 +729,7 @@ MantineEggMoves:
 	db TWISTER
 	db HYDRO_PUMP
 	db HAZE
-	db SLAM
+	db SPLASH
 	db -1 ; end
 
 SkarmoryEggMoves:
@@ -776,16 +776,16 @@ SmoochumEggMoves:
 	db -1 ; end
 
 ElekidEggMoves:
-	db KARATE_CHOP
+	db SPLASH
 	db BARRIER
-	db ROLLING_KICK
+	db SPLASH
 	db MEDITATE
 	db CROSS_CHOP
 	db -1 ; end
 
 MagbyEggMoves:
-	db KARATE_CHOP
-	db MEGA_PUNCH
+	db SPLASH
+	db SPLASH
 	db BARRIER
 	db SCREECH
 	db CROSS_CHOP

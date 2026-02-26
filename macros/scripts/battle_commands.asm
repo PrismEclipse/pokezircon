@@ -31,7 +31,7 @@ ENDM
 	command freezetarget            ; 18
 	command paralyzetarget          ; 19
 	command selfdestruct            ; 1a
-	command mirrormove              ; 1b
+	command strengthsap             ; 1b
 	command statup                  ; 1c
 	command statdown                ; 1d
 	command payday                  ; 1e
@@ -159,13 +159,11 @@ ENDM
 	command skipsuncharge           ; 9e
 	command thunderaccuracy         ; 9f
 	command teleport                ; a0
-	command beatup                  ; a1
 	command ragedamage              ; a2
 	command resettypematchup        ; a3
 	command allstatsup              ; a4
 	command raisesubnoanim          ; a6
 	command lowersubnoanim          ; a7
-	command beatupfailtext          ; a8
 	command clearmissdamage         ; a9
 	command movedelay               ; aa
 	command moveanim                ; ab
@@ -173,6 +171,10 @@ ENDM
 	command supereffectivelooptext  ; ad
 	command startloop               ; ae
 	command curl                    ; af
+	command armorcannon 			; b2
+	command calmmind 				; b1
+	command thunderclap 			; b0
+	command traphit 				; b3
 DEF NUM_EFFECT_COMMANDS EQU const_value - 1
 
 	const_def -1, -1

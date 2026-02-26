@@ -38,7 +38,6 @@ MoveGrammar:
 ; 1: originally "[mon]は<LINE>[move]した！" ("[mon]<LINE>did [move]!")
 	db RECOVER
 	db TELEPORT
-	db BIDE
 	db SELFDESTRUCT
 	db AMNESIA
 	db FLAIL
@@ -61,8 +60,6 @@ MoveGrammar:
 	db VICEGRIP
 	db WING_ATTACK
 	db FLY
-	db BIND
-	db SLAM
 	db HORN_ATTACK
 	db WRAP
 	db THRASH
@@ -83,7 +80,6 @@ MoveGrammar:
 	db METRONOME
 	db LICK
 	db CLAMP
-	db CONSTRICT
 	db POISON_GAS
 	db BUBBLE
 	db SLASH

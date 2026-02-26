@@ -10,7 +10,7 @@ MoveEffectsPointers:
 	dw ParalyzeHit
 	dw Selfdestruct
 	dw DreamEater
-	dw MirrorMove
+	dw StrengthSap
 	dw AttackUp
 	dw DefenseUp
 	dw SpeedUp
@@ -146,11 +146,17 @@ MoveEffectsPointers:
 	dw Solarbeam
 	dw Thunder
 	dw Teleport
-	dw BeatUp
 	dw Fly
 	dw DefenseCurl
 	dw RecoilHit ;STRUGGLE
 	dw RecoilHit ;RECOIL_HIT_THIRD
 	dw RecoilHit ;RECOIL_HIT_HALF
 	dw RecoilHit ;MIND_BLOWN
+	dw Protect ;BURNING_BULWARK
+	dw ArmorCannon ;ARMOR_CANNON
+	dw CalmMind ;CALM_MIND
+	dw NormalHit ;HYDRO_STEAM
+	dw Thunderclap ;THUNDERCLAP
+	dw TrapHit ;SPIRIT_SHACKLE
+	dw Hurricane
 	assert_table_length NUM_MOVE_EFFECTS

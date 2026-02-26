@@ -1077,7 +1077,6 @@ BattleCommand_DoTurn:
 	ret
 
 .continuousmoves
-	db EFFECT_RAZOR_WIND
 	db EFFECT_SKY_ATTACK
 	db EFFECT_SKULL_BASH
 	db EFFECT_SOLARBEAM
@@ -1554,7 +1553,7 @@ BattleCommand_CheckHit:
 
 	call .Protect
 	jp nz, .Miss
-
+	
 	call .DrainSub
 	jp z, .Miss
 
@@ -1625,7 +1624,7 @@ BattleCommand_CheckHit:
 .Missed:
 	ld a, 1
 	ld [wAttackMissed], a
-	ret
+	ret	
 
 .DreamEater:
 ; Return z if we're trying to eat the dream of
@@ -1657,9 +1656,13 @@ BattleCommand_CheckHit:
 	ld c, 40
 	call DelayFrames
 
+farcall GetProtectVariationEffect
+
+.return_nz
 	ld a, 1
 	and a
 	ret
+	
 
 .LockOn:
 ; Return nz if we are locked-on and aren't trying to use Earthquake or,
@@ -1890,8 +1893,6 @@ BattleCommand_LowerSub:
 
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
-	cp EFFECT_RAZOR_WIND
-	jr z, .charge_turn
 	cp EFFECT_SKY_ATTACK
 	jr z, .charge_turn
 	cp EFFECT_SKULL_BASH
@@ -2093,8 +2094,6 @@ BattleCommand_FailureText:
 	cp EFFECT_DOUBLE_HIT
 	jr z, .multihit
 	cp EFFECT_POISON_MULTI_HIT
-	jr z, .multihit
-	cp EFFECT_BEAT_UP
 	jr z, .multihit
 	ret
 
@@ -2411,8 +2410,6 @@ BattleCommand_CheckFaint:
 	cp EFFECT_POISON_MULTI_HIT
 	jr z, .multiple_hit_raise_sub
 	cp EFFECT_TRIPLE_KICK
-	jr z, .multiple_hit_raise_sub
-	cp EFFECT_BEAT_UP
 	jr nz, .finish
 
 .multiple_hit_raise_sub
@@ -2865,7 +2862,6 @@ EnemyAttackDamage:
 	and a
 	ret
 
-INCLUDE "engine/battle/move_effects/beat_up.asm"
 
 BattleCommand_ClearMissDamage:
 	ld a, [wAttackMissed]
@@ -3328,6 +3324,12 @@ INCLUDE "engine/battle/move_effects/lock_on.asm"
 
 INCLUDE "engine/battle/move_effects/sketch.asm"
 
+INCLUDE "engine/battle/move_effects/calm_mind.asm"
+
+INCLUDE "engine/battle/move_effects/armor_cannon.asm"
+
+INCLUDE "engine/battle/move_effects/thunderclap.asm"
+
 BattleCommand_DefrostOpponent:
 ; Thaw the opponent if frozen, and
 ; raise the user's Attack one stage.
@@ -3569,8 +3571,6 @@ DoSubstituteDamage:
 	jr z, .ok
 	cp EFFECT_TRIPLE_KICK
 	jr z, .ok
-	cp EFFECT_BEAT_UP
-	jr z, .ok
 	xor a
 	ld [hl], a
 .ok
@@ -3778,8 +3778,11 @@ BattleCommand_Poison:
 	jr c, .failed
 
 .dont_sample_failure
+	ld hl, ProtectingItselfText
 	call CheckSubstituteOpp
 	jr nz, .failed
+	
+	ld hl, EvadedText
 	ld a, [wAttackMissed]
 	and a
 	jr nz, .failed
@@ -4478,6 +4481,8 @@ CheckMist:
 	cp EFFECT_ATTACK_DOWN_HIT
 	jr c, .dont_check_mist
 	cp EFFECT_EVASION_DOWN_HIT + 1
+	jr c, .check_mist
+	cp EFFECT_STRENGTH_SAP
 	jr c, .check_mist
 .dont_check_mist
 	xor a
@@ -5251,8 +5256,6 @@ BattleCommand_EndLoop:
 	ld a, 1
 	jr z, .double_hit
 	ld a, [hl]
-	cp EFFECT_BEAT_UP
-	jr z, .beat_up
 	cp EFFECT_TRIPLE_KICK
 	jr nz, .not_triple_kick
 .reject_triple_kick_sample
@@ -5264,34 +5267,6 @@ BattleCommand_EndLoop:
 	ld a, 1
 	ld [bc], a
 	jr .done_loop
-
-.beat_up
-	ldh a, [hBattleTurn]
-	and a
-	jr nz, .check_ot_beat_up
-	ld a, [wPartyCount]
-	cp 1
-	jp z, .only_one_beatup
-	dec a
-	jr .double_hit
-
-.check_ot_beat_up
-	ld a, [wBattleMode]
-	cp WILD_BATTLE
-	jp z, .only_one_beatup
-	ld a, [wOTPartyCount]
-	cp 1
-	jp z, .only_one_beatup
-	dec a
-	jr .double_hit
-
-.only_one_beatup
-	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVarAddr
-	res SUBSTATUS_IN_LOOP, [hl]
-	call BattleCommand_BeatUpFailText
-	call BattleCommand_RaiseSub
-	jp EndMoveEffect
 
 .not_triple_kick
 	call BattleRandom
@@ -5332,15 +5307,7 @@ BattleCommand_EndLoop:
 	push bc
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
-	cp EFFECT_BEAT_UP
-	jr z, .beat_up_2
 	call StdBattleTextbox
-.beat_up_2
-
-	pop bc
-	xor a
-	ld [bc], a
-	ret
 
 .loop_back_to_critical
 	ld a, [wBattleScriptBufferAddress + 1]
@@ -5580,8 +5547,6 @@ BattleCommand_Charge:
 	text_asm
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
-	cp RAZOR_WIND
-	ld hl, .BattleMadeWhirlwindText
 	jr z, .done
 
 	cp SOLARBEAM
@@ -5682,13 +5647,14 @@ BattleCommand_TrapTarget:
 	jp StdBattleTextbox
 
 .Traps:
-	dbw BIND,      UsedBindText      ; 'used BIND on'
 	dbw WRAP,      WrappedByText     ; 'was WRAPPED by'
 	dbw FIRE_SPIN, FireSpinTrapText  ; 'was trapped!'
 	dbw CLAMP,     ClampedByText     ; 'was CLAMPED by'
 	dbw WHIRLPOOL, WhirlpoolTrapText ; 'was trapped!'
 
 INCLUDE "engine/battle/move_effects/mist.asm"
+
+INCLUDE "engine/battle/move_effects/trap_hit.asm"
 
 INCLUDE "engine/battle/move_effects/focus_energy.asm"
 
@@ -6213,6 +6179,30 @@ BattleCommand_Heal:
 	call AnimateFailedMove
 	ld hl, HPIsFullText
 	jp StdBattleTextbox
+	
+BattleCommand_StrengthSap:
+; Heal user by an amount equal to opponent's attack, then lower opponent's attack.
+	ld de, wBattleMonHP
+	ld hl, wBattleMonMaxHP
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_hp
+	ld de, wEnemyMonHP
+	ld hl, wEnemyMonMaxHP
+.got_hp
+	ld c, 2
+	call CompareBytes
+	jr z, .hp_full
+
+	ld hl, StrengthSapAttackHeal
+	call CallBattleCore
+	.finish
+	jp BattleCommand_AttackDown
+
+.hp_full
+	ld hl, HPIsFullText
+	call StdBattleTextbox
+	jp BattleCommand_AttackDown	
 
 INCLUDE "engine/battle/move_effects/transform.asm"
 
@@ -6325,8 +6315,8 @@ PrintDidntAffect:
 
 PrintDidntAffect2:
 	call AnimateFailedMove
-	ld hl, DidntAffect1Text ; 'it didn't affect'
-	ld de, DidntAffect2Text ; 'it didn't affect'
+	ld hl, EvadedText ; 'evaded the attack'
+	ld de, ProtectingItselfText ; 'protecting itself'
 	jp FailText_CheckOpponentProtect
 
 PrintParalyze:
@@ -6341,8 +6331,6 @@ CheckSubstituteOpp:
 	ret
 
 INCLUDE "engine/battle/move_effects/selfdestruct.asm"
-
-INCLUDE "engine/battle/move_effects/mirror_move.asm"
 
 INCLUDE "engine/battle/move_effects/metronome.asm"
 
@@ -6457,9 +6445,7 @@ INCLUDE "engine/battle/move_effects/sandstorm.asm"
 
 INCLUDE "engine/battle/move_effects/rollout.asm"
 
-BattleCommand_Unused5D:
-; effect0x5d
-	ret
+INCLUDE "engine/battle/move_effects/protect_variations.asm"
 
 INCLUDE "engine/battle/move_effects/fury_cutter.asm"
 

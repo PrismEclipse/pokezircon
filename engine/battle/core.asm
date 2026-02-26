@@ -650,7 +650,7 @@ ParsePlayerAction:
 .not_encored
 	ld a, [wBattlePlayerAction]
 	cp BATTLEPLAYERACTION_SWITCH
-	jr z, .reset_rage
+	jp z, .reset_rage
 	and a
 	jr nz, .reset_bide
 	ld a, [wPlayerSubStatus3]
@@ -701,6 +701,8 @@ ParsePlayerAction:
 	cp EFFECT_PROTECT
 	jr z, .continue_protect
 	cp EFFECT_ENDURE
+	jr z, .continue_protect
+	cp EFFECT_BURNING_BULWARK
 	jr z, .continue_protect
 	xor a
 	ld [wPlayerProtectCount], a
@@ -1937,6 +1939,25 @@ GetMaxHP:
 	ld [wHPBuffer1], a
 	ld c, a
 	ret
+	
+StrengthSapAttackHeal:
+; Load opponent's attack as amount to heal.
+; output: bc, wBuffer1-2
+
+	ld hl, wEnemyMonAttack
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .ok
+	ld hl, wBattleMonAttack
+.ok
+	ld a, [hli]
+	ld [wHPBuffer1 + 1], a
+	ld b, a
+
+	ld a, [hl]
+	ld [wHPBuffer1], a
+	ld c, a
+	ret	
 
 GetHalfHP: ; unreferenced
 	ld hl, wBattleMonHP
@@ -5952,6 +5973,8 @@ ParseEnemyAction:
 	cp EFFECT_PROTECT
 	ret z
 	cp EFFECT_ENDURE
+	ret z
+	cp EFFECT_BURNING_BULWARK
 	ret z
 	xor a
 	ld [wEnemyProtectCount], a
