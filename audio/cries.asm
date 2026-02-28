@@ -59,6 +59,18 @@ Cry_Chikorita:
 	channel 5, Cry_Chikorita_Ch5
 	channel 6, Cry_Chikorita_Ch6
 	channel 8, Cry_Chikorita_Ch8
+	
+Cry_Hydreigon:
+	channel_count 3
+	channel 5, Cry_Hydreigon_Ch5
+	channel 6, Cry_Hydreigon_Ch6
+	channel 8, Cry_Hydreigon_Ch8
+	
+Cry_Zygarde:
+	channel_count 3
+	channel 5, Cry_Zygarde_Ch5
+	channel 6, Cry_Zygarde_Ch6
+	channel 8, Cry_Zygarde_Ch8	
 
 Cry_Gligar:
 	channel_count 2
@@ -546,6 +558,79 @@ Cry_Girafarig_Ch8:
 	noise_note 2, 5, -1, 1
 	noise_note 7, 4, 1, 0
 	sound_ret
+	
+Cry_Hydreigon_Ch5:
+	duty_cycle_pattern 3, 1, 3, 1
+	square_note 7, 15, 8, 1664
+	square_note 3, 13, 1, 1400
+	square_note 15, 15, 7, 1664
+	square_note 11, 15, 6, 1648
+	square_note 15, 14, 7, 1680
+	square_note 9, 14, 5, 1680
+	square_note 7, 13, 4, 1672
+	square_note 6, 14, 3, 1648
+	square_note 5, 14, 3, 1632
+	square_note 9, 13, 1, 1600
+	sound_ret
+
+Cry_Hydreigon_Ch6:
+	duty_cycle_pattern 3, 3, 0, 1
+	square_note 7, 11, 7, 1601
+	square_note 3, 9, 6, 1602
+	square_note 15, 11, 7, 1601
+	square_note 15, 10, 7, 1617
+	square_note 9, 10, 5, 1617
+	square_note 7, 9, 4, 1607
+	square_note 6, 10, 3, 1585
+	square_note 5, 9, 3, 1570
+	square_note 9, 7, 1, 1537
+	sound_ret
+
+Cry_Hydreigon_Ch8:
+	noise_note 12, 15, 1, 60
+	noise_note 12, 15, 4, 60
+	noise_note 11, 13, 7, 76
+	noise_note 11, 13, 7, 60
+	noise_note 13, 11, 7, 76
+	noise_note 15, 10, 2, 92
+	sound_ret
+
+Cry_Zygarde_Ch5:
+	duty_cycle_pattern 3, 1, 3, 1
+	square_note 7, 15, 8, 1664
+	square_note 3, 13, 1, 1400
+	square_note 15, 15, 7, 1664
+	square_note 11, 15, 6, 1648
+	square_note 15, 14, 7, 1680
+	square_note 9, 14, 5, 1680
+	square_note 7, 13, 4, 1672
+	square_note 6, 14, 3, 1648
+	square_note 5, 14, 3, 1632
+	square_note 9, 13, 1, 1600
+	sound_ret
+
+Cry_Zygarde_Ch6:
+	duty_cycle_pattern 3, 3, 0, 1
+	square_note 7, 11, 7, 1601
+	square_note 3, 9, 6, 1602
+	square_note 15, 11, 7, 1601
+	square_note 15, 14, 7, 1680
+	square_note 9, 10, 5, 1617
+	square_note 7, 9, 4, 1607
+	square_note 6, 10, 3, 1585
+	square_note 5, 9, 3, 1570
+	square_note 9, 7, 1, 1537
+	sound_ret
+
+Cry_Zygarde_Ch8:
+	noise_note 2, 15, 2, 76
+	noise_note 6, 14, 0, 58
+	noise_note 15, 13, 0, 58
+	noise_note 8, 13, 0, 44
+	noise_note 6, 14, 6, 76
+	noise_note 12, 7, -5, 76
+	noise_note 15, 13, 3, 76
+	sound_ret	
 
 Cry_Slugma_Ch5:
 	duty_cycle_pattern 2, 1, 0, 1

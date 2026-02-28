@@ -142,6 +142,7 @@ ROMX $32
 	"Extra Songs 2"
 ROMX $33
 	"Extra Songs 3"
+	"Cries"
 ROMX $34
 	"Pic Animations 1"
 ROMX $35
@@ -165,7 +166,6 @@ ROMX $3b
 ROMX $3c
 	"Songs 3"
 	"Sound Effects"
-	"Cries"
 ROMX $3d
 	"Songs 4"
 ROMX $3e

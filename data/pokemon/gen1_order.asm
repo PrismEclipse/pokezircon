@@ -130,7 +130,7 @@ Pokered_MonIndices:
 	db GOLDUCK
 	db HYPNO
 	db GOLBAT
-	db MEWTWO
+	db NECROZMA
 	db SNORLAX
 	db MAGIKARP
 	db PORYGON2 ; MISSINGNO.

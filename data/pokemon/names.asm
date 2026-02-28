@@ -149,7 +149,7 @@ PokemonNames::
 	dname "DRATINI"
 	dname "DRAGONAIR"
 	dname "DRAGONITE"
-	dname "MEWTWO"
+	dname "NECROZMA"
 	dname "MEW"
 	dname "CHIKORITA"
 	dname "BAYLEEF"

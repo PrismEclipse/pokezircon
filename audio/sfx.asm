@@ -17,7 +17,7 @@ Sfx_FullHeal:
 Sfx_Menu:
 	channel_count 1
 	channel 8, Sfx_Menu_Ch8
-
+	
 Sfx_ReadText:
 Sfx_ReadText2:
 	channel_count 1

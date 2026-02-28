@@ -168,7 +168,7 @@
 	const DRATINI    ; 93
 	const DRAGONAIR  ; 94
 	const DRAGONITE  ; 95
-	const MEWTWO     ; 96
+	const NECROZMA   ; 96
 	const MEW        ; 97
 DEF JOHTO_POKEMON EQU const_value
 	const CHIKORITA  ; 98

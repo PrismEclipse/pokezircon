@@ -250,7 +250,7 @@ NewPokedexOrder:
 	db TYRANITAR
 	db LUGIA
 	db HO_OH
-	db MEWTWO
+	db NECROZMA
 	db MEW
 	db CELEBI
 	assert_table_length NUM_POKEMON

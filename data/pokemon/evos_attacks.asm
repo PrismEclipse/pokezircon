@@ -223,7 +223,9 @@ BeedrillEvosAttacks:
 PidgeyEvosAttacks:
 	db EVOLVE_LEVEL, 18, PIDGEOTTO
 	db 0 ; no more evolutions
-	db 1, BURNING_BULWARK
+	db 1, FLASH_CANNON
+	db 1, POISON_JAB
+	db 1, EMPOLEON_MOVE
 	db 15, QUICK_ATTACK
 	db 21, SEND_AWAY
 	db 29, WING_ATTACK
@@ -2030,17 +2032,7 @@ DragoniteEvosAttacks:
 
 MewtwoEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, CONFUSION
-	db 1, DISABLE
-	db 11, SPLASH
-	db 22, SWIFT
-	db 33, BULK_UP
-	db 44, FUTURE_SIGHT
-	db 55, MIST
-	db 66, PSYCHIC_M
-	db 77, AMNESIA
-	db 88, RECOVER
-	db 99, SAFEGUARD
+	db 1, EMPOLEON_MOVE
 	db 0 ; no more level-up moves
 
 MewEvosAttacks:

@@ -72,5 +72,7 @@
 	const CRY_AIPOM
 	const CRY_DUNSPARCE
 	const CRY_DONPHAN
+	const CRY_HYDREIGON
+	const CRY_ZYGARDE
 
 DEF NUM_CRIES EQU const_value

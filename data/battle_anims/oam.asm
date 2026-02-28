@@ -194,12 +194,9 @@ BattleAnimOAMData:
 	battleanimoam $04,  4, .OAMData_03 ; BATTLE_ANIM_OAMSET_BA
 	battleanimoam $08,  2, .OAMData_11 ; BATTLE_ANIM_OAMSET_BB
 	battleanimoam $20,  6, .OAMData_bc ; BATTLE_ANIM_OAMSET_BC
-	battleanimoam $08,  1, .OAMData_0f ; BATTLE_ANIM_OAMSET_BD
-	battleanimoam $04,  4, .OAMData_03 ; BATTLE_ANIM_OAMSET_BE
 	battleanimoam $1a,  4, .OAMData_30 ; BATTLE_ANIM_OAMSET_BF
 	battleanimoam $16,  9, .OAMData_01 ; BATTLE_ANIM_OAMSET_C0
 	battleanimoam $10, 16, .OAMData_c1 ; BATTLE_ANIM_OAMSET_C1
-	battleanimoam $09,  6, .OAMData_c2 ; BATTLE_ANIM_OAMSET_C2
 	battleanimoam $11,  9, .OAMData_c3 ; BATTLE_ANIM_OAMSET_C3
 	battleanimoam $0e,  4, .OAMData_03 ; BATTLE_ANIM_OAMSET_C4
 	battleanimoam $0b,  4, .OAMData_30 ; BATTLE_ANIM_OAMSET_C5
@@ -210,8 +207,6 @@ BattleAnimOAMData:
 	battleanimoam $09,  4, .OAMData_ca ; BATTLE_ANIM_OAMSET_CA
 	battleanimoam $0b,  4, .OAMData_04 ; BATTLE_ANIM_OAMSET_CB
 	battleanimoam $11, 13, .OAMData_cc ; BATTLE_ANIM_OAMSET_CC
-	battleanimoam $00,  9, .OAMData_c3 ; BATTLE_ANIM_OAMSET_CD
-	battleanimoam $09,  9, .OAMData_c3 ; BATTLE_ANIM_OAMSET_CE
 	battleanimoam $00, 12, .OAMData_cf ; BATTLE_ANIM_OAMSET_CF
 	battleanimoam $06, 12, .OAMData_cf ; BATTLE_ANIM_OAMSET_D0
 	battleanimoam $0c, 12, .OAMData_cf ; BATTLE_ANIM_OAMSET_D1
@@ -1059,14 +1054,6 @@ BattleAnimOAMData:
 	dbsprite  -1,   1, 0, 0, $02, OAM_XFLIP | OAM_YFLIP
 	dbsprite   0,   1, 0, 0, $01, OAM_XFLIP | OAM_YFLIP
 	dbsprite   1,   1, 0, 0, $00, OAM_XFLIP | OAM_YFLIP
-
-.OAMData_c2:
-	dbsprite  -2,  -1, 0, 0, $00, $0
-	dbsprite  -1,  -1, 0, 0, $01, $0
-	dbsprite   0,  -1, 0, 0, $00, OAM_XFLIP | OAM_YFLIP
-	dbsprite  -1,   0, 0, 0, $00, $0
-	dbsprite   0,   0, 0, 0, $01, $0
-	dbsprite   1,   0, 0, 0, $00, OAM_XFLIP | OAM_YFLIP
 
 .OAMData_c8:
 	dbsprite   1,  -1, 4, 0, $00, $0

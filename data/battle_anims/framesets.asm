@@ -30,7 +30,6 @@ BattleAnimFrameData:
 	dw .Frameset_Strength            ; BATTLE_ANIM_FRAMESET_STRENGTH
 	dw .Frameset_SkullCrossbone      ; BATTLE_ANIM_FRAMESET_SKULL_CROSSBONE
 	dw .Frameset_Acid                ; BATTLE_ANIM_FRAMESET_ACID
-	dw .Frameset_PoisonDropletUnused ; BATTLE_ANIM_FRAMESET_POISON_DROPLET_UNUSED
 	dw .Frameset_SludgeBubble        ; BATTLE_ANIM_FRAMESET_SLUDGE_BUBBLE
 	dw .Frameset_SludgeBubbleBurst   ; BATTLE_ANIM_FRAMESET_SLUDGE_BUBBLE_BURST
 	dw .Frameset_SmallBubble         ; BATTLE_ANIM_FRAMESET_SMALL_BUBBLE
@@ -155,9 +154,7 @@ BattleAnimFrameData:
 	dw .Frameset_EncoreHand          ; BATTLE_ANIM_FRAMESET_ENCORE_HAND
 	dw .Frameset_EncoreHandFlipped   ; BATTLE_ANIM_FRAMESET_ENCORE_HAND_FLIPPED
 	dw .Frameset_DestinyBond         ; BATTLE_ANIM_FRAMESET_DESTINY_BOND
-	dw .Frameset_MorningSun          ; BATTLE_ANIM_FRAMESET_MORNING_SUN
 	dw .Frameset_Glimmer             ; BATTLE_ANIM_FRAMESET_GLIMMER
-	dw .Frameset_Moonlight           ; BATTLE_ANIM_FRAMESET_MOONLIGHT
 	dw .Frameset_CrossChop1          ; BATTLE_ANIM_FRAMESET_CROSS_CHOP_1
 	dw .Frameset_CrossChop2          ; BATTLE_ANIM_FRAMESET_CROSS_CHOP_2
 	dw .Frameset_ZapCannon           ; BATTLE_ANIM_FRAMESET_ZAP_CANNON
@@ -183,12 +180,13 @@ BattleAnimFrameData:
 	dw .Frameset_SpinningTriangle        ; BATTLE_ANIM_FRAMESET_SHOOTING_TRIANGLE
 	dw .Frameset_SpinningTriangleSlow    ; BATTLE_ANIM_FRAMESET_SPINNING_TRIANGLE
 	dw .Frameset_BouncingMushroom        ; BATTLE_ANIM_FRAMESET_BOUNCING_MUSHROOM
-	dw .Frameset_SwirlShort              ; BATTLE_ANIM_FRAMESET_SWIRL_SHORT
 	dw .Frameset_Vortex                  ; BATTLE_ANIM_FRAMESET_VORTEX
 	dw .Frameset_TinyGlow                ; BATTLE_ANIM_FRAMESET_TINY_GLOW
 	dw .Frameset_GrowingBall             ; BATTLE_ANIM_FRAMESET_GROWING_BALL
 	dw .Frameset_WaterBall               ; BATTLE_ANIM_FRAMESET_WATER_BALL
 	dw .Frameset_GrowingBubble           ; BATTLE_ANIM_FRAMESET_GROWING_BUBBLE
+	dw .Frameset_EnergyOrbLong           ; BATTLEANIMFRAMESET_ENERGY_ORB_LONG
+	dw .Frameset_ShrinkingGlow           ; BATTLEANIMFRAMESET_SHRINKING_GLOW
 	assert_table_length NUM_BATTLE_ANIM_FRAMESETS
 
 .Frameset_HitBig:
@@ -448,10 +446,6 @@ BattleAnimFrameData:
 	oamframe BATTLE_ANIM_OAMSET_1D,  8
 	oamend
 
-.Frameset_PoisonDropletUnused:
-	oamframe BATTLE_ANIM_OAMSET_17,  8
-	oamend
-
 .Frameset_SludgeBubble:
 	oamframe BATTLE_ANIM_OAMSET_0F,  3
 	oamframe BATTLE_ANIM_OAMSET_10,  3
@@ -480,6 +474,17 @@ BattleAnimFrameData:
 	oamframe BATTLE_ANIM_OAMSET_1B, 16
 	oamend
 	
+.Frameset_EnergyOrbLong:
+	oamframe BATTLE_ANIM_OAMSET_1E,  4
+	oamframe BATTLE_ANIM_OAMSET_55,  8
+	oamframe BATTLE_ANIM_OAMSET_54,  20
+	oamdelete	
+	
+.Frameset_ShrinkingGlow:
+	oamframe BATTLE_ANIM_OAMSET_54,  2
+	oamframe BATTLE_ANIM_OAMSET_53,  2
+	oamframe BATTLE_ANIM_OAMSET_55,  2
+	oamdelete	
 
 .Frameset_Surf:
 	oamframe BATTLE_ANIM_OAMSET_22,  8
@@ -1096,28 +1101,15 @@ BattleAnimFrameData:
 	oamframe BATTLE_ANIM_OAMSET_BC, 32
 	oamend
 
-.Frameset_MorningSun:
-	oamframe BATTLE_ANIM_OAMSET_BD, 11
-	oamframe BATTLE_ANIM_OAMSET_BE, 11
-	oamframe BATTLE_ANIM_OAMSET_1B, 11
-	oamdelete
-
 .Frameset_Glimmer:
 	oamframe BATTLE_ANIM_OAMSET_BF,  4
 	oamframe BATTLE_ANIM_OAMSET_C0,  4
 	oamframe BATTLE_ANIM_OAMSET_C1,  4
 	oamdelete
 
-.Frameset_Moonlight:
-	oamframe BATTLE_ANIM_OAMSET_C2, 32
-	oamframe BATTLE_ANIM_OAMSET_C2, 32
-	oamdelete
-
 .Frameset_CrossChop1:
 	oamframe BATTLE_ANIM_OAMSET_4B,  2
 	oamframe BATTLE_ANIM_OAMSET_4C,  2
-	oamframe BATTLE_ANIM_OAMSET_4D, 32
-	oamframe BATTLE_ANIM_OAMSET_4D, 32
 	oamframe BATTLE_ANIM_OAMSET_4D, 32
 	oamframe BATTLE_ANIM_OAMSET_4F,  1
 	oamframe BATTLE_ANIM_OAMSET_50,  1
@@ -1134,8 +1126,6 @@ BattleAnimFrameData:
 .Frameset_CrossChop2:
 	oamframe BATTLE_ANIM_OAMSET_4B,  2, B_OAM_XFLIP, B_OAM_YFLIP
 	oamframe BATTLE_ANIM_OAMSET_4C,  2, B_OAM_XFLIP, B_OAM_YFLIP
-	oamframe BATTLE_ANIM_OAMSET_4D, 32, B_OAM_XFLIP, B_OAM_YFLIP
-	oamframe BATTLE_ANIM_OAMSET_4D, 32, B_OAM_XFLIP, B_OAM_YFLIP
 	oamframe BATTLE_ANIM_OAMSET_4D, 32, B_OAM_XFLIP, B_OAM_YFLIP
 	oamframe BATTLE_ANIM_OAMSET_4F,  1, B_OAM_XFLIP, B_OAM_YFLIP
 	oamframe BATTLE_ANIM_OAMSET_50,  1, B_OAM_XFLIP, B_OAM_YFLIP
@@ -1225,11 +1215,11 @@ BattleAnimFrameData:
 	oamdelete
 
 .Frameset_BubbleSplash:
-	oamframe BATTLE_ANIM_OAMSET_BD,  8
+	oamframe BATTLE_ANIM_OAMSET_20,  8
 	oamend
 
 .Frameset_SmokePuff:
-	oamframe BATTLE_ANIM_OAMSET_BD,  2
+	oamframe BATTLE_ANIM_OAMSET_20,  2
 	oamframe BATTLE_ANIM_OAMSET_94,  2
 	oamframe BATTLE_ANIM_OAMSET_1B,  2
 	oamdelete
@@ -1259,17 +1249,6 @@ BattleAnimFrameData:
 	oamframe BATTLE_ANIM_OAMSET_DB,  2
 	oamframe BATTLE_ANIM_OAMSET_DC, 32
 	oamend
-
-.Frameset_SwirlShort:
-	oamframe BATTLE_ANIM_OAMSET_CD,  1
-	oamframe BATTLE_ANIM_OAMSET_DE,  1
-	oamframe BATTLE_ANIM_OAMSET_CE,  1
-	oamframe BATTLE_ANIM_OAMSET_DF,  1
-	oamframe BATTLE_ANIM_OAMSET_CD,  1, OAM_X_FLIP, OAM_Y_FLIP
-	oamframe BATTLE_ANIM_OAMSET_DE,  1, OAM_X_FLIP, OAM_Y_FLIP
-	oamframe BATTLE_ANIM_OAMSET_CE,  1, OAM_X_FLIP, OAM_Y_FLIP
-	oamframe BATTLE_ANIM_OAMSET_DF,  1, OAM_X_FLIP, OAM_Y_FLIP
-	oamdelete
 
 .Frameset_Vortex:
 	oamframe BATTLE_ANIM_OAMSET_E0,  1
