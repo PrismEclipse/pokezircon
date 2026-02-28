@@ -180,8 +180,6 @@ BattleCommand_CheckTurn:
 
 	; Snore and Sleep Talk bypass sleep.
 	ld a, [wCurPlayerMove]
-	cp SNORE
-	jr z, .not_asleep
 	cp SLEEP_TALK
 	jr z, .not_asleep
 
@@ -408,8 +406,6 @@ CheckEnemyTurn:
 .fast_asleep
 	; Snore and Sleep Talk bypass sleep.
 	ld a, [wCurEnemyMove]
-	cp SNORE
-	jr z, .not_asleep
 	cp SLEEP_TALK
 	jr z, .not_asleep
 	call CantMove
@@ -915,8 +911,6 @@ IgnoreSleepOnly:
 	call GetBattleVar
 
 	; Snore and Sleep Talk bypass sleep.
-	cp SNORE
-	jr z, .CheckSleep
 	cp SLEEP_TALK
 	jr z, .CheckSleep
 	and a
@@ -1043,18 +1037,10 @@ BattleCommand_DoTurn:
 	ld b, 0
 	add hl, bc
 	ld a, [hl]
-	cp MIMIC
-	jr z, .mimic
 	ld hl, wWildMonMoves
 	add hl, bc
 	ld a, [hl]
-	cp MIMIC
 	ret z
-
-.mimic
-	ld hl, wWildMonPP
-	call .consume_pp
-	ret
 
 .out_of_pp
 	call BattleCommand_MoveDelay
@@ -1077,8 +1063,6 @@ BattleCommand_DoTurn:
 	ret
 
 .continuousmoves
-	db EFFECT_SKY_ATTACK
-	db EFFECT_SKULL_BASH
 	db EFFECT_SOLARBEAM
 	db EFFECT_FLY
 	db EFFECT_ROLLOUT
@@ -1096,24 +1080,14 @@ CheckMimicUsed:
 	ld c, a
 	ld a, MON_MOVES
 	call UserPartyAttr
-
 	ld a, BATTLE_VARS_MOVE
 	call GetBattleVar
-	cp MIMIC
-	jr z, .mimic
-
 	ld b, 0
 	add hl, bc
 	ld a, [hl]
-	cp MIMIC
-	jr nz, .mimic
-
 	scf
 	ret
 
-.mimic
-	and a
-	ret
 
 BattleCommand_Critical:
 ; Determine whether this attack's hit will be critical.
@@ -1631,7 +1605,7 @@ BattleCommand_CheckHit:
 ; a monster that isn't sleeping.
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
-	cp EFFECT_DREAM_EATER
+	cp EFFECT_CALM_MIND
 	ret nz
 
 	ld a, BATTLE_VARS_STATUS_OPP
@@ -1701,7 +1675,7 @@ farcall GetProtectVariationEffect
 
 	cp EFFECT_LEECH_HIT
 	ret z
-	cp EFFECT_DREAM_EATER
+	cp EFFECT_CALM_MIND
 	ret z
 
 .not_draining_sub
@@ -1893,10 +1867,6 @@ BattleCommand_LowerSub:
 
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
-	cp EFFECT_SKY_ATTACK
-	jr z, .charge_turn
-	cp EFFECT_SKULL_BASH
-	jr z, .charge_turn
 	cp EFFECT_SOLARBEAM
 	jr z, .charge_turn
 	cp EFFECT_FLY
@@ -5195,7 +5165,7 @@ BattleCommand_ForceSwitch:
 	pop af
 
 	ld hl, FledInFearText
-	cp ROAR
+	cp SEND_AWAY
 	jr z, .do_text
 	ld hl, BlownAwayText
 .do_text
@@ -5537,8 +5507,6 @@ BattleCommand_Charge:
 
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
-	cp EFFECT_SKULL_BASH
-	ld b, endturn_command
 	jp z, SkipToBattleCommand
 	jp EndMoveEffect
 
@@ -5551,14 +5519,6 @@ BattleCommand_Charge:
 
 	cp SOLARBEAM
 	ld hl, .BattleTookSunlightText
-	jr z, .done
-
-	cp SKULL_BASH
-	ld hl, .BattleLoweredHeadText
-	jr z, .done
-
-	cp SKY_ATTACK
-	ld hl, .BattleGlowingText
 	jr z, .done
 
 	cp FLY
@@ -5649,7 +5609,6 @@ BattleCommand_TrapTarget:
 .Traps:
 	dbw WRAP,      WrappedByText     ; 'was WRAPPED by'
 	dbw FIRE_SPIN, FireSpinTrapText  ; 'was trapped!'
-	dbw CLAMP,     ClampedByText     ; 'was CLAMPED by'
 	dbw WHIRLPOOL, WhirlpoolTrapText ; 'was trapped!'
 
 INCLUDE "engine/battle/move_effects/mist.asm"
@@ -5864,8 +5823,6 @@ BattleCommand_FinishConfusingTarget:
 	call GetBattleVar
 	cp EFFECT_CONFUSE_HIT
 	jr z, .got_effect
-	cp EFFECT_SNORE
-	jr z, .got_effect
 	cp EFFECT_SWAGGER
 	jr z, .got_effect
 	call AnimateCurrentMove
@@ -5891,8 +5848,6 @@ BattleCommand_Confuse_CheckSnore_Swagger_ConfuseHit:
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	cp EFFECT_CONFUSE_HIT
-	ret z
-	cp EFFECT_SNORE
 	ret z
 	cp EFFECT_SWAGGER
 	ret z
@@ -6057,7 +6012,6 @@ DoubleDamage:
 .quit
 	ret
 
-INCLUDE "engine/battle/move_effects/mimic.asm"
 
 INCLUDE "engine/battle/move_effects/leech_seed.asm"
 

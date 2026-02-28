@@ -15,7 +15,6 @@ BattleAnimFrameData:
 	dw .Frameset_PokeBall3           ; BATTLE_ANIM_FRAMESET_POKE_BALL_3
 	dw .Frameset_PokeBall4           ; BATTLE_ANIM_FRAMESET_POKE_BALL_4
 	dw .Frameset_PokeBall5           ; BATTLE_ANIM_FRAMESET_POKE_BALL_5
-	dw .Frameset_DragonRage          ; BATTLE_ANIM_FRAMESET_DRAGON_RAGE
 	dw .Frameset_Flamethrower        ; BATTLE_ANIM_FRAMESET_FLAMETHROWER
 	dw .Frameset_Ember               ; BATTLE_ANIM_FRAMESET_EMBER
 	dw .Frameset_Burned              ; BATTLE_ANIM_FRAMESET_BURNED
@@ -59,8 +58,6 @@ BattleAnimFrameData:
 	dw .Frameset_ThunderBoltCore     ; BATTLE_ANIM_FRAMESET_THUNDERBOLT_CORE
 	dw .Frameset_ThunderShockSparks  ; BATTLE_ANIM_FRAMESET_THUNDERSHOCK_SPARKS
 	dw .Frameset_ThunderShockCore    ; BATTLE_ANIM_FRAMESET_THUNDERSHOCK_CORE
-	dw .Frameset_Clamp               ; BATTLE_ANIM_FRAMESET_CLAMP
-	dw .Frameset_ClampFlipped        ; BATTLE_ANIM_FRAMESET_CLAMP_FLIPPED
 	dw .Frameset_Bite1               ; BATTLE_ANIM_FRAMESET_BITE_1
 	dw .Frameset_Bite2               ; BATTLE_ANIM_FRAMESET_BITE_2
 	dw .Frameset_CutDownLeft         ; BATTLE_ANIM_FRAMESET_CUT_DOWN_LEFT
@@ -75,7 +72,6 @@ BattleAnimFrameData:
 	dw .Frameset_VineWhip2           ; BATTLE_ANIM_FRAMESET_VINE_WHIP_2
 	dw .Frameset_RazorWind1          ; BATTLE_ANIM_FRAMESET_RAZOR_WIND_1
 	dw .Frameset_RazorWind2          ; BATTLE_ANIM_FRAMESET_RAZOR_WIND_2
-	dw .Frameset_SonicboomJP         ; BATTLE_ANIM_FRAMESET_SONICBOOM_JP
 	dw .Frameset_Warp                ; BATTLE_ANIM_FRAMESET_WARP
 	dw .Frameset_ChargeOrb2          ; BATTLE_ANIM_FRAMESET_CHARGE_ORB_2
 	dw .Frameset_Egg                 ; BATTLE_ANIM_FRAMESET_EGG
@@ -85,7 +81,7 @@ BattleAnimFrameData:
 	dw .Frameset_Focus               ; BATTLE_ANIM_FRAMESET_FOCUS
 	dw .Frameset_Bind1               ; BATTLE_ANIM_FRAMESET_BIND_1
 	dw .Frameset_Bind2               ; BATTLE_ANIM_FRAMESET_BIND_2
-	dw .Frameset_Bind3               ; BATTLE_ANIM_FRAMESET_BIND_3
+	dw .Frameset_Bind3
 	dw .Frameset_Bind4               ; BATTLE_ANIM_FRAMESET_BIND_4
 	dw .Frameset_LeechSeed1          ; BATTLE_ANIM_FRAMESET_LEECH_SEED_1
 	dw .Frameset_LeechSeed2          ; BATTLE_ANIM_FRAMESET_LEECH_SEED_2
@@ -122,7 +118,6 @@ BattleAnimFrameData:
 	dw .Frameset_Heart               ; BATTLE_ANIM_FRAMESET_HEART
 	dw .Frameset_SpinningBone        ; BATTLE_ANIM_FRAMESET_SPINNING_BONE
 	dw .Frameset_Star                ; BATTLE_ANIM_FRAMESET_STAR
-	dw .Frameset_Spoon               ; BATTLE_ANIM_FRAMESET_SPOON
 	dw .Frameset_Sparkle             ; BATTLE_ANIM_FRAMESET_SPARKLE
 	dw .Frameset_SkyAttack           ; BATTLE_ANIM_FRAMESET_SKY_ATTACK
 	dw .Frameset_Lick                ; BATTLE_ANIM_FRAMESET_LICK
@@ -134,12 +129,10 @@ BattleAnimFrameData:
 	dw .Frameset_SpeedLine2          ; BATTLE_ANIM_FRAMESET_SPEED_LINE_2
 	dw .Frameset_SpeedLine3          ; BATTLE_ANIM_FRAMESET_SPEED_LINE_3
 	dw .Frameset_SeismicToss         ; BATTLE_ANIM_FRAMESET_SEISMIC_TOSS
-	dw .Frameset_Sharpen             ; BATTLE_ANIM_FRAMESET_SHARPEN
 	dw .Frameset_DefenseCurl         ; BATTLE_ANIM_FRAMESET_DEFENSE_CURL
 	dw .Frameset_MetronomeHand       ; BATTLE_ANIM_FRAMESET_METRONOME_HAND
 	dw .Frameset_Agility             ; BATTLE_ANIM_FRAMESET_AGILITY
 	dw .Frameset_Cotton              ; BATTLE_ANIM_FRAMESET_COTTON
-	dw .Frameset_MilkBottle          ; BATTLE_ANIM_FRAMESET_MILK_BOTTLE
 	dw .Frameset_Spike               ; BATTLE_ANIM_FRAMESET_SPIKE
 	dw .Frameset_AngerVein           ; BATTLE_ANIM_FRAMESET_ANGER_VEIN
 	dw .Frameset_HealBell            ; BATTLE_ANIM_FRAMESET_HEAL_BELL
@@ -153,10 +146,8 @@ BattleAnimFrameData:
 	dw .Frameset_MindReader3         ; BATTLE_ANIM_FRAMESET_MIND_READER_3
 	dw .Frameset_MindReader4         ; BATTLE_ANIM_FRAMESET_MIND_READER_4
 	dw .Frameset_Safeguard           ; BATTLE_ANIM_FRAMESET_SAFEGUARD
-	dw .Frameset_MegaphoneUnused     ; BATTLE_ANIM_FRAMESET_MEGAPHONE_UNUSED
 	dw .Frameset_ItemBag             ; BATTLE_ANIM_FRAMESET_ITEM_BAG
 	dw .Frameset_SpiderWeb           ; BATTLE_ANIM_FRAMESET_SPIDER_WEB
-	dw .Frameset_UnusedCake          ; BATTLE_ANIM_FRAMESET_UNUSED_CAKE
 	dw .Frameset_Imp                 ; BATTLE_ANIM_FRAMESET_IMP
 	dw .Frameset_ImpFlipped          ; BATTLE_ANIM_FRAMESET_IMP_FLIPPED
 	dw .Frameset_Cherub              ; BATTLE_ANIM_FRAMESET_CHERUB
@@ -178,14 +169,26 @@ BattleAnimFrameData:
 	dw .Frameset_UpsideDownPunch     ; BATTLE_ANIM_FRAMESET_UPSIDE_DOWN_PUNCH
 	dw .Frameset_GrowingSparkle      ; BATTLE_ANIM_FRAMESET_GROWING_SPARKLE
 	dw .Frameset_Rain                ; BATTLE_ANIM_FRAMESET_RAIN
-	dw .Frameset_PsychUp             ; BATTLE_ANIM_FRAMESET_PSYCH_UP
-	dw .Frameset_SpiralUnused        ; BATTLE_ANIM_FRAMESET_SPIRAL_UNUSED
 	dw .Frameset_Aeroblast           ; BATTLE_ANIM_FRAMESET_AEROBLAST
 	dw .Frameset_Sandstorm           ; BATTLE_ANIM_FRAMESET_SANDSTORM
 	dw .Frameset_EnemyFeet1Row       ; BATTLE_ANIM_FRAMESET_ENEMYFEET_1ROW
 	dw .Frameset_PlayerHead1Row      ; BATTLE_ANIM_FRAMESET_PLAYERHEAD_1ROW
 	dw .Frameset_EnemyFeet2Row       ; BATTLE_ANIM_FRAMESET_ENEMYFEET_2ROW
 	dw .Frameset_PlayerHead2Row      ; BATTLE_ANIM_FRAMESET_PLAYERHEAD_2ROW
+	dw .Frameset_MediumHorn              ; BATTLE_ANIM_FRAMESET_MEDIUM_HORN
+	dw .Frameset_Minimize                ; BATTLE_ANIM_FRAMESET_MINIMIZE
+	dw .Frameset_BubbleSplash            ; BATTLE_ANIM_FRAMESET_BUBBLE_SPLASH
+	dw .Frameset_SmokePuff               ; BATTLE_ANIM_FRAMESET_SMOKE_PUFF
+	dw .Frameset_InkSplash               ; BATTLE_ANIM_FRAMESET_INK_SPLASH
+	dw .Frameset_SpinningTriangle        ; BATTLE_ANIM_FRAMESET_SHOOTING_TRIANGLE
+	dw .Frameset_SpinningTriangleSlow    ; BATTLE_ANIM_FRAMESET_SPINNING_TRIANGLE
+	dw .Frameset_BouncingMushroom        ; BATTLE_ANIM_FRAMESET_BOUNCING_MUSHROOM
+	dw .Frameset_SwirlShort              ; BATTLE_ANIM_FRAMESET_SWIRL_SHORT
+	dw .Frameset_Vortex                  ; BATTLE_ANIM_FRAMESET_VORTEX
+	dw .Frameset_TinyGlow                ; BATTLE_ANIM_FRAMESET_TINY_GLOW
+	dw .Frameset_GrowingBall             ; BATTLE_ANIM_FRAMESET_GROWING_BALL
+	dw .Frameset_WaterBall               ; BATTLE_ANIM_FRAMESET_WATER_BALL
+	dw .Frameset_GrowingBubble           ; BATTLE_ANIM_FRAMESET_GROWING_BUBBLE
 	assert_table_length NUM_BATTLE_ANIM_FRAMESETS
 
 .Frameset_HitBig:
@@ -332,10 +335,6 @@ BattleAnimFrameData:
 	oamframe BATTLE_ANIM_OAMSET_0A,  7
 	oamend
 
-.Frameset_DragonRage:
-	oamframe BATTLE_ANIM_OAMSET_0A,  8
-	oamend
-
 .Frameset_Flamethrower:
 	oamframe BATTLE_ANIM_OAMSET_0A,  4
 	oamframe BATTLE_ANIM_OAMSET_0E,  4
@@ -474,6 +473,13 @@ BattleAnimFrameData:
 	oamframe BATTLE_ANIM_OAMSET_1B,  8
 	oamframe BATTLE_ANIM_OAMSET_21,  8
 	oamrestart
+	
+.Frameset_GrowingBubble
+	oamframe BATTLE_ANIM_OAMSET_20, 16
+	oamframe BATTLE_ANIM_OAMSET_21, 16
+	oamframe BATTLE_ANIM_OAMSET_1B, 16
+	oamend
+	
 
 .Frameset_Surf:
 	oamframe BATTLE_ANIM_OAMSET_22,  8
@@ -612,14 +618,6 @@ BattleAnimFrameData:
 	oamwait 2
 	oamrestart
 
-.Frameset_Clamp:
-	oamframe BATTLE_ANIM_OAMSET_48,  8
-	oamend
-
-.Frameset_ClampFlipped:
-	oamframe BATTLE_ANIM_OAMSET_48,  8, B_OAM_XFLIP
-	oamend
-
 .Frameset_Bite1:
 	oamframe BATTLE_ANIM_OAMSET_49,  8
 	oamend
@@ -698,13 +696,6 @@ BattleAnimFrameData:
 	oamframe BATTLE_ANIM_OAMSET_57,  2, B_OAM_XFLIP, B_OAM_YFLIP
 	oamdelete
 
-.Frameset_SonicboomJP:
-	oamframe BATTLE_ANIM_OAMSET_57,  1, B_OAM_XFLIP, B_OAM_YFLIP
-	oamframe BATTLE_ANIM_OAMSET_58,  1, B_OAM_XFLIP, B_OAM_YFLIP
-	oamframe BATTLE_ANIM_OAMSET_57,  1
-	oamframe BATTLE_ANIM_OAMSET_58,  1
-	oamrestart
-
 .Frameset_Warp:
 	oamframe BATTLE_ANIM_OAMSET_59,  1
 	oamframe BATTLE_ANIM_OAMSET_5A,  1
@@ -755,13 +746,13 @@ BattleAnimFrameData:
 	oamframe BATTLE_ANIM_OAMSET_63,  7
 	oamframe BATTLE_ANIM_OAMSET_64,  7
 	oamrestart
-
+	
 .Frameset_Bind3:
 	oamframe BATTLE_ANIM_OAMSET_65,  1
 	oamframe BATTLE_ANIM_OAMSET_66,  1
 	oamframe BATTLE_ANIM_OAMSET_67,  1
-	oamend
-
+	oamend	
+	
 .Frameset_Bind4:
 	oamframe BATTLE_ANIM_OAMSET_67,  7
 	oamframe BATTLE_ANIM_OAMSET_68,  7
@@ -955,15 +946,6 @@ BattleAnimFrameData:
 	oamframe BATTLE_ANIM_OAMSET_98,  8
 	oamend
 
-.Frameset_Spoon:
-	oamframe BATTLE_ANIM_OAMSET_99, 32
-	oamframe BATTLE_ANIM_OAMSET_99, 32
-	oamframe BATTLE_ANIM_OAMSET_99, 32
-	oamframe BATTLE_ANIM_OAMSET_99, 32
-	oamframe BATTLE_ANIM_OAMSET_99, 32
-	oamframe BATTLE_ANIM_OAMSET_9A,  8
-	oamend
-
 .Frameset_SkyAttack:
 	oamframe BATTLE_ANIM_OAMSET_9B,  8
 	oamend
@@ -1004,15 +986,6 @@ BattleAnimFrameData:
 	oamframe BATTLE_ANIM_OAMSET_A3,  8
 	oamend
 
-.Frameset_Sharpen:
-	oamframe BATTLE_ANIM_OAMSET_A4,  4
-	oamframe BATTLE_ANIM_OAMSET_A5,  4
-	oamframe BATTLE_ANIM_OAMSET_A6,  4
-	oamframe BATTLE_ANIM_OAMSET_A7,  4
-	oamframe BATTLE_ANIM_OAMSET_A6,  4, B_OAM_XFLIP
-	oamframe BATTLE_ANIM_OAMSET_A5,  4, B_OAM_XFLIP
-	oamrestart
-
 .Frameset_DefenseCurl:
 	oamframe BATTLE_ANIM_OAMSET_A8,  4
 	oamframe BATTLE_ANIM_OAMSET_A9,  4
@@ -1032,10 +1005,6 @@ BattleAnimFrameData:
 
 .Frameset_Cotton:
 	oamframe BATTLE_ANIM_OAMSET_AD,  8
-	oamend
-
-.Frameset_MilkBottle:
-	oamframe BATTLE_ANIM_OAMSET_AE,  8
 	oamend
 
 .Frameset_Spike:
@@ -1091,20 +1060,12 @@ BattleAnimFrameData:
 	oamframe BATTLE_ANIM_OAMSET_B4,  8
 	oamend
 
-.Frameset_MegaphoneUnused:
-	oamframe BATTLE_ANIM_OAMSET_6B,  8
-	oamend
-
 .Frameset_ItemBag:
 	oamframe BATTLE_ANIM_OAMSET_B6,  8
 	oamend
 
 .Frameset_SpiderWeb:
 	oamframe BATTLE_ANIM_OAMSET_B7, 32
-	oamend
-
-.Frameset_UnusedCake:
-	oamframe BATTLE_ANIM_OAMSET_1B, 32
 	oamend
 
 .Frameset_Imp:
@@ -1192,7 +1153,7 @@ BattleAnimFrameData:
 	oamframe BATTLE_ANIM_OAMSET_C3,  1
 	oamframe BATTLE_ANIM_OAMSET_C3,  1, B_OAM_XFLIP, B_OAM_YFLIP
 	oamrestart
-
+	
 .Frameset_CurseNail:
 	oamframe BATTLE_ANIM_OAMSET_C4, 32
 	oamend
@@ -1201,7 +1162,7 @@ BattleAnimFrameData:
 	oamframe BATTLE_ANIM_OAMSET_C5,  4
 	oamframe BATTLE_ANIM_OAMSET_C6,  4
 	oamframe BATTLE_ANIM_OAMSET_C7,  4
-	oamdelete
+	oamdelete	
 
 .Frameset_RapidSpin:
 	oamframe BATTLE_ANIM_OAMSET_C8,  1
@@ -1227,20 +1188,6 @@ BattleAnimFrameData:
 .Frameset_Rain:
 	oamframe BATTLE_ANIM_OAMSET_CC, 32
 	oamend
-
-.Frameset_PsychUp:
-	oamframe BATTLE_ANIM_OAMSET_7F,  2
-	oamframe BATTLE_ANIM_OAMSET_25,  2
-	oamframe BATTLE_ANIM_OAMSET_80,  2
-	oamframe BATTLE_ANIM_OAMSET_25,  2
-	oamrestart
-
-.Frameset_SpiralUnused:
-	oamframe BATTLE_ANIM_OAMSET_CD,  4
-	oamframe BATTLE_ANIM_OAMSET_CE,  4
-	oamframe BATTLE_ANIM_OAMSET_CD,  4, B_OAM_XFLIP, B_OAM_YFLIP
-	oamframe BATTLE_ANIM_OAMSET_CE,  4, B_OAM_XFLIP, B_OAM_YFLIP
-	oamrestart
 
 .Frameset_Aeroblast:
 	oamframe BATTLE_ANIM_OAMSET_CF,  4
@@ -1268,3 +1215,99 @@ BattleAnimFrameData:
 .Frameset_PlayerHead2Row:
 	oamframe BATTLE_ANIM_OAMSET_D7,  8
 	oamend
+
+.Frameset_MediumHorn:
+	oamframe BATTLE_ANIM_OAMSET_D8,  9
+	oamdelete
+	
+.Frameset_Minimize:
+	oamframe BATTLE_ANIM_OAMSET_14,  6
+	oamdelete
+
+.Frameset_BubbleSplash:
+	oamframe BATTLE_ANIM_OAMSET_BD,  8
+	oamend
+
+.Frameset_SmokePuff:
+	oamframe BATTLE_ANIM_OAMSET_BD,  2
+	oamframe BATTLE_ANIM_OAMSET_94,  2
+	oamframe BATTLE_ANIM_OAMSET_1B,  2
+	oamdelete
+
+.Frameset_InkSplash:
+	oamframe BATTLE_ANIM_OAMSET_1F,  8
+	oamend
+
+.Frameset_SpinningTriangle:
+	oamframe BATTLE_ANIM_OAMSET_D9,  0
+	oamframe BATTLE_ANIM_OAMSET_DA,  0
+	oamframe BATTLE_ANIM_OAMSET_D9,  0, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_DA,  0, OAM_X_FLIP
+	oamrestart
+
+.Frameset_SpinningTriangleSlow:
+	oamframe BATTLE_ANIM_OAMSET_D9,  2
+	oamframe BATTLE_ANIM_OAMSET_DA,  2
+	oamframe BATTLE_ANIM_OAMSET_D9,  2, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_DA,  2, OAM_X_FLIP
+	oamrestart
+
+.Frameset_BouncingMushroom:
+	oamframe BATTLE_ANIM_OAMSET_DC, 16
+	oamframe BATTLE_ANIM_OAMSET_DD, 16
+	oamframe BATTLE_ANIM_OAMSET_DC,  4
+	oamframe BATTLE_ANIM_OAMSET_DB,  2
+	oamframe BATTLE_ANIM_OAMSET_DC, 32
+	oamend
+
+.Frameset_SwirlShort:
+	oamframe BATTLE_ANIM_OAMSET_CD,  1
+	oamframe BATTLE_ANIM_OAMSET_DE,  1
+	oamframe BATTLE_ANIM_OAMSET_CE,  1
+	oamframe BATTLE_ANIM_OAMSET_DF,  1
+	oamframe BATTLE_ANIM_OAMSET_CD,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_DE,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_CE,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_DF,  1, OAM_X_FLIP, OAM_Y_FLIP
+	oamdelete
+
+.Frameset_Vortex:
+	oamframe BATTLE_ANIM_OAMSET_E0,  1
+	oamframe BATTLE_ANIM_OAMSET_E1,  1
+	oamframe BATTLE_ANIM_OAMSET_E2,  1
+	oamframe BATTLE_ANIM_OAMSET_E3,  1
+	oamrestart
+
+.Frameset_TinyGlow:
+	oamframe BATTLE_ANIM_OAMSET_54,  1
+	oamframe BATTLE_ANIM_OAMSET_55,  1
+	oamrestart
+
+.Frameset_GrowingBall:
+	oamframe BATTLE_ANIM_OAMSET_1F,  2
+	oamframe BATTLE_ANIM_OAMSET_1E,  2
+	oamframe BATTLE_ANIM_OAMSET_1F,  2
+	oamframe BATTLE_ANIM_OAMSET_1E,  2
+	oamframe BATTLE_ANIM_OAMSET_1F,  2
+	oamframe BATTLE_ANIM_OAMSET_1E,  2
+	oamframe BATTLE_ANIM_OAMSET_54,  2
+	oamframe BATTLE_ANIM_OAMSET_1E,  2
+	oamframe BATTLE_ANIM_OAMSET_54,  2
+	oamframe BATTLE_ANIM_OAMSET_1E,  2
+	oamframe BATTLE_ANIM_OAMSET_54,  2
+	oamframe BATTLE_ANIM_OAMSET_55,  2
+	oamframe BATTLE_ANIM_OAMSET_54,  2
+	oamframe BATTLE_ANIM_OAMSET_1E,  2
+	oamframe BATTLE_ANIM_OAMSET_54,  2
+	oamframe BATTLE_ANIM_OAMSET_55,  2
+	oamframe BATTLE_ANIM_OAMSET_54,  2
+	oamframe BATTLE_ANIM_OAMSET_55,  2
+	oamdelete
+
+.Frameset_WaterBall:
+	oamframe BATTLE_ANIM_OAMSET_1B,  2
+	oamframe BATTLE_ANIM_OAMSET_7F,  2
+	oamframe BATTLE_ANIM_OAMSET_1B,  2
+	oamframe BATTLE_ANIM_OAMSET_7F,  2
+	oamframe BATTLE_ANIM_OAMSET_01,  2 ; HIT
+	oamrestart	

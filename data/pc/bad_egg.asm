@@ -2,7 +2,7 @@ BadEgg:
 ; Failsafe if there is a checksum error
 	db BULBASAUR
 	db NO_ITEM
-	db POUND, NO_MOVE, NO_MOVE, NO_MOVE
+	db TACKLE, NO_MOVE, NO_MOVE, NO_MOVE
 	dw 0 ; OT ID
 	db 0, 0, 0 ; Exp
 	; Stat exp
@@ -26,6 +26,6 @@ BadEgg:
 	bigdw 5 ; SAtk
 	bigdw 5 ; SDef
 	db EGG ; Alt species
-	dname "BAD EGG", MON_NAME_LENGTH ; Nickname
+	dname "FUCKED UP", MON_NAME_LENGTH ; Nickname
 	dname "?", NAME_LENGTH ; OT name
 BadEggEnd:

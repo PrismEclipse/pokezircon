@@ -658,7 +658,7 @@ ParsePlayerAction:
 	jr nz, .locked_in
 	xor a
 	ld [wMoveSelectionMenuType], a
-	assert POUND == 1
+	assert TACKLE == 1
 	inc a
 	ld [wFXAnimID], a
 	call MoveSelectionScreen
@@ -866,11 +866,6 @@ GetMovePriority:
 ; Return the priority (0-3) of move a.
 
 	ld b, a
-
-	; Vital Throw goes last.
-	cp VITAL_THROW
-	ld a, 0
-	ret z
 
 	call GetMoveEffect
 	ld hl, MoveEffectPriorities

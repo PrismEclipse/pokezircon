@@ -100,17 +100,13 @@ BattleBGEffects:
 	dw BattleBGEffect_BattlerObj_1Row
 	dw BattleBGEffect_BattlerObj_2Row
 	dw BattleBGEffect_DoubleTeam
-	dw BattleBGEffect_AcidArmor
-	dw BattleBGEffect_RapidFlash
 	dw BattleBGEffect_FadeMonToLight
 	dw BattleBGEffect_FadeMonToBlack
 	dw BattleBGEffect_FadeMonToLightRepeating
 	dw BattleBGEffect_FadeMonToBlackRepeating
 	dw BattleBGEffect_CycleMonLightDarkRepeating
-	dw BattleBGEffect_FlashMonRepeating
 	dw BattleBGEffect_FadeMonsToBlackRepeating
 	dw BattleBGEffect_FadeMonToWhiteWaitFadeBack
-	dw BattleBGEffect_FadeMonFromWhite
 	dw BattleBGEffect_ShakeScreenX
 	dw BattleBGEffect_ShakeScreenY
 	dw BattleBGEffect_Withdraw
@@ -122,12 +118,8 @@ BattleBGEffects:
 	dw BattleBGEffect_RemoveMon
 	dw BattleBGEffect_WaveDeformMon
 	dw BattleBGEffect_Psychic
-	dw BattleBGEffect_BetaSendOutMon1
-	dw BattleBGEffect_BetaSendOutMon2
 	dw BattleBGEffect_Flail
-	dw BattleBGEffect_BetaPursuit
 	dw BattleBGEffect_Rollout
-	dw BattleBGEffect_VitalThrow
 	dw BattleBGEffect_StartWater
 	dw BattleBGEffect_Water
 	dw BattleBGEffect_EndWater
@@ -1206,69 +1198,6 @@ BattleBGEffect_DoubleTeam:
 .five
 	jp BattleAnim_ResetLCDStatCustom
 
-BattleBGEffect_AcidArmor:
-	call BattleBGEffects_AnonJumptable
-.anon_dw
-	dw .zero
-	dw .one
-	dw .two
-
-.zero
-	call BattleBGEffects_IncAnonJumptableIndex
-	call BattleBGEffects_ClearLYOverrides
-	ld a, JP_INSTRUCTION
-	ldh [hFunctionInstruction], a
-	ld a, LOW(rSCY)
-	call BattleBGEffect_SetLCDStatCustoms1
-	ld hl, BG_EFFECT_STRUCT_PARAM
-	add hl, bc
-	ld e, [hl]
-	ld d, 2
-	call DeformScreen
-	ld h, HIGH(wLYOverridesBackup)
-	ldh a, [hLYOverrideEnd]
-	ld l, a
-	ld [hl], $0
-	dec l
-	ld [hl], $0
-	ret
-
-.one
-	ldh a, [hLYOverrideEnd]
-	ld l, a
-	ld h, HIGH(wLYOverridesBackup)
-	ld e, l
-	ld d, h
-	dec de
-.loop
-	ld a, [de]
-	dec de
-	ld [hld], a
-	ldh a, [hLYOverrideStart]
-	cp l
-	jr nz, .loop
-	ld [hl], $90
-	ldh a, [hLYOverrideEnd]
-	ld l, a
-	ld a, [hl]
-	cp $1
-	jr c, .okay
-	cp $90
-	jr z, .okay
-	ld [hl], $0
-.okay
-	dec l
-	ld a, [hl]
-	cp $2
-	ret c
-	cp $90
-	ret z
-	ld [hl], $0
-	ret
-
-.two
-	jp BattleAnim_ResetLCDStatCustom
-
 BattleBGEffect_Withdraw:
 	call BattleBGEffects_AnonJumptable
 .anon_dw
@@ -1560,56 +1489,6 @@ Rollout_FillLYOverridesBackup:
 	jr nz, .loop
 	ret
 
-BattleBGEffect_BetaPursuit: ; unused
-	call BattleBGEffects_AnonJumptable
-.anon_dw
-	dw VitalThrow_MoveBackwards
-	dw Tackle_MoveForward
-	dw Tackle_ReturnMove
-	dw .three
-
-.three
-	jp BattleAnim_ResetLCDStatCustom
-
-VitalThrow_MoveBackwards:
-; Prepares mon to move back back (player moves left, enemy moves right)
-; BG_EFFECT_STRUCT_PARAM: keeps track of distance moved, so it's reset to 0 here
-	call BattleBGEffects_IncAnonJumptableIndex
-	call BattleBGEffects_ClearLYOverrides
-	ld a, JP_INSTRUCTION
-	ldh [hFunctionInstruction], a
-	ld a, LOW(rSCX)
-	call BattleBGEffect_SetLCDStatCustoms1
-	ldh a, [hLYOverrideEnd]
-	inc a
-	ldh [hLYOverrideEnd], a
-	ld hl, BG_EFFECT_STRUCT_PARAM
-	add hl, bc
-	ld [hl], $0
-	call BGEffect_CheckBattleTurn
-	jr nz, .player_turn
-	ld a, -2
-	jr .okay
-
-.player_turn
-	ld a, 2
-.okay
-	ld [hl], a
-	ret
-
-BattleBGEffect_VitalThrow:
-	call BattleBGEffects_AnonJumptable
-.anon_dw
-	dw VitalThrow_MoveBackwards
-	dw Tackle_MoveForward
-	dw .two
-	dw Tackle_ReturnMove
-	dw .four
-
-.four
-	call BattleAnim_ResetLCDStatCustom
-.two
-	ret
 
 BattleBGEffect_WobbleMon:
 ; Similar to BattleBGEffect_WobblePlayer, except it can affect either side and the sine movement has a radius of 8 instead of 6 and it moves at twice the rate
@@ -1797,149 +1676,6 @@ BattleBGEffect_BounceDown:
 .two
 	jp BattleAnim_ResetLCDStatCustom
 
-BattleBGEffect_BetaSendOutMon1: ; unused
-	call BattleBGEffects_AnonJumptable
-.anon_dw
-	dw .zero
-	dw .one
-	dw .two
-	dw .three
-	dw .four
-	dw .five
-
-.zero
-	call BattleBGEffects_IncAnonJumptableIndex
-	ld a, $e4
-	call BattleBGEffects_SetLYOverrides
-	ld a, JP_INSTRUCTION
-	ldh [hFunctionInstruction], a
-	ld a, $47
-	call BattleBGEffect_SetLCDStatCustoms1
-	ldh a, [hLYOverrideEnd]
-	inc a
-	ldh [hLYOverrideEnd], a
-	ldh a, [hLYOverrideStart]
-	ld l, a
-	ld h, HIGH(wLYOverridesBackup)
-.loop
-	ldh a, [hLYOverrideEnd]
-	cp l
-	jr z, .done
-	xor a
-	ld [hli], a
-	jr .loop
-
-.done
-	ld hl, BG_EFFECT_STRUCT_PARAM
-	add hl, bc
-	ld [hl], $0
-.one
-.four
-	ret
-
-.two
-	call .GetLYOverride
-	jr nc, .next
-	call .SetLYOverridesBackup
-	ret
-
-.next
-	ld hl, BG_EFFECT_STRUCT_PARAM
-	add hl, bc
-	ld [hl], $0
-	ldh a, [hLYOverrideStart]
-	inc a
-	ldh [hLYOverrideStart], a
-	jp BattleBGEffects_IncAnonJumptableIndex
-
-.three
-	call .GetLYOverride
-	jr nc, .finish
-	call .SetLYOverridesBackup
-	ldh a, [hLYOverrideEnd]
-	dec a
-	ld l, a
-	ld [hl], e
-	ret
-
-.finish
-	jp BattleBGEffects_IncAnonJumptableIndex
-
-.SetLYOverridesBackup:
-	ld e, a
-	ldh a, [hLYOverrideStart]
-	ld l, a
-	ldh a, [hLYOverrideEnd]
-	sub l
-	srl a
-	ld h, HIGH(wLYOverridesBackup)
-.loop2
-	ld [hl], e
-	inc hl
-	inc hl
-	dec a
-	jr nz, .loop2
-	ret
-
-.five
-	jp BattleBGEffects_ResetVideoHRAM
-
-.GetLYOverride:
-	ld hl, BG_EFFECT_STRUCT_PARAM
-	add hl, bc
-	ld a, [hl]
-	inc [hl]
-	srl a
-	srl a
-	srl a
-	ld e, a
-	ld d, 0
-	ld hl, .data
-	add hl, de
-	ld a, [hl]
-	cp $ff
-	ret
-
-.data
-	db $00, $40, $90, $e4
-	db -1
-
-BattleBGEffect_BetaSendOutMon2: ; unused
-	call BattleBGEffects_AnonJumptable
-.anon_dw
-	dw .zero
-	dw .one
-
-.zero
-	call BattleBGEffects_IncAnonJumptableIndex
-	call BattleBGEffects_ClearLYOverrides
-	ld a, JP_INSTRUCTION
-	ldh [hFunctionInstruction], a
-	ld a, LOW(rSCX)
-	call BattleBGEffect_SetLCDStatCustoms1
-	ld hl, BG_EFFECT_STRUCT_BATTLE_TURN
-	add hl, bc
-	ld [hl], $40
-	ret
-
-.one
-	ld hl, BG_EFFECT_STRUCT_BATTLE_TURN
-	add hl, bc
-	ld a, [hl]
-	and a
-	jr z, .done
-	dec [hl]
-	srl a
-	srl a
-	srl a
-	and $f
-	ld d, a
-	ld e, a
-	jp DeformScreen
-
-.done
-	jp BattleAnim_ResetLCDStatCustom
-
 BattleBGEffect_FadeMonsToBlackRepeating:
 	ldh a, [hCGB]
 	and a
@@ -2097,13 +1833,6 @@ BattleBGEffect_FadeMonsToBlackRepeating:
 	db $40, $fc
 	db $90, $f8
 
-BattleBGEffect_RapidFlash: ; unused
-	ld de, .FlashPals
-	jp BGEffect_RapidCyclePals
-
-.FlashPals:
-	db $e4, $6c, $fe
-
 BattleBGEffect_FadeMonToLight:
 ; BG_EFFECT_STRUCT_BATTLE_TURN = BG_EFFECT_TARGET or BG_EFFECT_USER
 	ld de, .Pals
@@ -2144,14 +1873,6 @@ BattleBGEffect_CycleMonLightDarkRepeating:
 .Pals:
 	db $e4, $f8, $fc, $f8, $e4, $90, $40, $90, $fe
 
-BattleBGEffect_FlashMonRepeating: ; unused
-; BG_EFFECT_STRUCT_BATTLE_TURN = BG_EFFECT_TARGET or BG_EFFECT_USER
-	ld de, .Pals
-	jp BGEffect_RapidCyclePals
-
-.Pals:
-	db $e4, $fc, $e4, $00, $fe
-
 BattleBGEffect_FadeMonToWhiteWaitFadeBack:
 ; BG_EFFECT_STRUCT_BATTLE_TURN = BG_EFFECT_TARGET or BG_EFFECT_USER
 	ld de, .Pals
@@ -2160,13 +1881,6 @@ BattleBGEffect_FadeMonToWhiteWaitFadeBack:
 .Pals:
 	db $e4, $90, $40, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $40, $90, $e4, $ff
 
-BattleBGEffect_FadeMonFromWhite: ; unused
-; BG_EFFECT_STRUCT_BATTLE_TURN = BG_EFFECT_TARGET or BG_EFFECT_USER
-	ld de, .Pals
-	jp BGEffect_RapidCyclePals
-
-.Pals:
-	db $00, $40, $90, $e4, $ff
 
 BattleBGEffect_VibrateMon:
 ; Moves mon back and forth sideways for $20 frames

@@ -44,7 +44,6 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const BATTLE_ANIM_OBJ_FANG                ; 09
 	const BATTLE_ANIM_OBJ_PUNCH_SHAKE         ; 0a
 	const BATTLE_ANIM_OBJ_EMBER               ; 0b
-	const BATTLE_ANIM_OBJ_DRAGON_RAGE         ; 0c
 	const BATTLE_ANIM_OBJ_FLAMETHROWER        ; 0d
 	const BATTLE_ANIM_OBJ_FIRE_SPIN           ; 0e
 	const BATTLE_ANIM_OBJ_FIRE_BLAST          ; 0f
@@ -85,7 +84,6 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const BATTLE_ANIM_OBJ_THUNDERBOLT_BALL    ; 32
 	const BATTLE_ANIM_OBJ_SPARKS_CIRCLE       ; 33
 	const BATTLE_ANIM_OBJ_THUNDERSHOCK_BALL   ; 34
-	const BATTLE_ANIM_OBJ_CLAMP               ; 35
 	const BATTLE_ANIM_OBJ_BITE                ; 36
 	const BATTLE_ANIM_OBJ_CUT_DOWN_LEFT       ; 37
 	const BATTLE_ANIM_OBJ_CUT_DOWN_RIGHT      ; 38
@@ -99,13 +97,12 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const BATTLE_ANIM_OBJ_VINE_WHIP2          ; 40
 	const BATTLE_ANIM_OBJ_RAZOR_WIND1         ; 41
 	const BATTLE_ANIM_OBJ_RAZOR_WIND2         ; 42
-	const BATTLE_ANIM_OBJ_SONICBOOM_JP        ; 43
 	const BATTLE_ANIM_OBJ_WARP                ; 44
 	const BATTLE_ANIM_OBJ_ABSORB              ; 45
 	const BATTLE_ANIM_OBJ_EGG                 ; 46
 	const BATTLE_ANIM_OBJ_FOCUS               ; 47
 	const BATTLE_ANIM_OBJ_BIND1               ; 48
-	const BATTLE_ANIM_OBJ_BIND2               ; 49
+	const BATTLE_ANIM_OBJ_BIND2
 	const BATTLE_ANIM_OBJ_LEECH_SEED          ; 4a
 	const BATTLE_ANIM_OBJ_SOUND               ; 4b
 	const BATTLE_ANIM_OBJ_WAVE                ; 4c
@@ -132,14 +129,9 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const BATTLE_ANIM_OBJ_PETAL_DANCE         ; 61
 	const BATTLE_ANIM_OBJ_SLUDGE_BOMB         ; 62
 	const BATTLE_ANIM_OBJ_PAY_DAY             ; 63
-	const BATTLE_ANIM_OBJ_SONICBOOM_JP_UNUSED ; 64
-	const BATTLE_ANIM_OBJ_MIMIC               ; 65
 	const BATTLE_ANIM_OBJ_ATTRACT             ; 66
 	const BATTLE_ANIM_OBJ_BONEMERANG          ; 67
-	const BATTLE_ANIM_OBJ_BONE_CLUB           ; 68
-	const BATTLE_ANIM_OBJ_BONE_RUSH           ; 69
 	const BATTLE_ANIM_OBJ_SWIFT               ; 6a
-	const BATTLE_ANIM_OBJ_KINESIS             ; 6b
 	const BATTLE_ANIM_OBJ_FLASH               ; 6c
 	const BATTLE_ANIM_OBJ_SHINY               ; 6d
 	const BATTLE_ANIM_OBJ_SKY_ATTACK          ; 6e
@@ -152,7 +144,6 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const BATTLE_ANIM_OBJ_SMOKESCREEN         ; 75
 	const BATTLE_ANIM_OBJ_SWORDS_DANCE        ; 76
 	const BATTLE_ANIM_OBJ_SPEED_LINE          ; 77
-	const BATTLE_ANIM_OBJ_SHARPEN             ; 78
 	const BATTLE_ANIM_OBJ_DEFENSE_CURL        ; 79
 	const BATTLE_ANIM_OBJ_METRONOME_HAND      ; 7a
 	const BATTLE_ANIM_OBJ_METRONOME_SPARKLE   ; 7b
@@ -162,7 +153,6 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const BATTLE_ANIM_OBJ_FLAME_WHEEL         ; 7f
 	const BATTLE_ANIM_OBJ_SACRED_FIRE         ; 80
 	const BATTLE_ANIM_OBJ_COTTON_SPORE        ; 81
-	const BATTLE_ANIM_OBJ_MILK_DRINK          ; 82
 	const BATTLE_ANIM_OBJ_ANGER               ; 83
 	const BATTLE_ANIM_OBJ_HEAL_BELL           ; 84
 	const BATTLE_ANIM_OBJ_HEAL_BELL_NOTE      ; 85
@@ -173,15 +163,11 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const BATTLE_ANIM_OBJ_PROTECT             ; 8a
 	const BATTLE_ANIM_OBJ_THIEF               ; 8b
 	const BATTLE_ANIM_OBJ_OCTAZOOKA           ; 8c
-	const BATTLE_ANIM_OBJ_PRESENT             ; 8d
 	const BATTLE_ANIM_OBJ_SPIKES              ; 8e
 	const BATTLE_ANIM_OBJ_POWDER_SNOW         ; 8f
 	const BATTLE_ANIM_OBJ_DRAGONBREATH        ; 90
 	const BATTLE_ANIM_OBJ_CONVERSION          ; 91
 	const BATTLE_ANIM_OBJ_SPIDER_WEB          ; 92
-	const BATTLE_ANIM_OBJ_CAKE_UNUSED         ; 93
-	const BATTLE_ANIM_OBJ_NIGHTMARE           ; 94
-	const BATTLE_ANIM_OBJ_IN_NIGHTMARE        ; 95
 	const BATTLE_ANIM_OBJ_LOVELY_KISS         ; 96
 	const BATTLE_ANIM_OBJ_SWEET_KISS          ; 97
 	const BATTLE_ANIM_OBJ_SKETCH              ; 98
@@ -199,17 +185,14 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const BATTLE_ANIM_OBJ_SPITE               ; a4
 	const BATTLE_ANIM_OBJ_CURSE               ; a5
 	const BATTLE_ANIM_OBJ_PERISH_SONG         ; a6
-	const BATTLE_ANIM_OBJ_FORESIGHT           ; a7
+	const BATTLE_ANIM_OBJ_FORESIGHT			  ; a7
 	const BATTLE_ANIM_OBJ_RAPID_SPIN          ; a8
 	const BATTLE_ANIM_OBJ_SWAGGER             ; a9
 	const BATTLE_ANIM_OBJ_BELLY_DRUM_HAND     ; aa
 	const BATTLE_ANIM_OBJ_BELLY_DRUM_NOTE     ; ab
 	const BATTLE_ANIM_OBJ_MEAN_LOOK           ; ac
-	const BATTLE_ANIM_OBJ_BETA_PURSUIT        ; ad
 	const BATTLE_ANIM_OBJ_SHOOTING_SPARKLE    ; ae
 	const BATTLE_ANIM_OBJ_RAIN                ; af
-	const BATTLE_ANIM_OBJ_B0                  ; b0
-	const BATTLE_ANIM_OBJ_PSYCH_UP            ; b1
 	const BATTLE_ANIM_OBJ_ANCIENTPOWER        ; b2
 	const BATTLE_ANIM_OBJ_AEROBLAST           ; b3
 	const BATTLE_ANIM_OBJ_SHADOW_BALL         ; b4
@@ -220,6 +203,26 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const BATTLE_ANIM_OBJ_PLAYERHEAD_1ROW     ; b9
 	const BATTLE_ANIM_OBJ_ENEMYFEET_2ROW      ; ba
 	const BATTLE_ANIM_OBJ_PLAYERHEAD_2ROW     ; bb
+	const BATTLE_ANIM_OBJ_MINIMIZE            ; bc
+	const BATTLE_ANIM_OBJ_MEDIUM_HORN         ; bd
+	const BATTLE_ANIM_OBJ_RISING_BUBBLE       ; be
+	const BATTLE_ANIM_OBJ_BUBBLE_SPLASH       ; bf
+	const BATTLE_ANIM_OBJ_OCTAZOOKA_SMOKE     ; c0
+	const BATTLE_ANIM_OBJ_INK_SPLASH          ; c1
+	const BATTLE_ANIM_OBJ_DAZZLE              ; c2
+	const BATTLE_ANIM_OBJ_SHOOTING_TRIANGLE   ; c3
+	const BATTLE_ANIM_OBJ_SPINNING_TRIANGLE   ; c4
+	const BATTLE_ANIM_OBJ_POISON_DROPLET      ; c5
+	const BATTLE_ANIM_OBJ_MUSHROOM            ; c6
+	const BATTLE_ANIM_OBJ_POWDER_SHOOT        ; c7
+	const BATTLE_ANIM_OBJ_SHOOTING_MIST       ; c9
+	const BATTLE_ANIM_OBJ_PETAL_DANCE_IMPACT  ; ca
+	const BATTLE_ANIM_OBJ_SWIRL_SHORT         ; cb
+	const BATTLE_ANIM_OBJ_VORTEX              ; cc
+	const BATTLE_ANIM_OBJ_RADIAL_FLAME        ; cd
+	const BATTLE_ANIM_OBJ_GROWING_BALL        ; ce
+	const BATTLE_ANIM_OBJ_HYDRO_PUMP_SHOT     ; cf
+	const BATTLE_ANIM_OBJ_WHIRLPOOL           ; d1
 DEF NUM_BATTLE_ANIM_OBJS EQU const_value
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
@@ -297,13 +300,14 @@ DEF NUM_BATTLE_ANIM_OBJS EQU const_value
 	const BATTLE_ANIM_FUNC_CURSE                     ; 46
 	const BATTLE_ANIM_FUNC_PERISH_SONG               ; 47
 	const BATTLE_ANIM_FUNC_RAPID_SPIN                ; 48
-	const BATTLE_ANIM_FUNC_BETA_PURSUIT              ; 49
 	const BATTLE_ANIM_FUNC_RAIN_SANDSTORM            ; 4a
-	const BATTLE_ANIM_FUNC_BATTLE_ANIM_OBJ_B0        ; 4b
-	const BATTLE_ANIM_FUNC_PSYCH_UP                  ; 4c
 	const BATTLE_ANIM_FUNC_ANCIENT_POWER             ; 4d
 	const BATTLE_ANIM_FUNC_ROCK_SMASH                ; 4e
 	const BATTLE_ANIM_FUNC_COTTON                    ; 4f
+	const BATTLE_ANIM_FUNC_BUBBLE_SPLASH             ; 4e
+	const BATTLE_ANIM_FUNC_RADIAL_MOVE_OUT           ; 4f
+	const BATTLE_ANIM_FUNC_RADIAL_MOVE_OUT_SLOW      ; 50
+	const BATTLE_ANIM_FUNC_FALL_AND_STOP             ; 51
 DEF NUM_BATTLE_ANIM_FUNCS EQU const_value
 
 ; BattleAnimFrameData indexes (see data/battle_anims/framesets.asm)
@@ -322,7 +326,6 @@ DEF NUM_BATTLE_ANIM_FUNCS EQU const_value
 	const BATTLE_ANIM_FRAMESET_POKE_BALL_3           ; 0b
 	const BATTLE_ANIM_FRAMESET_POKE_BALL_4           ; 0c
 	const BATTLE_ANIM_FRAMESET_POKE_BALL_5           ; 0d
-	const BATTLE_ANIM_FRAMESET_DRAGON_RAGE           ; 0e
 	const BATTLE_ANIM_FRAMESET_FLAMETHROWER          ; 0f
 	const BATTLE_ANIM_FRAMESET_EMBER                 ; 10
 	const BATTLE_ANIM_FRAMESET_BURNED                ; 11
@@ -366,8 +369,6 @@ DEF NUM_BATTLE_ANIM_FUNCS EQU const_value
 	const BATTLE_ANIM_FRAMESET_THUNDERBOLT_CORE      ; 37
 	const BATTLE_ANIM_FRAMESET_THUNDERSHOCK_SPARKS   ; 38
 	const BATTLE_ANIM_FRAMESET_THUNDERSHOCK_CORE     ; 39
-	const BATTLE_ANIM_FRAMESET_CLAMP                 ; 3a
-	const BATTLE_ANIM_FRAMESET_CLAMP_FLIPPED         ; 3b
 	const BATTLE_ANIM_FRAMESET_BITE_1                ; 3c
 	const BATTLE_ANIM_FRAMESET_BITE_2                ; 3d
 	const BATTLE_ANIM_FRAMESET_CUT_DOWN_LEFT         ; 3e
@@ -382,7 +383,6 @@ DEF NUM_BATTLE_ANIM_FUNCS EQU const_value
 	const BATTLE_ANIM_FRAMESET_VINE_WHIP_2           ; 47
 	const BATTLE_ANIM_FRAMESET_RAZOR_WIND_1          ; 48
 	const BATTLE_ANIM_FRAMESET_RAZOR_WIND_2          ; 49
-	const BATTLE_ANIM_FRAMESET_SONICBOOM_JP          ; 4a
 	const BATTLE_ANIM_FRAMESET_WARP                  ; 4b
 	const BATTLE_ANIM_FRAMESET_CHARGE_ORB_2          ; 4c
 	const BATTLE_ANIM_FRAMESET_EGG                   ; 4d
@@ -392,7 +392,7 @@ DEF NUM_BATTLE_ANIM_FUNCS EQU const_value
 	const BATTLE_ANIM_FRAMESET_FOCUS                 ; 51
 	const BATTLE_ANIM_FRAMESET_BIND_1                ; 52
 	const BATTLE_ANIM_FRAMESET_BIND_2                ; 53
-	const BATTLE_ANIM_FRAMESET_BIND_3                ; 54
+	const BATTLE_ANIM_FRAMESET_BIND_3
 	const BATTLE_ANIM_FRAMESET_BIND_4                ; 55
 	const BATTLE_ANIM_FRAMESET_LEECH_SEED_1          ; 56
 	const BATTLE_ANIM_FRAMESET_LEECH_SEED_2          ; 57
@@ -429,7 +429,6 @@ DEF NUM_BATTLE_ANIM_FUNCS EQU const_value
 	const BATTLE_ANIM_FRAMESET_HEART                 ; 76
 	const BATTLE_ANIM_FRAMESET_SPINNING_BONE         ; 77
 	const BATTLE_ANIM_FRAMESET_STAR                  ; 78
-	const BATTLE_ANIM_FRAMESET_SPOON                 ; 79
 	const BATTLE_ANIM_FRAMESET_SPARKLE               ; 7a
 	const BATTLE_ANIM_FRAMESET_SKY_ATTACK            ; 7b
 	const BATTLE_ANIM_FRAMESET_LICK                  ; 7c
@@ -441,12 +440,10 @@ DEF NUM_BATTLE_ANIM_FUNCS EQU const_value
 	const BATTLE_ANIM_FRAMESET_SPEED_LINE_2          ; 82
 	const BATTLE_ANIM_FRAMESET_SPEED_LINE_3          ; 83
 	const BATTLE_ANIM_FRAMESET_SEISMIC_TOSS          ; 84
-	const BATTLE_ANIM_FRAMESET_SHARPEN               ; 85
 	const BATTLE_ANIM_FRAMESET_DEFENSE_CURL          ; 86
 	const BATTLE_ANIM_FRAMESET_METRONOME_HAND        ; 87
 	const BATTLE_ANIM_FRAMESET_AGILITY               ; 88
 	const BATTLE_ANIM_FRAMESET_COTTON                ; 89
-	const BATTLE_ANIM_FRAMESET_MILK_BOTTLE           ; 8a
 	const BATTLE_ANIM_FRAMESET_SPIKE                 ; 8b
 	const BATTLE_ANIM_FRAMESET_ANGER_VEIN            ; 8c
 	const BATTLE_ANIM_FRAMESET_HEAL_BELL             ; 8d
@@ -460,10 +457,8 @@ DEF NUM_BATTLE_ANIM_FUNCS EQU const_value
 	const BATTLE_ANIM_FRAMESET_MIND_READER_3         ; 95
 	const BATTLE_ANIM_FRAMESET_MIND_READER_4         ; 96
 	const BATTLE_ANIM_FRAMESET_SAFEGUARD             ; 97
-	const BATTLE_ANIM_FRAMESET_MEGAPHONE_UNUSED      ; 98
 	const BATTLE_ANIM_FRAMESET_ITEM_BAG              ; 99
 	const BATTLE_ANIM_FRAMESET_SPIDER_WEB            ; 9a
-	const BATTLE_ANIM_FRAMESET_UNUSED_CAKE           ; 9b
 	const BATTLE_ANIM_FRAMESET_IMP                   ; 9c
 	const BATTLE_ANIM_FRAMESET_IMP_FLIPPED           ; 9d
 	const BATTLE_ANIM_FRAMESET_CHERUB                ; 9e
@@ -485,14 +480,26 @@ DEF NUM_BATTLE_ANIM_FUNCS EQU const_value
 	const BATTLE_ANIM_FRAMESET_UPSIDE_DOWN_PUNCH     ; ae
 	const BATTLE_ANIM_FRAMESET_GROWING_SPARKLE       ; af
 	const BATTLE_ANIM_FRAMESET_RAIN                  ; b0
-	const BATTLE_ANIM_FRAMESET_PSYCH_UP              ; b1
-	const BATTLE_ANIM_FRAMESET_SPIRAL_UNUSED         ; b2
 	const BATTLE_ANIM_FRAMESET_AEROBLAST             ; b3
 	const BATTLE_ANIM_FRAMESET_SANDSTORM             ; b4
 	const BATTLE_ANIM_FRAMESET_ENEMYFEET_1ROW        ; b5
 	const BATTLE_ANIM_FRAMESET_PLAYERHEAD_1ROW       ; b6
 	const BATTLE_ANIM_FRAMESET_ENEMYFEET_2ROW        ; b7
 	const BATTLE_ANIM_FRAMESET_PLAYERHEAD_2ROW       ; b8
+	const BATTLE_ANIM_FRAMESET_MEDIUM_HORN                ; b9
+	const BATTLE_ANIM_FRAMESET_MINIMIZE                   ; ba
+	const BATTLE_ANIM_FRAMESET_BUBBLE_SPLASH              ; bb
+	const BATTLE_ANIM_FRAMESET_SMOKE_PUFF                 ; bc
+	const BATTLE_ANIM_FRAMESET_INK_SPLASH                 ; bd
+	const BATTLE_ANIM_FRAMESET_SPINNING_TRIANGLE          ; be
+	const BATTLE_ANIM_FRAMESET_SPINNING_TRIANGLE_SLOW     ; bf
+	const BATTLE_ANIM_FRAMESET_BOUNCING_MUSHROOM          ; c0
+	const BATTLE_ANIM_FRAMESET_SWIRL_SHORT                ; c1
+	const BATTLE_ANIM_FRAMESET_VORTEX                     ; c2
+	const BATTLE_ANIM_FRAMESET_TINY_GLOW                  ; c3
+	const BATTLE_ANIM_FRAMESET_GROWING_BALL               ; c4
+	const BATTLE_ANIM_FRAMESET_WATER_BALL                 ; c5
+	const BATTLE_ANIM_FRAMESET_GROWING_BUBBLE             ; c6
 DEF NUM_BATTLE_ANIM_FRAMESETS EQU const_value
 
 ; BattleAnimOAMData indexes (see data/battle_anims/oam.asm)
@@ -650,8 +657,6 @@ DEF NUM_BATTLE_ANIM_FRAMESETS EQU const_value
 	const BATTLE_ANIM_OAMSET_96
 	const BATTLE_ANIM_OAMSET_97
 	const BATTLE_ANIM_OAMSET_98
-	const BATTLE_ANIM_OAMSET_99
-	const BATTLE_ANIM_OAMSET_9A
 	const BATTLE_ANIM_OAMSET_9B
 	const BATTLE_ANIM_OAMSET_9C
 	const BATTLE_ANIM_OAMSET_9D
@@ -713,6 +718,19 @@ DEF NUM_BATTLE_ANIM_FRAMESETS EQU const_value
 	const BATTLE_ANIM_OAMSET_D5
 	const BATTLE_ANIM_OAMSET_D6
 	const BATTLE_ANIM_OAMSET_D7
+	const BATTLE_ANIM_OAMSET_D8
+	const BATTLE_ANIM_OAMSET_D9
+	const BATTLE_ANIM_OAMSET_DA
+	const BATTLE_ANIM_OAMSET_DB
+	const BATTLE_ANIM_OAMSET_DC
+	const BATTLE_ANIM_OAMSET_DD
+	const BATTLE_ANIM_OAMSET_DE
+	const BATTLE_ANIM_OAMSET_DF
+	const BATTLE_ANIM_OAMSET_E0
+	const BATTLE_ANIM_OAMSET_E1
+	const BATTLE_ANIM_OAMSET_E2
+	const BATTLE_ANIM_OAMSET_E3
+	const BATTLE_ANIM_OAMSET_E4
 DEF NUM_BATTLE_ANIM_OAMSETS EQU const_value
 
 assert NUM_BATTLE_ANIM_OAMSETS <= FIRST_OAM_CMD, \
@@ -740,17 +758,13 @@ assert NUM_BATTLE_ANIM_OAMSETS <= FIRST_OAM_CMD, \
 	const BATTLE_BG_EFFECT_BATTLEROBJ_1ROW                  ; 11
 	const BATTLE_BG_EFFECT_BATTLEROBJ_2ROW                  ; 12
 	const BATTLE_BG_EFFECT_DOUBLE_TEAM                      ; 13
-	const BATTLE_BG_EFFECT_ACID_ARMOR                       ; 14
-	const BATTLE_BG_EFFECT_RAPID_FLASH                      ; 15
 	const BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT                ; 16
 	const BATTLE_BG_EFFECT_FADE_MON_TO_BLACK                ; 17
 	const BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT_REPEATING      ; 18
 	const BATTLE_BG_EFFECT_FADE_MON_TO_BLACK_REPEATING      ; 19
 	const BATTLE_BG_EFFECT_CYCLE_MON_LIGHT_DARK_REPEATING   ; 1a
-	const BATTLE_BG_EFFECT_FLASH_MON_REPEATING              ; 1b
 	const BATTLE_BG_EFFECT_FADE_MONS_TO_BLACK_REPEATING     ; 1c
 	const BATTLE_BG_EFFECT_FADE_MON_TO_WHITE_WAIT_FADE_BACK ; 1d
-	const BATTLE_BG_EFFECT_FADE_MON_FROM_WHITE              ; 1e
 	const BATTLE_BG_EFFECT_SHAKE_SCREEN_X                   ; 1f
 	const BATTLE_BG_EFFECT_SHAKE_SCREEN_Y                   ; 20
 	const BATTLE_BG_EFFECT_WITHDRAW                         ; 21
@@ -762,12 +776,8 @@ assert NUM_BATTLE_ANIM_OAMSETS <= FIRST_OAM_CMD, \
 	const BATTLE_BG_EFFECT_REMOVE_MON                       ; 27
 	const BATTLE_BG_EFFECT_WAVE_DEFORM_MON                  ; 28
 	const BATTLE_BG_EFFECT_PSYCHIC                          ; 29
-	const BATTLE_BG_EFFECT_BETA_SEND_OUT_MON1               ; 2a
-	const BATTLE_BG_EFFECT_BETA_SEND_OUT_MON2               ; 2b
 	const BATTLE_BG_EFFECT_FLAIL                            ; 2c
-	const BATTLE_BG_EFFECT_BETA_PURSUIT                     ; 2d
 	const BATTLE_BG_EFFECT_ROLLOUT                          ; 2e
-	const BATTLE_BG_EFFECT_VITAL_THROW                      ; 2f
 	const BATTLE_BG_EFFECT_START_WATER                      ; 30
 	const BATTLE_BG_EFFECT_WATER                            ; 31
 	const BATTLE_BG_EFFECT_END_WATER                        ; 32
@@ -818,8 +828,18 @@ DEF NUM_BATTLE_BG_EFFECTS EQU const_value
 	const BATTLE_ANIM_GFX_ANGELS     ; 25
 	const BATTLE_ANIM_GFX_WAVE       ; 26
 	const BATTLE_ANIM_GFX_AEROBLAST  ; 27
-	const BATTLE_ANIM_GFX_PLAYERHEAD ; 28
-	const BATTLE_ANIM_GFX_ENEMYFEET  ; 29
+	const BATTLE_ANIM_GFX_BEAM_SOLAR     ; 28
+	const BATTLE_ANIM_GFX_SMOKE_PUFF     ; 29
+	const BATTLE_ANIM_GFX_TRIANGLE       ; 2a
+	const BATTLE_ANIM_GFX_MUSHROOM       ; 2b
+	const BATTLE_ANIM_GFX_BEAM_AURORA    ; 2c
+	const BATTLE_ANIM_GFX_PETALS         ; 2d
+	const BATTLE_ANIM_GFX_SWIRL          ; 2e
+	const BATTLE_ANIM_GFX_VORTEX         ; 2f
+	const BATTLE_ANIM_GFX_GLOW           ; 30
+	const BATTLE_ANIM_GFX_WATER_BALL     ; 31
+	const BATTLE_ANIM_GFX_PLAYERHEAD     ; 33
+	const BATTLE_ANIM_GFX_ENEMYFEET      ; 34
 DEF NUM_BATTLE_ANIM_GFX EQU const_value - 1
 
 ; battle_bg_effect struct members (see macros/ram.asm)

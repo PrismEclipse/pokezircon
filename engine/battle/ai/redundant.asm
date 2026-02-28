@@ -14,7 +14,7 @@ AI_Redundant:
 	jp hl
 
 .Moves:
-	dbw EFFECT_DREAM_EATER,  .DreamEater
+	dbw EFFECT_CALM_MIND,  .DreamEater
 	dbw EFFECT_HEAL,         .Heal
 	dbw EFFECT_LIGHT_SCREEN, .LightScreen
 	dbw EFFECT_MIST,         .Mist

@@ -9,7 +9,6 @@ MoveEffectsPointers:
 	dw FreezeHit
 	dw ParalyzeHit
 	dw Selfdestruct
-	dw DreamEater
 	dw StrengthSap
 	dw AttackUp
 	dw DefenseUp
@@ -79,7 +78,6 @@ MoveEffectsPointers:
 	dw Substitute
 	dw HyperBeam
 	dw Rage
-	dw Mimic
 	dw Metronome
 	dw LeechSeed
 	dw Splash

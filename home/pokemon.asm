@@ -247,7 +247,6 @@ GetBaseData::
 ; Egg doesn't have BaseData
 	ld a, [wCurSpecies]
 	cp EGG
-	jr z, .egg
 
 ; Get BaseData
 	dec a
@@ -259,8 +258,6 @@ GetBaseData::
 	call CopyBytes
 	jr .end
 
-.egg
-	ld de, UnusedEggPic
 
 ; Sprite dimensions
 	ld b, $55 ; 5x5

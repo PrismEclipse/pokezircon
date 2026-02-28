@@ -12,18 +12,11 @@ MoveGrammar:
 	db MINIMIZE
 	db SMOKESCREEN
 	db DEFENSE_CURL
-	db EGG_BOMB
-	db SMOG
-	db BONE_CLUB
 	db FLASH
 	db SPLASH
-	db ACID_ARMOR
 	db BONEMERANG
 	db REST
-	db SHARPEN
 	db SUBSTITUTE
-	db MIND_READER
-	db SNORE
 	db PROTECT
 	db SPIKES
 	db ENDURE
@@ -31,7 +24,6 @@ MoveGrammar:
 	db SWAGGER
 	db SLEEP_TALK
 	db HIDDEN_POWER
-	db PSYCH_UP
 	db EXTREMESPEED
 	db 0 ; end set
 
@@ -44,18 +36,15 @@ MoveGrammar:
 	db 0 ; end set
 
 ; 2: originally "[mon]は<LINE>[move]を　した！" ("[mon]<LINE>did [move]!")
-	db MEDITATE
 	db AGILITY
-	db MIMIC
 	db DOUBLE_TEAM
-	db BARRAGE
 	db TRANSFORM
 	db STRUGGLE
 	db SCARY_FACE
 	db 0 ; end set
 
 ; 3: originally "[mon]の<LINE>[move]　こうげき！" ("[mon]'s<LINE>[move] attack!")
-	db POUND
+	db TACKLE
 	db SCRATCH
 	db VICEGRIP
 	db WING_ATTACK
@@ -63,15 +52,14 @@ MoveGrammar:
 	db HORN_ATTACK
 	db WRAP
 	db THRASH
-	db TAIL_WHIP
-	db LEER
+	db DISARM
 	db BITE
 	db GROWL
-	db ROAR
+	db SEND_AWAY
 	db SING
 	db PECK
 	db ABSORB
-	db STRING_SHOT
+	db SLOW_DOWN
 	db EARTHQUAKE
 	db FISSURE
 	db DIG
@@ -79,13 +67,9 @@ MoveGrammar:
 	db SCREECH
 	db METRONOME
 	db LICK
-	db CLAMP
 	db POISON_GAS
-	db BUBBLE
 	db SLASH
-	db NIGHTMARE
 	db CURSE
-	db FORESIGHT
 	db CHARM
 	db ATTRACT
 	db ROCK_SMASH
