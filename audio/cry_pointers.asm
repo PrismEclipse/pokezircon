@@ -71,4 +71,5 @@ Cries:
 	dba Cry_Donphan
 	dba Cry_Hydreigon ;BW3G
 	dba Cry_Zygarde ;Modified Cry_Hydreigon
+	dba Cry_Stoutland ;BW3G
 	assert_table_length NUM_CRIES

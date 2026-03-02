@@ -151,7 +151,7 @@ IconPointers:
 	dw DratiniIcon
 	dw DragonairIcon
 	dw DragoniteIcon
-	dw MewtwoIcon
+	dw NecrozmaIcon
 	dw MewIcon
 	dw ChikoritaIcon
 	dw BayleefIcon
@@ -244,9 +244,9 @@ IconPointers:
 	dw MagbyIcon
 	dw MiltankIcon
 	dw BlisseyIcon
-	dw RaikouIcon
-	dw EnteiIcon
-	dw SuicuneIcon
+	dw Zygarde10Icon
+	dw Zygarde50Icon
+	dw Zygarde100Icon
 	dw LarvitarIcon
 	dw PupitarIcon
 	dw TyranitarIcon

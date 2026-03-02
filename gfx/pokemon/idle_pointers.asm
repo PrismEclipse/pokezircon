@@ -149,7 +149,7 @@ AnimationIdlePointers:
 	dw DratiniAnimationIdle
 	dw DragonairAnimationIdle
 	dw DragoniteAnimationIdle
-	dw MewtwoAnimationIdle
+	dw NecrozmaAnimationIdle
 	dw MewAnimationIdle
 	dw ChikoritaAnimationIdle
 	dw BayleefAnimationIdle
@@ -242,9 +242,9 @@ AnimationIdlePointers:
 	dw MagbyAnimationIdle
 	dw MiltankAnimationIdle
 	dw BlisseyAnimationIdle
-	dw RaikouAnimationIdle
-	dw EnteiAnimationIdle
-	dw SuicuneAnimationIdle
+	dw Zygarde10AnimationIdle
+	dw Zygarde50AnimationIdle
+	dw Zygarde100AnimationIdle
 	dw LarvitarAnimationIdle
 	dw PupitarAnimationIdle
 	dw TyranitarAnimationIdle

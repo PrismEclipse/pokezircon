@@ -187,9 +187,9 @@ ItemNames::
 	li "EON MAIL"
 	li "MORPH MAIL"
 	li "BLUESKY MAIL"
-	li "MUSIC MAIL"
-	li "MIRAGE MAIL"
-	li "TERU-SAMA"
+	li "CELL CLUSTER"
+	li "ZY-CRYSTAL"
+	li "ZY-ENGINE"
 	assert_list_length NUM_ITEMS
 	li "TERU-SAMA"
 	li "TERU-SAMA"

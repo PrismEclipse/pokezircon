@@ -149,7 +149,7 @@ BitmasksPointers:
 	dw DratiniBitmasks
 	dw DragonairBitmasks
 	dw DragoniteBitmasks
-	dw MewtwoBitmasks
+	dw NecrozmaBitmasks
 	dw MewBitmasks
 	dw ChikoritaBitmasks
 	dw BayleefBitmasks
@@ -242,9 +242,9 @@ BitmasksPointers:
 	dw MagbyBitmasks
 	dw MiltankBitmasks
 	dw BlisseyBitmasks
-	dw RaikouBitmasks
-	dw EnteiBitmasks
-	dw SuicuneBitmasks
+	dw Zygarde10Bitmasks
+	dw Zygarde50Bitmasks
+	dw Zygarde100Bitmasks
 	dw LarvitarBitmasks
 	dw PupitarBitmasks
 	dw TyranitarBitmasks

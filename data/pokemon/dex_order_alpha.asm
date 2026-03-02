@@ -55,7 +55,6 @@ AlphabeticalPokedexOrder:
 	db ELECTABUZZ
 	db ELECTRODE
 	db ELEKID
-	db ENTEI
 	db ESPEON
 	db EXEGGCUTE
 	db EXEGGUTOR
@@ -180,7 +179,6 @@ AlphabeticalPokedexOrder:
 	db QUILAVA
 	db QWILFISH
 	db RAICHU
-	db RAIKOU
 	db RAPIDASH
 	db RATICATE
 	db RATTATA
@@ -216,7 +214,6 @@ AlphabeticalPokedexOrder:
 	db STARYU
 	db STEELIX
 	db SUDOWOODO
-	db SUICUNE
 	db SUNFLORA
 	db SUNKERN
 	db SWINUB
@@ -253,4 +250,7 @@ AlphabeticalPokedexOrder:
 	db YANMA
 	db ZAPDOS
 	db ZUBAT
+	db ZYGARDE10
+	db ZYGARDE50
+	db ZYGARDE100
 	assert_table_length NUM_POKEMON

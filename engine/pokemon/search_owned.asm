@@ -3,17 +3,17 @@ BeastsCheck:
 ; They must exist in either party or PC, and have the player's OT and ID.
 ; Return the result in wScriptVar.
 
-	ld a, RAIKOU
+	ld a, ZYGARDE10
 	ld [wScriptVar], a
 	call CheckOwnMonAnywhere
 	jr nc, .notexist
 
-	ld a, ENTEI
+	ld a, ZYGARDE50
 	ld [wScriptVar], a
 	call CheckOwnMonAnywhere
 	jr nc, .notexist
 
-	ld a, SUICUNE
+	ld a, ZYGARDE100
 	ld [wScriptVar], a
 	call CheckOwnMonAnywhere
 	jr nc, .notexist

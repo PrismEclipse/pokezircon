@@ -42,7 +42,7 @@ BattleAnimations::
 	dw BattleAnim_DoubleEdge
 	dw BattleAnim_TailWhip
 	dw BattleAnim_PoisonSting
-	dw BattleAnim_Twineedle
+	dw BattleAnim_CoreEnforcer
 	dw BattleAnim_PinMissile
 	dw BattleAnim_Leer
 	dw BattleAnim_Bite
@@ -3001,6 +3001,53 @@ BattleAnim_Conversion:
 	anim_obj BATTLE_ANIM_OBJ_CONVERSION, 48, 88, $30
 	anim_obj BATTLE_ANIM_OBJ_CONVERSION, 48, 88, $38
 	anim_wait 128
+	anim_ret
+
+BattleAnim_CoreEnforcer:
+	anim_4gfx BATTLE_ANIM_GFX_EXPLOSION, BATTLE_ANIM_GFX_CHARGE, BATTLE_ANIM_GFX_BEAM, BATTLE_ANIM_GFX_SPEED
+	anim_bgp $1b
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_GREEN
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $50, $4, $10
+	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	
+	anim_sound 0, 0, SFX_AEROBLAST
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 44, 108, $6
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 36, 108, $6
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 52, 108, $8
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 28, 108, $8
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 60, 108, $6
+	anim_wait 2
+	anim_obj BATTLE_ANIM_OBJ_FOCUS, 20, 108, $8
+	anim_obj BATTLE_ANIM_OBJ_AEROBLAST, 72, 88, $0
+	anim_wait 32
+	anim_sound 0, 0, SFX_HYPER_BEAM
+	anim_obj BATTLE_ANIM_OBJ_BEAM, 80, 84, $0
+	anim_wait 2
+	anim_sound 0, 1, SFX_HYPER_BEAM
+	anim_obj BATTLE_ANIM_OBJ_BEAM, 96, 76, $0
+	anim_wait 2
+	anim_sound 0, 1, SFX_HYPER_BEAM
+	anim_obj BATTLE_ANIM_OBJ_BEAM, 112, 68, $0
+	anim_wait 5
+	anim_obj BATTLE_ANIM_OBJ_EXPLOSION1, 148, 32, $0
+	anim_wait 5
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj BATTLE_ANIM_OBJ_EXPLOSION1, 116, 72, $0
+	anim_wait 5
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj BATTLE_ANIM_OBJ_EXPLOSION1, 148, 72, $0
+	anim_wait 5
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj BATTLE_ANIM_OBJ_EXPLOSION1, 116, 32, $0
+	anim_wait 5
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj BATTLE_ANIM_OBJ_EXPLOSION1, 132, 52, $0
+	anim_wait 2
+	anim_wait 48
 	anim_ret
 
 BattleAnim_Aeroblast:

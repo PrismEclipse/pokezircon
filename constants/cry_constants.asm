@@ -74,5 +74,6 @@
 	const CRY_DONPHAN
 	const CRY_HYDREIGON
 	const CRY_ZYGARDE
+	const CRY_STOUTLAND
 
 DEF NUM_CRIES EQU const_value

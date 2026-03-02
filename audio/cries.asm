@@ -71,6 +71,11 @@ Cry_Zygarde:
 	channel 5, Cry_Zygarde_Ch5
 	channel 6, Cry_Zygarde_Ch6
 	channel 8, Cry_Zygarde_Ch8	
+	
+Cry_Stoutland:
+	channel_count 2
+	channel 5, Cry_Stoutland_Ch5
+	channel 6, Cry_Stoutland_Ch6	
 
 Cry_Gligar:
 	channel_count 2
@@ -630,6 +635,32 @@ Cry_Zygarde_Ch8:
 	noise_note 6, 14, 6, 76
 	noise_note 12, 7, -5, 76
 	noise_note 15, 13, 3, 76
+	sound_ret
+
+Cry_Stoutland_Ch5:
+	duty_cycle_pattern 1, 1, 2, 2
+	square_note 5, 15, 1, 1236
+	square_note 5, 15, 2, 1256
+	square_note 3, 9, 6, 1056
+	square_note 15, 15, 2, 1036
+	square_note 15, 9, 6, 172
+	square_note 3, 9, 3, 1762
+	square_note 15, 15, 3, 1792
+	square_note 3, 9, 3, 1762
+	square_note 15, 15, 3, 1792
+	sound_ret
+
+Cry_Stoutland_Ch6:
+	duty_cycle_pattern 2, 2, 0, 0
+	square_note 5, 11, 1, 1105
+	square_note 4, 13, 2, 1105
+	square_note 4, 6, 6, 1265
+	square_note 15, 11, 1, 1105
+	square_note 15, 6, 6, 165
+	square_note 4, 6, 2, 1761
+	square_note 15, 11, 3, 1665
+	square_note 4, 6, 2, 1761
+	square_note 15, 11, 3, 1665
 	sound_ret	
 
 Cry_Slugma_Ch5:

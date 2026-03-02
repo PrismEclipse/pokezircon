@@ -149,7 +149,7 @@ AnimationPointers:
 	dw DratiniAnimation
 	dw DragonairAnimation
 	dw DragoniteAnimation
-	dw MewtwoAnimation
+	dw NecrozmaAnimation
 	dw MewAnimation
 	dw ChikoritaAnimation
 	dw BayleefAnimation
@@ -242,9 +242,9 @@ AnimationPointers:
 	dw MagbyAnimation
 	dw MiltankAnimation
 	dw BlisseyAnimation
-	dw RaikouAnimation
-	dw EnteiAnimation
-	dw SuicuneAnimation
+	dw Zygarde10Animation
+	dw Zygarde50Animation
+	dw Zygarde100Animation
 	dw LarvitarAnimation
 	dw PupitarAnimation
 	dw TyranitarAnimation

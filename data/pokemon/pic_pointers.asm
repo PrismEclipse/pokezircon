@@ -152,7 +152,7 @@ PokemonPicPointers::
 	dbas DratiniFrontpic, DratiniBackpic
 	dbas DragonairFrontpic, DragonairBackpic
 	dbas DragoniteFrontpic, DragoniteBackpic
-	dbas MewtwoFrontpic, MewtwoBackpic
+	dbas NecrozmaFrontpic, NecrozmaBackpic
 	dbas MewFrontpic, MewBackpic
 	dbas ChikoritaFrontpic, ChikoritaBackpic
 	dbas BayleefFrontpic, BayleefBackpic
@@ -245,9 +245,9 @@ PokemonPicPointers::
 	dbas MagbyFrontpic, MagbyBackpic
 	dbas MiltankFrontpic, MiltankBackpic
 	dbas BlisseyFrontpic, BlisseyBackpic
-	dbas RaikouFrontpic, RaikouBackpic
-	dbas EnteiFrontpic, EnteiBackpic
-	dbas SuicuneFrontpic, SuicuneBackpic
+	dbas Zygarde10Frontpic, Zygarde10Backpic
+	dbas Zygarde50Frontpic, Zygarde50Backpic
+	dbas Zygarde100Frontpic, Zygarde100Backpic
 	dbas LarvitarFrontpic, LarvitarBackpic
 	dbas PupitarFrontpic, PupitarBackpic
 	dbas TyranitarFrontpic, TyranitarBackpic

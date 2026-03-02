@@ -416,10 +416,11 @@ StatsScreen_InitUpperHalf:
 	inc hl
 	ld [hl], '.'
 	inc hl
+	farcall Pokedex_GetDexNumber
+	ld de, wUnusedBCDNumber
 	hlcoord 10, 0
-	lb bc, PRINTNUM_LEADINGZEROS | 1, 3
-	ld de, wTextDecimalByte
-	call PrintNum
+	call GetPokemonNumber
+	call PlaceString
 	hlcoord 14, 0
 	call PrintLevel
 	ld hl, .NicknamePointers

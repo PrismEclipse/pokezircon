@@ -193,9 +193,9 @@
 	const EON_MAIL     ; b9
 	const MORPH_MAIL   ; ba
 	const BLUESKY_MAIL ; bb
-	const MUSIC_MAIL   ; bc
-	const MIRAGE_MAIL  ; bd
-	const ITEM_BE      ; be
+	const CELL_CLUSTER ; bc
+	const ZYGARDE_CRYSTAL ; bd
+	const ZYGARDE_ENGINE ; be
 DEF NUM_ITEMS EQU const_value - 1
 
 DEF __tmhm_value__ = 1

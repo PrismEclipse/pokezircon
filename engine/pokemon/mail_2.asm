@@ -9,8 +9,6 @@
 	const EON_MAIL_INDEX     ; 5
 	const MORPH_MAIL_INDEX   ; 6
 	const BLUESKY_MAIL_INDEX ; 7
-	const MUSIC_MAIL_INDEX   ; 8
-	const MIRAGE_MAIL_INDEX  ; 9
 DEF NUM_MAIL EQU const_value
 
 ReadPartyMonMail:
@@ -142,8 +140,6 @@ MailGFXPointers:
 	dbw EON_MAIL,     LoadEonMailGFX
 	dbw MORPH_MAIL,   LoadMorphMailGFX
 	dbw BLUESKY_MAIL, LoadBlueSkyMailGFX
-	dbw MUSIC_MAIL,   LoadMusicMailGFX
-	dbw MIRAGE_MAIL,  LoadMirageMailGFX
 	assert_table_length NUM_MAIL
 	db -1 ; end
 
@@ -583,108 +579,6 @@ LoadPortraitMailGFX:
 	ld [wUnownLetter], a
 	hlcoord 1, 10
 	call PrepMonFrontpic
-	pop hl
-	jp MailGFX_PlaceMessage
-
-LoadMusicMailGFX:
-	push bc
-	ld hl, vTiles2 tile $31
-	ld de, MusicMailBorderGFX
-	ld c, 4 * TILE_1BPP_SIZE
-	call LoadMailGFX_Color2
-	ld de, MorphMailBorderGFX
-	ld c, 2 * TILE_1BPP_SIZE
-	call LoadMailGFX_Color2
-	ld de, MailNatuGFX
-	ld c, 6 * TILE_1BPP_SIZE
-	call LoadMailGFX_Color3
-	xor a
-	ld bc, 1 tiles
-	call ByteFill
-	ld de, MusicMailLargeNoteGFX
-	ld c, 3 * TILE_1BPP_SIZE
-	call LoadMailGFX_Color1
-	ld de, MusicMailSmallNoteGFX
-	ld c, 1 * TILE_1BPP_SIZE
-	call LoadMailGFX_Color1
-
-	ld a, $31
-	hlcoord 0, 0
-	call Mail_Place18TileAlternatingRow
-	hlcoord 1, 17
-	call Mail_Place18TileAlternatingRow
-	ld a, $33
-	hlcoord 0, 1
-	call Mail_Place16TileAlternatingColumn
-	hlcoord 19, 0
-	call Mail_Place16TileAlternatingColumn
-	ld a, $35
-	hlcoord 2, 15
-	call Mail_Place14TileAlternatingRow
-	ld a, $37
-	hlcoord 15, 14
-	call Mail_Draw3x2Graphic
-	call LovelyEonMail_PlaceIcons
-	pop hl
-	jp MailGFX_PlaceMessage
-
-LoadMirageMailGFX:
-	push bc
-	ld hl, vTiles2 tile $31
-	ld bc, 5 * TILE_1BPP_SIZE
-	call MailGFX_GenerateMonochromeTilesColor2
-	ld de, BlueSkyMailGrassGFX
-	ld c, 1 * TILE_1BPP_SIZE
-	call LoadMailGFX_Color2
-	ld de, MailMewGFX
-	ld c, 18 * TILE_1BPP_SIZE
-	call LoadMailGFX_Color2
-	ld de, LiteBlueMailBorderGFX + 1 * TILE_1BPP_SIZE
-	ld c, 1 * TILE_1BPP_SIZE
-	call LoadMailGFX_Color1
-	ld de, LiteBlueMailBorderGFX + 6 * TILE_1BPP_SIZE
-	ld c, 1 * TILE_1BPP_SIZE
-	call LoadMailGFX_Color1
-
-	call DrawMailBorder2
-	ld a, $36
-	hlcoord 1, 16
-	call Mail_DrawTopBottomBorder
-	inc a
-	hlcoord 15, 14
-	call Mail_Draw3x2Graphic
-	inc a
-	hlcoord 15, 16
-	ld [hli], a
-	inc a
-	ld [hl], a
-	ld a, $3f
-	hlcoord 1, 1
-	call Mail_Place18TileAlternatingRow
-	ld a, $41
-	hlcoord 0, 2
-	call Mail_Place14TileAlternatingColumn
-	ld a, $43
-	hlcoord 19, 2
-	call Mail_Place14TileAlternatingColumn
-	ld a, $45
-	hlcoord 0, 1
-	ld [hl], a
-	inc a
-	hlcoord 19, 1
-	ld [hl], a
-	inc a
-	hlcoord 0, 16
-	ld [hl], a
-	inc a
-	hlcoord 19, 16
-	ld [hl], a
-	inc a
-	hlcoord 2, 5
-	call Mail_Draw16TileRow
-	inc a
-	hlcoord 2, 11
-	call Mail_Draw16TileRow
 	pop hl
 	jp MailGFX_PlaceMessage
 

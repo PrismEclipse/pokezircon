@@ -151,7 +151,7 @@ EvosAttacksPointers::
 	dw DratiniEvosAttacks
 	dw DragonairEvosAttacks
 	dw DragoniteEvosAttacks
-	dw MewtwoEvosAttacks
+	dw NecrozmaEvosAttacks
 	dw MewEvosAttacks
 	dw ChikoritaEvosAttacks
 	dw BayleefEvosAttacks
@@ -244,9 +244,9 @@ EvosAttacksPointers::
 	dw MagbyEvosAttacks
 	dw MiltankEvosAttacks
 	dw BlisseyEvosAttacks
-	dw RaikouEvosAttacks
-	dw EnteiEvosAttacks
-	dw SuicuneEvosAttacks
+	dw Zygarde10EvosAttacks
+	dw Zygarde50EvosAttacks
+	dw Zygarde100EvosAttacks
 	dw LarvitarEvosAttacks
 	dw PupitarEvosAttacks
 	dw TyranitarEvosAttacks

@@ -188,9 +188,9 @@ ItemDescriptions:
 	dw EonMailDesc
 	dw MorphMailDesc
 	dw BlueSkyMailDesc
-	dw MusicMailDesc
-	dw MirageMailDesc
-	dw TeruSama25Desc
+	dw CellClusterDesc
+	dw ZygardeCrystalDesc
+	dw ZygardeEngineDesc
 	assert_table_length NUM_ITEMS
 	dw TeruSama26Desc
 	dw TeruSama26Desc
@@ -977,16 +977,17 @@ BlueSkyMailDesc:
 	db   "Sky-print MAIL."
 	next "(HOLD)@"
 
-MusicMailDesc:
-	db   "NATU-print MAIL."
-	next "(HOLD)@"
+CellClusterDesc:
+	db   "A cluster of"
+	next "ZYGARDE Cells.@"
 
-MirageMailDesc:
-	db   "MEW-print MAIL."
-	next "(HOLD)@"
+ZygardeCrystalDesc:
+	db   "A mysterious"
+	next "green crystal.@"
 
-TeruSama25Desc:
-	db   "?@"
+ZygardeEngineDesc:
+	db   "A mysterious"
+	next "green cube.@"
 
 TeruSama26Desc:
 	db   "?@"

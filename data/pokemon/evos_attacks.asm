@@ -12,6 +12,7 @@ SECTION "Evolutions and Attacks", ROMX
 ;    * db level, move
 ; - db 0 ; no more level-up moves
 
+INCLUDE "data/pokemon/evolution_moves.asm"
 INCLUDE "data/pokemon/evos_attacks_pointers.asm"
 
 BulbasaurEvosAttacks:
@@ -177,7 +178,6 @@ MetapodEvosAttacks:
 	db EVOLVE_LEVEL, 10, BUTTERFREE
 	db 0 ; no more evolutions
 	db 1, HARDEN
-	db 7, HARDEN
 	db 0 ; no more level-up moves
 
 ButterfreeEvosAttacks:
@@ -205,7 +205,6 @@ KakunaEvosAttacks:
 	db EVOLVE_LEVEL, 10, BEEDRILL
 	db 0 ; no more evolutions
 	db 1, HARDEN
-	db 7, HARDEN
 	db 0 ; no more level-up moves
 
 BeedrillEvosAttacks:
@@ -282,7 +281,7 @@ RaticateEvosAttacks:
 	db 1, QUICK_ATTACK
 	db 7, QUICK_ATTACK
 	db 13, SPLASH
-	db 20, SCARY_FACE
+	db 19, SCARY_FACE
 	db 30, PURSUIT
 	db 40, SUPER_FANG
 	db 0 ; no more level-up moves
@@ -2030,9 +2029,20 @@ DragoniteEvosAttacks:
 	db 75, HYPER_BEAM
 	db 0 ; no more level-up moves
 
-MewtwoEvosAttacks:
+NecrozmaEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, EMPOLEON_MOVE
+	db 1, CONFUSION
+	db 1, HEALING_LIGHT
+	db 8, SPIKES ;Stealth Rock ---> Similar Move
+	db 16, SLASH
+	db 24, NIGHT_SLASH
+	db 32, PSYCHO_CUT
+	db 40, SWORDS_DANCE ;Stored Power ----> Swsh TR
+	db 48, ROCK_SLIDE ;Rock Blast ----> Similar Typed Move
+	db 56, IRON_DEFENSE 
+	db 64, ROCK_SLASH ;Power Gem ----. Similar Typed Move
+	db 72, EMPOLEON_MOVE ;Placeholder until PRismatic Laser's Slot is freed up
+	db 80, OUTRAGE ;Gravity ---> SV TM
 	db 0 ; no more level-up moves
 
 MewEvosAttacks:
@@ -3218,43 +3228,55 @@ BlisseyEvosAttacks:
 	db 47, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
-RaikouEvosAttacks:
+Zygarde10EvosAttacks:
 	db 0 ; no more evolutions
-	db 1, BITE
-	db 1, DISARM
-	db 11, THUNDERSHOCK
-	db 21, SEND_AWAY
-	db 31, QUICK_ATTACK
-	db 41, SPARK
-	db 51, REFLECT
-	db 61, CRUNCH
-	db 71, THUNDER
+	db 1, BITE 
+	db 1, BULLDOZE
+	db 8, HAZE
+	db 16, DIG
+	db 24, SAFEGUARD
+	db 32, CRUNCH
+	db 40, DRAGON_PULSE
+	db 48, EXTREMESPEED ;Land's Wrath ---> Level Up Move
+	db 56, GLARE
+	db 64, SANDSTORM
+	db 72, EARTHQUAKE 
+	db 80, OUTRAGE
 	db 0 ; no more level-up moves
 
-EnteiEvosAttacks:
+Zygarde50EvosAttacks:
 	db 0 ; no more evolutions
-	db 1, BITE
-	db 1, DISARM
-	db 11, EMBER
-	db 21, SEND_AWAY
-	db 31, FIRE_SPIN
-	db 41, STOMP
-	db 51, FLAMETHROWER
-	db 61, SWAGGER
-	db 71, FIRE_BLAST
+	db 1, BITE 
+	db 1, BULLDOZE
+	db 8, HAZE
+	db 16, DIG
+	db 24, SAFEGUARD
+	db 32, CRUNCH
+	db 40, DRAGON_PULSE
+	db 48, EXTREMESPEED ;Land's Wrath ---> Level Up Move
+	db 50, WRAP ; Bind ----> Similar Move
+	db 56, GLARE
+	db 64, SANDSTORM
+	db 72, EARTHQUAKE 
+	db 80, OUTRAGE
 	db 0 ; no more level-up moves
 
-SuicuneEvosAttacks:
+Zygarde100EvosAttacks:
 	db 0 ; no more evolutions
-	db 1, BITE
-	db 1, DISARM
-	db 11, BUBBLEBEAM
-	db 21, RAIN_DANCE
-	db 31, GUST
-	db 41, AURORA_BEAM
-	db 51, MIST
-	db 61, MIRROR_COAT
-	db 71, HYDRO_PUMP
+	db 1, BITE 
+	db 1, BULLDOZE
+	db 8, HAZE
+	db 16, DIG
+	db 24, SAFEGUARD
+	db 32, CRUNCH
+	db 40, DRAGON_PULSE
+	db 48, EXTREMESPEED ;Land's Wrath ---> Level Up Move
+	db 50, WRAP ; Bind ----> Similar Move
+	db 56, GLARE
+	db 64, SANDSTORM
+	db 70, CORE_ENFORCER
+	db 72, EARTHQUAKE 
+	db 80, OUTRAGE
 	db 0 ; no more level-up moves
 
 LarvitarEvosAttacks:

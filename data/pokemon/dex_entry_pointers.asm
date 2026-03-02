@@ -150,7 +150,7 @@ PokedexDataPointerTable:
 	dba DratiniPokedexEntry
 	dba DragonairPokedexEntry
 	dba DragonitePokedexEntry
-	dba MewtwoPokedexEntry
+	dba NecrozmaPokedexEntry
 	dba MewPokedexEntry
 	dba ChikoritaPokedexEntry
 	dba BayleefPokedexEntry
@@ -243,9 +243,9 @@ PokedexDataPointerTable:
 	dba MagbyPokedexEntry
 	dba MiltankPokedexEntry
 	dba BlisseyPokedexEntry
-	dba RaikouPokedexEntry
-	dba EnteiPokedexEntry
-	dba SuicunePokedexEntry
+	dba Zygarde10PokedexEntry
+	dba Zygarde50PokedexEntry
+	dba Zygarde100PokedexEntry
 	dba LarvitarPokedexEntry
 	dba PupitarPokedexEntry
 	dba TyranitarPokedexEntry

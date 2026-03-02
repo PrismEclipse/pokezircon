@@ -29,6 +29,5 @@ OftenFleeMons:
 	db -1
 
 AlwaysFleeMons:
-	db RAIKOU
-	db ENTEI
+	db ZYGARDE10
 	db -1

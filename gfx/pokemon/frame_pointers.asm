@@ -149,7 +149,7 @@ FramesPointers:
 	dw DratiniFrames
 	dw DragonairFrames
 	dw DragoniteFrames
-	dw MewtwoFrames
+	dw NecrozmaFrames
 	dw MewFrames
 	dw ChikoritaFrames
 	dw BayleefFrames
@@ -242,9 +242,9 @@ FramesPointers:
 	dw MagbyFrames
 	dw MiltankFrames
 	dw BlisseyFrames
-	dw RaikouFrames
-	dw EnteiFrames
-	dw SuicuneFrames
+	dw Zygarde10Frames
+	dw Zygarde50Frames
+	dw Zygarde100Frames
 	dw LarvitarFrames
 	dw PupitarFrames
 	dw TyranitarFrames

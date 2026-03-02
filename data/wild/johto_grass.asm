@@ -1238,28 +1238,28 @@ JohtoGrassWildMons:
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 70, NECROZMA
-	db 70, NECROZMA
-	db 70, NECROZMA
-	db 70, NECROZMA
-	db 70, NECROZMA
-	db 70, NECROZMA
-	db 70, NECROZMA
+	db 70, ZYGARDE10
+	db 70, ZYGARDE50
+	db 70, ZYGARDE100
+	db 70, ZYGARDE10
+	db 70, ZYGARDE50
+	db 70, ZYGARDE100
 	; day
 	db 70, NECROZMA
-	db 70, NECROZMA
-	db 70, NECROZMA
-	db 70, NECROZMA
-	db 70, NECROZMA
-	db 70, NECROZMA
-	db 70, NECROZMA
+	db 70, ZYGARDE10
+	db 70, ZYGARDE50
+	db 70, ZYGARDE100
+	db 70, ZYGARDE10
+	db 70, ZYGARDE50
+	db 70, ZYGARDE100
 	; nite
 	db 70, NECROZMA
-	db 70, NECROZMA
-	db 70, NECROZMA
-	db 70, NECROZMA
-	db 70, NECROZMA
-	db 70, NECROZMA
-	db 70, NECROZMA
+	db 70, ZYGARDE10
+	db 70, ZYGARDE50
+	db 70, ZYGARDE100
+	db 70, ZYGARDE10
+	db 70, ZYGARDE50
+	db 70, ZYGARDE100
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_30
