@@ -107,8 +107,8 @@ EvosAttacksPointers::
 	dw ExeggutorEvosAttacks
 	dw CuboneEvosAttacks
 	dw MarowakEvosAttacks
-	dw HitmonleeEvosAttacks
-	dw HitmonchanEvosAttacks
+	dw LatiasEvosAttacks
+	dw LatiosEvosAttacks
 	dw LickitungEvosAttacks
 	dw KoffingEvosAttacks
 	dw WeezingEvosAttacks
@@ -145,23 +145,23 @@ EvosAttacksPointers::
 	dw KabutopsEvosAttacks
 	dw AerodactylEvosAttacks
 	dw SnorlaxEvosAttacks
-	dw ArticunoEvosAttacks
-	dw ZapdosEvosAttacks
-	dw MoltresEvosAttacks
+	dw RagingBoltEvosAttacks
+	dw GougingFireEvosAttacks
+	dw WalkingWakeEvosAttacks
 	dw DratiniEvosAttacks
 	dw DragonairEvosAttacks
 	dw DragoniteEvosAttacks
 	dw NecrozmaEvosAttacks
 	dw MewEvosAttacks
-	dw ChikoritaEvosAttacks
-	dw BayleefEvosAttacks
-	dw MeganiumEvosAttacks
-	dw CyndaquilEvosAttacks
-	dw QuilavaEvosAttacks
-	dw TyphlosionEvosAttacks
-	dw TotodileEvosAttacks
-	dw CroconawEvosAttacks
-	dw FeraligatrEvosAttacks
+	dw RowletEvosAttacks
+	dw DartrixEvosAttacks
+	dw DecidueyeEvosAttacks
+	dw FennekinEvosAttacks
+	dw BraixenEvosAttacks
+	dw DelphoxEvosAttacks
+	dw PiplupEvosAttacks
+	dw PrinplupEvosAttacks
+	dw EmpoleonEvosAttacks
 	dw SentretEvosAttacks
 	dw FurretEvosAttacks
 	dw HoothootEvosAttacks

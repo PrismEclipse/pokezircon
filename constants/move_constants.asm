@@ -170,7 +170,7 @@
 	const SUPER_FANG   ; a2
 	const SLASH        ; a3
 	const SUBSTITUTE   ; a4
-	const STRUGGLE     ; a5
+	const PRISMATIC_LASER     ; a5
 	const SKETCH       ; a6
 	const NASTY_PLOT   ; a7
 	const THIEF        ; a8
@@ -227,7 +227,7 @@
 	const SAFEGUARD    ; db
 	const PAIN_SPLIT   ; dc
 	const SACRED_FIRE  ; dd
-	const CELEBI_MOVE    ; de
+	const TIME_SLIP    ; de
 	const DYNAMICPUNCH ; df
 	const MEGAHORN     ; e0
 	const DRAGONBREATH ; e1
@@ -256,33 +256,38 @@
 	const FUTURE_SIGHT ; f8
 	const ROCK_SMASH   ; f9
 	const WHIRLPOOL    ; fa
-	const EMPOLEON_MOVE      ; fb
+	const EMPEROR_BLAST      ; fb
+	const DIVE 		; fc
+	const THUNDERCLAP ; fd
+	const HYDRO_STEAM ; fe
+	const STRUGGLE ; ff
 DEF NUM_ATTACKS EQU const_value - 1
-
 DEF CANNOT_MOVE EQU $ff
 
 ; Battle animations use the same constants as the moves up to this point
-	const_next $ff
-	const ANIM_SWEET_SCENT_2     ; ff
-	const ANIM_THROW_POKE_BALL   ; 100
-	const ANIM_SEND_OUT_MON      ; 101
-	const ANIM_RETURN_MON        ; 102
-	const ANIM_CONFUSED          ; 103
-	const ANIM_SLP               ; 104
-	const ANIM_BRN               ; 105
-	const ANIM_PSN               ; 106
-	const ANIM_SAP               ; 107
-	const ANIM_FRZ               ; 108
-	const ANIM_PAR               ; 109
-	const ANIM_IN_LOVE           ; 10a
-	const ANIM_IN_SANDSTORM      ; 10b
-	const ANIM_IN_NIGHTMARE      ; 10c
+	const ANIM_SWEET_SCENT_2     ; 100
+	const ANIM_THROW_POKE_BALL   ; 101
+	const ANIM_SEND_OUT_MON      ; 102
+	const ANIM_RETURN_MON        ; 103
+	const ANIM_CONFUSED          ; 104
+	const ANIM_SLP               ; 105
+	const ANIM_BRN               ; 106
+	const ANIM_PSN               ; 107
+	const ANIM_SAP               ; 108
+	const ANIM_FRZ               ; 109
+	const ANIM_PAR               ; 10a
+	const ANIM_IN_LOVE           ; 10b
+	const ANIM_IN_SANDSTORM      ; 10c
 	const ANIM_IN_WHIRLPOOL      ; 10d
 	const ANIM_SPIDER_WEB
 	const ANIM_MEAN_LOOK
 	const ANIM_WITHDRAW
 	const ANIM_FURY_ATTACK
 	const ANIM_SAND_ATTACK
+	const ANIM_POUND
+	const ANIM_HORN_DRILL
+	const ANIM_BUBBLE
+	const ANIM_TAIL_WHIP
 
 
 ; wBattleAfterAnim uses offsets from BATTLE_AFTERANIMS

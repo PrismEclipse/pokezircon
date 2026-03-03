@@ -108,8 +108,8 @@ PokemonPicPointers::
 	dbas ExeggutorFrontpic, ExeggutorBackpic
 	dbas CuboneFrontpic, CuboneBackpic
 	dbas MarowakFrontpic, MarowakBackpic
-	dbas HitmonleeFrontpic, HitmonleeBackpic
-	dbas HitmonchanFrontpic, HitmonchanBackpic
+	dbas LatiasFrontpic, LatiasBackpic
+	dbas LatiosFrontpic, LatiosBackpic
 	dbas LickitungFrontpic, LickitungBackpic
 	dbas KoffingFrontpic, KoffingBackpic
 	dbas WeezingFrontpic, WeezingBackpic
@@ -146,23 +146,23 @@ PokemonPicPointers::
 	dbas KabutopsFrontpic, KabutopsBackpic
 	dbas AerodactylFrontpic, AerodactylBackpic
 	dbas SnorlaxFrontpic, SnorlaxBackpic
-	dbas ArticunoFrontpic, ArticunoBackpic
-	dbas ZapdosFrontpic, ZapdosBackpic
-	dbas MoltresFrontpic, MoltresBackpic
+	dbas RagingBoltFrontpic, RagingBoltBackpic
+	dbas GougingFireFrontpic, GougingFireBackpic
+	dbas WalkingWakeFrontpic, WalkingWakeBackpic
 	dbas DratiniFrontpic, DratiniBackpic
 	dbas DragonairFrontpic, DragonairBackpic
 	dbas DragoniteFrontpic, DragoniteBackpic
 	dbas NecrozmaFrontpic, NecrozmaBackpic
 	dbas MewFrontpic, MewBackpic
-	dbas ChikoritaFrontpic, ChikoritaBackpic
-	dbas BayleefFrontpic, BayleefBackpic
-	dbas MeganiumFrontpic, MeganiumBackpic
-	dbas CyndaquilFrontpic, CyndaquilBackpic
-	dbas QuilavaFrontpic, QuilavaBackpic
-	dbas TyphlosionFrontpic, TyphlosionBackpic
-	dbas TotodileFrontpic, TotodileBackpic
-	dbas CroconawFrontpic, CroconawBackpic
-	dbas FeraligatrFrontpic, FeraligatrBackpic
+	dbas RowletFrontpic, RowletBackpic
+	dbas DartrixFrontpic, DartrixBackpic
+	dbas DecidueyeFrontpic, DecidueyeBackpic
+	dbas FennekinFrontpic, FennekinBackpic
+	dbas BraixenFrontpic, BraixenBackpic
+	dbas DelphoxFrontpic, DelphoxBackpic
+	dbas PiplupFrontpic, PiplupBackpic
+	dbas PrinplupFrontpic, PrinplupBackpic
+	dbas EmpoleonFrontpic, EmpoleonBackpic
 	dbas SentretFrontpic, SentretBackpic
 	dbas FurretFrontpic, FurretBackpic
 	dbas HoothootFrontpic, HoothootBackpic

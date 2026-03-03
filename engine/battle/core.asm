@@ -1125,7 +1125,7 @@ ResidualDamage:
 	jr z, .not_nightmare
 	xor a
 	ld [wBattleAfterAnim], a
-	ld de, ANIM_IN_NIGHTMARE
+	ld de, ANIM_IN_WHIRLPOOL
 	call Call_PlayBattleAnim_OnlyIfVisible
 	call GetQuarterMaxHP
 	call SubtractHPFromUser
@@ -1143,7 +1143,7 @@ ResidualDamage:
 
 	xor a
 	ld [wBattleAfterAnim], a
-	ld de, ANIM_IN_NIGHTMARE
+	ld de, ANIM_IN_WHIRLPOOL
 	call Call_PlayBattleAnim_OnlyIfVisible
 	call GetQuarterMaxHP
 	call SubtractHPFromUser
@@ -6169,8 +6169,17 @@ LoadEnemyMon:
 	ld b, ATKDEFDV_SHINY ; $ea
 	ld c, SPDSPCDV_SHINY ; $aa
 	jr .UpdateDVs
-
+	
 .GenerateDVs:
+;checkswarm
+	ld hl, wDailyFlags1
+	bit DAILYFLAGS1_SWARM_F, [hl]
+	jr z, .skipshine
+	
+	farcall GenerateSwarmShiny
+	jr .next
+
+.skipshine:
 ; Generate new random DVs
 	call BattleRandom
 	ld b, a
@@ -6183,7 +6192,8 @@ LoadEnemyMon:
 	ld a, b
 	ld [hli], a
 	ld [hl], c
-
+	
+	.next
 ; We've still got more to do if we're dealing with a wild monster
 	ld a, [wBattleMode]
 	dec a
@@ -6259,7 +6269,7 @@ LoadEnemyMon:
 ; Try again if length < 1024 mm (i.e. if HIGH(length) < 3 feet)
 	ld a, [wMagikarpLength]
 	cp 3
-	jr c, .GenerateDVs ; try again
+	jp c, .GenerateDVs ; try again
 
 ; Finally done with DVs
 

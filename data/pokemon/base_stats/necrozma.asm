@@ -1,6 +1,6 @@
 	db NECROZMA ; 150
 
-	db 103, 113,  107, 97, 157,  103
+	db 103, 113,  103, 103, 157,  101
 	;   hp  atk  def  spd  sat  sdf
 
 	db PSYCHIC_TYPE, PSYCHIC_TYPE ; type

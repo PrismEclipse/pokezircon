@@ -1507,7 +1507,11 @@ wEnemyHPPal:: db
 wHPPals:: ds PARTY_LENGTH
 wCurHPPal:: db
 
-	ds 7
+	ds 4
+	
+wCarpetTile:: db
+wFloorTile:: db
+wCoveredTile:: db	
 
 wSGBPals:: ds 48
 
@@ -3428,8 +3432,8 @@ wEggMon:: box_struct wEggMon
 wBugContestSecondPartySpecies:: db
 wContestMon:: party_struct wContestMon
 
-wDunsparceMapGroup:: db
-wDunsparceMapNumber:: db
+wSwarmMapGroup:: db
+wSwarmMapNumber:: db
 wFishingSwarmFlag:: db
 
 wRoamMon1:: roam_struct wRoamMon1

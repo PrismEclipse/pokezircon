@@ -105,8 +105,8 @@ AnimationPointers:
 	dw ExeggutorAnimation
 	dw CuboneAnimation
 	dw MarowakAnimation
-	dw HitmonleeAnimation
-	dw HitmonchanAnimation
+	dw LatiasAnimation
+	dw LatiosAnimation
 	dw LickitungAnimation
 	dw KoffingAnimation
 	dw WeezingAnimation
@@ -143,9 +143,9 @@ AnimationPointers:
 	dw KabutopsAnimation
 	dw AerodactylAnimation
 	dw SnorlaxAnimation
-	dw ArticunoAnimation
-	dw ZapdosAnimation
-	dw MoltresAnimation
+	dw RagingBoltAnimation
+	dw GougingFireAnimation
+	dw WalkingWakeAnimation
 	dw DratiniAnimation
 	dw DragonairAnimation
 	dw DragoniteAnimation

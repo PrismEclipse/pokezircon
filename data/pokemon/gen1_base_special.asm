@@ -107,8 +107,8 @@ KantoMonSpecials:
 	db 125 ; EXEGGUTOR
 	db  40 ; CUBONE
 	db  50 ; MAROWAK
-	db  35 ; HITMONLEE
-	db  35 ; HITMONCHAN
+	db  35 ; LATIAS
+	db  35 ; LATIOS
 	db  60 ; LICKITUNG
 	db  60 ; KOFFING
 	db  85 ; WEEZING

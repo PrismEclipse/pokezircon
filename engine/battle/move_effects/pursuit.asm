@@ -17,7 +17,7 @@ BattleCommand_Pursuit:
 	rl [hl]
 	ret nc
 
-	ld a, $ff
+	xor a ; NO_MOVE
 	ld [hli], a
 	ld [hl], a
 	ret

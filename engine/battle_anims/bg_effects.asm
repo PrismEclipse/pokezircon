@@ -126,6 +126,7 @@ BattleBGEffects:
 	dw BattleBGEffect_VibrateMon
 	dw BattleBGEffect_WobblePlayer
 	dw BattleBGEffect_WobbleScreen
+	dw BattleBGEffect_CycleOBPalsGrayAndYellowFullShift
 	assert_table_length NUM_BATTLE_BG_EFFECTS
 
 BattleBGEffect_End:
@@ -268,6 +269,20 @@ BattleBGEffect_AlternateHues:
 	dc 1, 0, 0, 0
 	dc 2, 1, 0, 0
 	db -2
+	
+BattleBGEffect_CycleOBPalsGrayAndYellowFullShift:
+	ld de, .PalsCGB
+	call BattleBGEffect_GetNthDMGPal
+	ld [wOBP0], a
+	ret
+
+.PalsCGB:
+	dc 3, 2, 1, 0
+	dc 2, 1, 0, 3
+	dc 1, 0, 3, 2
+	dc 0, 3, 2, 1
+	db -2
+
 
 BattleBGEffect_CycleOBPalsGrayAndYellow:
 	call BattleBGEffects_CheckSGB

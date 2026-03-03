@@ -250,5 +250,9 @@ MoveNames::
 	li "FUTURE SIGHT"
 	li "ROCK SMASH"
 	li "WHIRLPOOL"
-	li "PRISM LASER"
+	li "EMPERORBLAST"
+	li "DIVE"
+	li "THUNDERCLAP"
+	li "HYDRO STEAM"
+	li "STRUGGLE"
 	assert_list_length NUM_ATTACKS

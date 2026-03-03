@@ -2045,7 +2045,7 @@ HydroSteam:
 	buildopponentrage
 	endmove	
 	
-	Thunderclap:
+Thunderclap:
 	checkobedience
 	usedmovetext
 	doturn

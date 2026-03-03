@@ -10,14 +10,13 @@ AlphabeticalPokedexOrder:
 	db ARBOK
 	db ARCANINE
 	db ARIADOS
-	db ARTICUNO
 	db AZUMARILL
-	db BAYLEEF
 	db BEEDRILL
 	db BELLOSSOM
 	db BELLSPROUT
 	db BLASTOISE
 	db BLISSEY
+	db BRAIXEN
 	db BULBASAUR
 	db BUTTERFREE
 	db CATERPIE
@@ -26,7 +25,6 @@ AlphabeticalPokedexOrder:
 	db CHARIZARD
 	db CHARMANDER
 	db CHARMELEON
-	db CHIKORITA
 	db CHINCHOU
 	db CLEFABLE
 	db CLEFAIRY
@@ -34,10 +32,11 @@ AlphabeticalPokedexOrder:
 	db CLOYSTER
 	db CORSOLA
 	db CROBAT
-	db CROCONAW
 	db CUBONE
-	db CYNDAQUIL
+	db DARTRIX
+	db DECIDUEYE
 	db DELIBIRD
+	db DELPHOX
 	db DEWGONG
 	db DIGLETT
 	db DITTO
@@ -55,12 +54,13 @@ AlphabeticalPokedexOrder:
 	db ELECTABUZZ
 	db ELECTRODE
 	db ELEKID
+	db EMPOLEON
 	db ESPEON
 	db EXEGGCUTE
 	db EXEGGUTOR
 	db FARFETCH_D
 	db FEAROW
-	db FERALIGATR
+	db FENNEKIN
 	db FLAAFFY
 	db FLAREON
 	db FORRETRESS
@@ -75,6 +75,7 @@ AlphabeticalPokedexOrder:
 	db GOLDEEN
 	db GOLDUCK
 	db GOLEM
+	db GOUGING_FIRE
 	db GRANBULL
 	db GRAVELER
 	db GRIMER
@@ -82,8 +83,8 @@ AlphabeticalPokedexOrder:
 	db GYARADOS
 	db HAUNTER
 	db HERACROSS
-	db HITMONCHAN
-	db HITMONLEE
+	db LATIOS
+	db LATIAS
 	db HITMONTOP
 	db HO_OH
 	db HOOTHOOT
@@ -128,18 +129,16 @@ AlphabeticalPokedexOrder:
 	db MAREEP
 	db MARILL
 	db MAROWAK
-	db MEGANIUM
 	db MEOWTH
 	db METAPOD
 	db MEW
-	db NECROZMA
 	db MILTANK
 	db MISDREAVUS
-	db MOLTRES
 	db MR__MIME
 	db MUK
 	db MURKROW
 	db NATU
+	db NECROZMA
 	db NIDOKING
 	db NIDOQUEEN
 	db NIDORAN_F
@@ -163,6 +162,7 @@ AlphabeticalPokedexOrder:
 	db PIDGEY
 	db PIKACHU
 	db PILOSWINE
+	db PIPLUP
 	db PINECO
 	db PINSIR
 	db POLITOED
@@ -173,11 +173,12 @@ AlphabeticalPokedexOrder:
 	db PORYGON
 	db PORYGON2
 	db PRIMEAPE
+	db PRINPLUP
 	db PSYDUCK
 	db PUPITAR
 	db QUAGSIRE
-	db QUILAVA
 	db QWILFISH
+	db RAGING_BOLT
 	db RAICHU
 	db RAPIDASH
 	db RATICATE
@@ -185,6 +186,7 @@ AlphabeticalPokedexOrder:
 	db REMORAID
 	db RHYDON
 	db RHYHORN
+	db ROWLET
 	db SANDSHREW
 	db SANDSLASH
 	db SCIZOR
@@ -224,8 +226,6 @@ AlphabeticalPokedexOrder:
 	db TENTACRUEL
 	db TOGEPI
 	db TOGETIC
-	db TOTODILE
-	db TYPHLOSION
 	db TYRANITAR
 	db TYROGUE
 	db UMBREON
@@ -239,6 +239,7 @@ AlphabeticalPokedexOrder:
 	db VILEPLUME
 	db VOLTORB
 	db VULPIX
+	db WALKING_WAKE
 	db WARTORTLE
 	db WEEDLE
 	db WEEPINBELL
@@ -248,7 +249,6 @@ AlphabeticalPokedexOrder:
 	db WOOPER
 	db XATU
 	db YANMA
-	db ZAPDOS
 	db ZUBAT
 	db ZYGARDE10
 	db ZYGARDE50

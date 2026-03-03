@@ -259,6 +259,84 @@ Route30_MikeysRattataAttacksMovement:
 	big_step DOWN
 	big_step UP
 	step_end
+	
+SwarmGrampsScript:
+	faceplayer
+	opentext
+	checkflag ENGINE_SWARM
+	iftrue .skiprandomswarm
+	random 3
+	ifequal 0, .dunsparce
+	ifequal 1, .yanma
+       ifequal 2, .qwilfish
+
+.dunsparce
+	setflag ENGINE_SWARM
+	swarm DARK_CAVE_VIOLET_ENTRANCE
+	writetext SwarmDunsparceText
+	waitbutton
+	closetext
+	end
+
+.yanma
+	setflag ENGINE_SWARM
+	swarm ROUTE_35
+	writetext SwarmYanmaText
+	waitbutton
+	closetext
+	end
+
+.qwilfish
+	setflag ENGINE_SWARM
+	swarm ROUTE_32
+	writetext SwarmQwilfishText
+	waitbutton
+	closetext
+	end
+
+.skiprandomswarm
+	writetext SkipSwarmText
+	waitbutton
+	closetext
+	end
+
+SwarmDunsparceText:
+	text "Let me see…"
+	line "What did the news"
+	cont "say?"
+
+	para "Oh yes! There's a"
+	line "swarm of DUNSPARCE"
+	cont "at DARK CAVE."
+	done
+	
+SwarmYanmaText:
+	text "Let me see…"
+	line "What did the news"
+	cont "say?"
+
+	para "Oh yes! There's a"
+	line "swarm of YANMA"
+	cont "on ROUTE 35."
+	done
+	
+SwarmQwilfishText:
+	text "Let me see…"
+	line "What did the news"
+	cont "say?"
+
+	para "Oh yes! There's a"
+	line "swarm of QWILFISH"
+	cont "on ROUTE 32."
+	done
+
+SkipSwarmText:
+	text "Often #MON"
+	line "of unusual colors"
+
+	para "are reported in"
+	line "swarms."
+	done	
 
 Text_UseTackle:
 	text "Go, RATTATA!"
@@ -432,3 +510,4 @@ Route30_MapEvents:
 	object_event 11,  5, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30FruitTree2, -1
 	object_event  2, 13, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30CooltrainerFScript, -1
 	object_event  8, 35, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route30Antidote, EVENT_ROUTE_30_ANTIDOTE
+	object_event  2,  3, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SwarmGrampsScript, -1

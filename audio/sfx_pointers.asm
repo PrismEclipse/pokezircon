@@ -189,6 +189,7 @@ SFX:
 	dba Sfx_TrainArrived
 	dba Sfx_StopSlot
 	dba Sfx_2Boops
+	dba Sfx_Thunderbolt
 ; new to Crystal
 	dba Sfx_GlassTing
 	dba Sfx_GlassTing2

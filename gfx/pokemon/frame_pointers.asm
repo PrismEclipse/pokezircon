@@ -105,8 +105,8 @@ FramesPointers:
 	dw ExeggutorFrames
 	dw CuboneFrames
 	dw MarowakFrames
-	dw HitmonleeFrames
-	dw HitmonchanFrames
+	dw LatiasFrames
+	dw LatiosFrames
 	dw LickitungFrames
 	dw KoffingFrames
 	dw WeezingFrames
@@ -143,9 +143,9 @@ FramesPointers:
 	dw KabutopsFrames
 	dw AerodactylFrames
 	dw SnorlaxFrames
-	dw ArticunoFrames
-	dw ZapdosFrames
-	dw MoltresFrames
+	dw RagingBoltFrames
+	dw GougingFireFrames
+	dw WalkingWakeFrames
 	dw DratiniFrames
 	dw DragonairFrames
 	dw DragoniteFrames

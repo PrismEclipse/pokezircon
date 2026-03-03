@@ -178,7 +178,7 @@ Moves:
 	move SUPER_FANG,   EFFECT_SUPER_FANG,          1, NORMAL,        90, 10,   0
 	move SLASH,        EFFECT_NORMAL_HIT,         70, NORMAL,       100, 20,   0
 	move SUBSTITUTE,   EFFECT_SUBSTITUTE,          0, NORMAL,       100, 10,   0
-	move STRUGGLE,     EFFECT_RECOIL_HIT,         50, NORMAL,       100,  1,   0
+	move PRISMATIC_LASER, EFFECT_HYPER_BEAM,      160, PSYCHIC_TYPE,        90,  10,   0
 	move SKETCH,       EFFECT_SKETCH,              0, NORMAL,       100,  1,   0
 	move NASTY_PLOT,  EFFECT_NORMAL_HIT,         40, NORMAL,       100, 35,   0
 	move THIEF,        EFFECT_THIEF,              40, DARK,         100, 10, 100
@@ -235,7 +235,7 @@ Moves:
 	move SAFEGUARD,    EFFECT_SAFEGUARD,           0, NORMAL,       100, 25,   0
 	move PAIN_SPLIT,   EFFECT_PAIN_SPLIT,          0, NORMAL,       100, 20,   0
 	move SACRED_FIRE,  EFFECT_SACRED_FIRE,       100, FIRE,          95,  5,  50
-	move CELEBI_MOVE, EFFECT_NORMAL_HIT,         40, NORMAL,       100, 35,   0
+	move TIME_SLIP,    EFFECT_FLY,           	 140, PSYCHIC_TYPE,  100, 5,   0
 	move DYNAMICPUNCH, EFFECT_CONFUSE_HIT,       100, FIGHTING,      50,  5, 100
 	move MEGAHORN,     EFFECT_NORMAL_HIT,        120, BUG,           85, 10,   0
 	move DRAGONBREATH, EFFECT_PARALYZE_HIT,       60, DRAGON,       100, 20,  30
@@ -264,5 +264,9 @@ Moves:
 	move FUTURE_SIGHT, EFFECT_FUTURE_SIGHT,       80, PSYCHIC_TYPE,  90, 15,   0
 	move ROCK_SMASH,   EFFECT_DEFENSE_DOWN_HIT,   20, FIGHTING,     100, 15,  50
 	move WHIRLPOOL,    EFFECT_TRAP_TARGET,        15, WATER,         70, 15,   0
-	move EMPOLEON_MOVE, EFFECT_NORMAL_HIT,         40, NORMAL,       100, 35,   0
+	move EMPEROR_BLAST, EFFECT_DEFENSE_DOWN_HIT,  100, WATER,        90, 5,   100
+	move DIVE, 			EFFECT_NORMAL_HIT,         40, NORMAL,       100, 35,   0
+	move THUNDERCLAP,   EFFECT_THUNDERCLAP,        70, ELECTRIC,     100, 5,   0
+	move HYDRO_STEAM,   EFFECT_HYDRO_STEAM,        80, WATER,       100, 15,   0
+	move STRUGGLE,     EFFECT_RECOIL_HIT,         50, NORMAL,       100,  1,   0
 	assert_table_length NUM_ATTACKS

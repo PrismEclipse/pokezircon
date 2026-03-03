@@ -105,8 +105,8 @@ BitmasksPointers:
 	dw ExeggutorBitmasks
 	dw CuboneBitmasks
 	dw MarowakBitmasks
-	dw HitmonleeBitmasks
-	dw HitmonchanBitmasks
+	dw LatiasBitmasks
+	dw LatiosBitmasks
 	dw LickitungBitmasks
 	dw KoffingBitmasks
 	dw WeezingBitmasks
@@ -143,9 +143,9 @@ BitmasksPointers:
 	dw KabutopsBitmasks
 	dw AerodactylBitmasks
 	dw SnorlaxBitmasks
-	dw ArticunoBitmasks
-	dw ZapdosBitmasks
-	dw MoltresBitmasks
+	dw RagingBoltBitmasks
+	dw GougingFireBitmasks
+	dw WalkingWakeBitmasks
 	dw DratiniBitmasks
 	dw DragonairBitmasks
 	dw DragoniteBitmasks

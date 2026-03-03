@@ -31,7 +31,7 @@ SpriteMons:
 	db VOLTORB
 	db LAPRAS
 	db RHYDON
-	db MOLTRES
+	db GOUGING_FIRE
 	db SNORLAX
 	db GYARADOS
 	db LUGIA

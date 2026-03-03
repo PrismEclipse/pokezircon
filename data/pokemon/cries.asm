@@ -111,8 +111,8 @@ PokemonCries::
 	mon_cry CRY_DROWZEE,       0,  256 ; EXEGGUTOR
 	mon_cry CRY_CLEFAIRY,      0,  256 ; CUBONE
 	mon_cry CRY_ODDISH,       79,  224 ; MAROWAK
-	mon_cry CRY_GOLEM,       128,  320 ; HITMONLEE
-	mon_cry CRY_SEEL,        238,  320 ; HITMONCHAN
+	mon_cry CRY_BULBASAUR,   -16,  176 ; LATIAS
+	mon_cry CRY_AMPHAROS,   -144,  176 ; LATIOS
 	mon_cry CRY_SEEL,          0,  256 ; LICKITUNG
 	mon_cry CRY_GOLEM,       230,  349 ; KOFFING
 	mon_cry CRY_GOLEM,       255,  383 ; WEEZING
@@ -149,23 +149,23 @@ PokemonCries::
 	mon_cry CRY_FEAROW,      238,  129 ; KABUTOPS
 	mon_cry CRY_VILEPLUME,    32,  368 ; AERODACTYL
 	mon_cry CRY_GRIMER,       85,  129 ; SNORLAX
-	mon_cry CRY_RAICHU,      128,  192 ; ARTICUNO
-	mon_cry CRY_FEAROW,      255,  256 ; ZAPDOS
-	mon_cry CRY_RAICHU,      248,  192 ; MOLTRES
+	mon_cry CRY_RAIKOU,      564,  310 ; RAGING_BOLT
+	mon_cry CRY_ENTEI,         5,  432 ; GOUGING_FIRE
+	mon_cry CRY_MAGCARGO,      3,  400 ; WALKING_WAKE
 	mon_cry CRY_BULBASAUR,    96,  192 ; DRATINI
 	mon_cry CRY_BULBASAUR,    64,  256 ; DRAGONAIR
 	mon_cry CRY_BULBASAUR,    60,  320 ; DRAGONITE
 	mon_cry CRY_HYDREIGON,  -238,  256 ; NECROZMA
 	mon_cry CRY_PARAS,       238,  383 ; MEW
-	mon_cry CRY_CHIKORITA,   -16,  176 ; CHIKORITA
-	mon_cry CRY_CHIKORITA,   -34,  288 ; BAYLEEF
-	mon_cry CRY_CHIKORITA,  -183,  512 ; MEGANIUM
-	mon_cry CRY_CYNDAQUIL,   839,  128 ; CYNDAQUIL
-	mon_cry CRY_CYNDAQUIL,   801,  288 ; QUILAVA
-	mon_cry CRY_TYPHLOSION, 3840,  212 ; TYPHLOSION
-	mon_cry CRY_TOTODILE,   1132,  232 ; TOTODILE
-	mon_cry CRY_TOTODILE,   1088,  272 ; CROCONAW
-	mon_cry CRY_TOTODILE,   1020,  384 ; FERALIGATR
+	mon_cry CRY_CHIKORITA,   -16,  176 ; ROWLET
+	mon_cry CRY_CHIKORITA,   -34,  288 ; DARTRIX
+	mon_cry CRY_CHIKORITA,  -183,  512 ; DECIDUEYE
+	mon_cry CRY_CLEFAIRY,   234,  128 ; FENNEKIN
+	mon_cry CRY_GIRAFARIG,   85,  288 ; BRAIXEN
+	mon_cry CRY_VULPIX, -30,  212 ; DELPHOX
+	mon_cry CRY_TOTODILE,   1132,  232 ; PIPLUP
+	mon_cry CRY_TOTODILE,   1088,  272 ; PRINPLUP
+	mon_cry CRY_TOTODILE,   1020,  384 ; EMPOLEON
 	mon_cry CRY_SENTRET,     138,  184 ; SENTRET
 	mon_cry CRY_SENTRET,     107,  258 ; FURRET
 	mon_cry CRY_HOOTHOOT,    145,  216 ; HOOTHOOT

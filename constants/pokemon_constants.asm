@@ -124,8 +124,8 @@
 	const EXEGGUTOR  ; 67
 	const CUBONE     ; 68
 	const MAROWAK    ; 69
-	const HITMONLEE  ; 6a
-	const HITMONCHAN ; 6b
+	const LATIAS  ; 6a
+	const LATIOS ; 6b
 	const LICKITUNG  ; 6c
 	const KOFFING    ; 6d
 	const WEEZING    ; 6e
@@ -162,24 +162,24 @@
 	const KABUTOPS   ; 8d
 	const AERODACTYL ; 8e
 	const SNORLAX    ; 8f
-	const ARTICUNO   ; 90
-	const ZAPDOS     ; 91
-	const MOLTRES    ; 92
+	const RAGING_BOLT   ; 90
+	const GOUGING_FIRE     ; 91
+	const WALKING_WAKE    ; 92
 	const DRATINI    ; 93
 	const DRAGONAIR  ; 94
 	const DRAGONITE  ; 95
 	const NECROZMA   ; 96
 	const MEW        ; 97
 DEF JOHTO_POKEMON EQU const_value
-	const CHIKORITA  ; 98
-	const BAYLEEF    ; 99
-	const MEGANIUM   ; 9a
-	const CYNDAQUIL  ; 9b
-	const QUILAVA    ; 9c
-	const TYPHLOSION ; 9d
-	const TOTODILE   ; 9e
-	const CROCONAW   ; 9f
-	const FERALIGATR ; a0
+	const ROWLET  ; 98
+	const DARTRIX    ; 99
+	const DECIDUEYE	; 9a
+	const FENNEKIN  ; 9b
+	const BRAIXEN    ; 9c
+	const DELPHOX ; 9d
+	const PIPLUP   ; 9e
+	const PRINPLUP   ; 9f
+	const EMPOLEON ; a0
 	const SENTRET    ; a1
 	const FURRET     ; a2
 	const HOOTHOOT   ; a3

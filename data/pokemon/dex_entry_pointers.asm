@@ -106,8 +106,8 @@ PokedexDataPointerTable:
 	dba ExeggutorPokedexEntry
 	dba CubonePokedexEntry
 	dba MarowakPokedexEntry
-	dba HitmonleePokedexEntry
-	dba HitmonchanPokedexEntry
+	dba LatiasPokedexEntry
+	dba LatiosPokedexEntry
 	dba LickitungPokedexEntry
 	dba KoffingPokedexEntry
 	dba WeezingPokedexEntry
@@ -152,15 +152,15 @@ PokedexDataPointerTable:
 	dba DragonitePokedexEntry
 	dba NecrozmaPokedexEntry
 	dba MewPokedexEntry
-	dba ChikoritaPokedexEntry
-	dba BayleefPokedexEntry
-	dba MeganiumPokedexEntry
-	dba CyndaquilPokedexEntry
-	dba QuilavaPokedexEntry
-	dba TyphlosionPokedexEntry
-	dba TotodilePokedexEntry
-	dba CroconawPokedexEntry
-	dba FeraligatrPokedexEntry
+	dba RowletPokedexEntry
+	dba DartrixPokedexEntry
+	dba DecidueyePokedexEntry
+	dba FennekinPokedexEntry
+	dba BraixenPokedexEntry
+	dba DelphoxPokedexEntry
+	dba PiplupPokedexEntry
+	dba PrinplupPokedexEntry
+	dba EmpoleonPokedexEntry
 	dba SentretPokedexEntry
 	dba FurretPokedexEntry
 	dba HoothootPokedexEntry

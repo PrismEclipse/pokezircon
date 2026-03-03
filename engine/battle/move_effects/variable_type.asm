@@ -25,19 +25,11 @@ Find_VariableType:
 	jp hl
 
 VariableTypeMoves:
-	dww STOMP, 	BattleCommand_Stomp
-	dww ROLLOUT, 		BattleCommand_Rollout
-	dww HIDDEN_POWER,	BattleCommand_HiddenPower
+	db STOMP, 	BattleCommand_Stomp
+	db ROLLOUT, 		BattleCommand_Rollout
+	db HIDDEN_POWER,	BattleCommand_HiddenPower
+	db MYSTERY_POWER,  BattleCommand_AncientPower
 	db -1 ; end
-
-BattleCommand_HiddenPower:
-; hiddenpower
-
-	ld a, [wAttackMissed]
-	and a
-	ret nz
-	farcall HiddenPowerType
-	ret
 
 BattleCommand_Stomp:
 ; hiddenpower
@@ -56,3 +48,12 @@ BattleCommand_Rollout:
 	ret nz
 	farcall RolloutType
 	ret	
+	
+BattleCommand_AncientPower:
+; Ancient Power or Omninous Wind
+
+	ld a, [wAttackMissed]
+	and a
+	ret nz
+	farcall MysteryPowerType
+	ret		

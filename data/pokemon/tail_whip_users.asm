@@ -1,0 +1,37 @@
+TailWhipUsers:
+; "Disarm" = Tail Whip + Leer
+	db PIKACHU
+	db RAICHU
+	db CUBONE
+	db MAROWAK
+	db RHYHORN
+	db RHYDON
+	db CHANSEY
+	db EEVEE
+	db VAPOREON
+	db JOLTEON
+	db FLAREON
+	db PICHU
+	db MARILL
+	db AZUMARILL
+	db HOPPIP
+	db SKIPLOOM
+	db JUMPLUFF
+	db WOOPER
+	db QUAGSIRE
+	db ESPEON
+	db UMBREON
+	db BLISSEY
+	db RATTATA
+	db RATICATE
+	db AIPOM
+	db BELLOSSOM
+	db FENNEKIN
+	db BRAIXEN
+	db DELPHOX
+	db GRIMER
+	db MUK
+	db AERODACTYL
+	db SNORLAX
+	db MACHOP
+	db -1

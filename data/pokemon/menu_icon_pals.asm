@@ -111,8 +111,8 @@ MonMenuIconPals:
 	icon_pals GREEN,  BROWN  ; EXEGGUTOR
 	icon_pals BROWN,  GRAY   ; CUBONE
 	icon_pals BROWN,  GRAY   ; MAROWAK
-	icon_pals BROWN,  GREEN  ; HITMONLEE
-	icon_pals BROWN,  GRAY   ; HITMONCHAN
+	icon_pals BROWN,  GREEN  ; LATIAS
+	icon_pals BROWN,  GRAY   ; LATIOS
 	icon_pals RED,    PINK   ; LICKITUNG
 	icon_pals PURPLE, BLUE   ; KOFFING
 	icon_pals PURPLE, BLUE   ; WEEZING
@@ -157,15 +157,15 @@ MonMenuIconPals:
 	icon_pals RED,    GRAY   ; DRAGONITE
 	icon_pals PURPLE, BROWN  ; MEWTWO
 	icon_pals PINK,   BLUE   ; MEW
-	icon_pals GREEN,  BROWN  ; CHIKORITA
-	icon_pals GREEN,  BROWN  ; BAYLEEF
-	icon_pals GREEN,  GREEN  ; MEGANIUM
-	icon_pals PINK,   PURPLE ; CYNDAQUIL
-	icon_pals PINK,   PURPLE ; QUILAVA
-	icon_pals PINK,   PURPLE ; TYPHLOSION
-	icon_pals BLUE,   TEAL   ; TOTODILE
-	icon_pals BLUE,   TEAL   ; CROCONAW
-	icon_pals BLUE,   GREEN  ; FERALIGATR
+	icon_pals GREEN,  BROWN  ; ROWLET
+	icon_pals GREEN,  BROWN  ; DARTRIX
+	icon_pals GREEN,  GREEN  ; DECIDUEYE
+	icon_pals PINK,   PURPLE ; FENNEKIN
+	icon_pals PINK,   PURPLE ; BRAIXEN
+	icon_pals PINK,   PURPLE ; DELPHOX
+	icon_pals BLUE,   TEAL   ; PIPLUP
+	icon_pals BLUE,   TEAL   ; PRINPLUP
+	icon_pals BLUE,   GREEN  ; EMPOLEON
 	icon_pals BROWN,  PURPLE ; SENTRET
 	icon_pals BROWN,  PURPLE ; FURRET
 	icon_pals BROWN,  BROWN  ; HOOTHOOT

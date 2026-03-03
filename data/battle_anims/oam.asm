@@ -194,6 +194,7 @@ BattleAnimOAMData:
 	battleanimoam $04,  4, .OAMData_03 ; BATTLE_ANIM_OAMSET_BA
 	battleanimoam $08,  2, .OAMData_11 ; BATTLE_ANIM_OAMSET_BB
 	battleanimoam $20,  6, .OAMData_bc ; BATTLE_ANIM_OAMSET_BC
+	battleanimoam $08,  1, .OAMData_0f ; BATTLE_ANIM_OAMSET_BD
 	battleanimoam $1a,  4, .OAMData_30 ; BATTLE_ANIM_OAMSET_BF
 	battleanimoam $16,  9, .OAMData_01 ; BATTLE_ANIM_OAMSET_C0
 	battleanimoam $10, 16, .OAMData_c1 ; BATTLE_ANIM_OAMSET_C1
@@ -207,6 +208,8 @@ BattleAnimOAMData:
 	battleanimoam $09,  4, .OAMData_ca ; BATTLE_ANIM_OAMSET_CA
 	battleanimoam $0b,  4, .OAMData_04 ; BATTLE_ANIM_OAMSET_CB
 	battleanimoam $11, 13, .OAMData_cc ; BATTLE_ANIM_OAMSET_CC
+	battleanimoam $00,  9, .OAMData_cd ; BATTLE_ANIM_OAMSET_CD
+	battleanimoam $06,  9, .OAMData_cd ; BATTLE_ANIM_OAMSET_CE
 	battleanimoam $00, 12, .OAMData_cf ; BATTLE_ANIM_OAMSET_CF
 	battleanimoam $06, 12, .OAMData_cf ; BATTLE_ANIM_OAMSET_D0
 	battleanimoam $0c, 12, .OAMData_cf ; BATTLE_ANIM_OAMSET_D1

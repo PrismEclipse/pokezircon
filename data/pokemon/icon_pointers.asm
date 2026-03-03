@@ -107,8 +107,8 @@ IconPointers:
 	dw ExeggutorIcon
 	dw CuboneIcon
 	dw MarowakIcon
-	dw HitmonleeIcon
-	dw HitmonchanIcon
+	dw LatiasIcon
+	dw LatiosIcon
 	dw LickitungIcon
 	dw KoffingIcon
 	dw WeezingIcon

@@ -42,8 +42,8 @@ Pokered_MonIndices:
 	db CHANSEY
 	db MACHOKE
 	db MR__MIME
-	db HITMONLEE
-	db HITMONCHAN
+	db LATIAS
+	db LATIOS
 	db ARBOK
 	db PARASECT
 	db PSYDUCK
@@ -72,9 +72,9 @@ Pokered_MonIndices:
 	db DODUO
 	db POLIWAG
 	db JYNX
-	db MOLTRES
-	db ARTICUNO
-	db ZAPDOS
+	db WALKING_WAKE
+	db RAGING_BOLT
+	db GOUGING_FIRE
 	db DITTO
 	db MEOWTH
 	db KRABBY
@@ -191,15 +191,15 @@ Pokered_MonIndices:
 	db WEEPINBELL
 	db VICTREEBEL
 	assert_table_length 190 ; gen 1 mon indexes
-	db CHIKORITA
-	db BAYLEEF
-	db MEGANIUM
-	db CYNDAQUIL
-	db QUILAVA
-	db TYPHLOSION
-	db TOTODILE
-	db CROCONAW
-	db FERALIGATR
+	db ROWLET
+	db DARTRIX
+	db DECIDUEYE
+	db FENNEKIN
+	db BRAIXEN
+	db DELPHOX
+	db PIPLUP
+	db PRINPLUP
+	db EMPOLEON
 	db SENTRET
 	db FURRET
 	db HOOTHOOT

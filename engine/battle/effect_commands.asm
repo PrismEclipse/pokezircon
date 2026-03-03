@@ -114,7 +114,7 @@ BattleCommand_CheckTurn:
 	ld a, BATTLE_VARS_MOVE
 	call GetBattleVar
 	assert CANNOT_MOVE == $ff
-	inc a
+	and a ;NO_MOVE?
 	jp z, EndTurn
 
 	xor a
@@ -1184,6 +1184,14 @@ INCLUDE "data/battle/critical_hit_chances.asm"
 INCLUDE "engine/battle/move_effects/triple_kick.asm"
 
 INCLUDE "data/pokemon/fury_attack_users.asm"
+
+INCLUDE "data/pokemon/pound_users.asm"
+
+INCLUDE "data/pokemon/bubble_users.asm"
+
+INCLUDE "data/pokemon/horn_drill_users.asm"
+
+INCLUDE "data/pokemon/tail_whip_users.asm"
 
 INCLUDE "data/pokemon/mean_look_spider_web_users.asm"
 
@@ -6835,6 +6843,18 @@ CheckBattleAnimSubstitution:
 	cp HARDEN
 	ld de, ANIM_WITHDRAW
 	ld hl, WithdrawUsers
+	jr z, .check_species_list
+	ld de, ANIM_POUND
+	ld hl, PoundUsers
+	jr z, .check_species_list
+	ld de, ANIM_HORN_DRILL
+	ld hl, HornDrillUsers
+	jr z, .check_species_list
+	ld de, ANIM_BUBBLE
+	ld hl, BubbleUsers
+	jr z, .check_species_list
+	ld de, ANIM_TAIL_WHIP
+	ld hl, TailWhipUsers
 	jr z, .check_species_list
 	cp BLOCK
 	ret nz

@@ -105,8 +105,8 @@ AnimationIdlePointers:
 	dw ExeggutorAnimationIdle
 	dw CuboneAnimationIdle
 	dw MarowakAnimationIdle
-	dw HitmonleeAnimationIdle
-	dw HitmonchanAnimationIdle
+	dw LatiasAnimationIdle
+	dw LatiosAnimationIdle
 	dw LickitungAnimationIdle
 	dw KoffingAnimationIdle
 	dw WeezingAnimationIdle
@@ -143,9 +143,9 @@ AnimationIdlePointers:
 	dw KabutopsAnimationIdle
 	dw AerodactylAnimationIdle
 	dw SnorlaxAnimationIdle
-	dw ArticunoAnimationIdle
-	dw ZapdosAnimationIdle
-	dw MoltresAnimationIdle
+	dw RagingBoltAnimationIdle
+	dw GougingFireAnimationIdle
+	dw WalkingWakeAnimationIdle
 	dw DratiniAnimationIdle
 	dw DragonairAnimationIdle
 	dw DragoniteAnimationIdle
