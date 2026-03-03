@@ -1916,19 +1916,35 @@ BattleAnim_StringShot:
 	anim_ret
 	
 BattleAnim_FlashCannon:
-	anim_1gfx BATTLE_ANIM_GFX_EGG
-	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $60, $4, $10
-.loop
-	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, 0, 4, 3
+	anim_1gfx BATTLE_ANIM_GFX_REFLECT
+	anim_obp0 $0
+	anim_sound 0, 0, SFX_RAGE
+	anim_call BattleAnimSub_Metallic
 	anim_wait 4
-	anim_sound 0, 1, SFX_SHINE
-	anim_obj BATTLE_ANIM_OBJ_OCTAZOOKA, 8, 0, 11, 4, 4
+	
+	anim_resetobp0
+	anim_1gfx BATTLE_ANIM_GFX_BEAM
+	anim_call BattleAnimSub_BGCycleOBPalsGrayAndYellow_$2
+	anim_bgeffect BATTLE_BG_EFFECT_ALTERNATE_HUES, $0, $2, $0
+	anim_call BattleAnim_FlashCannon_branch
+	anim_wait 48
+	anim_incobj 5
+	anim_wait 64
+	anim_ret
+
+BattleAnim_FlashCannon_branch:
+	anim_sound 0, 0, SFX_MOONLIGHT
+	anim_obj BATTLE_ANIM_OBJ_BEAM, 64, 92, $0
 	anim_wait 4
-	anim_sound 0, 1, SFX_SHINE
-	anim_obj BATTLE_ANIM_OBJ_OCTAZOOKA, 8, 0, 11, 4, 4
+	anim_sound 0, 0, SFX_FLASH
+	anim_obj BATTLE_ANIM_OBJ_BEAM, 80, 84, $0
 	anim_wait 4
-	anim_loop 5, .loop
-	anim_wait 12
+	anim_sound 0, 1, SFX_MOONLIGHT
+	anim_obj BATTLE_ANIM_OBJ_BEAM, 96, 76, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_FLASH
+	anim_obj BATTLE_ANIM_OBJ_BEAM, 112, 68, $0
+	anim_obj BATTLE_ANIM_OBJ_BEAM_TIP, 126, 62, $0
 	anim_ret
 
 BattleAnim_PrismaticLaser:
