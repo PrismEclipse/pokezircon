@@ -17,7 +17,7 @@
 	const THUNDERPUNCH ; 09
 	const SCRATCH      ; 0a
 	const VICEGRIP     ; 0b
-	const GUILLOTINE   ; 0c
+	const FATAL_BLOW   ; 0c
 	const BURNING_BULWARK  ; 0d
 	const SWORDS_DANCE ; 0e
 	const CUT          ; 0f
@@ -288,7 +288,8 @@ DEF CANNOT_MOVE EQU $ff
 	const ANIM_HORN_DRILL
 	const ANIM_BUBBLE
 	const ANIM_TAIL_WHIP
-
+	const ANIM_COTTON_SPORE
+	const ANIM_WHIRLWIND
 
 ; wBattleAfterAnim uses offsets from BATTLE_AFTERANIMS
 DEF BATTLE_AFTERANIMS EQU const_value

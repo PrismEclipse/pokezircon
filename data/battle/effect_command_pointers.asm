@@ -78,16 +78,12 @@ BattleCommandPointers:
 	dw BattleCommand_FalseSwipe
 	dw BattleCommand_HealBell
 	dw BattleCommand_HeldFlinch
-	dw BattleCommand_TripleKick
-	dw BattleCommand_KickCounter
 	dw BattleCommand_Thief
 	dw BattleCommand_ArenaTrap
-	dw BattleCommand_Nightmare
 	dw BattleCommand_Defrost
 	dw BattleCommand_Curse
 	dw BattleCommand_Protect
 	dw BattleCommand_Spikes
-	dw BattleCommand_Foresight
 	dw BattleCommand_PerishSong
 	dw BattleCommand_StartSandstorm
 	dw BattleCommand_Endure
@@ -97,7 +93,6 @@ BattleCommandPointers:
 	dw BattleCommand_Attract
 	dw BattleCommand_HappinessPower
 	dw BattleCommand_DamageCalc
-	dw BattleCommand_FrustrationPower
 	dw BattleCommand_Safeguard
 	dw BattleCommand_CheckSafeguard
 	dw BattleCommand_BatonPass
@@ -147,7 +142,6 @@ BattleCommandPointers:
 	dw BattleCommand_SwitchTurn
 	dw BattleCommand_FakeOut
 	dw BattleCommand_BellyDrum
-	dw BattleCommand_PsychUp
 	dw BattleCommand_Rage
 	dw BattleCommand_DoubleFlyingDamage
 	dw BattleCommand_DoubleUndergroundDamage
@@ -177,4 +171,7 @@ BattleCommandPointers:
 	dw BattleCommand_BulkUp
 	dw BattleCommand_Overheat
 	dw BattleCommand_BeatUp
+	dw BattleCommand_QuiverDance
+	dw BattleCommand_VictoryDance
+	dw BattleCommand_Burn
 	assert_table_length NUM_EFFECT_COMMANDS

@@ -222,10 +222,8 @@ BeedrillEvosAttacks:
 PidgeyEvosAttacks:
 	db EVOLVE_LEVEL, 18, PIDGEOTTO
 	db 0 ; no more evolutions
-	db 1, QUIVER_DANCE
-	db 1, FAIRY_WIND
-	db 1, MOONBLAST
-	db 1, VICTORY_DANCE
+	db 1, MIND_BLOWN
+	db 1, IRON_HEAD
 	db 6, ROCK_WRECKER
 	db 6, HURRICANE
 	db 6, RAGING_FURY
@@ -1318,7 +1316,7 @@ KrabbyEvosAttacks:
 	db 12, VICEGRIP
 	db 16, HARDEN
 	db 23, STOMP
-	db 27, GUILLOTINE
+	db 27, FATAL_BLOW
 	db 34, PROTECT
 	db 41, CRABHAMMER
 	db 0 ; no more level-up moves
@@ -1332,7 +1330,7 @@ KinglerEvosAttacks:
 	db 12, VICEGRIP
 	db 16, HARDEN
 	db 23, STOMP
-	db 27, GUILLOTINE
+	db 27, FATAL_BLOW
 	db 38, PROTECT
 	db 49, CRABHAMMER
 	db 0 ; no more level-up moves
@@ -1726,7 +1724,7 @@ PinsirEvosAttacks:
 	db 13, SPLASH
 	db 19, SEISMIC_TOSS
 	db 25, HARDEN
-	db 31, GUILLOTINE
+	db 31, FATAL_BLOW
 	db 37, SPLASH
 	db 43, SWORDS_DANCE
 	db 0 ; no more level-up moves
@@ -2850,7 +2848,7 @@ GligarEvosAttacks:
 	db 28, FAINT_ATTACK
 	db 36, SLASH
 	db 44, SCREECH
-	db 52, GUILLOTINE
+	db 52, FATAL_BLOW
 	db 0 ; no more level-up moves
 
 SteelixEvosAttacks:

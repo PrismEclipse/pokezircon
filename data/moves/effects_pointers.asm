@@ -83,7 +83,6 @@ MoveEffectsPointers:
 	dw Splash
 	dw Disable
 	dw StaticDamage
-	dw Psywave
 	dw Counter
 	dw Encore
 	dw PainSplit
@@ -99,15 +98,12 @@ MoveEffectsPointers:
 	dw FalseSwipe
 	dw HealBell
 	dw NormalHit
-	dw TripleKick
 	dw Thief
 	dw MeanLook
-	dw Nightmare
 	dw FlameWheel
 	dw Curse
 	dw Protect
 	dw Spikes
-	dw Foresight
 	dw PerishSong
 	dw Sandstorm
 	dw Endure
@@ -116,7 +112,6 @@ MoveEffectsPointers:
 	dw FuryCutter
 	dw Attract
 	dw Return
-	dw Frustration
 	dw Safeguard
 	dw SacredFire
 	dw BatonPass
@@ -133,9 +128,7 @@ MoveEffectsPointers:
 	dw AllUpHit
 	dw FakeOut
 	dw BellyDrum
-	dw PsychUp
 	dw MirrorCoat
-	dw SkullBash
 	dw Twister
 	dw Earthquake
 	dw FutureSight
@@ -160,4 +153,7 @@ MoveEffectsPointers:
 	dw BulkUp
 	dw Overheat
 	dw BeatUp
+	dw QuiverDance
+	dw VictoryDance
+	dw DoBurn
 	assert_table_length NUM_MOVE_EFFECTS

@@ -1403,34 +1403,6 @@ HealBell:
 	healbell
 	endmove
 
-TripleKick:
-	checkobedience
-	usedmovetext
-	doturn
-	startloop
-	lowersub
-	checkhit
-	critical
-	damagestats
-	damagecalc
-	triplekick
-	stab
-	damagevariation
-	clearmissdamage
-	moveanimnosub
-	failuretext
-	applydamage
-	criticaltext
-	cleartext
-	supereffectivelooptext
-	checkfaint
-	buildopponentrage
-	kickcounter
-	endloop
-	raisesub
-	kingsrock
-	endmove
-
 Thief:
 	checkobedience
 	usedmovetext
@@ -1459,14 +1431,7 @@ MeanLook:
 	doturn
 	arenatrap
 	endmove
-
-Nightmare:
-	checkobedience
-	usedmovetext
-	doturn
-	nightmare
-	endmove
-
+	
 FlameWheel:
 	checkobedience
 	usedmovetext
@@ -1508,14 +1473,6 @@ Spikes:
 	usedmovetext
 	doturn
 	spikes
-	endmove
-
-Foresight:
-	checkobedience
-	usedmovetext
-	doturn
-	checkhit
-	foresight
 	endmove
 
 PerishSong:
@@ -1615,27 +1572,6 @@ Return:
 	critical
 	damagestats
 	happinesspower
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	buildopponentrage
-	kingsrock
-	endmove
-
-Frustration:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	frustrationpower
 	damagecalc
 	stab
 	damagevariation
@@ -1809,13 +1745,6 @@ BellyDrum:
 	usedmovetext
 	doturn
 	bellydrum
-	endmove
-
-PsychUp:
-	checkobedience
-	usedmovetext
-	doturn
-	psychup
 	endmove
 
 MirrorCoat:
@@ -2161,4 +2090,28 @@ Overheat:
 	checkfaint
 	buildopponentrage
 	kingsrock
+	endmove
+	
+QuiverDance:
+	checkobedience
+	usedmovetext
+	doturn
+	quiverdance
+	endmove
+
+VictoryDance:
+	checkobedience
+	usedmovetext
+	doturn
+	victorydance
+	endmove
+
+DoBurn:
+	checkobedience
+	usedmovetext
+	doturn
+	stab
+	checkhit
+	checksafeguard
+	burn
 	endmove

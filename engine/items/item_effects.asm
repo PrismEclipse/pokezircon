@@ -193,7 +193,7 @@ ItemEffects:
 	dw PokeBallEffect      ; PARK_BALL
 	dw NoEffect            ; RAINBOW_WING
 	dw NoEffect            ; ITEM_B3
-	assert_table_length ITEM_B3
+	assert_table_length ANCIENT_PLATE
 ; The items past ITEM_B3 do not have effect entries:
 ;	BRICK_PIECE
 ;	SURF_MAIL

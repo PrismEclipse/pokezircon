@@ -14,7 +14,6 @@ AI_Redundant:
 	jp hl
 
 .Moves:
-	dbw EFFECT_CALM_MIND,  .DreamEater
 	dbw EFFECT_HEAL,         .Heal
 	dbw EFFECT_LIGHT_SCREEN, .LightScreen
 	dbw EFFECT_MIST,         .Mist
@@ -29,9 +28,7 @@ AI_Redundant:
 	dbw EFFECT_SNORE,        .Snore
 	dbw EFFECT_SLEEP_TALK,   .SleepTalk
 	dbw EFFECT_MEAN_LOOK,    .MeanLook
-	dbw EFFECT_NIGHTMARE,    .Nightmare
 	dbw EFFECT_SPIKES,       .Spikes
-	dbw EFFECT_FORESIGHT,    .Foresight
 	dbw EFFECT_PERISH_SONG,  .PerishSong
 	dbw EFFECT_SANDSTORM,    .Sandstorm
 	dbw EFFECT_ATTRACT,      .Attract
@@ -111,22 +108,9 @@ AI_Redundant:
 	bit SUBSTATUS_CANT_RUN, a
 	ret
 
-.Nightmare:
-	ld a, [wBattleMonStatus]
-	and a
-	jr z, .Redundant
-	ld a, [wPlayerSubStatus1]
-	bit SUBSTATUS_NIGHTMARE, a
-	ret
-
 .Spikes:
 	ld a, [wPlayerScreens]
 	bit SCREENS_SPIKES, a
-	ret
-
-.Foresight:
-	ld a, [wPlayerSubStatus1]
-	bit SUBSTATUS_IDENTIFIED, a
 	ret
 
 .PerishSong:
@@ -161,12 +145,6 @@ AI_Redundant:
 .SunnyDay:
 	ld a, [wBattleWeather]
 	cp WEATHER_SUN
-	jr z, .Redundant
-	jr .NotRedundant
-
-.DreamEater:
-	ld a, [wBattleMonStatus]
-	and SLP_MASK
 	jr z, .Redundant
 	jr .NotRedundant
 

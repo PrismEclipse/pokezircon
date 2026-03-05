@@ -78,16 +78,12 @@ ENDM
 	command falseswipe              ; 47
 	command healbell                ; 48
 	command kingsrock               ; 49
-	command triplekick              ; 4a
-	command kickcounter             ; 4b
 	command thief                   ; 4c
 	command arenatrap               ; 4d
-	command nightmare               ; 4e
 	command defrost                 ; 4f
 	command curse                   ; 50
 	command protect                 ; 51
 	command spikes                  ; 52
-	command foresight               ; 53
 	command perishsong              ; 54
 	command startsandstorm          ; 55
 	command endure                  ; 56
@@ -97,7 +93,6 @@ ENDM
 	command attract                 ; 5a
 	command happinesspower          ; 5b
 	command damagecalc              ; 5c
-	command frustrationpower        ; 5d
 	command safeguard               ; 5e
 	command checksafeguard          ; 5f
 	command batonpass               ; 60
@@ -147,7 +142,6 @@ ENDM
 	command switchturn              ; 8c
 	command fakeout                 ; 8d
 	command bellydrum               ; 8e
-	command psychup                 ; 8f
 	command rage                    ; 90
 	command doubleflyingdamage      ; 91
 	command doubleundergrounddamage ; 92
@@ -177,6 +171,9 @@ ENDM
 	command bulkup 					; aa
 	command overheat 				; ab
 	command beatup 					; ac
+	command quiverdance 			; ad
+	command victorydance 			; ae
+	command burn 					; af
 DEF NUM_EFFECT_COMMANDS EQU const_value - 1
 
 	const_def -1, -1

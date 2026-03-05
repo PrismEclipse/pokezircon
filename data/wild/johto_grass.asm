@@ -1266,25 +1266,25 @@ JohtoGrassWildMons:
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 5, PIDGEY
-	db 6, TINKATON
-	db 6, TINKATON
-	db 6, TINKATON
+	db 5, PIDGEY
+	db 5, PIDGEY
+	db 5, PIDGEY
 	db 6, TINKATON
 	db 6, TINKATON
 	db 6, TINKATON
 	; day
 	db 5, PIDGEY
-	db 6, TINKATON
-	db 6, TINKATON
-	db 6, TINKATON
+	db 5, PIDGEY
+	db 5, PIDGEY
+	db 5, PIDGEY
 	db 6, TINKATON
 	db 6, TINKATON
 	db 6, TINKATON
 	; nite
 	db 5, PIDGEY
-	db 6, TINKATON
-	db 6, TINKATON
-	db 6, TINKATON
+	db 5, PIDGEY
+	db 5, PIDGEY
+	db 5, PIDGEY
 	db 6, TINKATON
 	db 6, TINKATON
 	db 6, TINKATON

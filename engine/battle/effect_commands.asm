@@ -178,7 +178,7 @@ BattleCommand_CheckTurn:
 	ld hl, FastAsleepText
 	call StdBattleTextbox
 
-	; Snore and Sleep Talk bypass sleep.
+	; Sleep Talk bypass sleep.
 	ld a, [wCurPlayerMove]
 	cp SLEEP_TALK
 	jr z, .not_asleep
@@ -199,11 +199,15 @@ BattleCommand_CheckTurn:
 	cp SACRED_FIRE
 	jr z, .not_frozen
 
+	ld de, ANIM_FRZ
+	call FarPlayBattleAnimation
+
 	ld hl, FrozenSolidText
 	call StdBattleTextbox
 
 	call CantMove
 	jp EndTurn
+
 
 .not_frozen
 
@@ -323,10 +327,14 @@ BattleCommand_CheckTurn:
 	cp 25 percent
 	ret nc
 
+	ld de, ANIM_PAR
+	call FarPlayBattleAnimation
+
 	ld hl, FullyParalyzedText
 	call StdBattleTextbox
 	call CantMove
 	jp EndTurn
+
 
 CantMove:
 	ld a, BATTLE_VARS_SUBSTATUS1
@@ -1181,9 +1189,11 @@ INCLUDE "data/moves/critical_hit_moves.asm"
 
 INCLUDE "data/battle/critical_hit_chances.asm"
 
-INCLUDE "engine/battle/move_effects/triple_kick.asm"
-
 INCLUDE "data/pokemon/fury_attack_users.asm"
+
+INCLUDE "data/pokemon/whirlwind_users.asm"
+
+INCLUDE "data/pokemon/cotton_spore_users.asm"
 
 INCLUDE "data/pokemon/pound_users.asm"
 
@@ -1530,9 +1540,6 @@ BattleCommand_DamageVariation:
 	ret
 
 BattleCommand_CheckHit:
-	call .DreamEater
-	jp z, .Miss
-
 	call .Protect
 	jp nz, .Miss
 	
@@ -1608,19 +1615,6 @@ BattleCommand_CheckHit:
 	ld [wAttackMissed], a
 	ret	
 
-.DreamEater:
-; Return z if we're trying to eat the dream of
-; a monster that isn't sleeping.
-	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
-	cp EFFECT_PSYWAVE
-	ret nz
-
-	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVar
-	and SLP_MASK
-	ret
-
 .Protect:
 ; Return nz if the opponent is protected.
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
@@ -1682,8 +1676,6 @@ farcall GetProtectVariationEffect
 	call GetBattleVar
 
 	cp EFFECT_LEECH_HIT
-	ret z
-	cp EFFECT_PSYWAVE
 	ret z
 
 .not_draining_sub
@@ -1950,8 +1942,6 @@ BattleCommand_MoveAnimNoSub:
 	jr z, .alternate_anim
 	cp EFFECT_DOUBLE_HIT
 	jr z, .alternate_anim
-	cp EFFECT_TRIPLE_KICK
-	jr z, .triplekick
 	xor a
 	ld [wBattleAnimParam], a
 
@@ -2381,8 +2371,6 @@ BattleCommand_CheckFaint:
 	jr z, .multiple_hit_raise_sub
 	cp EFFECT_DOUBLE_HIT
 	jr z, .multiple_hit_raise_sub
-	cp EFFECT_TRIPLE_KICK
-	jr nz, .multiple_hit_raise_sub
 	cp EFFECT_BEAT_UP
 	jr nz, .finish
 
@@ -3144,8 +3132,6 @@ BattleCommand_ConstantDamage:
 
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
-	cp EFFECT_PSYWAVE
-	jr z, .psywave
 
 	cp EFFECT_SUPER_FANG
 	jr z, .super_fang
@@ -3157,21 +3143,6 @@ BattleCommand_ConstantDamage:
 	call GetBattleVar
 	ld b, a
 	ld a, $0
-	jr .got_power
-
-.psywave
-	ld a, b
-	srl a
-	add b
-	ld b, a
-.psywave_loop
-	call BattleRandom
-	and a
-	jr z, .psywave_loop
-	cp b
-	jr nc, .psywave_loop
-	ld b, a
-	ld a, 0
 	jr .got_power
 
 .super_fang
@@ -3300,6 +3271,10 @@ INCLUDE "engine/battle/move_effects/lock_on.asm"
 INCLUDE "engine/battle/move_effects/sketch.asm"
 
 INCLUDE "engine/battle/move_effects/bulk_up.asm"
+
+INCLUDE "engine/battle/move_effects/quiver_dance.asm"
+
+INCLUDE "engine/battle/move_effects/victory_dance.asm"
 
 INCLUDE "engine/battle/move_effects/calm_mind.asm"
 
@@ -3570,6 +3545,32 @@ UpdateMoveData:
 	call GetMoveData
 	call GetMoveName
 	jp CopyName1
+	
+CheckForStatusIfAlreadyHasAny:
+	ld a, BATTLE_VARS_STATUS_OPP
+	call GetBattleVarAddr
+	ld d, h
+	ld e, l
+	and SLP_MASK
+	ld hl, AlreadyAsleepText
+	ret nz
+	
+	ld a, [de]
+	bit FRZ, a
+	ld hl, AlreadyFrozenText
+	ret nz
+	
+	bit PAR, a
+	ld hl, AlreadyParalyzedText
+	ret nz
+	
+	bit PSN, a
+	ld hl, AlreadyPoisonedText
+	ret nz
+	
+	bit BRN, a
+	ld hl, AlreadyBurnedText
+	ret	
 
 BattleCommand_SleepTarget:
 	call GetOpponentItem
@@ -3584,13 +3585,7 @@ BattleCommand_SleepTarget:
 	jr .fail
 
 .not_protected_by_item
-	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVarAddr
-	ld d, h
-	ld e, l
-	ld a, [de]
-	and SLP_MASK
-	ld hl, AlreadyAsleepText
+	call CheckForStatusIfAlreadyHasAny
 	jr nz, .fail
 
 	ld a, [wAttackMissed]
@@ -3600,10 +3595,6 @@ BattleCommand_SleepTarget:
 	ld hl, DidntAffect1Text
 	call .CheckAIRandomFail
 	jr c, .fail
-
-	ld a, [de]
-	and a
-	jr nz, .fail
 
 	call CheckSubstituteOpp
 	jr nz, .fail
@@ -3678,7 +3669,8 @@ BattleCommand_PoisonTarget:
 	ld a, [wTypeModifier]
 	and EFFECTIVENESS_MASK
 	ret z
-	call CheckIfTargetIsPoisonType
+	ld a, POISON
+	call CheckIfTargetIsGivenType
 	ret z
 	call GetOpponentItem
 	ld a, b
@@ -3707,7 +3699,12 @@ BattleCommand_Poison:
 	and EFFECTIVENESS_MASK
 	jp z, .failed
 
-	call CheckIfTargetIsPoisonType
+	ld a, POISON
+	call CheckIfTargetIsGivenType
+	jp z, .failed
+
+	ld a, STEEL
+	call CheckIfTargetIsGivenType
 	jp z, .failed
 
 	ld a, BATTLE_VARS_STATUS_OPP
@@ -3734,32 +3731,8 @@ BattleCommand_Poison:
 	and a
 	jr nz, .failed
 
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .dont_sample_failure
-
-	ld a, [wLinkMode]
-	and a
-	jr nz, .dont_sample_failure
-
-	ld a, [wInBattleTowerBattle]
-	and a
-	jr nz, .dont_sample_failure
-
-	ld a, [wPlayerSubStatus5]
-	bit SUBSTATUS_LOCK_ON, a
-	jr nz, .dont_sample_failure
-
-	call BattleRandom
-	cp 25 percent + 1 ; 25% chance AI fails
-	jr c, .failed
-
-.dont_sample_failure
-	ld hl, ProtectingItselfText
 	call CheckSubstituteOpp
 	jr nz, .failed
-	
-	ld hl, EvadedText
 	ld a, [wAttackMissed]
 	and a
 	jr nz, .failed
@@ -3809,7 +3782,8 @@ BattleCommand_Poison:
 	cp EFFECT_TOXIC
 	ret
 
-CheckIfTargetIsPoisonType:
+CheckIfTargetIsGivenType:
+	ld b, a
 	ld de, wEnemyMonType1
 	ldh a, [hBattleTurn]
 	and a
@@ -3818,12 +3792,12 @@ CheckIfTargetIsPoisonType:
 .ok
 	ld a, [de]
 	inc de
-	cp POISON
+	cp b
 	ret z
 	ld a, [de]
-	cp POISON
+	cp b
 	ret
-
+	
 PoisonOpponent:
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVarAddr
@@ -3945,7 +3919,8 @@ BattleCommand_BurnTarget:
 	ld a, [wTypeModifier]
 	and EFFECTIVENESS_MASK
 	ret z
-	call CheckMoveTypeMatchesTarget ; Don't burn a Fire-type
+	ld a, FIRE
+	call CheckIfTargetIsGivenType
 	ret z
 	call GetOpponentItem
 	ld a, b
@@ -4012,7 +3987,8 @@ BattleCommand_FreezeTarget:
 	ld a, [wBattleWeather]
 	cp WEATHER_SUN
 	ret z
-	call CheckMoveTypeMatchesTarget ; Don't freeze an Ice-type
+	ld a, ICE
+	call CheckIfTargetIsGivenType
 	ret z
 	call GetOpponentItem
 	ld a, b
@@ -4047,6 +4023,63 @@ BattleCommand_FreezeTarget:
 .finish
 	ld [hl], $1
 	ret
+	
+BattleCommand_Burn:
+; burn
+
+	call CheckForStatusIfAlreadyHasAny
+	jr nz, .burned
+	ld a, [wTypeModifier]
+	and EFFECTIVENESS_MASK
+	jr z, .didnt_affect
+	ld a, FIRE
+	call CheckIfTargetIsGivenType
+	ret z
+	call GetOpponentItem
+	ld a, b
+	cp HELD_PREVENT_BURN
+	jr nz, .no_item_protection
+	ld a, [hl]
+	ld [wNamedObjectIndex], a
+	call GetItemName
+	call AnimateFailedMove
+	ld hl, ProtectedByText
+	jp StdBattleTextbox
+
+.no_item_protection
+	ld a, [hBattleTurn]
+	and a
+	jr nz, .failed
+	call CheckSubstituteOpp
+	jr nz, .failed
+	ld c, 30
+	call DelayFrames
+	call AnimateCurrentMove
+	ld a, $1
+	ldh [hBGMapMode], a
+	ld a, BATTLE_VARS_STATUS_OPP
+	call GetBattleVarAddr
+	set BRN, [hl]
+	call UpdateOpponentInParty
+	ld hl, ApplyBrnEffectOnAttack
+	call CallBattleCore
+	call UpdateBattleHuds
+	call PrintBurn
+	ld hl, UseHeldStatusHealingItem
+	jp CallBattleCore
+
+.burned
+	push hl
+	call AnimateFailedMove
+	pop hl
+	jp StdBattleTextbox
+
+.failed
+	jp PrintDidntAffect2
+
+.didnt_affect
+	call AnimateFailedMove
+	jp PrintDoesntAffect	
 
 BattleCommand_ParalyzeTarget:
 	xor a
@@ -5231,8 +5264,6 @@ BattleCommand_EndLoop:
 	ld a, 1
 	jr z, .double_hit
 	ld a, [hl]
-	cp EFFECT_TRIPLE_KICK
-	jr nz, .not_triple_kick
 .reject_triple_kick_sample
 	call BattleRandom
 	and $3
@@ -5867,9 +5898,7 @@ BattleCommand_Confuse_CheckSnore_Swagger_ConfuseHit:
 	jp PrintDidntAffect2
 
 BattleCommand_Paralyze:
-	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVar
-	bit PAR, a
+	call CheckForStatusIfAlreadyHasAny
 	jr nz, .paralyzed
 	ld a, [wTypeModifier]
 	and EFFECTIVENESS_MASK
@@ -5907,10 +5936,6 @@ BattleCommand_Paralyze:
 	jr c, .failed
 
 .dont_sample_failure
-	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVarAddr
-	and a
-	jr nz, .failed
 	ld a, [wAttackMissed]
 	and a
 	jr nz, .failed
@@ -5933,8 +5958,10 @@ BattleCommand_Paralyze:
 	jp CallBattleCore
 
 .paralyzed
+	push hl
 	call AnimateFailedMove
 	ld hl, AlreadyParalyzedText
+	pop hl
 	jp StdBattleTextbox
 
 .failed
@@ -6290,6 +6317,11 @@ PrintParalyze:
 ; 'paralyzed! maybe it can't attack!'
 	ld hl, ParalyzedText
 	jp StdBattleTextbox
+	
+PrintBurn:
+; 'paralyzed! maybe it can't attack!'
+	ld hl, WasBurnedText
+	jp StdBattleTextbox	
 
 CheckSubstituteOpp:
 	ld a, BATTLE_VARS_SUBSTATUS4_OPP
@@ -6365,8 +6397,6 @@ BattleCommand_ArenaTrap:
 	call AnimateFailedMove
 	jp PrintButItFailed
 
-INCLUDE "engine/battle/move_effects/nightmare.asm"
-
 BattleCommand_Defrost:
 ; Thaw the user.
 
@@ -6404,8 +6434,6 @@ INCLUDE "engine/battle/move_effects/endure.asm"
 
 INCLUDE "engine/battle/move_effects/spikes.asm"
 
-INCLUDE "engine/battle/move_effects/foresight.asm"
-
 INCLUDE "engine/battle/move_effects/perish_song.asm"
 
 INCLUDE "engine/battle/move_effects/sandstorm.asm"
@@ -6419,9 +6447,6 @@ INCLUDE "engine/battle/move_effects/fury_cutter.asm"
 INCLUDE "engine/battle/move_effects/attract.asm"
 
 INCLUDE "engine/battle/move_effects/return.asm"
-
-
-INCLUDE "engine/battle/move_effects/frustration.asm"
 
 INCLUDE "engine/battle/move_effects/safeguard.asm"
 
@@ -6562,8 +6587,6 @@ INCLUDE "engine/battle/move_effects/sunny_day.asm"
 
 INCLUDE "engine/battle/move_effects/belly_drum.asm"
 
-INCLUDE "engine/battle/move_effects/psych_up.asm"
-
 INCLUDE "engine/battle/move_effects/mirror_coat.asm"
 
 BattleCommand_DoubleMinimizeDamage:
@@ -6597,6 +6620,8 @@ BattleCommand_SkipSunCharge:
 INCLUDE "engine/battle/move_effects/future_sight.asm"
 
 INCLUDE "engine/battle/move_effects/thunder.asm"
+
+INCLUDE "engine/battle/move_effects/growth.asm"
 
 CheckHiddenOpponent:
 	ld a, BATTLE_VARS_SUBSTATUS5_OPP
@@ -6849,15 +6874,27 @@ CheckBattleAnimSubstitution:
 	ld de, ANIM_WITHDRAW
 	ld hl, WithdrawUsers
 	jr z, .check_species_list
+	cp TACKLE
 	ld de, ANIM_POUND
 	ld hl, PoundUsers
 	jr z, .check_species_list
+	cp FATAL_BLOW
 	ld de, ANIM_HORN_DRILL
 	ld hl, HornDrillUsers
 	jr z, .check_species_list
+	cp WATER_GUN
 	ld de, ANIM_BUBBLE
 	ld hl, BubbleUsers
 	jr z, .check_species_list
+	cp SLOW_DOWN
+	ld de, ANIM_COTTON_SPORE
+	ld hl, CottonSporeUsers
+	jr z, .check_species_list
+	cp SEND_AWAY
+	ld de, ANIM_WHIRLWIND
+	ld hl, WhirlwindUsers
+	jr z, .check_species_list
+	cp DISARM
 	ld de, ANIM_TAIL_WHIP
 	ld hl, TailWhipUsers
 	jr z, .check_species_list
