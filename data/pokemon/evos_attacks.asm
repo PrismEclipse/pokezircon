@@ -222,14 +222,14 @@ BeedrillEvosAttacks:
 PidgeyEvosAttacks:
 	db EVOLVE_LEVEL, 18, PIDGEOTTO
 	db 0 ; no more evolutions
-	db 1, FLASH_CANNON
-	db 1, POISON_JAB
-	db 1, LUSTER_PURGE
-	db 15, QUICK_ATTACK
-	db 21, SEND_AWAY
-	db 29, WING_ATTACK
-	db 37, AGILITY
-	db 47, SPLASH
+	db 1, QUIVER_DANCE
+	db 1, FAIRY_WIND
+	db 1, MOONBLAST
+	db 1, VICTORY_DANCE
+	db 6, ROCK_WRECKER
+	db 6, HURRICANE
+	db 6, RAGING_FURY
+	db 6, BLAST_BURN
 	db 0 ; no more level-up moves
 
 PidgeottoEvosAttacks:
@@ -2454,7 +2454,7 @@ IgglybuffEvosAttacks:
 	db 0 ; no more level-up moves
 
 TogepiEvosAttacks:
-	db EVOLVE_HAPPINESS, TR_ANYTIME, TOGETIC
+	db EVOLVE_HAPPINESS, TR_ANYTIME, TINKATINK
 	db 0 ; no more evolutions
 	db 1, GROWL
 	db 1, CHARM
@@ -2465,7 +2465,7 @@ TogepiEvosAttacks:
 	db 38, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
-TogeticEvosAttacks:
+TinkatinkEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, GROWL
 	db 1, CHARM
@@ -2476,8 +2476,8 @@ TogeticEvosAttacks:
 	db 38, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
-NatuEvosAttacks:
-	db EVOLVE_LEVEL, 25, XATU
+TinkatuffEvosAttacks:
+	db EVOLVE_LEVEL, 25, TINKATON
 	db 0 ; no more evolutions
 	db 1, PECK
 	db 1, DISARM
@@ -2488,16 +2488,9 @@ NatuEvosAttacks:
 	db 50, PSYCHIC_M
 	db 0 ; no more level-up moves
 
-XatuEvosAttacks:
+TinkatonEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, PECK
-	db 1, DISARM
-	db 1, NIGHT_SHADE
-	db 10, NIGHT_SHADE
-	db 20, TELEPORT
-	db 35, FUTURE_SIGHT
-	db 50, CONFUSE_RAY
-	db 65, PSYCHIC_M
+	db 1, GIGATON_HAMMER
 	db 0 ; no more level-up moves
 
 MareepEvosAttacks:
@@ -3216,7 +3209,7 @@ SmeargleEvosAttacks:
 	db 91, SKETCH
 	db 0 ; no more level-up moves
 
-TyrogueEvosAttacks:
+BlacephalonEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, ASTONISH
 	db 1, EMBER
@@ -3232,7 +3225,7 @@ TyrogueEvosAttacks:
 	db 59, MIND_BLOWN
 	db 0 ; no more level-up moves
 
-HitmontopEvosAttacks:
+StakatakaEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, PROTECT
 	db 1, TACKLE

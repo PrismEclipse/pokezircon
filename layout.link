@@ -139,7 +139,6 @@ ROMX $31
 	"Sprites 2"
 ROMX $32
 	"bank32"
-	"Extra Songs 2"
 ROMX $33
 	"Extra Songs 3"
 	"Cries"
@@ -175,6 +174,7 @@ ROMX $3f
 ROMX $40
 	"mobile40"
 ROMX $41
+	"Extra Songs 2"
 	"bank41"
 ROMX $42
 	"mobile42"

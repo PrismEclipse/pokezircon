@@ -50,5 +50,4 @@ BattleCommand_CalmMind: ; 37588
 	call GetStatName
 	call AnimateFailedMove
 	ld hl, WontRiseAnymoreText
-	call StdBattleTextbox
-; 37618
+	jp StdBattleTextbox

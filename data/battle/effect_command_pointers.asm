@@ -174,4 +174,7 @@ BattleCommandPointers:
 	dw BattleCommand_CalmMind
 	dw BattleCommand_Thunderclap
 	dw BattleCommand_TrapHit
+	dw BattleCommand_BulkUp
+	dw BattleCommand_Overheat
+	dw BattleCommand_BeatUp
 	assert_table_length NUM_EFFECT_COMMANDS

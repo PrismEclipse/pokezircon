@@ -276,15 +276,14 @@ INCLUDE "engine/events/engine_flags.asm"
 INCLUDE "engine/overworld/variables.asm"
 INCLUDE "data/text/battle.asm"
 INCLUDE "engine/debug/color_picker.asm"
-
+INCLUDE "engine/printer/printer_serial.asm"
 
 SECTION "bank21", ROMX
 
-INCLUDE "engine/printer/printer_serial.asm"
 INCLUDE "engine/printer/printer.asm"
 INCLUDE "gfx/battle_anims.asm"
 INCLUDE "engine/events/halloffame.asm"
-
+INCLUDE "engine/battle_anims/bg_effects.asm"
 
 SECTION "Crystal Features 2", ROMX
 
@@ -363,7 +362,8 @@ INCLUDE "engine/events/treemons.asm"
 INCLUDE "engine/events/fishing_gfx.asm"
 INCLUDE "engine/pokegear/radio.asm"
 INCLUDE "engine/pokemon/mail_2.asm"
-
+INCLUDE "engine/events/bug_contest/display_stats.asm"
+INCLUDE "engine/events/poisonstep_pals.asm"
 
 SECTION "Phone Scripts 2", ROMX
 
@@ -406,10 +406,7 @@ INCLUDE "engine/events/trainer_scripts.asm"
 
 SECTION "bank32", ROMX
 
-INCLUDE "engine/battle_anims/bg_effects.asm"
 INCLUDE "data/moves/animations.asm"
-INCLUDE "engine/events/poisonstep_pals.asm"
-INCLUDE "engine/events/bug_contest/display_stats.asm"
 
 SECTION "Move Animations", ROMX
 

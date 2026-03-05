@@ -96,6 +96,7 @@ DoBattleAnimFrame:
 	dw BattleAnimFunction_RadialMoveOut_Slow
 	dw BattleAnimFunc_FallAndStop
 	dw BattleAnimFunction_RadialMoveIn
+	dw BattleAnimFunction_HiddenPower_Fast
 	assert_table_length NUM_BATTLE_ANIM_FUNCS
 
 BattleAnimFunc_Null:
@@ -433,32 +434,10 @@ BattleAnimFunc_PokeBallBlocked:
 	ret
 
 GetBallAnimPal:
-	ld hl, BallColors
-	ldh a, [rWBK]
-	push af
-	ld a, BANK(wCurItem)
-	ldh [rWBK], a
-	ld a, [wCurItem]
-	ld e, a
-	pop af
-	ldh [rWBK], a
-.IsInArray:
-	ld a, [hli]
-	cp -1
-	jr z, .load
-	cp e
-	jr z, .load
-	inc hl
-	jr .IsInArray
-
-.load
-	ld a, [hl]
 	ld hl, BATTLEANIMSTRUCT_PALETTE
 	add hl, bc
-	ld [hl], a
+	ld [hl], PAL_BATTLE_OB_RED
 	ret
-
-INCLUDE "data/battle_anims/ball_colors.asm"
 
 BattleAnimFunc_Ember:
 	call BattleAnim_AnonJumptable
@@ -946,7 +925,7 @@ BattleAnimFunc_RazorLeaf:
 	call ReinitBattleAnimFrameset
 	ld hl, BATTLEANIMSTRUCT_OAMFLAGS
 	add hl, bc
-	res B_OAM_XFLIP, [hl]
+	res OAM_X_FLIP, [hl]
 .four
 .five
 .six
@@ -1113,6 +1092,15 @@ BattleAnimFunc_Bubble:
 	ld a, [hl]
 	cp $98
 	jr nc, .okay
+	ld de, $88 ; Assume Fast Value for Bubblebeam
+	ld hl, BATTLEANIMSTRUCT_PARAM
+	add hl, bc
+	ld a, [hl]
+	and $0f
+	dec a
+	jr z, .fast
+	ld de, $60 ; Set Slow Value if PARAM ends with 1
+.fast
 	ld hl, BATTLEANIMSTRUCT_VAR1
 	add hl, bc
 	ld a, [hl]
@@ -1120,7 +1108,6 @@ BattleAnimFunc_Bubble:
 	add hl, bc
 	ld h, [hl]
 	ld l, a
-	ld de, $60
 	add hl, de
 	ld e, l
 	ld d, h
@@ -1171,7 +1158,7 @@ BattleAnimFunc_Surf:
 .zero
 	call BattleAnim_IncAnonJumptableIndex
 	ld a, JP_INSTRUCTION
-	ldh [hFunctionInstruction], a
+	ld [hFunctionInstruction], a
 	ld a, LOW(rSCY)
 	ldh [hLCDCPointer], a
 	ld a, $58
@@ -1231,7 +1218,7 @@ BattleAnimFunc_Surf:
 	cp $70
 	jr c, .move_down
 	ld a, RETI_INSTRUCTION
-	ldh [hFunctionInstruction], a
+	ld [hFunctionInstruction], a
 	xor a
 	ldh [hLCDCPointer], a
 	ldh [hLYOverrideStart], a
@@ -1302,7 +1289,7 @@ BattleAnimFunc_WaterGun:
 	ld hl, BATTLEANIMSTRUCT_YCOORD
 	add hl, bc
 	ld a, [hl]
-	cp $30
+	cp $2c
 	jr c, .run_down
 	ld a, $2
 	call BattleAnim_StepToTarget
@@ -1326,7 +1313,7 @@ BattleAnimFunc_WaterGun:
 	ld [hl], $0
 	ld hl, BATTLEANIMSTRUCT_YCOORD
 	add hl, bc
-	ld [hl], $30
+	ld [hl], $2c
 	ld hl, BATTLEANIMSTRUCT_OAMFLAGS
 	add hl, bc
 	ld a, [hl]
@@ -2019,22 +2006,7 @@ BattleAnimFunc_Kick:
 	dw .four  ; Rolling Kick (continued)
 
 .zero
-	ret
-
-.one ; Unused?
-	ld hl, BATTLEANIMSTRUCT_YCOORD
-	add hl, bc
-	ld a, [hl]
-	cp $30
-	jr c, .move_down
-	ld hl, BATTLEANIMSTRUCT_JUMPTABLE_INDEX
-	add hl, bc
-	ld [hl], $0
-	ret
-
-.move_down
-	add $4
-	ld [hl], a
+.one
 	ret
 
 .two
@@ -2580,7 +2552,7 @@ BattleAnimFunc_Amnesia:
 	add hl, bc
 	ld a, [hl]
 	assert BATTLE_ANIM_FRAMESET_AMNESIA_1 + 1 == BATTLE_ANIM_FRAMESET_AMNESIA_2 \
-		&& BATTLE_ANIM_FRAMESET_AMNESIA_2 + 1 == BATTLE_ANIM_FRAMESET_AMNESIA_3
+		&& BATTLE_ANIM_FRAMESET_AMNESIA_2 + 1 == BATTLE_ANIM_FRAMESET_AMNESIA_3_RECOVER
 	add BATTLE_ANIM_FRAMESET_AMNESIA_1
 	call ReinitBattleAnimFrameset
 	ld hl, BATTLEANIMSTRUCT_PARAM
@@ -2667,7 +2639,7 @@ BattleAnimFunc_String:
 	; Obj Param 0 flips when used by enemy
 	ld hl, BATTLEANIMSTRUCT_OAMFLAGS
 	add hl, bc
-	set B_OAM_YFLIP, [hl]
+	set OAM_Y_FLIP, [hl]
 .not_param_zero
 	assert BATTLE_ANIM_FRAMESET_STRING_SHOT_1 + 1 == BATTLE_ANIM_FRAMESET_STRING_SHOT_2 \
 		&& BATTLE_ANIM_FRAMESET_STRING_SHOT_2 + 1 == BATTLE_ANIM_FRAMESET_STRING_SHOT_3
@@ -2782,7 +2754,7 @@ BattleAnimFunc_SpiralDescent:
 	ret
 
 BattleAnimFunc_PetalDance:
-; Object moves downwards in a spiral around the user. Object disappears at y coord $28
+; Object moves downwards in a spiral around the user. Object disappears at y coord $30
 	ld hl, BATTLEANIMSTRUCT_VAR1
 	add hl, bc
 	ld a, [hl]
@@ -2814,8 +2786,9 @@ BattleAnimFunc_PetalDance:
 	ld hl, BATTLEANIMSTRUCT_VAR2
 	add hl, bc
 	ld a, [hl]
-	cp $28
+	cp $30
 	jr nc, .end
+	inc [hl]
 	inc [hl]
 	ret
 
@@ -2902,7 +2875,6 @@ BattleAnimFunc_SmokeFlameWheel:
 .done
 	call DeinitBattleAnimation
 	ret
-
 
 BattleAnimFunc_SacredFire:
 ; Moves object in a circle where the height is 1/8 the width, while also moving upward 2 pixels per frame for 24 frames after which it disappears
@@ -3360,67 +3332,6 @@ BattleAnimFunc_Shiny:
 .one:
 	ret
 
-BattleAnimFunction_RadialMoveIn:
-	call BattleAnim_AnonJumptable
-.anon_dw
-	dw .zero
-	dw .one
-
-.zero:
-	call BattleAnim_IncAnonJumptableIndex
-	ld hl, BATTLEANIMSTRUCT_PARAM
-	add hl, bc
-	ld a, [hl]
-
-	; Set x/y flip dynamically.
-	ld hl, BATTLEANIMSTRUCT_VAR3
-	add hl, bc
-	add a
-	swap a
-	ld [hl], a
-
-	ld hl, BATTLEANIMSTRUCT_VAR1
-	add hl, bc
-	ld a, 40
-	ld [hli], a
-	ld [hl], 0
-	; fallthrough
-.one:
-	ld hl, BATTLEANIMSTRUCT_PARAM
-	add hl, bc
-	ld a, [hl]
-	ld hl, BATTLEANIMSTRUCT_VAR1
-	add hl, bc
-	ld d, [hl]
-	push af
-	push de
-	call BattleAnim_Sine
-	ld hl, BATTLEANIMSTRUCT_YOFFSET
-	add hl, bc
-	ld [hl], a
-	pop de
-	pop af
-	call BattleAnim_Cosine
-	ld hl, BATTLEANIMSTRUCT_XOFFSET
-	add hl, bc
-	ld [hl], a
-	ld hl, BATTLEANIMSTRUCT_VAR1
-	add hl, bc
-	ld a, [hli]
-	ld d, a
-	ld e, [hl]
-	ld hl, -4.5
-	add hl, de
-	jp nc, DeinitBattleAnimation
-	ld e, l
-	ld d, h
-	ld hl, BATTLEANIMSTRUCT_VAR2
-	add hl, bc
-	ld a, e
-	ld [hld], a
-	ld [hl], d
-	ret
-
 BattleAnimFunc_SkyAttack:
 ; Uses anim_incobj to move to next step
 	call BattleAnim_AnonJumptable
@@ -3488,15 +3399,7 @@ BattleAnimFunc_SkyAttack:
 	srl a
 	ld e, a
 	ld d, 0
-	ldh a, [hSGB]
-	and a
-	jr nz, .sgb
 	ld hl, .GBCPals
-	jr .got_pals
-
-.sgb
-	ld hl, .SGBPals
-.got_pals
 	add hl, de
 	ld a, [hl]
 	ld hl, BATTLEANIMSTRUCT_VAR1
@@ -3507,8 +3410,6 @@ BattleAnimFunc_SkyAttack:
 
 .GBCPals:
 	db $ff, $aa, $55, $aa
-.SGBPals:
-	db $ff, $ff, $00, $00
 
 BattleAnimFunc_GrowthSwordsDance:
 ; Moves object in a circle where the height is 1/8 the width, while also moving upward 2 pixels per frame
@@ -3542,7 +3443,6 @@ BattleAnimFunc_GrowthSwordsDance:
 	dec [hl]
 	ret
 
-BattleAnimFunction_Moon:
 BattleAnimFunc_StrengthSeismicToss:
 ; Moves object up for $e0 frames, then shakes it vertically and throws it at the target. Uses anim_incobj to move to final phase
 ; Obj Param: Defined but not used
@@ -3808,9 +3708,6 @@ BattleAnimFunc_LockOnMindReader:
 	assert BATTLE_ANIM_FRAMESET_LOCK_ON_1 + 1 == BATTLE_ANIM_FRAMESET_LOCK_ON_2 \
 		&& BATTLE_ANIM_FRAMESET_LOCK_ON_2 + 1 == BATTLE_ANIM_FRAMESET_LOCK_ON_3 \
 		&& BATTLE_ANIM_FRAMESET_LOCK_ON_3 + 1 == BATTLE_ANIM_FRAMESET_LOCK_ON_4
-	assert BATTLE_ANIM_FRAMESET_MIND_READER_1 + 1 == BATTLE_ANIM_FRAMESET_MIND_READER_2 \
-		&& BATTLE_ANIM_FRAMESET_MIND_READER_2 + 1 == BATTLE_ANIM_FRAMESET_MIND_READER_3 \
-		&& BATTLE_ANIM_FRAMESET_MIND_READER_3 + 1 == BATTLE_ANIM_FRAMESET_MIND_READER_4
 	add [hl]
 	call ReinitBattleAnimFrameset
 	ld hl, BATTLEANIMSTRUCT_PARAM
@@ -4044,6 +3941,47 @@ BattleAnimFunc_HiddenPower:
 	call BattleAnim_StepCircle
 	ret
 
+BattleAnimFunction_HiddenPower_Fast:
+	call BattleAnim_AnonJumptable
+.anon_dw
+	dw .zero
+	dw .one
+	dw .two
+
+.zero:
+	ld d, $18
+	ld hl, BATTLEANIMSTRUCT_PARAM
+	add hl, bc
+	ld a, [hl]
+	inc [hl] ; increased rotation speed
+	inc [hl]
+	jr .step_circle
+
+.one:
+	call BattleAnim_IncAnonJumptableIndex
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	ld [hl], $18
+.two:
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	ld a, [hl]
+	cp $80
+	jr nc, .done
+	ld d, a
+	add $8
+	ld [hl], a
+	ld hl, BATTLEANIMSTRUCT_PARAM
+	add hl, bc
+	ld a, [hl]
+	jr .step_circle
+
+.done
+	call DeinitBattleAnimation
+
+.step_circle:
+	jp BattleAnim_StepCircle
+
 BattleAnimFunc_Curse:
 ; Object moves down and to the left 2 pixels at a time until it reaches x coord $30 and disappears
 	call BattleAnim_AnonJumptable
@@ -4191,7 +4129,6 @@ BattleAnimFunc_RainSandstorm:
 	ld [hl], a
 	ret
 
-
 BattleAnimFunc_Cotton:
 ; Object moves in a circle slowly
 ; Obj Param: Defines starting position in the circle
@@ -4230,7 +4167,7 @@ BattleAnimFunc_AncientPower:
 .done
 	call DeinitBattleAnimation
 	ret
-	
+
 BattleAnimFunc_FallAndStop:
 	call BattleAnim_AnonJumptable
 
@@ -4260,8 +4197,8 @@ BattleAnimFunc_FallAndStop:
 	ld a, [hl]
 	and $3f
 	ret nz
-	jp BattleAnim_IncAnonJumptableIndex	
-	
+	jp BattleAnim_IncAnonJumptableIndex
+
 BattleAnimFunction_RadialMoveOut:
 	call BattleAnim_AnonJumptable
 
@@ -4348,8 +4285,8 @@ Rad_Move:
 	ld hl, BATTLEANIMSTRUCT_XOFFSET
 	add hl, bc
 	ld [hl], a
-	ret	
-	
+	ret
+
 BattleAnim_StepCircle:
 ; Inches object in a circular movement where its height is 1/4 the width
 	push af
@@ -4402,6 +4339,67 @@ BattleAnim_IncAnonJumptableIndex:
 	ld hl, BATTLEANIMSTRUCT_JUMPTABLE_INDEX
 	add hl, bc
 	inc [hl]
+	ret
+
+BattleAnimFunction_RadialMoveIn:
+	call BattleAnim_AnonJumptable
+.anon_dw
+	dw .zero
+	dw .one
+
+.zero:
+	call BattleAnim_IncAnonJumptableIndex
+	ld hl, BATTLEANIMSTRUCT_PARAM
+	add hl, bc
+	ld a, [hl]
+
+	; Set x/y flip dynamically.
+	ld hl, BATTLEANIMSTRUCT_VAR3
+	add hl, bc
+	add a
+	swap a
+	ld [hl], a
+
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	ld a, 40
+	ld [hli], a
+	ld [hl], 0
+	; fallthrough
+.one:
+	ld hl, BATTLEANIMSTRUCT_PARAM
+	add hl, bc
+	ld a, [hl]
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	ld d, [hl]
+	push af
+	push de
+	call BattleAnim_Sine
+	ld hl, BATTLEANIMSTRUCT_YOFFSET
+	add hl, bc
+	ld [hl], a
+	pop de
+	pop af
+	call BattleAnim_Cosine
+	ld hl, BATTLEANIMSTRUCT_XOFFSET
+	add hl, bc
+	ld [hl], a
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	ld a, [hli]
+	ld d, a
+	ld e, [hl]
+	ld hl, -4.5
+	add hl, de
+	call DeinitBattleAnimation
+	ld e, l
+	ld d, h
+	ld hl, BATTLEANIMSTRUCT_VAR2
+	add hl, bc
+	ld a, e
+	ld [hld], a
+	ld [hl], d
 	ret
 
 BattleAnim_Cosine:

@@ -195,9 +195,9 @@ DEF JOHTO_POKEMON EQU const_value
 	const CLEFFA     ; ad
 	const IGGLYBUFF  ; ae
 	const TOGEPI     ; af
-	const TOGETIC    ; b0
-	const NATU       ; b1
-	const XATU       ; b2
+	const TINKATINK  ; b0
+	const TINKATUFF  ; b1
+	const TINKATON   ; b2
 	const MAREEP     ; b3
 	const FLAAFFY    ; b4
 	const AMPHAROS   ; b5
@@ -255,8 +255,8 @@ DEF JOHTO_POKEMON EQU const_value
 	const PORYGON2   ; e9
 	const STANTLER   ; ea
 	const SMEARGLE   ; eb
-	const TYROGUE    ; ec
-	const HITMONTOP  ; ed
+	const BLACEPHALON    ; ec
+	const STAKATAKA  ; ed
 	const SMOOCHUM   ; ee
 	const ELEKID     ; ef
 	const MAGBY      ; f0

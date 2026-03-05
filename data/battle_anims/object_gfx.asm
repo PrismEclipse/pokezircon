@@ -59,6 +59,10 @@ AnimObjGFX:
 	anim_obj_gfx  8, AnimObjGlowGFX
 	anim_obj_gfx 12, AnimObjWaterBallGFX
 	anim_obj_gfx  8, AnimObjChopGFX
+	anim_obj_gfx 18, AnimObjHurricaneGFX
+	anim_obj_gfx 22, AnimObjObjects2GFX
+	anim_obj_gfx 10, AnimObjEnergyBallGFX
+	anim_obj_gfx 16, AnimObjMoonGFX
 	anim_obj_gfx  1, NULL
 	anim_obj_gfx  1, NULL
 	assert_table_length NUM_BATTLE_ANIM_GFX + 1

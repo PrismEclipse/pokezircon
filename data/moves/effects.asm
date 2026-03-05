@@ -846,7 +846,6 @@ MultiHit:
 	cleartext
 	supereffectivelooptext
 	checkfaint
-	buildopponentrage
 	endloop
 	raisesub
 	kingsrock
@@ -879,6 +878,32 @@ PoisonMultiHit:
 	kingsrock
 	poisontarget
 	endmove
+	
+BeatUp:
+	checkobedience
+	usedmovetext
+	movedelay
+	doturn
+	startloop
+	lowersub
+	checkhit
+	critical
+	beatup
+	damagecalc
+	damagevariation
+	clearmissdamage
+	moveanimnosub
+	failuretext
+	applydamage
+	criticaltext
+	cleartext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	endloop
+	raisesub
+	kingsrock
+	endmove	
 
 FlinchHit:
 	checkobedience
@@ -2109,3 +2134,31 @@ Hurricane:
 	kingsrock
 	confusetarget
 	endmove		
+	
+BulkUp:
+	checkobedience
+	usedmovetext
+	doturn
+	bulkup
+	endmove
+
+Overheat:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	overheat
+	checkfaint
+	buildopponentrage
+	kingsrock
+	endmove

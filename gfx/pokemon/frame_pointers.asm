@@ -151,15 +151,15 @@ FramesPointers:
 	dw DragoniteFrames
 	dw NecrozmaFrames
 	dw MewFrames
-	dw ChikoritaFrames
+	dw RowletFrames
 	dw BayleefFrames
-	dw MeganiumFrames
-	dw CyndaquilFrames
-	dw QuilavaFrames
-	dw TyphlosionFrames
-	dw TotodileFrames
-	dw CroconawFrames
-	dw FeraligatrFrames
+	dw DecidueyeFrames
+	dw FennekinFrames
+	dw BraixenFrames
+	dw DelphoxFrames
+	dw PiplupFrames
+	dw PrinplupFrames
+	dw EmpoleonFrames
 	dw SentretFrames
 	dw FurretFrames
 	dw HoothootFrames
@@ -175,9 +175,9 @@ FramesPointers:
 	dw CleffaFrames
 	dw IgglybuffFrames
 	dw TogepiFrames
-	dw TogeticFrames
-	dw NatuFrames
-	dw XatuFrames
+	dw TinkatinkFrames
+	dw TinkatuffFrames
+	dw TinkatonFrames
 	dw MareepFrames
 	dw FlaaffyFrames
 	dw AmpharosFrames
@@ -235,8 +235,8 @@ FramesPointers:
 	dw Porygon2Frames
 	dw StantlerFrames
 	dw SmeargleFrames
-	dw TyrogueFrames
-	dw HitmontopFrames
+	dw BlacephalonFrames
+	dw StakatakaFrames
 	dw SmoochumFrames
 	dw ElekidFrames
 	dw MagbyFrames

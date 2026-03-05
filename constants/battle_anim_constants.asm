@@ -158,7 +158,6 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const BATTLE_ANIM_OBJ_HEAL_BELL_NOTE      ; 85
 	const BATTLE_ANIM_OBJ_BATON_PASS          ; 86
 	const BATTLE_ANIM_OBJ_LOCK_ON             ; 87
-	const BATTLE_ANIM_OBJ_MIND_READER         ; 88
 	const BATTLE_ANIM_OBJ_SAFEGUARD           ; 89
 	const BATTLE_ANIM_OBJ_PROTECT             ; 8a
 	const BATTLE_ANIM_OBJ_THIEF               ; 8b
@@ -227,7 +226,15 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const BATTLE_ANIM_OBJ_BALL_POOF_YFIX      ; d7
 	const BATTLE_ANIM_OBJ_DRAGON_PULSE		 ; d8
 	const BATTLE_ANIM_OBJ_SMALL_GLOW		; d9
-DEF FIRST_DYNAMIC_FRAMESET EQU const_value
+	const BATTLE_ANIM_OBJ_HURRICANE			; da
+	const BATTLE_ANIM_OBJ_LEAF_STORM 		; db
+	const BATTLE_ANIM_OBJ_DRACO_METEOR 		; dc
+	const BATTLE_ANIM_OBJ_POISON_JAB		; dd
+	const BATTLE_ANIM_OBJ_SIGNAL_BEAM_R 	; de
+	const BATTLE_ANIM_OBJ_ICE_SPLASH 		; df
+	const BATTLE_ANIM_OBJ_MUDDY_WATER 		; e0
+	const BATTLE_ANIM_OBJ_RISING_MOON 		; e1
+	const BATTLE_ANIM_OBJ_RISING_SPARKLE 	; e2
 DEF NUM_BATTLE_ANIM_OBJS EQU const_value
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
@@ -314,6 +321,7 @@ DEF NUM_BATTLE_ANIM_OBJS EQU const_value
 	const BATTLE_ANIM_FUNC_RADIAL_MOVE_OUT_SLOW      ; 50
 	const BATTLE_ANIM_FUNC_FALL_AND_STOP             ; 51
 	const BATTLE_ANIM_FUNC_RADIAL_MOVE_IN
+	const BATTLE_ANIM_FUNC_HIDDEN_POWER_FAST 	     ; 53
 DEF NUM_BATTLE_ANIM_FUNCS EQU const_value
 
 ; BattleAnimFrameData indexes (see data/battle_anims/framesets.asm)
@@ -414,7 +422,7 @@ DEF NUM_BATTLE_ANIM_FUNCS EQU const_value
 	const BATTLE_ANIM_FRAMESET_CHICK_2               ; 62
 	const BATTLE_ANIM_FRAMESET_AMNESIA_1             ; 63
 	const BATTLE_ANIM_FRAMESET_AMNESIA_2             ; 64
-	const BATTLE_ANIM_FRAMESET_AMNESIA_3             ; 65
+	const BATTLE_ANIM_FRAMESET_AMNESIA_3_RECOVER     ; 65
 	const BATTLE_ANIM_FRAMESET_ASLEEP                ; 66
 	const BATTLE_ANIM_FRAMESET_DIG_SAND              ; 67
 	const BATTLE_ANIM_FRAMESET_DIG_PILE              ; 68
@@ -457,10 +465,6 @@ DEF NUM_BATTLE_ANIM_FUNCS EQU const_value
 	const BATTLE_ANIM_FRAMESET_LOCK_ON_2             ; 90
 	const BATTLE_ANIM_FRAMESET_LOCK_ON_3             ; 91
 	const BATTLE_ANIM_FRAMESET_LOCK_ON_4             ; 92
-	const BATTLE_ANIM_FRAMESET_MIND_READER_1         ; 93
-	const BATTLE_ANIM_FRAMESET_MIND_READER_2         ; 94
-	const BATTLE_ANIM_FRAMESET_MIND_READER_3         ; 95
-	const BATTLE_ANIM_FRAMESET_MIND_READER_4         ; 96
 	const BATTLE_ANIM_FRAMESET_SAFEGUARD             ; 97
 	const BATTLE_ANIM_FRAMESET_ITEM_BAG              ; 99
 	const BATTLE_ANIM_FRAMESET_SPIDER_WEB            ; 9a
@@ -480,7 +484,6 @@ DEF NUM_BATTLE_ANIM_FUNCS EQU const_value
 	const BATTLE_ANIM_FRAMESET_RAPID_SPIN            ; ab
 	const BATTLE_ANIM_FRAMESET_SWAGGER               ; ac
 	const BATTLE_ANIM_FRAMESET_MEAN_LOOK             ; ad
-	const BATTLE_ANIM_FRAMESET_UPSIDE_DOWN_PUNCH     ; ae
 	const BATTLE_ANIM_FRAMESET_GROWING_SPARKLE       ; af
 	const BATTLE_ANIM_FRAMESET_RAIN                  ; b0
 	const BATTLE_ANIM_FRAMESET_AEROBLAST             ; b3
@@ -508,6 +511,10 @@ DEF NUM_BATTLE_ANIM_FUNCS EQU const_value
 	const BATTLE_ANIM_FRAMESET_SWIRL_SHORT                ; ca
 	const BATTLE_ANIM_FRAMESET_DRAGON_PULSE				; cb
 	const BATTLE_ANIM_FRAMESET_SMALL_GLOW				; cc
+	const BATTLE_ANIM_FRAMESET_HURRICANE				; cd
+DEF FIRST_DYNAMIC_FRAMESET EQU const_value
+	const BATTLE_ANIM_FRAMESET_POISON_JAB 				; ce
+	
 DEF NUM_BATTLE_ANIM_FRAMESETS EQU const_value
 
 ; BattleAnimOAMData indexes (see data/battle_anims/oam.asm)
@@ -737,6 +744,7 @@ DEF NUM_BATTLE_ANIM_FRAMESETS EQU const_value
 	const BATTLE_ANIM_OAMSET_E2
 	const BATTLE_ANIM_OAMSET_E3
 	const BATTLE_ANIM_OAMSET_E4
+	const BATTLE_ANIM_OAMSET_HURRICANE
 DEF NUM_BATTLE_ANIM_OAMSETS EQU const_value
 
 assert NUM_BATTLE_ANIM_OAMSETS <= FIRST_OAM_CMD, \
@@ -846,8 +854,12 @@ DEF NUM_BATTLE_BG_EFFECTS EQU const_value
 	const BATTLE_ANIM_GFX_GLOW           ; 30
 	const BATTLE_ANIM_GFX_WATER_BALL     ; 31
 	const BATTLE_ANIM_GFX_CHOP		 ; 32
-	const BATTLE_ANIM_GFX_PLAYERHEAD     ; 33
-	const BATTLE_ANIM_GFX_ENEMYFEET      ; 34
+	const BATTLE_ANIM_GFX_HURRICANE 	;33
+	const BATTLE_ANIM_GFX_OBJECTS2 		; 34
+	const BATTLE_ANIM_GFX_ENERGY_BALL 	; 35
+	const BATTLE_ANIM_GFX_MOON			; 36
+	const BATTLE_ANIM_GFX_PLAYERHEAD     ; 37
+	const BATTLE_ANIM_GFX_ENEMYFEET      ; 38
 DEF NUM_BATTLE_ANIM_GFX EQU const_value - 1
 
 ; battle_bg_effect struct members (see macros/ram.asm)
@@ -906,7 +918,6 @@ DEF NUM_BG_EFFECTS EQU 5 ; see wActiveBGEffects
 	const PAL_BTLCUSTOM_WATER           ; a
 	const PAL_BTLCUSTOM_BUBBLE          ; b
 	const PAL_BTLCUSTOM_DRAGONBREATH    ; c
-	const PAL_BTLCUSTOM_DRAGON_RAGE     ; d
 	const PAL_BTLCUSTOM_AURORA          ; e
 	const PAL_BTLCUSTOM_SPORE           ; f
 	const PAL_BTLCUSTOM_PEACH           ; 10
@@ -932,6 +943,11 @@ DEF NUM_BG_EFFECTS EQU 5 ; see wActiveBGEffects
 	const PAL_BTLCUSTOM_TRI_COLOR		; 23
 	const PAL_BTLCUSTOM_WILL_O_WISP 	; 24
 	const PAL_BTLCUSTOM_DRAGON_PULSE     ; 25
+	const PAL_BTLCUSTOM_BRIGHT 			; 26
+	const PAL_BTLCUSTOM_BULK_UP          ; 27
+	const PAL_BTLCUSTOM_DARK_PULSE 		; 28
+	const PAL_BTLCUSTOM_MOONBLAST 		; 2a
+	const PAL_BTLCUSTOM_MOON 			; 2b
 DEF NUM_CUSTOM_BATTLE_PALETTES EQU const_value
 
 DEF PAL_BTLCUSTOM_DEFAULT EQU -1

@@ -2,16 +2,16 @@
 
 PlayBattleAnim:
 	farcall CheckBattleAnimSubstitution
-	ldh a, [rWBK]
+	ldh a, [rSVBK]
 	push af
 
 	ld a, BANK(wActiveAnimObjects)
-	ldh [rWBK], a
+	ldh [rSVBK], a
 
 	call _PlayBattleAnim
 
 	pop af
-	ldh [rWBK], a
+	ldh [rSVBK], a
 	ret
 
 _PlayBattleAnim:
@@ -26,8 +26,8 @@ _PlayBattleAnim:
 	call BattleAnimDelayFrame
 
 	ld c, VBLANK_CUTSCENE
-	ldh a, [rSPD]
-	bit B_SPD_DOUBLE, a
+	ldh a, [rKEY1]
+	bit KEY1_DBLSPEED, a
 	jr nz, .got_speed
 	ld c, VBLANK_CUTSCENE_CGB
 
@@ -54,7 +54,7 @@ _PlayBattleAnim:
 BattleAnimRunScript:
 	ld a, [wFXAnimID + 1]
 	and a
-	jr nz, .not_move
+	jr nz, .hi_byte
 
 	farcall CheckBattleScene
 	jr c, .disabled
@@ -82,14 +82,14 @@ BattleAnimRunScript:
 
 	ld l, a
 	ld h, 0
-	ld de, BATTLE_AFTERANIMS
+	ld de, ANIM_MISS
 	add hl, de
 	ld a, l
 	ld [wFXAnimID], a
 	ld a, h
 	ld [wFXAnimID + 1], a
 
-.not_move
+.hi_byte
 	call WaitSFX
 	call PlayHitSound
 	call RunBattleAnimScript
@@ -129,6 +129,18 @@ RunBattleAnimScript:
 	jr nz, .find
 
 .not_rollout
+; Slow down Surf's animation for DoubleSpeed
+	ld a, [wFXAnimID]
+	cp SURF
+	jr nz, .not_surf
+	ld a, [wUnusedScriptByte]
+	and 1
+	xor 1
+	ld [wUnusedScriptByte], a
+	jr z, .not_surf
+	call BattleAnimDelayFrame
+	
+.not_surf
 	call BattleAnimDelayFrame
 
 .done
@@ -155,18 +167,19 @@ BattleAnimRestoreHuds:
 	call BattleAnimDelayFrame
 	call WaitTop
 
-	ldh a, [rWBK]
+	ldh a, [rSVBK]
 	push af
 	ld a, BANK(wCurBattleMon) ; aka BANK(wTempMon), BANK(wPartyMon1), and several others
-	ldh [rWBK], a
+	ldh [rSVBK], a
 
 ; this block should just be "call UpdateBattleHuds"
 	ld hl, UpdateBattleHuds
 	ld a, BANK(UpdatePlayerHUD)
 	rst FarCall
+	farcall FinishBattleAnim
 
 	pop af
-	ldh [rWBK], a
+	ldh [rSVBK], a
 
 	ld a, $1
 	ldh [hBGMapMode], a
@@ -228,13 +241,13 @@ BattleAnim_ClearOAM:
 
 	; Instead of deleting the sprites, make them all use PAL_BATTLE_OB_ENEMY
 	ld hl, wShadowOAMSprite00Attributes
-	ld c, OAM_COUNT
+	ld c, NUM_SPRITE_OAM_STRUCTS
 .loop
 	ld a, [hl]
-	and ~(OAM_PALETTE | OAM_BANK1) ; zeros out the palette bits
+	and ~(PALETTE_MASK | VRAM_BANK_1) ; zeros out the palette bits
 	assert PAL_BATTLE_OB_ENEMY == 0
 	ld [hli], a
-rept OBJ_SIZE - 1
+rept SPRITEOAMSTRUCT_LENGTH - 1
 	inc hl
 endr
 	dec c
@@ -623,12 +636,7 @@ BattleAnimCmd_OBP1:
 	ret
 
 BattleAnimCmd_ResetObp0:
-	ldh a, [hSGB]
-	and a
 	ld a, $e0
-	jr z, .not_sgb
-	ld a, $f0
-.not_sgb
 	ld [wOBP0], a
 	ret
 
@@ -655,7 +663,7 @@ BattleAnimCmd_5GFX:
 	ld [wBattleAnimGFXTempTileID], a
 .loop
 	ld a, [wBattleAnimGFXTempTileID]
-	cp (vTiles1 - vTiles0) / TILE_SIZE - BATTLEANIM_BASE_TILE
+	cp (vTiles1 - vTiles0) / LEN_2BPP_TILE - BATTLEANIM_BASE_TILE
 	vc_hook Reduce_move_anim_flashing_PRESENT
 	ret nc
 	call GetBattleAnimByte
@@ -876,10 +884,10 @@ BattleAnimCmd_E7:
 	ret
 
 BattleAnimCmd_Transform:
-	ldh a, [rWBK]
+	ldh a, [rSVBK]
 	push af
 	ld a, BANK(wCurPartySpecies)
-	ldh [rWBK], a
+	ldh [rSVBK], a
 
 	ld a, [wCurPartySpecies]
 	push af
@@ -909,7 +917,7 @@ BattleAnimCmd_Transform:
 	ld [wCurPartySpecies], a
 
 	pop af
-	ldh [rWBK], a
+	ldh [rSVBK], a
 	ret
 
 BattleAnimCmd_UpdateActorPic:
@@ -932,10 +940,10 @@ BattleAnimCmd_UpdateActorPic:
 	ret
 
 BattleAnimCmd_RaiseSub:
-	ldh a, [rWBK]
+	ldh a, [rSVBK]
 	push af
 	ld a, 1 ; unnecessary bankswitch?
-	ldh [rWBK], a
+	ldh [rSVBK], a
 
 	xor a ; BANK(sScratch)
 	call OpenSRAM
@@ -997,7 +1005,7 @@ GetSubstitutePic: ; used only for BANK(GetSubstitutePic)
 	call CloseSRAM
 
 	pop af
-	ldh [rWBK], a
+	ldh [rSVBK], a
 	ret
 
 .CopyTile:
@@ -1006,77 +1014,10 @@ GetSubstitutePic: ; used only for BANK(GetSubstitutePic)
 	call FarCopyBytes
 	ret
 
-BattleAnimCmd_MinimizeOpp:
-	ldh a, [rWBK]
-	push af
-	ld a, 1 ; unnecessary bankswitch?
-	ldh [rWBK], a
-
-	xor a ; BANK(sScratch)
-	call OpenSRAM
-	call GetMinimizePic
-	call Request2bpp
-	call CloseSRAM
-
-	pop af
-	ldh [rWBK], a
+BattleAnimCmd_MinimizeOpp: ; unused
 	ret
 
-GetMinimizePic:
-	ld hl, sScratch
-	ld bc, (7 * 7) tiles
-.loop
-	xor a
-	ld [hli], a
-	dec bc
-	ld a, c
-	or b
-	jr nz, .loop
-
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .player
-
-	ld de, sScratch + (3 * 7 + 5) tiles
-	call CopyMinimizePic
-	ld hl, vTiles2 tile $00
-	ld de, sScratch
-	lb bc, BANK(GetMinimizePic), 7 * 7
-	ret
-
-.player
-	ld de, sScratch + (3 * 6 + 4) tiles
-	call CopyMinimizePic
-	ld hl, vTiles2 tile $31
-	ld de, sScratch
-	lb bc, BANK(GetMinimizePic), 6 * 6
-	ret
-
-CopyMinimizePic:
-	ld hl, MinimizePic
-	ld bc, $10
-	ld a, BANK(MinimizePic)
-	call FarCopyBytes
-	ret
-
-MinimizePic:
-INCBIN "gfx/battle/minimize.2bpp"
-
-BattleAnimCmd_Minimize:
-	ldh a, [rWBK]
-	push af
-	ld a, 1 ; unnecessary bankswitch?
-	ldh [rWBK], a
-
-	xor a ; BANK(sScratch)
-	call OpenSRAM
-	call GetMinimizePic
-	ld hl, vTiles0 tile $00
-	call Request2bpp
-	call CloseSRAM
-
-	pop af
-	ldh [rWBK], a
+BattleAnimCmd_Minimize: ; unused
 	ret
 	
 BattleAnimCmd_SetBgPal:
@@ -1174,10 +1115,10 @@ CustomBattlePalettes:
 INCLUDE "gfx/battle_anims/custom.pal"	
 
 BattleAnimCmd_DropSub:
-	ldh a, [rWBK]
+	ldh a, [rSVBK]
 	push af
 	ld a, BANK(wCurPartySpecies)
-	ldh [rWBK], a
+	ldh [rSVBK], a
 
 	ld a, [wCurPartySpecies]
 	push af
@@ -1196,7 +1137,7 @@ BattleAnimCmd_DropSub:
 	ld [wCurPartySpecies], a
 
 	pop af
-	ldh [rWBK], a
+	ldh [rSVBK], a
 	ret
 
 BattleAnimCmd_BeatUp:
@@ -1311,10 +1252,10 @@ rept 4
 	add hl, de
 endr
 
-	ldh a, [rWBK]
+	ldh a, [rSVBK]
 	push af
 	ld a, BANK(wEnemyMon) ; wBattleMon is in WRAM0, but wEnemyMon is in WRAMX
-	ldh [rWBK], a
+	ldh [rSVBK], a
 
 	ldh a, [hBattleTurn]
 	and a
@@ -1373,7 +1314,7 @@ endr
 
 .done
 	pop af
-	ldh [rWBK], a
+	ldh [rSVBK], a
 	ret
 
 .CryData:
@@ -1411,21 +1352,6 @@ PlayHitSound:
 BattleAnimAssignPals:
 	ldh a, [hCGB]
 	and a
-	jr nz, .cgb
-	ldh a, [hSGB]
-	and a
-	ld a, %11100000
-	jr z, .sgb
-	ld a, %11110000
-
-.sgb
-	ld [wOBP0], a
-	ld a, %11100100
-	ld [wBGP], a
-	ld [wOBP1], a
-	ret
-
-.cgb
 	ld a, %11100100
 	ld [wBGP], a
 	ld [wOBP0], a
@@ -1481,10 +1407,10 @@ BattleAnim_SetBGPals:
 	ldh a, [hCGB]
 	and a
 	ret z
-	ldh a, [rWBK]
+	ldh a, [rSVBK]
 	push af
 	ld a, BANK(wBGPals1)
-	ldh [rWBK], a
+	ldh [rSVBK], a
 	ld hl, wBGPals2
 	ld de, wBGPals1
 	ldh a, [rBGP]
@@ -1498,7 +1424,7 @@ BattleAnim_SetBGPals:
 	ld c, 2
 	call CopyPals
 	pop af
-	ldh [rWBK], a
+	ldh [rSVBK], a
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
 	ret
@@ -1508,10 +1434,10 @@ BattleAnim_SetOBPals:
 	ldh a, [hCGB]
 	and a
 	ret z
-	ldh a, [rWBK]
+	ldh a, [rSVBK]
 	push af
 	ld a, BANK(wOBPals1)
-	ldh [rWBK], a
+	ldh [rSVBK], a
 	ld hl, wOBPals2 palette PAL_BATTLE_OB_GRAY
 	ld de, wOBPals1 palette PAL_BATTLE_OB_GRAY
 	ldh a, [rOBP0]
@@ -1519,7 +1445,7 @@ BattleAnim_SetOBPals:
 	ld c, 2
 	call CopyPals
 	pop af
-	ldh [rWBK], a
+	ldh [rSVBK], a
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
 	ret

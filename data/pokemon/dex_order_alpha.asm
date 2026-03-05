@@ -85,7 +85,7 @@ AlphabeticalPokedexOrder:
 	db HERACROSS
 	db LATIOS
 	db LATIAS
-	db HITMONTOP
+	db STAKATAKA
 	db HO_OH
 	db HOOTHOOT
 	db HOPPIP
@@ -137,7 +137,7 @@ AlphabeticalPokedexOrder:
 	db MR__MIME
 	db MUK
 	db MURKROW
-	db NATU
+	db TINKATUFF
 	db NECROZMA
 	db NIDOKING
 	db NIDOQUEEN
@@ -225,9 +225,9 @@ AlphabeticalPokedexOrder:
 	db TENTACOOL
 	db TENTACRUEL
 	db TOGEPI
-	db TOGETIC
+	db TINKATINK
 	db TYRANITAR
-	db TYROGUE
+	db BLACEPHALON
 	db UMBREON
 	db UNOWN
 	db URSARING
@@ -247,7 +247,7 @@ AlphabeticalPokedexOrder:
 	db WIGGLYTUFF
 	db WOBBUFFET
 	db WOOPER
-	db XATU
+	db TINKATON
 	db YANMA
 	db ZUBAT
 	db ZYGARDE10

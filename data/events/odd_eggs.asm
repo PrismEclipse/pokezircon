@@ -349,7 +349,7 @@ OddEggs:
 	bigdw 11 ; SDef
 	dname "EGG", MON_NAME_LENGTH
 
-	db TYROGUE
+	db TINKATINK
 	db NO_ITEM
 	db TACKLE, SPLASH, 0, 0
 	dw 02560 ; OT ID
@@ -375,7 +375,7 @@ OddEggs:
 	bigdw 8 ; SDef
 	dname "EGG", MON_NAME_LENGTH
 
-	db TYROGUE
+	db TINKATINK
 	db NO_ITEM
 	db TACKLE, SPLASH, 0, 0
 	dw 00256 ; OT ID

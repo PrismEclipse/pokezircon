@@ -181,9 +181,9 @@ MonMenuIconPals:
 	icon_pals PINK,   GREEN  ; CLEFFA
 	icon_pals PINK,   GREEN  ; IGGLYBUFF
 	icon_pals RED,    BLUE   ; TOGEPI
-	icon_pals RED,    BLUE   ; TOGETIC
-	icon_pals TEAL,   TEAL   ; NATU
-	icon_pals TEAL,   GREEN  ; XATU
+	icon_pals RED,    BLUE   ; TINKATINK
+	icon_pals TEAL,   TEAL   ; TINKATUFF
+	icon_pals TEAL,   GREEN  ; TINKATON
 	icon_pals BLUE,   PURPLE ; MAREEP
 	icon_pals PINK,   PINK   ; FLAAFFY
 	icon_pals BROWN,  BLUE   ; AMPHAROS
@@ -241,8 +241,8 @@ MonMenuIconPals:
 	icon_pals BLUE,   BLUE   ; PORYGON2
 	icon_pals BROWN,  GREEN  ; STANTLER
 	icon_pals BROWN,  GREEN  ; SMEARGLE
-	icon_pals BROWN,  BLUE   ; TYROGUE
-	icon_pals BROWN,  PURPLE ; HITMONTOP
+	icon_pals BROWN,  BLUE   ; BLACEPHALON
+	icon_pals BROWN,  PURPLE ; STAKATAKA
 	icon_pals PURPLE, PINK   ; SMOOCHUM
 	icon_pals BROWN,  PINK   ; ELEKID
 	icon_pals RED,    PINK   ; MAGBY

@@ -2,7 +2,7 @@
 	dw 207, 440 ; height, weight
 
 	db   "It has a docile"
-	next "nature. If it is"
+	next "tinkatuffre. If it is"
 	next "threatened with"
 
 	page "attack, it raises"

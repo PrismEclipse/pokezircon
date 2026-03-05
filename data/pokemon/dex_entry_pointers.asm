@@ -176,9 +176,9 @@ PokedexDataPointerTable:
 	dba CleffaPokedexEntry
 	dba IgglybuffPokedexEntry
 	dba TogepiPokedexEntry
-	dba TogeticPokedexEntry
-	dba NatuPokedexEntry
-	dba XatuPokedexEntry
+	dba TinkatinkPokedexEntry
+	dba TinkatuffPokedexEntry
+	dba TinkatonPokedexEntry
 	dba MareepPokedexEntry
 	dba FlaaffyPokedexEntry
 	dba AmpharosPokedexEntry
@@ -236,8 +236,8 @@ PokedexDataPointerTable:
 	dba Porygon2PokedexEntry
 	dba StantlerPokedexEntry
 	dba SmearglePokedexEntry
-	dba TyroguePokedexEntry
-	dba HitmontopPokedexEntry
+	dba BlacephalonPokedexEntry
+	dba StakatakaPokedexEntry
 	dba SmoochumPokedexEntry
 	dba ElekidPokedexEntry
 	dba MagbyPokedexEntry

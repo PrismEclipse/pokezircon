@@ -151,15 +151,15 @@ AnimationPointers:
 	dw DragoniteAnimation
 	dw NecrozmaAnimation
 	dw MewAnimation
-	dw ChikoritaAnimation
-	dw BayleefAnimation
-	dw MeganiumAnimation
-	dw CyndaquilAnimation
-	dw QuilavaAnimation
-	dw TyphlosionAnimation
-	dw TotodileAnimation
-	dw CroconawAnimation
-	dw FeraligatrAnimation
+	dw RowletAnimation
+	dw DartrixAnimation
+	dw DecidueyeAnimation
+	dw FennekinAnimation
+	dw BraixenAnimation
+	dw DelphoxAnimation
+	dw PiplupAnimation
+	dw PrinplupAnimation
+	dw EmpoleonAnimation
 	dw SentretAnimation
 	dw FurretAnimation
 	dw HoothootAnimation
@@ -175,9 +175,9 @@ AnimationPointers:
 	dw CleffaAnimation
 	dw IgglybuffAnimation
 	dw TogepiAnimation
-	dw TogeticAnimation
-	dw NatuAnimation
-	dw XatuAnimation
+	dw TinkatinkAnimation
+	dw TinkatuffAnimation
+	dw TinkatonAnimation
 	dw MareepAnimation
 	dw FlaaffyAnimation
 	dw AmpharosAnimation
@@ -235,8 +235,8 @@ AnimationPointers:
 	dw Porygon2Animation
 	dw StantlerAnimation
 	dw SmeargleAnimation
-	dw TyrogueAnimation
-	dw HitmontopAnimation
+	dw BlacephalonAnimation
+	dw StakatakaAnimation
 	dw SmoochumAnimation
 	dw ElekidAnimation
 	dw MagbyAnimation

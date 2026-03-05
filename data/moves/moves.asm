@@ -46,7 +46,7 @@ Moves:
 	move HORN_ATTACK,  EFFECT_NORMAL_HIT,         65, NORMAL,       100, 25,   0
 	move ENERGY_BALL,  EFFECT_NORMAL_HIT,         40, NORMAL,       100, 35,   0
 	move DRAGON_PULSE, EFFECT_NORMAL_HIT,         85, DRAGON,       100, 10,   0
-	move BULK_UP,      EFFECT_NORMAL_HIT,         40, NORMAL,       100, 35,   0
+	move BULK_UP,      EFFECT_BULK_UP,             0, FIGHTING,       100, 35,   0
 	move BODY_SLAM,    EFFECT_PARALYZE_HIT,       85, NORMAL,       100, 15,  30
 	move WRAP,         EFFECT_TRAP_TARGET,        15, NORMAL,        85, 20,   0
 	move TAKE_DOWN,    EFFECT_RECOIL_HIT,         90, NORMAL,        85, 20,   0
@@ -115,7 +115,7 @@ Moves:
 	move DRAGON_CLAW,  EFFECT_NORMAL_HIT,         40, NORMAL,       100, 35,   0
 	move TELEPORT,     EFFECT_TELEPORT,            0, PSYCHIC_TYPE, 100, 20,   0
 	move NIGHT_SHADE,  EFFECT_LEVEL_DAMAGE,        1, GHOST,        100, 15,   0
-	move OVERHEAT,     EFFECT_NORMAL_HIT,         40, NORMAL,       100, 35,   0
+	move OVERHEAT,     EFFECT_OVERHEAT,	          130, FIRE,       90,   5,   0
 	move SCREECH,      EFFECT_DEFENSE_DOWN_2,      0, NORMAL,        85, 40,   0
 	move DOUBLE_TEAM,  EFFECT_EVASION_UP,          0, NORMAL,       100, 15,   0
 	move RECOVER,      EFFECT_HEAL,                0, NORMAL,       100, 20,   0
@@ -191,7 +191,7 @@ Moves:
 	move FLAIL,        EFFECT_REVERSAL,            1, NORMAL,       100, 15,   0
 	move CONVERSION2,  EFFECT_CONVERSION2,         0, NORMAL,       100, 30,   0
 	move AEROBLAST,    EFFECT_NORMAL_HIT,        100, FLYING,        95,  5,   0
-	move DRACO_METEOR, EFFECT_NORMAL_HIT,         40, NORMAL,       100, 35,   0
+	move DRACO_METEOR, EFFECT_OVERHEAT,	          130, DRAGON,       90,   5,   0
 	move REVERSAL,     EFFECT_REVERSAL,            1, FIGHTING,     100, 15,   0
 	move SPITE,        EFFECT_SPITE,               0, GHOST,        100, 10,   0
 	move POWDER_SNOW,  EFFECT_FREEZE_HIT,         40, ICE,          100, 25,  10
@@ -210,7 +210,7 @@ Moves:
 	move DESTINY_BOND, EFFECT_DESTINY_BOND,        0, GHOST,        100,  5,   0
 	move PERISH_SONG,  EFFECT_PERISH_SONG,         0, NORMAL,       100,  5,   0
 	move ICY_WIND,     EFFECT_SPEED_DOWN_HIT,     55, ICE,           95, 15, 100
-	move LEAF_STORM,   EFFECT_NORMAL_HIT,         40, NORMAL,       100, 35,   0
+	move LEAF_STORM,   EFFECT_OVERHEAT,	          130, GRASS,       90,   5,   0
 	move CALM_MIND,    EFFECT_NORMAL_HIT,         40, NORMAL,       100, 35,   0
 	move LOCK_ON,      EFFECT_LOCK_ON,             0, NORMAL,       100,  5,   0
 	move OUTRAGE,      EFFECT_RAMPAGE,            90, DRAGON,       100, 15,   0

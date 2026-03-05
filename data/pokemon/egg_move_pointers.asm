@@ -176,7 +176,7 @@ EggMovePointers::
 	dw IgglybuffEggMoves
 	dw TogepiEggMoves
 	dw NoEggMoves
-	dw NatuEggMoves
+	dw TinkatuffEggMoves
 	dw NoEggMoves
 	dw MareepEggMoves
 	dw NoEggMoves
@@ -235,7 +235,7 @@ EggMovePointers::
 	dw NoEggMoves
 	dw StantlerEggMoves
 	dw NoEggMoves
-	dw TyrogueEggMoves
+	dw BlacephalonEggMoves
 	dw NoEggMoves
 	dw SmoochumEggMoves
 	dw ElekidEggMoves

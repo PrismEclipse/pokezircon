@@ -535,7 +535,7 @@ TogepiEggMoves:
 	db FUTURE_SIGHT
 	db -1 ; end
 
-NatuEggMoves:
+TinkatuffEggMoves:
 	db HAZE
 	db DRILL_PECK
 	db QUICK_ATTACK
@@ -764,7 +764,7 @@ StantlerEggMoves:
 	db BITE
 	db -1 ; end
 
-TyrogueEggMoves:
+BlacephalonEggMoves:
 	db RAPID_SPIN
 	db HI_JUMP_KICK
 	db MACH_PUNCH

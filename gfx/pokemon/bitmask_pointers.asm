@@ -151,15 +151,15 @@ BitmasksPointers:
 	dw DragoniteBitmasks
 	dw NecrozmaBitmasks
 	dw MewBitmasks
-	dw ChikoritaBitmasks
-	dw BayleefBitmasks
-	dw MeganiumBitmasks
-	dw CyndaquilBitmasks
-	dw QuilavaBitmasks
-	dw TyphlosionBitmasks
-	dw TotodileBitmasks
-	dw CroconawBitmasks
-	dw FeraligatrBitmasks
+	dw RowletBitmasks
+	dw DartrixBitmasks
+	dw DecidueyeBitmasks
+	dw FennekinBitmasks
+	dw BraixenBitmasks
+	dw DelphoxBitmasks
+	dw PiplupBitmasks
+	dw PrinplupBitmasks
+	dw EmpoleonBitmasks
 	dw SentretBitmasks
 	dw FurretBitmasks
 	dw HoothootBitmasks
@@ -175,9 +175,9 @@ BitmasksPointers:
 	dw CleffaBitmasks
 	dw IgglybuffBitmasks
 	dw TogepiBitmasks
-	dw TogeticBitmasks
-	dw NatuBitmasks
-	dw XatuBitmasks
+	dw TinkatinkBitmasks
+	dw TinkatuffBitmasks
+	dw TinkatonBitmasks
 	dw MareepBitmasks
 	dw FlaaffyBitmasks
 	dw AmpharosBitmasks
@@ -235,8 +235,8 @@ BitmasksPointers:
 	dw Porygon2Bitmasks
 	dw StantlerBitmasks
 	dw SmeargleBitmasks
-	dw TyrogueBitmasks
-	dw HitmontopBitmasks
+	dw BlacephalonBitmasks
+	dw StakatakaBitmasks
 	dw SmoochumBitmasks
 	dw ElekidBitmasks
 	dw MagbyBitmasks

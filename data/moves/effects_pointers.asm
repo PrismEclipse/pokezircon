@@ -157,4 +157,7 @@ MoveEffectsPointers:
 	dw Thunderclap ;THUNDERCLAP
 	dw TrapHit ;SPIRIT_SHACKLE
 	dw Hurricane
+	dw BulkUp
+	dw Overheat
+	dw BeatUp
 	assert_table_length NUM_MOVE_EFFECTS

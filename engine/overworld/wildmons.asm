@@ -487,7 +487,7 @@ InitRoamMons:
 ; species
 	ld a, ZYGARDE10
 	ld [wRoamMon1Species], a
-	ld a, TYROGUE
+	ld a, BLACEPHALON
 	ld [wRoamMon2Species], a
 
 ; level

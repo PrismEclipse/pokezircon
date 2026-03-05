@@ -1613,7 +1613,7 @@ BattleCommand_CheckHit:
 ; a monster that isn't sleeping.
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
-	cp EFFECT_CALM_MIND
+	cp EFFECT_PSYWAVE
 	ret nz
 
 	ld a, BATTLE_VARS_STATUS_OPP
@@ -1683,7 +1683,7 @@ farcall GetProtectVariationEffect
 
 	cp EFFECT_LEECH_HIT
 	ret z
-	cp EFFECT_CALM_MIND
+	cp EFFECT_PSYWAVE
 	ret z
 
 .not_draining_sub
@@ -1950,8 +1950,6 @@ BattleCommand_MoveAnimNoSub:
 	jr z, .alternate_anim
 	cp EFFECT_DOUBLE_HIT
 	jr z, .alternate_anim
-	cp EFFECT_POISON_MULTI_HIT
-	jr z, .alternate_anim
 	cp EFFECT_TRIPLE_KICK
 	jr z, .triplekick
 	xor a
@@ -2070,8 +2068,6 @@ BattleCommand_FailureText:
 	cp EFFECT_MULTI_HIT
 	jr z, .multihit
 	cp EFFECT_DOUBLE_HIT
-	jr z, .multihit
-	cp EFFECT_POISON_MULTI_HIT
 	jr z, .multihit
 	ret
 
@@ -2385,9 +2381,9 @@ BattleCommand_CheckFaint:
 	jr z, .multiple_hit_raise_sub
 	cp EFFECT_DOUBLE_HIT
 	jr z, .multiple_hit_raise_sub
-	cp EFFECT_POISON_MULTI_HIT
-	jr z, .multiple_hit_raise_sub
 	cp EFFECT_TRIPLE_KICK
+	jr nz, .multiple_hit_raise_sub
+	cp EFFECT_BEAT_UP
 	jr nz, .finish
 
 .multiple_hit_raise_sub
@@ -2840,6 +2836,7 @@ EnemyAttackDamage:
 	and a
 	ret
 
+INCLUDE "engine/battle/move_effects/beat_up.asm"
 
 BattleCommand_ClearMissDamage:
 	ld a, [wAttackMissed]
@@ -3302,11 +3299,15 @@ INCLUDE "engine/battle/move_effects/lock_on.asm"
 
 INCLUDE "engine/battle/move_effects/sketch.asm"
 
+INCLUDE "engine/battle/move_effects/bulk_up.asm"
+
 INCLUDE "engine/battle/move_effects/calm_mind.asm"
 
 INCLUDE "engine/battle/move_effects/armor_cannon.asm"
 
 INCLUDE "engine/battle/move_effects/thunderclap.asm"
+
+INCLUDE "engine/battle/move_effects/overheat.asm"
 
 BattleCommand_DefrostOpponent:
 ; Thaw the opponent if frozen, and
@@ -3545,9 +3546,7 @@ DoSubstituteDamage:
 	jr z, .ok
 	cp EFFECT_DOUBLE_HIT
 	jr z, .ok
-	cp EFFECT_POISON_MULTI_HIT
-	jr z, .ok
-	cp EFFECT_TRIPLE_KICK
+	CP EFFECT_BEAT_UP
 	jr z, .ok
 	xor a
 	ld [hl], a
@@ -5228,8 +5227,6 @@ BattleCommand_EndLoop:
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVarAddr
 	ld a, [hl]
-	cp EFFECT_POISON_MULTI_HIT
-	jr z, .twineedle
 	cp EFFECT_DOUBLE_HIT
 	ld a, 1
 	jr z, .double_hit
@@ -5285,7 +5282,15 @@ BattleCommand_EndLoop:
 	push bc
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
+	cp EFFECT_BEAT_UP
+	jr z, .beat_up_2
 	call StdBattleTextbox
+.beat_up_2
+
+	pop bc
+	xor a
+	ld [bc], a
+	ret
 
 .loop_back_to_critical
 	ld a, [wBattleScriptBufferAddress + 1]

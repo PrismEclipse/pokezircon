@@ -178,9 +178,9 @@ PokemonPicPointers::
 	dbas CleffaFrontpic, CleffaBackpic
 	dbas IgglybuffFrontpic, IgglybuffBackpic
 	dbas TogepiFrontpic, TogepiBackpic
-	dbas TogeticFrontpic, TogeticBackpic
-	dbas NatuFrontpic, NatuBackpic
-	dbas XatuFrontpic, XatuBackpic
+	dbas TinkatinkFrontpic, TinkatinkBackpic
+	dbas TinkatuffFrontpic, TinkatuffBackpic
+	dbas TinkatonFrontpic, TinkatonBackpic
 	dbas MareepFrontpic, MareepBackpic
 	dbas FlaaffyFrontpic, FlaaffyBackpic
 	dbas AmpharosFrontpic, AmpharosBackpic
@@ -238,8 +238,8 @@ PokemonPicPointers::
 	dbas Porygon2Frontpic, Porygon2Backpic
 	dbas StantlerFrontpic, StantlerBackpic
 	dbas SmeargleFrontpic, SmeargleBackpic
-	dbas TyrogueFrontpic, TyrogueBackpic
-	dbas HitmontopFrontpic, HitmontopBackpic
+	dbas BlacephalonFrontpic, BlacephalonBackpic
+	dbas StakatakaFrontpic, StakatakaBackpic
 	dbas SmoochumFrontpic, SmoochumBackpic
 	dbas ElekidFrontpic, ElekidBackpic
 	dbas MagbyFrontpic, MagbyBackpic
