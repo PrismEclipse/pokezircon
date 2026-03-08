@@ -166,15 +166,15 @@ FramesPointers:
 	dw NoctowlFrames
 	dw LedybaFrames
 	dw LedianFrames
-	dw SpinarakFrames
-	dw AriadosFrames
-	dw CrobatFrames
+	dw RaltsFrames
+	dw KirliaFrames
+	dw GardevoirFrames
 	dw ChinchouFrames
 	dw LanturnFrames
 	dw PichuFrames
 	dw CleffaFrames
 	dw IgglybuffFrames
-	dw TogepiFrames
+	dw GalladeFrames
 	dw TinkatinkFrames
 	dw TinkatuffFrames
 	dw TinkatonFrames

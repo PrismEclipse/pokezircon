@@ -90,48 +90,32 @@ GetFarWord::
 	pop af
 	rst Bankswitch
 	ret
-	
+
 FarCopyColorWRAM::
 	ld a, BANK("GBC Video")
 	; fallthrough
 FarCopyWRAM::
-; copy bc bytes from hl to a:de
 	ldh [hTempBank], a
-	ldh a, [rWBK]
+	ldh a, [rSVBK]
 	push af
 	ldh a, [hTempBank]
-	ldh [rWBK], a
+	ldh [rSVBK], a
 
 	call CopyBytes
 
 	pop af
-	ldh [rWBK], a
+	ldh [rSVBK], a
 	ret
 
 GetFarWRAMByte::
-; retrieve a single byte from a:hl, and return it in a.
 	ldh [hTempBank], a
-	ldh a, [rWBK]
+	ldh a, [rSVBK]
 	push af
 	ldh a, [hTempBank]
-	ldh [rWBK], a
+	ldh [rSVBK], a
 	ld a, [hl]
 	ldh [hFarByte], a
 	pop af
-	ldh [rWBK], a
+	ldh [rSVBK], a
 	ldh a, [hFarByte]
-	ret
-
-GetFarWRAMWord:: ; unreferenced
-; retrieve a word from a:hl, and return it in hl.
-	ldh [hTempBank], a
-	ldh a, [rWBK]
-	push af
-	ldh a, [hTempBank]
-	ldh [rWBK], a
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	pop af
-	ldh [rWBK], a
 	ret

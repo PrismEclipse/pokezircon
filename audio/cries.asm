@@ -75,7 +75,13 @@ Cry_Zygarde:
 Cry_Stoutland:
 	channel_count 2
 	channel 5, Cry_Stoutland_Ch5
-	channel 6, Cry_Stoutland_Ch6	
+	channel 6, Cry_Stoutland_Ch6
+
+Cry_Empoleon:
+	channel_count 3
+	channel 5, Cry_Empoleon_Ch5
+	channel 6, Cry_Empoleon_Ch6
+	channel 8, Cry_Empoleon_Ch8	
 
 Cry_Gligar:
 	channel_count 2
@@ -514,6 +520,34 @@ Cry_Cyndaquil_Ch6:
 	square_note 1, 5, 1, 786
 	sound_loop 4, .loop2
 	sound_ret
+	
+Cry_Empoleon_Ch5:
+	duty_cycle_pattern 3, 3, 0, 0
+	square_note 15, 14, 0, 1920
+	square_note 15, 15, 0, 1924
+	square_note 10, 6, -4, 1920
+	square_note 8, 7, 1, 1924
+	sound_ret
+
+Cry_Empoleon_Ch6:
+	duty_cycle_pattern 2, 1, 2, 1
+	square_note 14, 12, 6, 1201
+	square_note 7, 12, 3, 1197
+	square_note 5, 11, 2, 1217
+	square_note 8, 9, 2, 1233
+	square_note 6, 10, 2, 1249
+	square_note 8, 9, 1, 1265
+	sound_ret
+
+Cry_Empoleon_Ch8:
+	noise_note 2, 15, 2, 76
+	noise_note 6, 14, 0, 58
+	noise_note 15, 13, 0, 58
+	noise_note 8, 13, 0, 44
+	noise_note 6, 14, 6, 76
+	noise_note 12, 7, -5, 76
+	noise_note 15, 13, 3, 76
+	sound_ret		
 
 Cry_Gligar_Ch8:
 Cry_Cyndaquil_Ch8:

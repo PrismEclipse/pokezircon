@@ -225,12 +225,30 @@ PokeBallEffect:
 	jp c, Ball_BoxIsFullMessage
 
 .room_in_party
+	; a == wPartyCount, used to insert backup item
+	ld c, a
+
+	; Don't mess with item backup struct if we are in a bug contest
+	ld a, [wBattleType]
+	cp BATTLETYPE_CONTEST
+	jr z, .backup_item_done
+
+	; Copy wildmon's item to item backup struct in case we catch
+	ld hl, wPartyBackupItems
+	ld b, 0
+	add hl, bc
+	ld a, [wEnemyMonItem]
+	ld [hl], a
+
+.backup_item_done
 	xor a
 	ld [wWildMon], a
 	ld a, [wBattleType]
 	cp BATTLETYPE_CONTEST
-	call nz, ReturnToBattle_UseBall
+	jr z, .skip_return
+	call ReturnToBattle_UseBall
 
+.skip_return
 	ld hl, wOptions
 	res NO_TEXT_SCROLL, [hl]
 	ld hl, ItemUsedText

@@ -26,7 +26,6 @@ ENDM
 	command poisontarget            ; 13
 	command sleeptarget             ; 14
 	command draintarget             ; 15
-	command eatdream                ; 16
 	command burntarget              ; 17
 	command freezetarget            ; 18
 	command paralyzetarget          ; 19
@@ -41,7 +40,9 @@ ENDM
 	command endloop                 ; 22
 	command flinchtarget            ; 23
 	command ohko                    ; 24
-	command recoil                  ; 25
+	command struggle                ; 27
+	command recoil_1_3              ; 28
+	command recoil_1_4              ; 29
 	command mist                    ; 26
 	command focusenergy             ; 27
 	command confuse                 ; 28
@@ -152,7 +153,6 @@ ENDM
 	command skipsuncharge           ; 97
 	command thunderaccuracy         ; 98
 	command teleport                ; 99
-	command ragedamage              ; 9a
 	command resettypematchup        ; 9b
 	command allstatsup              ; 9c
 	command raisesubnoanim          ; 9d
@@ -170,10 +170,13 @@ ENDM
 	command traphit 				; a9
 	command bulkup 					; aa
 	command overheat 				; ab
-	command beatup 					; ac
 	command quiverdance 			; ad
 	command victorydance 			; ae
 	command burn 					; af
+	command mindblown				; b0
+	command doubleunderwaterdamage ; b1
+	command defrosttarget			; b2
+	command growth 					; b3
 DEF NUM_EFFECT_COMMANDS EQU const_value - 1
 
 	const_def -1, -1

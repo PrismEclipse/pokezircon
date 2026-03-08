@@ -320,7 +320,6 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_TOXIC,            AI_Smart_Toxic
 	dbw EFFECT_LIGHT_SCREEN,     AI_Smart_LightScreen
 	dbw EFFECT_OHKO,             AI_Smart_Ohko
-	dbw EFFECT_RAZOR_WIND,       AI_Smart_RazorWind
 	dbw EFFECT_SUPER_FANG,       AI_Smart_SuperFang
 	dbw EFFECT_TRAP_TARGET,      AI_Smart_TrapTarget
 	dbw EFFECT_CONFUSE,          AI_Smart_Confuse
@@ -970,58 +969,6 @@ AI_Smart_TrapTarget:
 	dec [hl]
 	ret
 
-AI_Smart_RazorWind:
-	ld a, [wEnemySubStatus1]
-	bit SUBSTATUS_PERISH, a
-	jr z, .no_perish_count
-
-	ld a, [wEnemyPerishCount]
-	cp 3
-	jr c, .discourage
-
-.no_perish_count
-	push hl
-	ld hl, wPlayerUsedMoves
-	ld c, NUM_MOVES
-
-.checkmove
-	ld a, [hli]
-	and a
-	jr z, .movesdone
-
-	call AIGetEnemyMove
-
-	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
-	cp EFFECT_PROTECT
-	jr z, .dismiss
-	dec c
-	jr nz, .checkmove
-
-.movesdone
-	pop hl
-	ld a, [wEnemySubStatus3]
-	bit SUBSTATUS_CONFUSED, a
-	jr nz, .maybe_discourage
-
-	call AICheckEnemyHalfHP
-	ret c
-
-.maybe_discourage
-	call Random
-	cp 79 percent - 1
-	ret c
-
-.discourage
-	inc [hl]
-	ret
-
-.dismiss
-	pop hl
-	ld a, [hl]
-	add 6
-	ld [hl], a
-	ret
-
 AI_Smart_Confuse:
 ; 90% chance to discourage this move if player's HP is between 25% and 50%.
 	call AICheckPlayerHalfHP
@@ -1072,15 +1019,19 @@ AI_Smart_SpDefenseUp2:
 	ret
 
 AI_Smart_Fly:
-; Fly, Dig
+; Fly, Dig, Dive, Time Stream
 
 ; Greatly encourage this move if the player is
-; flying or underground, and slower than the enemy.
+; flying, underground, underwater, or in the time stream and slower than the enemy.
 
 	ld a, [wPlayerSubStatus3]
 	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+	jr nz, .player_hidden
+	ld a, [wPlayerSubStatus4]
+	and 1 << SUBSTATUS_UNDERWATER | 1 << SUBSTATUS_TIME_STREAM	
 	ret z
-
+	
+.player_hidden
 	call AICompareSpeed
 	ret nc
 
@@ -1176,7 +1127,7 @@ AI_Smart_HyperBeam:
 	ret
 
 AI_Smart_Rage:
-	ld a, [wEnemySubStatus4]
+	ld a, [wEnemySubStatus5]
 	bit SUBSTATUS_RAGE, a
 	jr z, .notbuilding
 
@@ -1512,11 +1463,13 @@ AI_Smart_PriorityHit:
 	call AICompareSpeed
 	ret c
 
-; Dismiss this move if the player is flying or underground.
+; Dismiss this move if the player is flying, underground, underwater, or in the time stream.
 	ld a, [wPlayerSubStatus3]
 	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
 	jp nz, AIDiscourageMove
-
+	ld a, [wPlayerSubStatus4]
+	and 1 << SUBSTATUS_UNDERWATER | 1 << SUBSTATUS_TIME_STREAM
+	jp nz, AIDiscourageMove
 ; Greatly encourage this move if it will KO the player.
 	ld a, 1
 	ldh [hBattleTurn], a
@@ -2488,15 +2441,19 @@ AI_Smart_Gust:
 
 AI_Smart_FutureSight:
 ; Greatly encourage this move if the player is
-; flying or underground, and slower than the enemy.
+; ; flying, underground, underwater, or in the time stream and slower than the enemy.
 
 	call AICompareSpeed
 	ret nc
 
 	ld a, [wPlayerSubStatus3]
 	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+	jr nz, .player_hidden
+	ld a, [wPlayerSubStatus4]
+	and 1 << SUBSTATUS_UNDERWATER | 1 << SUBSTATUS_TIME_STREAM	
 	ret z
-
+	
+.player_hidden
 	dec [hl]
 	dec [hl]
 	ret

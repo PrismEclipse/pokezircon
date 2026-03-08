@@ -166,15 +166,15 @@ AnimationIdlePointers:
 	dw NoctowlAnimationIdle
 	dw LedybaAnimationIdle
 	dw LedianAnimationIdle
-	dw SpinarakAnimationIdle
-	dw AriadosAnimationIdle
-	dw CrobatAnimationIdle
+	dw RaltsAnimationIdle
+	dw KirliaAnimationIdle
+	dw GardevoirAnimationIdle
 	dw ChinchouAnimationIdle
 	dw LanturnAnimationIdle
 	dw PichuAnimationIdle
 	dw CleffaAnimationIdle
 	dw IgglybuffAnimationIdle
-	dw TogepiAnimationIdle
+	dw GalladeAnimationIdle
 	dw TinkatinkAnimationIdle
 	dw TinkatuffAnimationIdle
 	dw TinkatonAnimationIdle

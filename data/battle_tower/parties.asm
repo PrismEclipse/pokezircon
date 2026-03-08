@@ -57,7 +57,7 @@ BattleTowerMons:
 	dname "E-HUi", MON_NAME_LENGTH
 
 	db UMBREON
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db SHADOW_BALL, IRON_TAIL, BULK_UP, TOXIC
 	dw 0 ; OT ID
 	bigdt 1000 ; Exp
@@ -161,7 +161,7 @@ BattleTowerMons:
 	dname "SANI-GO", MON_NAME_LENGTH
 
 	db MILTANK
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db BLIZZARD, EARTHQUAKE, HYPER_BEAM, TOXIC
 	dw 0 ; OT ID
 	bigdt 1000 ; Exp
@@ -239,7 +239,7 @@ BattleTowerMons:
 	dname "RAPURASU", MON_NAME_LENGTH
 
 	db SNEASEL
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db SLASH, FAINT_ATTACK, SURF, BLIZZARD
 	dw 0 ; OT ID
 	bigdt 1000 ; Exp
@@ -317,7 +317,7 @@ BattleTowerMons:
 	dname "MUUMA", MON_NAME_LENGTH
 
 	db HOUNDOUR
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db FAINT_ATTACK, SOLARBEAM, SEND_AWAY, SUNNY_DAY
 	dw 0 ; OT ID
 	bigdt 1000 ; Exp
@@ -447,7 +447,7 @@ BattleTowerMons:
 	dname "NAtuSI-", MON_NAME_LENGTH
 
 	db HERACROSS
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db REVERSAL, ENDURE, COUNTER, ROCK_SMASH
 	dw 0 ; OT ID
 	bigdt 1000 ; Exp
@@ -580,7 +580,7 @@ BattleTowerMons:
 	dname "BURAtuKI-", MON_NAME_LENGTH
 
 	db STARMIE
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db RECOVER, PSYCHIC_M, SURF, BULK_UP
 	dw 0 ; OT ID
 	bigdt 8000 ; Exp
@@ -632,7 +632,7 @@ BattleTowerMons:
 	dname "GIyaRADOSU", MON_NAME_LENGTH
 
 	db STEELIX
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db SEND_AWAY, IRON_TAIL, SWAGGER, EARTHQUAKE
 	dw 0 ; OT ID
 	bigdt 8000 ; Exp
@@ -762,7 +762,7 @@ BattleTowerMons:
 	dname "NAtuSI-", MON_NAME_LENGTH
 
 	db AERODACTYL
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db REST, HYPER_BEAM, EARTHQUAKE, SPLASH
 	dw 0 ; OT ID
 	bigdt 8000 ; Exp
@@ -814,7 +814,7 @@ BattleTowerMons:
 	dname "HAPINASU", MON_NAME_LENGTH
 
 	db LAPRAS
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db PSYCHIC_M, THUNDERBOLT, BLIZZARD, CONFUSE_RAY
 	dw 0 ; OT ID
 	bigdt 8000 ; Exp
@@ -892,7 +892,7 @@ BattleTowerMons:
 	dname "HAtuSAMU", MON_NAME_LENGTH
 
 	db LATIOS
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db THUNDERPUNCH, ICE_PUNCH, FIRE_PUNCH, SPLASH
 	dw 0 ; OT ID
 	bigdt 8000 ; Exp
@@ -996,7 +996,7 @@ BattleTowerMons:
 	dname "MIRUTANKU", MON_NAME_LENGTH
 
 	db WIGGLYTUFF
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db HYPER_BEAM, BLIZZARD, FIRE_BLAST, ATTRACT
 	dw 0 ; OT ID
 	bigdt 8000 ; Exp
@@ -1181,7 +1181,7 @@ BattleTowerMons:
 	dname "SUTA-MI-", MON_NAME_LENGTH
 
 	db JYNX
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db BLIZZARD, SPLASH, CALM_MIND, ATTRACT
 	dw 0 ; OT ID
 	bigdt 27000 ; Exp
@@ -1336,8 +1336,8 @@ BattleTowerMons:
 	bigdw 80 ; SDef
 	dname "KAIRIKI-", MON_NAME_LENGTH
 
-	db CROBAT
-	db GOLD_BERRY
+	db GARDEVOIR
+	db SITRUS_BERRY
 	db ATTRACT, CONFUSE_RAY, TOXIC, WING_ATTACK
 	dw 0 ; OT ID
 	bigdt 27000 ; Exp
@@ -1467,7 +1467,7 @@ BattleTowerMons:
 	dname "RAPURASU", MON_NAME_LENGTH
 
 	db LANTURN
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db RAIN_DANCE, THUNDER, SURF, FLAIL
 	dw 0 ; OT ID
 	bigdt 27000 ; Exp
@@ -1545,7 +1545,7 @@ BattleTowerMons:
 	dname "DOKUKURAGE", MON_NAME_LENGTH
 
 	db GENGAR
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db THIEF, LICK, NIGHT_SHADE, GIGA_DRAIN
 	dw 0 ; OT ID
 	bigdt 27000 ; Exp
@@ -1571,7 +1571,7 @@ BattleTowerMons:
 	dname "GENGA-", MON_NAME_LENGTH
 
 	db URSARING
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db HEADBUTT, PROTECT, SEND_AWAY, DISARM
 	dw 0 ; OT ID
 	bigdt 27000 ; Exp
@@ -1652,7 +1652,7 @@ BattleTowerMons:
 ; BattleTowerMons group 4
 
 	db TAUROS
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db RETURN, HYPER_BEAM, EARTHQUAKE, IRON_TAIL
 	dw 0 ; OT ID
 	bigdt 64000 ; Exp
@@ -1756,7 +1756,7 @@ BattleTowerMons:
 	dname "RAPURASU", MON_NAME_LENGTH
 
 	db STEELIX
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db SANDSTORM, IRON_TAIL, EARTHQUAKE, TOXIC
 	dw 0 ; OT ID
 	bigdt 64000 ; Exp
@@ -1834,7 +1834,7 @@ BattleTowerMons:
 	dname "SUTA-MI-", MON_NAME_LENGTH
 
 	db WOBBUFFET
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db COUNTER, MIRROR_COAT, SAFEGUARD, DESTINY_BOND
 	dw 0 ; OT ID
 	bigdt 64000 ; Exp
@@ -1965,7 +1965,7 @@ BattleTowerMons:
 
 	db PORYGON2
 	db NO_ITEM
-	db CONVERSION2, CONVERSION, PSYBEAM, THIEF
+	db SPLASH, SPLASH, PSYBEAM, THIEF
 	dw 0 ; OT ID
 	bigdt 64000 ; Exp
 	; Stat exp
@@ -2042,7 +2042,7 @@ BattleTowerMons:
 	dname "HUoRETOSU", MON_NAME_LENGTH
 
 	db OMASTAR
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db CURSE, WATER_GUN, ANCIENTPOWER, ROCK_SMASH
 	dw 0 ; OT ID
 	bigdt 64000 ; Exp
@@ -2201,7 +2201,7 @@ BattleTowerMons:
 ; BattleTowerMons group 5
 
 	db KINGDRA
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db SURF, HYPER_BEAM, BLIZZARD, DRAGONBREATH
 	dw 0 ; OT ID
 	bigdt 125000 ; Exp
@@ -2305,7 +2305,7 @@ BattleTowerMons:
 	dname "KABIGON", MON_NAME_LENGTH
 
 	db LAPRAS
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db THUNDERBOLT, SURF, CONFUSE_RAY, BLIZZARD
 	dw 0 ; OT ID
 	bigdt 125000 ; Exp
@@ -2409,7 +2409,7 @@ BattleTowerMons:
 	dname "YADOKINGU", MON_NAME_LENGTH
 
 	db MACHAMP
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db CROSS_CHOP, EARTHQUAKE, FIRE_BLAST, THUNDERPUNCH
 	dw 0 ; OT ID
 	bigdt 125000 ; Exp
@@ -2538,7 +2538,7 @@ BattleTowerMons:
 	bigdw 119 ; SDef
 	dname "PUTERA", MON_NAME_LENGTH
 
-	db CROBAT
+	db GARDEVOIR
 	db LEFTOVERS
 	db CONFUSE_RAY, ATTRACT, HYPER_BEAM, TOXIC
 	dw 0 ; OT ID
@@ -2591,7 +2591,7 @@ BattleTowerMons:
 	dname "SANDA-", MON_NAME_LENGTH
 
 	db SKARMORY
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db SANDSTORM, FLY, STEEL_WING, TOXIC
 	dw 0 ; OT ID
 	bigdt 125000 ; Exp
@@ -2721,7 +2721,7 @@ BattleTowerMons:
 	dname "GIyaRADOSU", MON_NAME_LENGTH
 
 	db RAGING_BOLT
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db BLIZZARD, HYPER_BEAM, SEND_AWAY, ICY_WIND
 	dw 0 ; OT ID
 	bigdt 125000 ; Exp
@@ -2776,7 +2776,7 @@ BattleTowerMons:
 	dname "KINGUDORA", MON_NAME_LENGTH
 
 	db TYRANITAR
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db CRUNCH, EARTHQUAKE, ROCK_SLIDE, HYPER_BEAM
 	dw 0 ; OT ID
 	bigdt 216000 ; Exp
@@ -2906,7 +2906,7 @@ BattleTowerMons:
 	dname "SANDA-", MON_NAME_LENGTH
 
 	db WOBBUFFET
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db COUNTER, MIRROR_COAT, DESTINY_BOND, SAFEGUARD
 	dw 0 ; OT ID
 	bigdt 216000 ; Exp
@@ -2984,7 +2984,7 @@ BattleTowerMons:
 	dname "KAIRIyu-", MON_NAME_LENGTH
 
 	db UMBREON
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db MUD_SLAP, HEALING_LIGHT, PSYCHIC_M, FAINT_ATTACK
 	dw 0 ; OT ID
 	bigdt 216000 ; Exp
@@ -3166,7 +3166,7 @@ BattleTowerMons:
 	dname "RU-ZIyuRA", MON_NAME_LENGTH
 
 	db BLASTOISE
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db SURF, EARTHQUAKE, RAPID_SPIN, BLIZZARD
 	dw 0 ; OT ID
 	bigdt 216000 ; Exp
@@ -3244,7 +3244,7 @@ BattleTowerMons:
 	dname "SANDOPAN", MON_NAME_LENGTH
 
 	db PARASECT
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db SPORE, GIGA_DRAIN, HYPER_BEAM, SLUDGE_BOMB
 	dw 0 ; OT ID
 	bigdt 216000 ; Exp
@@ -3351,7 +3351,7 @@ BattleTowerMons:
 	dname "SIyaWA-ZU", MON_NAME_LENGTH
 
 	db UMBREON
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db FAINT_ATTACK, HEALING_LIGHT, BULK_UP, TOXIC
 	dw 0 ; OT ID
 	bigdt 343000 ; Exp
@@ -3377,7 +3377,7 @@ BattleTowerMons:
 	dname "BURAtuKI-", MON_NAME_LENGTH
 
 	db BLISSEY
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db COUNTER, RECOVER, SHADOW_BALL, THUNDERBOLT
 	dw 0 ; OT ID
 	bigdt 343000 ; Exp
@@ -3481,7 +3481,7 @@ BattleTowerMons:
 	dname "BANGIRASU", MON_NAME_LENGTH
 
 	db GOUGING_FIRE
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db THUNDERBOLT, DRILL_PECK, THUNDER_WAVE, HYPER_BEAM
 	dw 0 ; OT ID
 	bigdt 343000 ; Exp
@@ -3533,7 +3533,7 @@ BattleTowerMons:
 	dname "NAtuSI-", MON_NAME_LENGTH
 
 	db UMBREON
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db HEALING_LIGHT, FAINT_ATTACK, PSYCHIC_M, SHADOW_BALL
 	dw 0 ; OT ID
 	bigdt 343000 ; Exp
@@ -3689,7 +3689,7 @@ BattleTowerMons:
 	dname "OKORIZARU", MON_NAME_LENGTH
 
 	db GIRAFARIG
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db AGILITY, BATON_PASS, CRUNCH, EARTHQUAKE
 	dw 0 ; OT ID
 	bigdt 343000 ; Exp
@@ -3926,7 +3926,7 @@ BattleTowerMons:
 	dname "HERUGA-", MON_NAME_LENGTH
 
 	db TAUROS
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db EARTHQUAKE, BODY_SLAM, IRON_TAIL, HYPER_BEAM
 	dw 0 ; OT ID
 	bigdt 512000 ; Exp
@@ -4082,7 +4082,7 @@ BattleTowerMons:
 	dname "KINGUDORA", MON_NAME_LENGTH
 
 	db DRAGONITE
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db THUNDER_WAVE, SURF, THUNDERBOLT, OUTRAGE
 	dw 0 ; OT ID
 	bigdt 512000 ; Exp
@@ -4160,7 +4160,7 @@ BattleTowerMons:
 	dname "RU-ZIyuRA", MON_NAME_LENGTH
 
 	db MANTINE
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db SURF, CONFUSE_RAY, BLIZZARD, WING_ATTACK
 	dw 0 ; OT ID
 	bigdt 512000 ; Exp
@@ -4342,7 +4342,7 @@ BattleTowerMons:
 	dname "UTUBOtuTO", MON_NAME_LENGTH
 
 	db PINSIR
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db HYPER_BEAM, SPLASH, STRENGTH, TOXIC
 	dw 0 ; OT ID
 	bigdt 512000 ; Exp
@@ -4500,8 +4500,8 @@ BattleTowerMons:
 	bigdw 162 ; SDef
 	dname "PARUSIeN", MON_NAME_LENGTH
 
-	db CROBAT
-	db GOLD_BERRY
+	db GARDEVOIR
+	db SITRUS_BERRY
 	db WING_ATTACK, HAZE, HYPER_BEAM, GIGA_DRAIN
 	dw 0 ; OT ID
 	bigdt 729000 ; Exp
@@ -4631,7 +4631,7 @@ BattleTowerMons:
 	dname "RAPURASU", MON_NAME_LENGTH
 
 	db ESPEON
-	db GOLD_BERRY
+	db SITRUS_BERRY
 	db PSYCHIC_M, SHADOW_BALL, SUNNY_DAY, HEALING_LIGHT
 	dw 0 ; OT ID
 	bigdt 729000 ; Exp

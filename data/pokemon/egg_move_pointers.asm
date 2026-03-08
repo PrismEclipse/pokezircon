@@ -166,7 +166,8 @@ EggMovePointers::
 	dw NoEggMoves
 	dw LedybaEggMoves
 	dw NoEggMoves
-	dw SpinarakEggMoves
+	dw RaltsEggMoves
+	dw NoEggMoves
 	dw NoEggMoves
 	dw NoEggMoves
 	dw ChinchouEggMoves
@@ -174,7 +175,6 @@ EggMovePointers::
 	dw PichuEggMoves
 	dw CleffaEggMoves
 	dw IgglybuffEggMoves
-	dw TogepiEggMoves
 	dw NoEggMoves
 	dw TinkatuffEggMoves
 	dw NoEggMoves

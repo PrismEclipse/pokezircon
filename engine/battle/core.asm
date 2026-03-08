@@ -292,7 +292,7 @@ HandleBetweenTurnEffects:
 
 .NoMoreFaintingConditions:
 	call HandleLeftovers
-	call HandleMysteryberry
+	call HandleLeppaberry
 	call HandleDefrost
 	call HandleSafeguard
 	call HandleScreens
@@ -384,37 +384,21 @@ HandleBerserkGene:
 
 .player
 	call SetPlayerTurn
-	ld de, wPartyMon1Item
-	ld a, [wCurBattleMon]
-	ld b, a
 	jr .go
 
 .enemy
 	call SetEnemyTurn
-	ld de, wOTPartyMon1Item
-	ld a, [wCurOTMon]
-	ld b, a
 	; fallthrough
 
 .go
-	push de
-	push bc
 	callfar GetUserItem
 	ld a, [hl]
 	ld [wNamedObjectIndex], a
-	sub BERSERK_GENE
-	pop bc
-	pop de
+	cp BERSERK_GENE
 	ret nz
 
-	ld [hl], a
+	call ConsumeUserItem
 
-	ld h, d
-	ld l, e
-	ld a, b
-	call GetPartyLocation
-	xor a
-	ld [hl], a
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVarAddr
 	push af
@@ -691,7 +675,7 @@ ParsePlayerAction:
 	ld a, [wPlayerMoveStruct + MOVE_EFFECT]
 	cp EFFECT_RAGE
 	jr z, .continue_rage
-	ld hl, wPlayerSubStatus4
+	ld hl, wPlayerSubStatus5
 	res SUBSTATUS_RAGE, [hl]
 	xor a
 	ld [wPlayerRageCounter], a
@@ -717,7 +701,7 @@ ParsePlayerAction:
 	ld [wPlayerFuryCutterCount], a
 	ld [wPlayerProtectCount], a
 	ld [wPlayerRageCounter], a
-	ld hl, wPlayerSubStatus4
+	ld hl, wPlayerSubStatus5
 	res SUBSTATUS_RAGE, [hl]
 
 .continue_protect
@@ -730,7 +714,7 @@ ParsePlayerAction:
 	ld [wPlayerFuryCutterCount], a
 	ld [wPlayerProtectCount], a
 	ld [wPlayerRageCounter], a
-	ld hl, wPlayerSubStatus4
+	ld hl, wPlayerSubStatus5
 	res SUBSTATUS_RAGE, [hl]
 	xor a
 	ret
@@ -1104,9 +1088,16 @@ ResidualDamage:
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
 	call GetBattleVar
 	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+	jr nz, .not_flying_or_underground
+	call Call_PlayBattleAnim_OnlyIfVisible
+	jr .called
+.not_flying_or_underground
+	ld a, BATTLE_VARS_SUBSTATUS4_OPP
+	call GetBattleVar
+	and 1 << SUBSTATUS_UNDERWATER | 1 << SUBSTATUS_TIME_STREAM
 	call z, Call_PlayBattleAnim_OnlyIfVisible
+.called	
 	call SwitchTurnCore
-
 	call GetEighthMaxHP
 	call SubtractHPFromUser
 	ld a, $1
@@ -1246,6 +1237,11 @@ HandleWrap:
 	call SetEnemyTurn
 	jp .do_it
 
+	ld a, BATTLE_VARS_SUBSTATUS4
+	call GetBattleVar
+	and 1 << SUBSTATUS_UNDERWATER | 1 << SUBSTATUS_TIME_STREAM
+	jr nz, .skip_anim
+
 .EnemyFirst:
 	call SetEnemyTurn
 	call .do_it
@@ -1356,7 +1352,7 @@ HandleLeftovers:
 	ld hl, BattleText_TargetRecoveredWithItem
 	jp StdBattleTextbox
 
-HandleMysteryberry:
+HandleLeppaberry:
 	ldh a, [hSerialConnectionStatus]
 	cp USING_EXTERNAL_CLOCK
 	jr z, .DoEnemyFirst
@@ -1471,28 +1467,53 @@ HandleMysteryberry:
 	callfar GetUserItem
 	ld a, [hl]
 	ld [wNamedObjectIndex], a
-	xor a
-	ld [hl], a
-	call GetPartymonItem
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .consume_item
-	ld a, [wBattleMode]
-	dec a
-	jr z, .skip_consumption
-	call GetOTPartymonItem
-
-.consume_item
-	xor a
-	ld [hl], a
-
-.skip_consumption
+	call ConsumeUserItem
 	call GetItemName
 	call SwitchTurnCore
 	call ItemRecoveryAnim
 	call SwitchTurnCore
 	ld hl, BattleText_UserRecoveredPPUsing
 	jp StdBattleTextbox
+	
+ConsumeUserItem:
+; Consume (use up) the user's held item.
+	call GetPartymonItem
+	ldh a, [hBattleTurn]
+	and a
+	push af
+	call nz, GetOTPartymonItem
+
+	; Consume the battler's held item.
+	xor a
+	ld [bc], a
+	pop af
+
+	jr z, .check_backup_item
+
+	; Opponent wildmons do not have a party struct.
+	ld a, [wBattleMode]
+	sub TRAINER_BATTLE
+	ret nz
+	ld [hl], a
+	ret
+
+.check_backup_item
+	; We might also want to update the backup item struct.
+	call GetBackupItemAddr
+	ld a, [hl]
+	push hl
+	push af
+	call GetPartymonItem
+	pop af
+	sub [hl]
+	ld [hl], NO_ITEM
+	pop hl
+
+	; If the items don't match, do nothing. This can happen if the foe steals
+	; item X, player steals item Y, player uses item Y.
+	ret nz
+	ld [hl], a
+	ret
 
 HandleFutureSight:
 	ldh a, [hSerialConnectionStatus]
@@ -1916,6 +1937,45 @@ GetHalfMaxHP:
 	inc c
 .end
 	ret
+
+GetTwoThirdsMaxHP:
+	call GetMaxHP
+
+	sla c
+	rl b
+
+	ld a, b
+	ld [hDividend + 0], a
+	ld a, c
+	ld [hDividend + 1], a
+	ld a, 3
+	ld [hDivisor], a
+	ld b, 2
+	call Divide
+GetTwoThirdsMaxHP_end:
+	ld a, [hQuotient + 2]
+	ld b, a
+	ld a, [hQuotient + 3]
+	ld c, a
+
+	and b
+	jr nz, .ok
+	inc c
+.ok
+	ret
+
+GetOneSixthMaxHP:
+	call GetMaxHP
+
+	ld a, b
+	ld [hDividend + 0], a
+	ld a, c
+	ld [hDividend + 1], a
+	ld a, 6
+	ld [hDivisor], a
+	ld b, 2
+	call Divide
+	jr GetTwoThirdsMaxHP_end
 
 GetMaxHP:
 ; output: bc, wHPBuffer1
@@ -5297,7 +5357,7 @@ BattleMonEntrance:
 	ld c, 50
 	call DelayFrames
 
-	ld hl, wPlayerSubStatus4
+	ld hl, wPlayerSubStatus5
 	res SUBSTATUS_RAGE, [hl]
 
 	call SetEnemyTurn
@@ -5326,6 +5386,33 @@ BattleMonEntrance:
 	ld a, $2
 	ld [wMenuCursorY], a
 	ret
+	
+TeleportBattleMonEntrance:
+	ld c, 50
+	call DelayFrames
+
+	hlcoord 9, 7
+	lb bc, 5, 11
+	call ClearBox
+
+	ld a, [wCurPartyMon]
+	ld [wCurBattleMon], a
+	call AddBattleParticipant
+	call InitBattleMon
+	xor a
+	ld [wTempSpecies], a
+	call ResetPlayerStatLevels
+	call SendOutMonText
+	call NewBattleMonStatus
+	call BreakAttraction
+	call SendOutPlayerMon
+	call EmptyBattleTextbox
+	call LoadTilemapToTempTilemap
+	call SetPlayerTurn
+	call SpikesDamage
+	ld a, $2
+	ld [wMenuCursorY], a
+	ret	
 
 PassedBattleMonEntrance:
 	ld c, 50
@@ -5958,7 +6045,7 @@ ParseEnemyAction:
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 	cp EFFECT_RAGE
 	jr z, .no_rage
-	ld hl, wEnemySubStatus4
+	ld hl, wEnemySubStatus5
 	res SUBSTATUS_RAGE, [hl]
 	xor a
 	ld [wEnemyRageCounter], a
@@ -5984,7 +6071,7 @@ ResetVarsForSubstatusRage:
 	ld [wEnemyFuryCutterCount], a
 	ld [wEnemyProtectCount], a
 	ld [wEnemyRageCounter], a
-	ld hl, wEnemySubStatus4
+	ld hl, wEnemySubStatus5
 	res SUBSTATUS_RAGE, [hl]
 	ret
 
@@ -7010,6 +7097,11 @@ Call_PlayBattleAnim_OnlyIfVisible:
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVar
 	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+	ret nz
+
+	ld a, BATTLE_VARS_SUBSTATUS4
+	call GetBattleVar
+	and 1 << SUBSTATUS_UNDERWATER | 1 << SUBSTATUS_TIME_STREAM
 	ret nz
 
 Call_PlayBattleAnim:
@@ -9046,6 +9138,21 @@ InitBattleDisplay:
 	call GetTrainerBackpic
 	call CopyBackpic
 	ret
+
+MobileTextBorder::
+	; For mobile link battles only.
+	ld a, [wLinkMode]
+	cp LINK_MOBILE
+	ret c
+
+	; Draw a cell phone icon at the
+	; top right corner of the border.
+	hlcoord 19, 12
+	ld [hl], $5e ; top
+	hlcoord 19, 13
+	ld [hl], $5f ; bottom
+	ret
+
 
 GetTrainerBackpic:
 ; Load the player character's backpic (6x6) into VRAM starting from vTiles2 tile $31.

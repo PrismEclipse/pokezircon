@@ -123,7 +123,6 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const BATTLE_ANIM_OBJ_HAZE                ; 5b
 	const BATTLE_ANIM_OBJ_MIST                ; 5c
 	const BATTLE_ANIM_OBJ_SMOG                ; 5d
-	const BATTLE_ANIM_OBJ_POISON_GAS          ; 5e
 	const BATTLE_ANIM_OBJ_HORN                ; 5f
 	const BATTLE_ANIM_OBJ_NEEDLE              ; 60
 	const BATTLE_ANIM_OBJ_PETAL_DANCE         ; 61
@@ -167,7 +166,6 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const BATTLE_ANIM_OBJ_DRAGONBREATH        ; 90
 	const BATTLE_ANIM_OBJ_CONVERSION          ; 91
 	const BATTLE_ANIM_OBJ_SPIDER_WEB          ; 92
-	const BATTLE_ANIM_OBJ_LOVELY_KISS         ; 96
 	const BATTLE_ANIM_OBJ_SWEET_KISS          ; 97
 	const BATTLE_ANIM_OBJ_SKETCH              ; 98
 	const BATTLE_ANIM_OBJ_ENCORE_HAND         ; 99
@@ -229,12 +227,13 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const BATTLE_ANIM_OBJ_HURRICANE			; da
 	const BATTLE_ANIM_OBJ_LEAF_STORM 		; db
 	const BATTLE_ANIM_OBJ_DRACO_METEOR 		; dc
-	const BATTLE_ANIM_OBJ_POISON_JAB		; dd
 	const BATTLE_ANIM_OBJ_SIGNAL_BEAM_R 	; de
 	const BATTLE_ANIM_OBJ_ICE_SPLASH 		; df
 	const BATTLE_ANIM_OBJ_MUDDY_WATER 		; e0
 	const BATTLE_ANIM_OBJ_RISING_MOON 		; e1
 	const BATTLE_ANIM_OBJ_RISING_SPARKLE 	; e2
+	const BATTLE_ANIM_OBJ_DIVE_1			; e3
+	const BATTLE_ANIM_OBJ_DIVE_2 			; e4
 DEF NUM_BATTLE_ANIM_OBJS EQU const_value
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
@@ -281,7 +280,6 @@ DEF NUM_BATTLE_ANIM_OBJS EQU const_value
 	const BATTLE_ANIM_FUNC_STRING                    ; 27
 	const BATTLE_ANIM_FUNC_PARALYZED                 ; 28
 	const BATTLE_ANIM_FUNC_SPIRAL_DESCENT            ; 29
-	const BATTLE_ANIM_FUNC_POISON_GAS                ; 2a
 	const BATTLE_ANIM_FUNC_HORN                      ; 2b
 	const BATTLE_ANIM_FUNC_NEEDLE                    ; 2c
 	const BATTLE_ANIM_FUNC_PETAL_DANCE               ; 2d
@@ -512,9 +510,6 @@ DEF NUM_BATTLE_ANIM_FUNCS EQU const_value
 	const BATTLE_ANIM_FRAMESET_DRAGON_PULSE				; cb
 	const BATTLE_ANIM_FRAMESET_SMALL_GLOW				; cc
 	const BATTLE_ANIM_FRAMESET_HURRICANE				; cd
-DEF FIRST_DYNAMIC_FRAMESET EQU const_value
-	const BATTLE_ANIM_FRAMESET_POISON_JAB 				; ce
-	
 DEF NUM_BATTLE_ANIM_FRAMESETS EQU const_value
 
 ; BattleAnimOAMData indexes (see data/battle_anims/oam.asm)

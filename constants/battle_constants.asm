@@ -200,16 +200,16 @@ DEF ALL_STATUS EQU (1 << PSN) | (1 << BRN) | (1 << FRZ) | (1 << PAR) | SLP_MASK
 	const SUBSTATUS_X_ACCURACY
 	const SUBSTATUS_MIST
 	const SUBSTATUS_FOCUS_ENERGY
-	const_skip
+	const SUBSTATUS_UNDERWATER
 	const SUBSTATUS_SUBSTITUTE
 	const SUBSTATUS_RECHARGE
-	const SUBSTATUS_RAGE
+	const SUBSTATUS_TIME_STREAM
 	const SUBSTATUS_LEECH_SEED
 
 ; wPlayerSubStatus5 or wEnemySubStatus5 bit flags
 	const_def
 	const SUBSTATUS_TOXIC
-	const_skip
+	const SUBSTATUS_RAGE
 	const_skip
 	const SUBSTATUS_TRANSFORMED
 	const SUBSTATUS_ENCORED

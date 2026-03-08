@@ -23,6 +23,14 @@ MACRO callfar ; address, bank
 	rst FarCall
 ENDM
 
+MACRO farjp ; bank, address
+	assert !(\1 & $8000), "cannot `farjp \1` in RAM"
+	rst FarCall
+	dwb \1 | $8000, BANK(\1)
+	assert warn, BANK(\1) != 0 && BANK(\1) != BANK(@), "unnecessary `farjp \1`"
+ENDM
+
+
 MACRO homecall
 	ldh a, [hROMBank]
 	push af

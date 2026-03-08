@@ -166,15 +166,15 @@ BitmasksPointers:
 	dw NoctowlBitmasks
 	dw LedybaBitmasks
 	dw LedianBitmasks
-	dw SpinarakBitmasks
-	dw AriadosBitmasks
-	dw CrobatBitmasks
+	dw RaltsBitmasks
+	dw KirliaBitmasks
+	dw GardevoirBitmasks
 	dw ChinchouBitmasks
 	dw LanturnBitmasks
 	dw PichuBitmasks
 	dw CleffaBitmasks
 	dw IgglybuffBitmasks
-	dw TogepiBitmasks
+	dw GalladeBitmasks
 	dw TinkatinkBitmasks
 	dw TinkatuffBitmasks
 	dw TinkatonBitmasks

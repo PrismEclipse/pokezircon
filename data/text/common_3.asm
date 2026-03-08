@@ -1,19 +1,19 @@
 _OakText6::
-	text "Now, what did you"
-	line "say your name was?"
+	text "So! What is your"
+	line "name?"
 	prompt
 
 _OakText7::
 	text "<PLAYER>, are you"
 	line "ready?"
 
-	para "Your very own"
-	line "#MON story is"
-	cont "about to unfold."
+	para "Your incredible"
+	line "journey is"
+	cont "about to begin!"
 
-	para "You'll face fun"
-	line "times and tough"
-	cont "challenges."
+	para "Im sure it'll"
+	line "be an experience"
+	cont "of a lifetime!"
 
 	para "A world of dreams"
 	line "and adventures"
@@ -22,7 +22,7 @@ _OakText7::
 	line "awaits! Let's go!"
 
 	para "I'll be seeing you"
-	line "later!"
+	line "in my lab!"
 	done
 
 _ClockTimeMayBeWrongText::

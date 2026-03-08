@@ -15,6 +15,20 @@ SECTION "Evolutions and Attacks", ROMX
 INCLUDE "data/pokemon/evolution_moves.asm"
 INCLUDE "data/pokemon/evos_attacks_pointers.asm"
 
+; How many "parameters" each evolution type has
+EvoTypeSizes::
+	db 2 ; EVOLVE_LEVEL
+	db 2 ; EVOLVE_ITEM
+	db 3 ; EVOLVE_ITEM_GENDER
+	db 2 ; EVOLVE_TRADE
+	db 2 ; EVOLVE_HAPPINESS
+	db 3 ; EVOLVE_STAT
+	db 2 ; EVOLVE_MOVE
+	db 2 ; EVOLVE_MOVE_TYPE
+	db 3 ; EVOLVE_HOLD
+	db 2 ; EVOLVE_PARTY
+
+
 BulbasaurEvosAttacks:
 	db EVOLVE_LEVEL, 16, IVYSAUR
 	db 0 ; no more evolutions
@@ -222,9 +236,7 @@ BeedrillEvosAttacks:
 PidgeyEvosAttacks:
 	db EVOLVE_LEVEL, 18, PIDGEOTTO
 	db 0 ; no more evolutions
-	db 1, MIND_BLOWN
-	db 1, IRON_HEAD
-	db 6, ROCK_WRECKER
+	db 1, TIME_SLIP
 	db 6, HURRICANE
 	db 6, RAGING_FURY
 	db 6, BLAST_BURN
@@ -539,7 +551,6 @@ ZubatEvosAttacks:
 	db 0 ; no more level-up moves
 
 GolbatEvosAttacks:
-	db EVOLVE_HAPPINESS, TR_ANYTIME, CROBAT
 	db 0 ; no more evolutions
 	db 1, SCREECH
 	db 1, LEECH_LIFE
@@ -1844,9 +1855,9 @@ FlareonEvosAttacks:
 PorygonEvosAttacks:
 	db EVOLVE_TRADE, UP_GRADE, PORYGON2
 	db 0 ; no more evolutions
-	db 1, CONVERSION2
+	db 1, SPLASH
 	db 1, TACKLE
-	db 1, CONVERSION
+	db 1, SPLASH
 	db 9, AGILITY
 	db 12, PSYBEAM
 	db 20, RECOVER
@@ -2349,49 +2360,84 @@ LedianEvosAttacks:
 	db 60, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
-SpinarakEvosAttacks:
-	db EVOLVE_LEVEL, 22, ARIADOS
+RaltsEvosAttacks:
+	db EVOLVE_LEVEL, 20, KIRLIA
 	db 0 ; no more evolutions
-	db 1, POISON_STING
-	db 1, SLOW_DOWN
-	db 6, SCARY_FACE
-	db 11, SPLASH
-	db 17, NIGHT_SHADE
-	db 23, LEECH_LIFE
-	db 30, FURY_STRIKES
-	db 37, BLOCK
-	db 45, AGILITY
-	db 53, PSYCHIC_M
+	db 1, GROWL
+	db 3, DOUBLE_TEAM
+	db 6, CONFUSION
+	db 9, HYPNOSIS
+	db 12, DRAINING_KISS
+	db 15, TELEPORT
+	db 18, PSYBEAM
+	db 21, DISABLE
+	db 24, CHARM
+	db 27, CALM_MIND
+	db 30, PSYCHIC_M
+	db 33, CONFUSE_RAY
+	db 36, MYSTICAL_FIRE
+	db 41, FUTURE_SIGHT
 	db 0 ; no more level-up moves
 
-AriadosEvosAttacks:
+KirliaEvosAttacks:
+	db EVOLVE_LEVEL, 30, GARDEVOIR
+	db EVOLVE_ITEM_GENDER, MON_MALE, DAWN_STONE, GALLADE
 	db 0 ; no more evolutions
-	db 1, POISON_STING
-	db 1, SLOW_DOWN
-	db 1, SCARY_FACE
-	db 1, SPLASH
-	db 6, SCARY_FACE
-	db 11, SPLASH
-	db 17, NIGHT_SHADE
-	db 25, LEECH_LIFE
-	db 34, FURY_STRIKES
-	db 43, BLOCK
-	db 53, AGILITY
-	db 63, PSYCHIC_M
+	db 1, GROWL
+	db 1, DOUBLE_TEAM
+	db 1, CONFUSION
+	db 1, HYPNOSIS
+	db 12, DRAINING_KISS
+	db 15, TELEPORT
+	db 18, PSYBEAM
+	db 23, DISABLE
+	db 28, CHARM
+	db 33, CALM_MIND
+	db 38, PSYCHIC_M
+	db 43, CONFUSE_RAY
+	db 48, MYSTICAL_FIRE
+	db 53, FUTURE_SIGHT
 	db 0 ; no more level-up moves
 
-CrobatEvosAttacks:
+GardevoirEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, SCREECH
-	db 1, LEECH_LIFE
-	db 1, SUPERSONIC
-	db 6, SUPERSONIC
-	db 12, BITE
-	db 19, CONFUSE_RAY
-	db 30, WING_ATTACK
-	db 42, BLOCK
-	db 55, HAZE
+	db 1, GROWL
+	db 1, DOUBLE_TEAM
+	db 1, CONFUSION
+	db 1, HYPNOSIS
+	db 12, DRAINING_KISS
+	db 15, TELEPORT
+	db 18, PSYBEAM
+	db 23, DISABLE
+	db 28, CHARM
+	db 29, DAZZLING_GLEAM
+	db 35, CALM_MIND
+	db 42, PSYCHIC_M
+	db 49, CONFUSE_RAY
+	db 56, MYSTICAL_FIRE
+	db 63, MOONBLAST
+	db 70, FUTURE_SIGHT
 	db 0 ; no more level-up moves
+	
+GalladeEvosAttacks:
+	db 0 ; no more evolutions
+	db 1, GROWL
+	db 1, DOUBLE_TEAM
+	db 1, CONFUSION
+	db 1, HYPNOSIS
+	db 12, FAINT_ATTACK ;Feint
+	db 15, TELEPORT
+	db 18, AERIAL_ACE
+	db 23, FALSE_SWIPE
+	db 28, PROTECT
+	db 29, SLASH
+	db 35, SWORDS_DANCE
+	db 42, PSYCHO_CUT
+	db 49, CONFUSE_RAY
+	db 56, LEAF_BLADE
+	db 63, CROSS_CHOP
+	db 70, FUTURE_SIGHT
+	db 0 ; no more level-up moves	
 
 ChinchouEvosAttacks:
 	db EVOLVE_LEVEL, 27, LANTURN
@@ -2449,18 +2495,6 @@ IgglybuffEvosAttacks:
 	db 4, DEFENSE_CURL
 	db 9, TACKLE
 	db 14, SWEET_KISS
-	db 0 ; no more level-up moves
-
-TogepiEvosAttacks:
-	db EVOLVE_HAPPINESS, TR_ANYTIME, TINKATINK
-	db 0 ; no more evolutions
-	db 1, GROWL
-	db 1, CHARM
-	db 7, METRONOME
-	db 18, SWEET_KISS
-	db 25, ENCORE
-	db 31, SAFEGUARD
-	db 38, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 TinkatinkEvosAttacks:
@@ -3170,9 +3204,9 @@ DonphanEvosAttacks:
 
 Porygon2EvosAttacks:
 	db 0 ; no more evolutions
-	db 1, CONVERSION2
+	db 1, SPLASH
 	db 1, TACKLE
-	db 1, CONVERSION
+	db 1, SPLASH
 	db 9, AGILITY
 	db 12, PSYBEAM
 	db 20, RECOVER

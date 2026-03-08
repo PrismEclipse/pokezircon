@@ -271,7 +271,11 @@ wGlobalAnimXOffset:: db
 
 wSpriteAnimDataEnd::
 
-	ds 11
+wCurIconForm:: db
+
+wPartyBackupItems:: ds 6
+
+	ds 4
 
 ; mobile data
 wc3cc:: ds 1

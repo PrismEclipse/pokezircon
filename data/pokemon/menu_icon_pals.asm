@@ -172,15 +172,15 @@ MonMenuIconPals:
 	icon_pals BROWN,  GREEN  ; NOCTOWL
 	icon_pals RED,    PINK   ; LEDYBA
 	icon_pals RED,    PINK   ; LEDIAN
-	icon_pals GREEN,  PURPLE ; SPINARAK
-	icon_pals RED,    PURPLE ; ARIADOS
-	icon_pals PURPLE, PINK   ; CROBAT
+	icon_pals GREEN,	TEAL ; RALTS
+	icon_pals GREEN,	TEAL ; SKIPLOOM
+	icon_pals GREEN,	TEAL ; GARDEVOIR
+	icon_pals GREEN,	TEAL ; GALLADE
 	icon_pals BLUE,   GRAY   ; CHINCHOU
 	icon_pals BLUE,   BLUE   ; LANTURN
 	icon_pals RED,    PINK   ; PICHU
 	icon_pals PINK,   GREEN  ; CLEFFA
 	icon_pals PINK,   GREEN  ; IGGLYBUFF
-	icon_pals RED,    BLUE   ; TOGEPI
 	icon_pals RED,    BLUE   ; TINKATINK
 	icon_pals TEAL,   TEAL   ; TINKATUFF
 	icon_pals TEAL,   GREEN  ; TINKATON

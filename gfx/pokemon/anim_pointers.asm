@@ -166,15 +166,15 @@ AnimationPointers:
 	dw NoctowlAnimation
 	dw LedybaAnimation
 	dw LedianAnimation
-	dw SpinarakAnimation
-	dw AriadosAnimation
-	dw CrobatAnimation
+	dw RaltsAnimation
+	dw KirliaAnimation
+	dw GardevoirAnimation
 	dw ChinchouAnimation
 	dw LanturnAnimation
 	dw PichuAnimation
 	dw CleffaAnimation
 	dw IgglybuffAnimation
-	dw TogepiAnimation
+	dw GalladeAnimation
 	dw TinkatinkAnimation
 	dw TinkatuffAnimation
 	dw TinkatonAnimation

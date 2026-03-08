@@ -37,7 +37,6 @@ MoveEffectsPointers:
 	dw LightScreen
 	dw TriAttack
 	dw OHKOHit
-	dw RazorWind
 	dw SuperFang
 	dw StaticDamage
 	dw TrapTarget
@@ -45,7 +44,9 @@ MoveEffectsPointers:
 	dw NormalHit
 	dw Mist
 	dw FocusEnergy
-	dw RecoilHit
+	dw Struggle
+	dw RecoilHit_1_3
+	dw RecoilHit_1_4
 	dw DoConfuse
 	dw AttackUp2
 	dw DefenseUp2
@@ -72,7 +73,6 @@ MoveEffectsPointers:
 	dw SpecialDefenseDownHit
 	dw AccuracyDownHit
 	dw EvasionDownHit
-	dw SkyAttack
 	dw ConfuseHit
 	dw PoisonMultiHit
 	dw Substitute
@@ -139,10 +139,6 @@ MoveEffectsPointers:
 	dw Teleport
 	dw Fly
 	dw DefenseCurl
-	dw RecoilHit ;STRUGGLE
-	dw RecoilHit ;RECOIL_HIT_THIRD
-	dw RecoilHit ;RECOIL_HIT_HALF
-	dw RecoilHit ;MIND_BLOWN
 	dw Protect ;BURNING_BULWARK
 	dw ArmorCannon ;ARMOR_CANNON
 	dw CalmMind ;CALM_MIND
@@ -152,8 +148,13 @@ MoveEffectsPointers:
 	dw Hurricane
 	dw BulkUp
 	dw Overheat
-	dw BeatUp
 	dw QuiverDance
 	dw VictoryDance
 	dw DoBurn
+	dw MindBlown
+	dw Surf
+	dw Whirlpool
+	dw TimeSlip
+	dw BodySlam
+	dw Growth
 	assert_table_length NUM_MOVE_EFFECTS

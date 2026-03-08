@@ -552,27 +552,20 @@ Pokedex_UpdateOptionScreen:
 	ret
 
 .NoUnownModeArrowCursorData:
-	db PAD_UP | PAD_DOWN, 3
-	dwcoord 2,  4 ; NEW
-	dwcoord 2,  6 ; OLD
-	dwcoord 2,  8 ; ABC
+	db PAD_UP | PAD_DOWN, 2
+	dwcoord 2,  4 ; OLD
+	dwcoord 2,  6 ; ABC
 
 .ArrowCursorData:
-	db PAD_UP | PAD_DOWN, 4
-	dwcoord 2,  4 ; NEW
-	dwcoord 2,  6 ; OLD
-	dwcoord 2,  8 ; ABC
-	dwcoord 2, 10 ; UNOWN
+	db PAD_UP | PAD_DOWN, 3
+	dwcoord 2,  4 ; OLD
+	dwcoord 2,  6 ; ABC
+	dwcoord 2, 8 ; UNOWN
 
 .MenuActionJumptable:
-	dw .MenuAction_NewMode
 	dw .MenuAction_OldMode
 	dw .MenuAction_ABCMode
 	dw .MenuAction_UnownMode
-
-.MenuAction_NewMode:
-	ld b, DEXMODE_NEW
-	jr .ChangeMode
 
 .MenuAction_OldMode:
 	ld b, DEXMODE_OLD
@@ -1175,7 +1168,7 @@ Pokedex_DrawDexEntryScreenBG:
 Pokedex_DrawOptionScreenBG:
 	call Pokedex_FillBackgroundColor2
 	hlcoord 0, 2
-	lb bc, 8, 18
+	lb bc, 7, 18
 	call Pokedex_PlaceBorder
 	hlcoord 0, 12
 	lb bc, 4, 18
@@ -1189,7 +1182,7 @@ Pokedex_DrawOptionScreenBG:
 	ld a, [wUnlockedUnownMode]
 	and a
 	ret z
-	hlcoord 3, 10
+	hlcoord 3, 8
 	ld de, .UnownMode
 	call PlaceString
 	ret
@@ -1198,8 +1191,7 @@ Pokedex_DrawOptionScreenBG:
 	db $3b, " OPTION ", $3c, -1
 
 .Modes:
-	db   "NEW #DEX MODE"
-	next "OLD #DEX MODE"
+	db 	 "#DEX MODE"
 	next "A to Z MODE"
 	db   "@"
 
@@ -1619,24 +1611,21 @@ Pokedex_OrderMonsByMode:
 	jp hl
 
 .Jumptable:
-	dw .NewMode
 	dw .OldMode
 	dw Pokedex_ABCMode
-
-.NewMode:
-	ld de, NewPokedexOrder
-.do_dex	
-	ld hl, wPokedexOrder
-	ld c, NUM_POKEMON
-.loopnew
-	ld a, [de]
-	inc de
-	ld [hli], a
-	dec c
-	jr nz, .loopnew
-	call .FindLastSeen
-	ret
-
+	
+.do_dex
+ 	ld hl, wPokedexOrder
+ 	ld c, NUM_POKEMON
+ .loopnew
+ 	ld a, [de]
+ 	inc de
+ 	ld [hli], a
+ 	dec c
+ 	jr nz, .loopnew
+ 	call .FindLastSeen
+ 	ret
+	
 .OldMode:
 	ld de, OldPokedexOrder
 	jr .do_dex
@@ -1717,8 +1706,6 @@ Pokedex_ABCMode:
 
 INCLUDE "data/pokemon/dex_order_alpha.asm"
 
-INCLUDE "data/pokemon/dex_order_new.asm"
-
 INCLUDE "data/pokemon/dex_order_old.asm"
 
 Pokedex_DisplayModeDescription:
@@ -1739,18 +1726,13 @@ Pokedex_DisplayModeDescription:
 	ret
 
 .Modes:
-	dw .NewMode
 	dw .OldMode
 	dw .ABCMode
 	dw .UnownMode
 
-.NewMode:
-	db   "<PK><MN> are listed by"
-	next "evolution type.@"
-
 .OldMode:
 	db   "<PK><MN> are listed by"
-	next "official type.@"
+	next "#DEX number.@"
 
 .ABCMode:
 	db   "<PK><MN> are listed"

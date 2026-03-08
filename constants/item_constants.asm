@@ -179,7 +179,7 @@
 	const POCKET_TUTOR      ; ab
 	const UP_GRADE     ; ac
 	const BERRY        ; ad
-	const GOLD_BERRY   ; ae
+	const SITRUS_BERRY ; ae
 	const SQUIRTBOTTLE ; af
 	const AZURE_FLOAT  ; b0
 	const PARK_BALL    ; b1

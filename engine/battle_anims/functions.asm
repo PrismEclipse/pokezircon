@@ -56,7 +56,6 @@ DoBattleAnimFrame:
 	dw BattleAnimFunc_String
 	dw BattleAnimFunc_Paralyzed
 	dw BattleAnimFunc_SpiralDescent
-	dw BattleAnimFunc_PoisonGas
 	dw BattleAnimFunc_Horn
 	dw BattleAnimFunc_Needle
 	dw BattleAnimFunc_PetalDance
@@ -2796,42 +2795,6 @@ BattleAnimFunc_PetalDance:
 	call DeinitBattleAnimation
 	ret
 
-BattleAnimFunc_PoisonGas:
-	call BattleAnim_AnonJumptable
-.anon_dw
-	dw .zero
-	dw BattleAnimFunc_SpiralDescent
-
-.zero:
-	ld hl, BATTLEANIMSTRUCT_XCOORD
-	add hl, bc
-	ld a, [hl]
-	cp $84
-	jr nc, .next
-	inc [hl]
-	ld hl, BATTLEANIMSTRUCT_VAR1
-	add hl, bc
-	ld a, [hl]
-	inc [hl]
-	ld d, $18
-	call BattleAnim_Cosine
-	ld hl, BATTLEANIMSTRUCT_XOFFSET
-	add hl, bc
-	ld [hl], a
-	ld hl, BATTLEANIMSTRUCT_XCOORD
-	add hl, bc
-	ld a, [hl]
-	and $1
-	ret nz
-	ld hl, BATTLEANIMSTRUCT_YCOORD
-	add hl, bc
-	dec [hl]
-	ret
-
-.next
-	call BattleAnim_IncAnonJumptableIndex
-	ret
-
 BattleAnimFunc_SmokeFlameWheel:
 ; Object spins around target while also moving upward until it disappears at x coord $e8
 ; Obj Param: Defines where the object starts in the circle
@@ -3833,7 +3796,7 @@ BattleAnimFunc_BatonPass:
 	add hl, bc
 	srl [hl]
 	ret
-
+	
 BattleAnimFunc_EncoreBellyDrum:
 ; Object moves at an arc for 8 frames and disappears
 ; Obj Param: Defines starting position in the arc
@@ -3896,7 +3859,7 @@ BattleAnimFunc_SwaggerMorningSun:
 	add hl, bc
 	ld [hl], a
 	ret
-
+	
 BattleAnimFunc_HiddenPower:
 ; Moves object in a ring around position. Uses anim_incobj to move to second phase, where it expands the radius 8 pixels at a time for 13 frames and then disappears
 ; Obj Param: Defines starting position in circle

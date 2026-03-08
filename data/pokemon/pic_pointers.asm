@@ -169,15 +169,15 @@ PokemonPicPointers::
 	dbas NoctowlFrontpic, NoctowlBackpic
 	dbas LedybaFrontpic, LedybaBackpic
 	dbas LedianFrontpic, LedianBackpic
-	dbas SpinarakFrontpic, SpinarakBackpic
-	dbas AriadosFrontpic, AriadosBackpic
-	dbas CrobatFrontpic, CrobatBackpic
+	dbas RaltsFrontpic, RaltsBackpic
+	dbas KirliaFrontpic, KirliaBackpic
+	dbas GardevoirFrontpic, GardevoirBackpic
+	dbas GalladeFrontpic, GalladeBackpic
 	dbas ChinchouFrontpic, ChinchouBackpic
 	dbas LanturnFrontpic, LanturnBackpic
 	dbas PichuFrontpic, PichuBackpic
 	dbas CleffaFrontpic, CleffaBackpic
 	dbas IgglybuffFrontpic, IgglybuffBackpic
-	dbas TogepiFrontpic, TogepiBackpic
 	dbas TinkatinkFrontpic, TinkatinkBackpic
 	dbas TinkatuffFrontpic, TinkatuffBackpic
 	dbas TinkatonFrontpic, TinkatonBackpic

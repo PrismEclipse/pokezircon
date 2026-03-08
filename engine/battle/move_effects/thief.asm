@@ -32,10 +32,6 @@ BattleCommand_Thief:
 	and a
 	jr z, .stealenemyitem
 
-	ld a, [wBattleMode]
-	dec a
-	ret z
-
 .stealenemyitem
 	call .enemyitem
 	xor a
@@ -46,6 +42,12 @@ BattleCommand_Thief:
 	ld a, [wNamedObjectIndex]
 	ld [hl], a
 	ld [de], a
+
+	; If you steal from a wildmon, you do so permanently.
+	ld a, [wBattleMode]
+	dec a
+	ld b, [hl]
+	call z, SetBackupItem
 	jr .stole
 
 .enemy
@@ -71,13 +73,16 @@ BattleCommand_Thief:
 	farcall ItemIsMail
 	ret c
 
+; Wildmons can't steal items
+	ld a, [wBattleMode]
+	dec a
+	jr z, .cant
+
 	ld a, [wEffectFailed]
 	and a
 	ret nz
 
-; If the enemy steals your item,
-; it's gone for good if you don't get it back.
-
+	; If a foe steals an item, it is returned after battle.
 	call .playeritem
 	xor a
 	ld [hl], a
@@ -107,4 +112,21 @@ BattleCommand_Thief:
 	ld d, h
 	ld e, l
 	ld hl, wEnemyMonItem
+	ret
+
+.cant
+	or 1
+	ret
+
+SetBackupItem::
+; If backup is empty, replace with b if our turn (even in trainer battles)
+	ldh a, [hBattleTurn]
+	and a
+	ret nz
+
+	call GetBackupItemAddr
+	ld a, [hl]
+	and a
+	ret nz
+	ld [hl], b
 	ret

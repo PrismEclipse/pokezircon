@@ -614,7 +614,6 @@ BattleAnim_Shake:
 	anim_wait 40
 	anim_ret
 
-BattleAnim_TimeSlip:
 BattleAnim_MysteryMove:
 BattleAnim_Pound:
 	anim_1gfx BATTLE_ANIM_GFX_HIT
@@ -655,34 +654,41 @@ BattleAnim_PoisonJab:
 	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $60, $2, $0
 .loop
 	anim_sound 0, 1, SFX_KARATE_CHOP
-	anim_obj BATTLE_ANIM_OBJ_POISON_JAB, 132, 56, $38
+	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 132, 32, $0
+	anim_obj BATTLE_ANIM_OBJ_POISON_DROPLET, 134, 36, $11
+	anim_wait 2
+	anim_sound 0, 1, SFX_SLUDGE_BOMB
+	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 143, 37, $0
+	anim_obj BATTLE_ANIM_OBJ_POISON_DROPLET, 145, 36, $11
+	anim_wait 2
+	anim_sound 0, 1, SFX_SLUDGE_BOMB
+	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 148, 48, $0
+	anim_obj BATTLE_ANIM_OBJ_POISON_DROPLET, 150, 46, $11
+	anim_wait 2
+	anim_sound 0, 1, SFX_SLUDGE_BOMB
+	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 143, 59, $0
+	anim_obj BATTLE_ANIM_OBJ_POISON_DROPLET, 145, 61, $11
+	anim_wait 2
+	anim_sound 0, 1, SFX_SLUDGE_BOMB
+	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 132, 64, $0
+	anim_obj BATTLE_ANIM_OBJ_POISON_DROPLET, 130, 66, $11
+	anim_wait 2
+	anim_sound 0, 1, SFX_SLUDGE_BOMB
+	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 121, 59, $0
+	anim_obj BATTLE_ANIM_OBJ_POISON_DROPLET, 123, 61, $11
+	anim_wait 2
+	anim_sound 0, 1, SFX_SLUDGE_BOMB
+	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 116, 48, $0
+	anim_obj BATTLE_ANIM_OBJ_POISON_DROPLET, 119, 50, $11
+	anim_wait 2
+	anim_sound 0, 1, SFX_SLUDGE_BOMB
+	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 121, 37, $0
+	anim_obj BATTLE_ANIM_OBJ_POISON_DROPLET, 123, 39, $11
+	anim_wait 2
+	anim_loop 3, .loop
 	anim_wait 4
-	anim_sound 0, 1, SFX_KARATE_CHOP
-	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 140, 44, $0
-	anim_obj BATTLE_ANIM_OBJ_POISON_JAB, 132, 56, $20
-	anim_wait 4
-	anim_sound 0, 1, SFX_KARATE_CHOP
-	anim_obj BATTLE_ANIM_OBJ_POISON_JAB, 132, 56, $8
-	anim_wait 4
-	anim_sound 0, 1, SFX_KARATE_CHOP
-	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 124, 60, $0
-	anim_obj BATTLE_ANIM_OBJ_POISON_JAB, 132, 56, $10
-	anim_wait 4
-	anim_sound 0, 1, SFX_KARATE_CHOP
-	anim_obj BATTLE_ANIM_OBJ_POISON_JAB, 132, 56, $28
-	anim_wait 4
-	anim_sound 0, 1, SFX_KARATE_CHOP
-	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 140, 60, $0
-	anim_obj BATTLE_ANIM_OBJ_POISON_JAB, 132, 56, $0
-	anim_wait 4
-	anim_sound 0, 1, SFX_KARATE_CHOP
-	anim_obj BATTLE_ANIM_OBJ_POISON_JAB, 132, 56, $18
-	anim_wait 4
-	anim_sound 0, 1, SFX_KARATE_CHOP
-	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 124, 44, $0
-	anim_obj BATTLE_ANIM_OBJ_POISON_JAB, 132, 56, $30
-	anim_wait 4
-
+	anim_ret
+	
 BattleAnim_UserRazorLeaves:
 	anim_sound 0, 0, SFX_VINE_WHIP
 	anim_obj BATTLE_ANIM_OBJ_RAZOR_LEAF, 48, 80, $28
@@ -1678,6 +1684,27 @@ BattleAnim_Fly:
 	anim_call BattleAnimSub_WarpAway
 	anim_wait 64
 	anim_ret
+	
+	
+BattleAnim_TimeSlip:
+	anim_if_param_equal $1, .turn1
+	anim_if_param_equal $2, .miss
+	anim_1gfx BATTLE_ANIM_GFX_HIT
+	anim_sound 0, 1, SFX_WARP_TO
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, -15, 0,   7, 0, $0
+	anim_wait 32
+.miss
+	anim_bgeffect BATTLE_BG_EFFECT_SHOW_MON, $0, $1, $0
+	anim_wait 32
+	anim_ret
+
+.turn1
+	anim_1gfx BATTLE_ANIM_GFX_SPEED
+	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $1, $0
+	anim_bgeffect BATTLE_BG_EFFECT_HIDE_MON, $0, $1, $0
+	anim_call BattleAnimSub_WarpAway
+	anim_wait 64
+	anim_ret	
 
 BattleAnim_DoubleTeam:
 	anim_call BattleAnim_TargetObj_2Row
@@ -3328,7 +3355,7 @@ BattleAnim_Mist:
 	anim_wait 96
 	anim_ret
 
-BattleAnim_Smog:
+BattleAnim_PoisonGas:
 	anim_1gfx BATTLE_ANIM_GFX_HAZE
 	anim_sound 0, 1, SFX_BUBBLEBEAM
 .loop
@@ -3336,16 +3363,6 @@ BattleAnim_Smog:
 	anim_wait 8
 	anim_loop 10, .loop
 	anim_wait 96
-	anim_ret
-
-BattleAnim_PoisonGas:
-	anim_1gfx BATTLE_ANIM_GFX_HAZE
-	anim_sound 16, 2, SFX_BUBBLEBEAM
-.loop
-	anim_obj BATTLE_ANIM_OBJ_POISON_GAS, 44, 80, $2
-	anim_wait 8
-	anim_loop 10, .loop
-	anim_wait 128
 	anim_ret
 
 BattleAnim_HornAttack:

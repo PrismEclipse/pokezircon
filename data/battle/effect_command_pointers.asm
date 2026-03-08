@@ -22,7 +22,6 @@ BattleCommandPointers:
 	dw BattleCommand_CriticalText
 	dw BattleCommand_SuperEffectiveText
 	dw BattleCommand_CheckFaint
-	dw BattleCommand_BuildOpponentRage
 	dw BattleCommand_PoisonTarget
 	dw BattleCommand_SleepTarget
 	dw BattleCommand_DrainTarget
@@ -41,7 +40,9 @@ BattleCommandPointers:
 	dw BattleCommand_EndLoop
 	dw BattleCommand_FlinchTarget
 	dw BattleCommand_OHKO
-	dw BattleCommand_Recoil
+	dw BattleCommand_Struggle
+	dw BattleCommand_Recoil_1_3
+	dw BattleCommand_Recoil_1_4
 	dw BattleCommand_Mist
 	dw BattleCommand_FocusEnergy
 	dw BattleCommand_Confuse
@@ -152,7 +153,6 @@ BattleCommandPointers:
 	dw BattleCommand_SkipSunCharge
 	dw BattleCommand_ThunderAccuracy
 	dw BattleCommand_Teleport
-	dw BattleCommand_RageDamage
 	dw BattleCommand_ResetTypeMatchup
 	dw BattleCommand_AllStatsUp
 	dw BattleCommand_RaiseSubNoAnim
@@ -170,8 +170,11 @@ BattleCommandPointers:
 	dw BattleCommand_TrapHit
 	dw BattleCommand_BulkUp
 	dw BattleCommand_Overheat
-	dw BattleCommand_BeatUp
 	dw BattleCommand_QuiverDance
 	dw BattleCommand_VictoryDance
 	dw BattleCommand_Burn
+	dw BattleCommand_MindBlown
+	dw BattleCommand_DoubleUnderwaterDamage
+	dw BattleCommand_DefrostTarget
+	dw BattleCommand_Growth
 	assert_table_length NUM_EFFECT_COMMANDS

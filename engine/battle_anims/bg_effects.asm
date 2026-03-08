@@ -2324,7 +2324,7 @@ BattleBGEffects_SetLYOverrides:
 	dec e
 	jr nz, .loop2
 	ret
-
+	
 BattleBGEffect_SetLCDStatCustoms1:
 	ldh [hLCDCPointer], a
 	call BGEffect_CheckBattleTurn
@@ -2589,11 +2589,17 @@ BGEffect_CheckFlyDigStatus:
 	jr nz, .player
 	ld a, [wEnemySubStatus3] ; EnemySubStatus3
 	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+	ret nz
+	ld a, [wEnemySubStatus4]
+	and 1 << SUBSTATUS_UNDERWATER  | 1 << SUBSTATUS_TIME_STREAM
 	ret
 
 .player
 	ld a, [wPlayerSubStatus3] ; PlayerSubStatus3
 	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+	ret nz
+	ld a, [wPlayerSubStatus4]
+	and 1 << SUBSTATUS_UNDERWATER | 1 << SUBSTATUS_TIME_STREAM	
 	ret
 
 BattleBGEffects_Sine:

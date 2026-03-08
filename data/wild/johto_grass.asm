@@ -359,7 +359,7 @@ JohtoGrassWildMons:
 	; nite
 	db 12, PSYDUCK
 	db 13, HOOTHOOT
-	db 14, SPINARAK
+	db 14, GALLADE
 	db 15, HOOTHOOT
 	db 10, VENONAT
 	db 12, VENONAT
@@ -1309,7 +1309,7 @@ JohtoGrassWildMons:
 	db 5, HOPPIP
 	db 5, HOPPIP
 	; nite
-	db 4, SPINARAK
+	db 4, GALLADE
 	db 4, POLIWAG
 	db 5, BELLSPROUT
 	db 5, HOOTHOOT
@@ -1449,7 +1449,7 @@ JohtoGrassWildMons:
 	db 6, PIDGEY
 	db 6, PIDGEY
 	; nite
-	db 4, SPINARAK
+	db 4, GALLADE
 	db 4, HOOTHOOT
 	db 5, BELLSPROUT
 	db 5, HOOTHOOT
@@ -1477,13 +1477,13 @@ JohtoGrassWildMons:
 	db 15, PIDGEY
 	db 15, PIDGEY
 	; nite
-	db 13, SPINARAK
+	db 13, GALLADE
 	db 14, STANTLER
 	db 15, HOOTHOOT
 	db 16, STANTLER
 	db 15, NOCTOWL
-	db 15, ARIADOS
-	db 15, ARIADOS
+	db 15, GALLADE
+	db 15, GALLADE
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_38

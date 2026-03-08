@@ -165,7 +165,7 @@
 	const ROCK_SLIDE   ; 9d
 	const BLAST_BURN   ; 9e
 	const HOWL        ; 9f
-	const CONVERSION   ; a0
+	const FIREWORKS   ; a0
 	const TRI_ATTACK   ; a1
 	const SUPER_FANG   ; a2
 	const SLASH        ; a3
@@ -181,7 +181,7 @@
 	const CHATTER      ; ad
 	const CURSE        ; ae
 	const FLAIL        ; af
-	const CONVERSION2  ; b0
+	const AIR_SLASH   ; b0
 	const AEROBLAST    ; b1
 	const DRACO_METEOR ; b2
 	const REVERSAL     ; b3

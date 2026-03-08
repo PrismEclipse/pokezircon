@@ -102,9 +102,9 @@ OldPokedexOrder:
 	db RATICATE
 	db SPEAROW
 	db FEAROW
-	db SPINARAK
-	db ARIADOS
-	db CROBAT
+	db RALTS
+	db KIRLIA
+	db GARDEVOIR
 	db PARAS
 	db PARASECT
 	db GEODUDE
@@ -146,7 +146,7 @@ OldPokedexOrder:
 	db MURKROW
 	db CORSOLA
 	db GRANBULL
-	db TOGEPI
+	db GALLADE
 	db DIGLETT
 	db DUGTRIO
 	db WEEDLE

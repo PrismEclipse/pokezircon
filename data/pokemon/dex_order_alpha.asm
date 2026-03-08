@@ -9,7 +9,6 @@ AlphabeticalPokedexOrder:
 	db AMPHAROS
 	db ARBOK
 	db ARCANINE
-	db ARIADOS
 	db AZUMARILL
 	db BEEDRILL
 	db BELLOSSOM
@@ -31,7 +30,6 @@ AlphabeticalPokedexOrder:
 	db CLEFFA
 	db CLOYSTER
 	db CORSOLA
-	db CROBAT
 	db CUBONE
 	db DARTRIX
 	db DECIDUEYE
@@ -65,6 +63,8 @@ AlphabeticalPokedexOrder:
 	db FLAREON
 	db FORRETRESS
 	db FURRET
+	db GALLADE
+	db GARDEVOIR
 	db GASTLY
 	db GENGAR
 	db GEODUDE
@@ -106,6 +106,7 @@ AlphabeticalPokedexOrder:
 	db KANGASKHAN
 	db KINGDRA
 	db KINGLER
+	db KIRLIA
 	db KOFFING
 	db KRABBY
 	db LANTURN
@@ -180,6 +181,7 @@ AlphabeticalPokedexOrder:
 	db QWILFISH
 	db RAGING_BOLT
 	db RAICHU
+	db RALTS
 	db RAPIDASH
 	db RATICATE
 	db RATTATA
@@ -209,7 +211,6 @@ AlphabeticalPokedexOrder:
 	db SNORLAX
 	db SNUBBULL
 	db SPEAROW
-	db SPINARAK
 	db SQUIRTLE
 	db STANTLER
 	db STARMIE
@@ -224,7 +225,6 @@ AlphabeticalPokedexOrder:
 	db TEDDIURSA
 	db TENTACOOL
 	db TENTACRUEL
-	db TOGEPI
 	db TINKATINK
 	db TYRANITAR
 	db BLACEPHALON

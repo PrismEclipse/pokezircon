@@ -490,12 +490,9 @@ LedybaEggMoves:
 	db LIGHT_SCREEN
 	db -1 ; end
 
-SpinarakEggMoves:
-	db PSYBEAM
-	db DISABLE
-	db SPLASH
-	db BATON_PASS
-	db PURSUIT
+RaltsEggMoves:
+	db BLOCK
+	db DESTINY_BOND
 	db -1 ; end
 
 ChinchouEggMoves:
@@ -525,14 +522,6 @@ IgglybuffEggMoves:
 	db PERISH_SONG
 	db SPLASH
 	db FAINT_ATTACK
-	db -1 ; end
-
-TogepiEggMoves:
-	db SPLASH
-	db SPLASH
-	db PECK
-	db SPLASH
-	db FUTURE_SIGHT
 	db -1 ; end
 
 TinkatuffEggMoves:

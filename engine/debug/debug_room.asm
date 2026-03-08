@@ -30,10 +30,6 @@ DEF DEBUGROOMMENU_NUM_PAGES EQU const_value
 	const DEBUGROOMMENUITEM_BT_BUG_POKE  ; 14
 
 _DebugRoom:
-	ldh a, [hJoyDown]
-	and PAD_SELECT | PAD_START
-	cp PAD_SELECT | PAD_START
-	ret nz
 	ldh a, [hDebugRoomMenuPage]
 	push af
 	xor a
@@ -1286,10 +1282,10 @@ DebugRoomMenu_PokemonGet_Page1Values:
 	db 8
 	paged_value wDebugRoomMonSpecies,       1,   NUM_POKEMON, BULBASAUR,      DebugRoom_BoxStructStrings.Pokemon,   DebugRoom_PrintPokemonName, FALSE
 	paged_value wDebugRoomMonItem,          1,   $ff,         MASTER_BALL,    DebugRoom_BoxStructStrings.Item,      DebugRoom_PrintItemName2,   FALSE
-	paged_value wDebugRoomMonMoves+0,       1,   NUM_ATTACKS, POUND,          DebugRoom_BoxStructStrings.Move1,     DebugRoom_PrintMoveName,    FALSE
-	paged_value wDebugRoomMonMoves+1,       1,   NUM_ATTACKS, POUND,          DebugRoom_BoxStructStrings.Move2,     DebugRoom_PrintMoveName,    FALSE
-	paged_value wDebugRoomMonMoves+2,       1,   NUM_ATTACKS, POUND,          DebugRoom_BoxStructStrings.Move3,     DebugRoom_PrintMoveName,    FALSE
-	paged_value wDebugRoomMonMoves+3,       1,   NUM_ATTACKS, POUND,          DebugRoom_BoxStructStrings.Move4,     DebugRoom_PrintMoveName,    FALSE
+	paged_value wDebugRoomMonMoves+0,       1,   NUM_ATTACKS, TACKLE,          DebugRoom_BoxStructStrings.Move1,     DebugRoom_PrintMoveName,    FALSE
+	paged_value wDebugRoomMonMoves+1,       1,   NUM_ATTACKS, TACKLE,          DebugRoom_BoxStructStrings.Move2,     DebugRoom_PrintMoveName,    FALSE
+	paged_value wDebugRoomMonMoves+2,       1,   NUM_ATTACKS, TACKLE,          DebugRoom_BoxStructStrings.Move3,     DebugRoom_PrintMoveName,    FALSE
+	paged_value wDebugRoomMonMoves+3,       1,   NUM_ATTACKS, TACKLE,          DebugRoom_BoxStructStrings.Move4,     DebugRoom_PrintMoveName,    FALSE
 	paged_value wDebugRoomMonID+0,          $00, $ff,         HIGH(1234),     DebugRoom_BoxStructStrings.ID0,       NULL,                       FALSE
 	paged_value wDebugRoomMonID+1,          $00, $ff,         LOW(1234),      DebugRoom_BoxStructStrings.ID1,       NULL,                       FALSE
 
@@ -1333,9 +1329,6 @@ DebugRoom_BoxStructStrings:
 .Move4:     db "MOVE 4@"
 .ID0:       db "ID[0]@"
 .ID1:       db "ID[1]@"
-.BaseExp0:  db "BASE EXP[0]@" ; unreferenced
-.BaseExp1:  db "BASE EXP[1]@" ; unreferenced
-.BaseExp2:  db "BASE EXP[2]@" ; unreferenced
 .HPExp0:    db "HP EXP[0]@"
 .HPExp1:    db "HP EXP[1]@"
 .AttkExp0:  db "ATTK EXP[0]@"
@@ -1628,28 +1621,6 @@ ComputeROMChecksum:
 	ld a, h
 	cp $40 ; HIGH(ROM0 end)
 	jr c, .rom0_loop
-	ret
-
-.ComputeROMXChecksum: ; unreferenced
-	ld hl, $4000 ; ROMX start
-.romx_loop
-	ld a, c
-	call GetFarByte
-	inc hl
-	call .AddAtoDE
-	ld a, h
-	cp $80 ; HIGH(ROMX end)
-	jr c, .romx_loop
-	ret
-
-DebugRoom_PrintROMChecksum: ; unreferenced
-	hlcoord 16, 0
-	ld de, .SumString
-	call PlaceString
-	hlcoord 16, 1
-	ld de, wDebugRoomROMChecksum
-	ld c, 2
-	call PrintHexNumber
 	ret
 
 .SumString:

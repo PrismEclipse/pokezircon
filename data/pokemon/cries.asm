@@ -157,30 +157,30 @@ PokemonCries::
 	mon_cry CRY_BULBASAUR,    60,  320 ; DRAGONITE
 	mon_cry CRY_HYDREIGON,  -238,  256 ; NECROZMA
 	mon_cry CRY_PARAS,       238,  383 ; MEW
-	mon_cry CRY_CHIKORITA,   -16,  176 ; ROWLET
-	mon_cry CRY_CHIKORITA,   -34,  288 ; DARTRIX
-	mon_cry CRY_CHIKORITA,  -183,  512 ; DECIDUEYE
+	mon_cry CRY_HOOTHOOT,   145,  176 ; ROWLET
+	mon_cry CRY_HOOTHOOT,   -34,  288 ; DARTRIX
+	mon_cry CRY_HOOTHOOT,  -255,  512 ; DECIDUEYE
 	mon_cry CRY_CLEFAIRY,   234,  128 ; FENNEKIN
 	mon_cry CRY_GIRAFARIG,   85,  288 ; BRAIXEN
 	mon_cry CRY_VULPIX, -30,  212 ; DELPHOX
-	mon_cry CRY_TOTODILE,   1132,  232 ; PIPLUP
-	mon_cry CRY_TOTODILE,   1088,  272 ; PRINPLUP
-	mon_cry CRY_TOTODILE,   1020,  384 ; EMPOLEON
+	mon_cry CRY_PIDGEY,   204,  232 ; PIPLUP
+	mon_cry CRY_PIDGEY,   144,  272 ; PRINPLUP
+	mon_cry CRY_EMPOLEON,   0,  384 ; FERALIGATR
 	mon_cry CRY_SENTRET,     138,  184 ; SENTRET
 	mon_cry CRY_SENTRET,     107,  258 ; FURRET
 	mon_cry CRY_HOOTHOOT,    145,  216 ; HOOTHOOT
 	mon_cry CRY_HOOTHOOT,      0,  416 ; NOCTOWL
 	mon_cry CRY_LEDYBA,        0,  222 ; LEDYBA
 	mon_cry CRY_LEDYBA,     -150,  312 ; LEDIAN
-	mon_cry CRY_SPINARAK,     17,  512 ; SPINARAK
-	mon_cry CRY_SPINARAK,   -174,  482 ; ARIADOS
-	mon_cry CRY_SQUIRTLE,    -16,  320 ; CROBAT
+	mon_cry CRY_GLIGAR,      4092,  272 ; RALTS
+	mon_cry CRY_VILEPLUME,   8,  256 ; KIRLIA
+	mon_cry CRY_VILEPLUME,   3874,  355 ; GARDEVOIR
+	mon_cry CRY_PIDGEOTTO,  -1276,  534 ; GALLADE
 	mon_cry CRY_CYNDAQUIL,   969,  320 ; CHINCHOU
 	mon_cry CRY_CYNDAQUIL,   720,  272 ; LANTURN
 	mon_cry CRY_PICHU,         0,  320 ; PICHU
 	mon_cry CRY_CLEFFA,       97,  145 ; CLEFFA
 	mon_cry CRY_CHIKORITA,   232,  232 ; IGGLYBUFF
-	mon_cry CRY_TOGEPI,       16,  256 ; TOGEPI
 	mon_cry CRY_SUNFLORA,       -71,  256 ; TINKATINK
 	mon_cry CRY_TOGEPI,       59,  256 ; TINKATUFF
 	mon_cry CRY_HYDREIGON,    370,  128 ; TINKATON

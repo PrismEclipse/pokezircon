@@ -20,7 +20,6 @@ StallMoves:
 	db AMNESIA
 	db TRANSFORM
 	db SPLASH
-	db CONVERSION
 	db SUBSTITUTE
 	db FLAME_WHEEL
 	db -1 ; end

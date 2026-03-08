@@ -144,9 +144,9 @@ PokedexDataPointerTable:
 	dba KabutopsPokedexEntry
 	dba AerodactylPokedexEntry
 	dba SnorlaxPokedexEntry
-	dba ArticunoPokedexEntry
-	dba ZapdosPokedexEntry
-	dba MoltresPokedexEntry
+	dba RagingBoltPokedexEntry
+	dba GougingFirePokedexEntry
+	dba WalkingWakePokedexEntry
 	dba DratiniPokedexEntry
 	dba DragonairPokedexEntry
 	dba DragonitePokedexEntry
@@ -167,15 +167,15 @@ PokedexDataPointerTable:
 	dba NoctowlPokedexEntry
 	dba LedybaPokedexEntry
 	dba LedianPokedexEntry
-	dba SpinarakPokedexEntry
-	dba AriadosPokedexEntry
-	dba CrobatPokedexEntry
+	dba RaltsPokedexEntry
+	dba KirliaPokedexEntry
+	dba GardevoirPokedexEntry
+	dba GalladePokedexEntry
 	dba ChinchouPokedexEntry
 	dba LanturnPokedexEntry
 	dba PichuPokedexEntry
 	dba CleffaPokedexEntry
 	dba IgglybuffPokedexEntry
-	dba TogepiPokedexEntry
 	dba TinkatinkPokedexEntry
 	dba TinkatuffPokedexEntry
 	dba TinkatonPokedexEntry

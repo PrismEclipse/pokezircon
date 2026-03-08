@@ -235,7 +235,7 @@ Route36Officer_ContestHasConcluded:
 	iftrue .Sunstone
 	checkevent EVENT_CONTEST_OFFICER_HAS_EVERSTONE
 	iftrue .Everstone
-	checkevent EVENT_CONTEST_OFFICER_HAS_GOLD_BERRY
+	checkevent EVENT_CONTEST_OFFICER_HAS_SITRUS_BERRY
 	iftrue .GoldBerry
 	checkevent EVENT_CONTEST_OFFICER_HAS_BERRY
 	iftrue .Berry
@@ -265,9 +265,9 @@ Route36Officer_ContestHasConcluded:
 .GoldBerry:
 	writetext Route36NationalParkGateOfficer1HeresThePrizeText
 	promptbutton
-	verbosegiveitem GOLD_BERRY
+	verbosegiveitem SITRUS_BERRY
 	iffalse .BagFull
-	clearevent EVENT_CONTEST_OFFICER_HAS_GOLD_BERRY
+	clearevent EVENT_CONTEST_OFFICER_HAS_SITRUS_BERRY
 	closetext
 	end
 

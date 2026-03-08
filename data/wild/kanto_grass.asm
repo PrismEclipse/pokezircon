@@ -218,10 +218,10 @@ KantoGrassWildMons:
 	db 4, PIKACHU
 	; nite
 	db 3, HOOTHOOT
-	db 3, SPINARAK
+	db 3, GALLADE
 	db 5, HOOTHOOT
 	db 7, NOCTOWL
-	db 7, ARIADOS
+	db 7, GALLADE
 	db 4, NOCTOWL
 	db 4, NOCTOWL
 	end_grass_wildmons

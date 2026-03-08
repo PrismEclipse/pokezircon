@@ -186,15 +186,15 @@ DEF JOHTO_POKEMON EQU const_value
 	const NOCTOWL    ; a4
 	const LEDYBA     ; a5
 	const LEDIAN     ; a6
-	const SPINARAK   ; a7
-	const ARIADOS    ; a8
-	const CROBAT     ; a9
-	const CHINCHOU   ; aa
-	const LANTURN    ; ab
-	const PICHU      ; ac
-	const CLEFFA     ; ad
-	const IGGLYBUFF  ; ae
-	const TOGEPI     ; af
+	const RALTS   ; a7
+	const KIRLIA    ; a8
+	const GARDEVOIR     ; a9
+	const GALLADE 	 ; aa
+	const CHINCHOU   ; ab
+	const LANTURN    ; ac
+	const PICHU      ; ad
+	const CLEFFA     ; ae
+	const IGGLYBUFF  ; af
 	const TINKATINK  ; b0
 	const TINKATUFF  ; b1
 	const TINKATON   ; b2

@@ -1060,16 +1060,16 @@ BlewSpikesText:
 	line "blew away SPIKES!"
 	prompt
 
-DownpourText:
-	text "A downpour"
-	line "started!"
+StartedToRainText:
+	text "It started to"
+	line "rain!"
 	prompt
 
-SunGotBrightText:
-	text "The sunlight got"
-	line "bright!"
+SunTurnedHarshText:
+	text "The sunlight"
+	line "turned harsh!"
 	prompt
-
+	
 BellyDrumText:
 	text "<USER>"
 	line "cut its HP and"

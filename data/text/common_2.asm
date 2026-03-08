@@ -732,6 +732,16 @@ _BattleDugText::
 	text_start
 	line "dug a hole!"
 	prompt
+	
+_BattleHidUnderwaterText::
+	text_start
+	line "hid underwater!"
+	prompt	
+
+_BattleTraveledText::
+	text_start
+	line "slipped into time!"
+	prompt
 
 _ActorNameText::
 	text "<USER>@"
@@ -1531,16 +1541,19 @@ _MayRegisterItemText::
 	done
 
 _OakText1::
-	text "Hello! Sorry to"
-	line "keep you waiting!"
-
+	text "Hi! Seems you are"
+	line "all ready there!"
+	
+if !DEF(_DEBUG)
 	para "Welcome to the"
 	line "world of #MON!"
 
-	para "My name is OAK."
+	para "My name is SAKURA."
 
-	para "People call me the"
+	para "Im known as the"
 	line "#MON PROF."
+
+	endc
 	prompt
 
 _OakText2::
@@ -1573,10 +1586,10 @@ _OakText5::
 	line "everything about"
 	cont "#MON yet."
 
-	para "There are still"
-	line "many mysteries to"
-	cont "solve."
+	para "There is still"
+	line "much to learn"
+	cont "from them."
 
 	para "That's why I study"
-	line "#MON every day."
+	line "them for a living."
 	prompt

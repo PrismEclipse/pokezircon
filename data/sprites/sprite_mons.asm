@@ -11,7 +11,7 @@ SpriteMons:
 	db ZUBAT
 	db MAGIKARP
 	db SQUIRTLE
-	db TOGEPI
+	db GALLADE
 	db BUTTERFREE
 	db DIGLETT
 	db POLIWAG

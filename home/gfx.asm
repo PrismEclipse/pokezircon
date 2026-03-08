@@ -3,7 +3,7 @@ DEF MOBILE_TILES_PER_CYCLE EQU 6
 
 Get2bppViaHDMA::
 	ldh a, [rLCDC]
-	bit B_LCDC_ENABLE, a
+	bit rLCDC_ENABLE, a
 	jp z, Copy2bpp
 
 	homecall HDMATransfer2bpp
@@ -12,7 +12,7 @@ Get2bppViaHDMA::
 
 Get1bppViaHDMA::
 	ldh a, [rLCDC]
-	bit B_LCDC_ENABLE, a
+	bit rLCDC_ENABLE, a
 	jp z, Copy1bpp
 
 	homecall HDMATransfer1bpp
@@ -46,21 +46,21 @@ SafeHDMATransfer::
 
 	; load the source and target MSB and LSB
 	ld a, d
-	ldh [rVDMA_SRC_HIGH], a ; source MSB
+	ldh [rHDMA1], a ; source MSB
 	ld a, e
-	ldh [rVDMA_SRC_LOW], a ; source LSB
+	ldh [rHDMA2], a ; source LSB
 	ld a, h
-	ldh [rVDMA_DEST_HIGH], a ; target MSB
+	ldh [rHDMA3], a ; target MSB
 	ld a, l
-	ldh [rVDMA_DEST_LOW], a ; target LSB
+	ldh [rHDMA4], a ; target LSB
 
 	; if LCD is disabled, just run all of it
 	ldh a, [rLCDC]
-	bit B_LCDC_ENABLE, a
+	bit rLCDC_ENABLE, a
 	jr nz, .lcd_enabled
 
 	ld a, c
-	ldh [rVDMA_LEN], a
+	ldh [rHDMA5], a
 	jr .done
 
 .lcd_enabled
@@ -78,14 +78,15 @@ SafeHDMATransfer::
 .wait_hblank1
 	ldh a, [c]
 	and b
-	jr z, .wait_hblank1
+	cp b
+	jr nz, .wait_hblank1
 .wait_hblank2
 	ldh a, [c]
 	and b
 	jr nz, .wait_hblank2
 
 	ld a, d
-	ldh [rVDMA_LEN], a
+	ldh [rHDMA5], a
 	pop bc
 	ld a, c
 	sub 3
@@ -118,7 +119,6 @@ LoadFontsExtra::
 	ret
 
 DecompressRequest2bpp::
-; Load compressed 2bpp at b:hl to occupy c tiles of de.
 	push de
 	ld a, BANK(sScratch)
 	call OpenSRAM
@@ -193,6 +193,11 @@ CheckGDMA:
 	ldh a, [hCGB]
 	and a
 	ret z
+IF DEF(_GBTOWER)
+	xor a 
+	ret
+ELSE
+ENDC
 
 	; The 4 least significant bits must be zero.
 	ld a, e
@@ -372,7 +377,7 @@ Request1bpp::
 Get2bpp::
 ; copy c 2bpp tiles from b:de to hl
 	ldh a, [rLCDC]
-	bit B_LCDC_ENABLE, a
+	bit rLCDC_ENABLE, a
 	jp nz, Request2bpp
 	; fallthrough
 
@@ -388,7 +393,7 @@ Copy2bpp:
 ; bank
 	ld a, b
 
-; bc = c * TILE_SIZE
+; bc = c * LEN_2BPP_TILE
 	push af
 	swap c
 	ld a, $f
@@ -404,7 +409,7 @@ Copy2bpp:
 Get1bpp::
 ; copy c 1bpp tiles from b:de to hl
 	ldh a, [rLCDC]
-	bit B_LCDC_ENABLE, a
+	bit rLCDC_ENABLE, a
 	jp nz, Request1bpp
 	; fallthrough
 
@@ -416,7 +421,7 @@ Copy1bpp::
 ; bank
 	ld a, b
 
-; bc = c * TILE_1BPP_SIZE
+; bc = c * LEN_1BPP_TILE
 	push af
 	ld h, 0
 	ld l, c

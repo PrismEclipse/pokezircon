@@ -1,10 +1,10 @@
-	db "BIG JAW@" ; species name
-	dw 707, 1960 ; height, weight
+	db "EMPEROR@" ; species name
+	dw 507, 845 ; height, weight
 
-	db   "Although it has a"
-	next "massive body, its"
-	next "powerful hind legs"
+	db   "It swims as fast"
+	next "as a jet boat."
+	next "The edges of its"
 
-	page "enable it to move"
-	next "quickly, even on"
-	next "the ground.@"
+	page "wings are sharp"
+	next "and can slice a-"
+	next "part drifting ice@"

@@ -6,7 +6,7 @@ Reset::
 	call ClearPalettes
 	xor a
 	ldh [rIF], a
-	ld a, IE_VBLANK
+	ld a, 1 << VBLANK
 	ldh [rIE], a
 	ei
 
@@ -19,7 +19,7 @@ Reset::
 	jr Init
 
 _Start::
-	cp BOOTUP_A_CGB
+	cp $11
 	jr z, .cgb
 	xor a ; FALSE
 	jr .load
@@ -50,7 +50,6 @@ Init::
 	ldh [rOBP1], a
 	ldh [rTMA], a
 	ldh [rTAC], a
-	ld [wBetaTitleSequenceOpeningType], a
 
 	ld a, %100 ; Start timer at 4096Hz
 	ldh [rTAC], a
@@ -92,7 +91,7 @@ Init::
 
 	call ClearWRAM
 	ld a, 1
-	ldh [rWBK], a
+	ldh [rSVBK], a
 	call ClearVRAM
 	call ClearSprites
 	call ClearsScratch
@@ -116,14 +115,14 @@ Init::
 	ldh [hSCY], a
 	ldh [rJOYP], a
 
-	ld a, STAT_MODE_0
+	ld a, $8 ; HBlank int enable
 	ldh [rSTAT], a
 
-	ld a, SCREEN_HEIGHT_PX
+	ld a, $90
 	ldh [hWY], a
 	ldh [rWY], a
 
-	ld a, WX_OFS
+	ld a, 7
 	ldh [hWX], a
 	ldh [rWX], a
 
@@ -150,13 +149,15 @@ Init::
 
 	farcall StartClock
 
-	xor a ; RAMG_SRAM_DISABLE
-	ld [rRTCLATCH], a
-	ld [rRAMG], a
+	xor a ; SRAM_DISABLE
+	ld [MBC3LatchClock], a
+	ld [MBC3SRamEnable], a
 
 	ldh a, [hCGB]
 	and a
-	call nz, DoubleSpeed
+	jr z, .no_double_speed
+	call DoubleSpeed
+.no_double_speed
 
 	xor a
 	ldh [rIF], a
@@ -192,10 +193,11 @@ ClearVRAM::
 ClearWRAM::
 ; Wipe swappable WRAM banks (1-7)
 ; Assumes CGB or AGB
+
 	ld a, 1
 .bank_loop
 	push af
-	ldh [rWBK], a
+	ldh [rSVBK], a
 	xor a
 	ld hl, STARTOF(WRAMX)
 	ld bc, SIZEOF(WRAMX)

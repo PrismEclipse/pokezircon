@@ -187,7 +187,6 @@ BattleAnimFrameData:
 	dw .Frameset_DragonPulse ; BATTLE_ANIM_FRAMESET_DRAGON_PULSE
 	dw .Frameset_SmallGlow ; BATTLE_ANIM_FRAMESET_SMALL_GLOW
 	dw .Frameset_Hurricane               ; BATTLE_ANIM_FRAMESET_HURRICANE
-	dw .Frameset_PoisonJab
 	assert_table_length NUM_BATTLE_ANIM_FRAMESETS
 
 .Frameset_HitBig:
@@ -1100,10 +1099,6 @@ BattleAnimFrameData:
     oamframe BATTLE_ANIM_OAMSET_HURRICANE, 2, B_OAM_XFLIP
     oamrestart
 	
-.Frameset_PoisonJab:
-	oamframe BATTLE_ANIM_OAMSET_6C,  32
-	oamend	
-
 .Frameset_DragonPulse:
 	oamframe BATTLE_ANIM_OAMSET_1E,  3
 	oamframe BATTLE_ANIM_OAMSET_55,  3

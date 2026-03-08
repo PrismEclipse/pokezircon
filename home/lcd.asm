@@ -2,9 +2,17 @@
 
 LCDGeneric::
 	push af
+	ldh a, [hLCDCPointer]
+	and a
+	jr z, .done
+
 ; At this point it's assumed we're in BANK(wLYOverrides)!
 	push bc
 	ldh a, [rLY]
+	cp SCREEN_HEIGHT_PX
+	jr c, .continue
+	xor a
+.continue
 	ld c, a
 	ld b, HIGH(wLYOverrides)
 	ld a, [bc]
@@ -14,6 +22,7 @@ LCDGeneric::
 	ld a, b
 	ldh [c], a
 	pop bc
+.done
 	pop af
 	reti
 
@@ -30,7 +39,7 @@ LCDBillsPC1::
 
 	; start of VRAM writes
 	; second box mon
-	ld a, BGPI_AUTOINC | $2a
+	ld a, $80 | $2a
 	ldh [rBGPI], a
 rept 4
 	ld a, [hli]
@@ -38,7 +47,7 @@ rept 4
 endr
 
 	; third box mon
-	ld a, BGPI_AUTOINC | $32
+	ld a, $80 | $32
 	ldh [rBGPI], a
 rept 4
 	ld a, [hli]
@@ -46,7 +55,7 @@ rept 4
 endr
 
 	; fourth box mon
-	ld a, BGPI_AUTOINC | $3a
+	ld a, $80 | $3a
 	ldh [rBGPI], a
 rept 4
 	ld a, [hli]
@@ -60,7 +69,7 @@ endr
 	ld a, HIGH(LCDBillsPC2)
 	ldh [hFunctionTargetHi], a
 	ld a, JP_INSTRUCTION
-	ldh [hFunctionInstruction], a
+	ld [hFunctionInstruction], a
 	pop bc
 	pop hl
 .donepc
@@ -76,7 +85,7 @@ LCDBillsPC2::
 
 	; start of VRAM writes
 	; first party mon
-	ld a, BGPI_AUTOINC | $12
+	ld a, $80 | $12
 	ldh [rBGPI], a
 rept 4
 	ld a, [hli]
@@ -84,7 +93,7 @@ rept 4
 endr
 
 	; second party mon
-	ld a, BGPI_AUTOINC | $1a
+	ld a, $80 | $1a
 	ldh [rBGPI], a
 rept 4
 	ld a, [hli]
@@ -92,7 +101,7 @@ rept 4
 endr
 
 	; first box mon
-	ld a, BGPI_AUTOINC | $22
+	ld a, $80 | $22
 	ldh [rBGPI], a
 rept 4
 	ld a, [hli]
@@ -135,7 +144,7 @@ endr
 	ld a, HIGH(LCDBillsPC3)
 	ldh [hFunctionTargetHi], a
 	ld a, JP_INSTRUCTION
-	ldh [hFunctionInstruction], a
+	ld [hFunctionInstruction], a
 	pop de
 	pop bc
 	pop hl
@@ -148,22 +157,22 @@ LCDBillsPC3:
 	push hl
 	push bc
 	push de
-	ldh a, [rWBK]
+	ldh a, [rSVBK]
 	push af
 	ld a, BANK("GBC Video")
-	ldh [rWBK], a
+	ldh [rSVBK], a
 
 	ld c, LOW(rBGPD)
 	ldh a, [rLY]
 	cp $8a
 	ld hl, wBGPals1
 	jr nc, .got_pal
-	ld hl, wBGPals1 palette 4
+	ld hl, wBGPals1 palette $4
 .got_pal
 
 	; start of VRAM writes
 	; BG3 color 0
-	ld a, BGPI_AUTOINC | $18
+	ld a, $80 | $18
 	ldh [rBGPI], a
 rept 2
 	ld a, [hli]
@@ -172,13 +181,13 @@ endr
 	; end of VRAM writes
 
 	pop af
-	ldh [rWBK], a
+	ldh [rSVBK], a
 	ld a, LOW(LCDBillsPC1)
 	ldh [hFunctionTargetLo], a
 	ld a, HIGH(LCDBillsPC1)
 	ldh [hFunctionTargetHi], a
 	ld a, JP_INSTRUCTION
-	ldh [hFunctionInstruction], a
+	ld [hFunctionInstruction], a
 	pop de
 	pop bc
 	pop hl
@@ -190,7 +199,7 @@ DisableLCD::
 
 ; Don't need to do anything if the LCD is already off
 	ldh a, [rLCDC]
-	bit B_LCDC_ENABLE, a
+	bit rLCDC_ENABLE, a
 	ret z
 
 	xor a
@@ -199,7 +208,7 @@ DisableLCD::
 	ld b, a
 
 ; Disable VBlank
-	res B_IE_VBLANK, a
+	res VBLANK, a
 	ldh [rIE], a
 
 .wait
@@ -209,7 +218,7 @@ DisableLCD::
 	jr nz, .wait
 
 	ldh a, [rLCDC]
-	and ~LCDC_ON
+	and ~(1 << rLCDC_ENABLE)
 	ldh [rLCDC], a
 
 	xor a
@@ -220,6 +229,6 @@ DisableLCD::
 
 EnableLCD::
 	ldh a, [rLCDC]
-	set B_LCDC_ENABLE, a
+	set rLCDC_ENABLE, a
 	ldh [rLCDC], a
 	ret

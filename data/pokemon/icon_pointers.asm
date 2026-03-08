@@ -168,15 +168,15 @@ IconPointers:
 	dw NoctowlIcon
 	dw LedybaIcon
 	dw LedianIcon
-	dw SpinarakIcon
-	dw AriadosIcon
-	dw CrobatIcon
+	dw RaltsIcon
+	dw KirliaIcon
+	dw GardevoirIcon
+	dw GalladeIcon
 	dw ChinchouIcon
 	dw LanturnIcon
 	dw PichuIcon
 	dw CleffaIcon
 	dw IgglybuffIcon
-	dw TogepiIcon
 	dw TogeticIcon
 	dw NatuIcon
 	dw XatuIcon
