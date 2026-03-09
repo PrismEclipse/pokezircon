@@ -54,19 +54,19 @@ _BillsPC:
 	; Disable hblank before restoring blockdata, since blockdata and hblank pals
 	; overlap.
 	ld hl, rIE
-	res B_IE_STAT, [hl]
+	res LCD_STAT, [hl]
 	ld a, RETI_INSTRUCTION
-	ldh [hFunctionInstruction], a
+	ld [hFunctionInstruction], a
 	ld a, LOW(LCDGeneric)
 	ldh [hFunctionTargetLo], a
 	ld a, HIGH(LCDGeneric)
 	ldh [hFunctionTargetHi], a
-	set B_IE_STAT, [hl]
+	set LCD_STAT, [hl]
 
 	; Restore regular speed.
 	ldh a, [rIE]
 	push af
-	call NormalSpeed
+	call DoubleSpeed
 	pop af
 	ldh [rIE], a
 
@@ -197,7 +197,7 @@ UseBillsPC:
 	call ClearSprites
 	newfarcall ClearSpriteAnims
 	ld a, [wStateFlags]
-	res SPRITE_UPDATES_DISABLED_F, a
+	res 0, a
 	ld [wStateFlags], a
 
 	; the UI needs CGB Doublespeed to work as it should.
@@ -230,7 +230,7 @@ UseBillsPC:
 	; Item name is in vbk1
 	hlcoord 10, 2, wAttrmap ; Cursor's item
 	ld bc, 10
-	ld a, OAM_BANK1
+	ld a, VRAM_BANK_1
 	push bc
 	call ByteFill
 	pop bc
@@ -293,13 +293,13 @@ UseBillsPC:
 	; Party
 	hlcoord 1, 11
 	lb bc, 3, 2
-	lb de, $80, 2 | OAM_BANK1
+	lb de, $80, 2 | VRAM_BANK_1
 	call .WriteIconTilemap
 
 	; Storage
 	hlcoord 8, 7
 	lb bc, 5, 4
-	lb de, $98, 4 | OAM_BANK1
+	lb de, $98, 4 | VRAM_BANK_1
 	call .WriteIconTilemap
 
 	; Update attribute map data
@@ -308,14 +308,14 @@ UseBillsPC:
 
 	; Set up for HBlank palette switching
 	ld hl, rIE
-	res B_IE_STAT, [hl]
+	res LCD_STAT, [hl]
 	ld a, LOW(LCDBillsPC1)
 	ldh [hFunctionTargetLo], a
 	ld a, HIGH(LCDBillsPC1)
 	ldh [hFunctionTargetHi], a
 	ld a, JP_INSTRUCTION
-	ldh [hFunctionInstruction], a
-	set B_IE_STAT, [hl]
+	ld [hFunctionInstruction], a
+	set LCD_STAT, [hl]
 
 	; Display data about current Pokémon pointed to by cursor
 	call GetCursorMon
@@ -348,9 +348,9 @@ UseBillsPC:
 	db $31, $7f, $31 ; middle
 	db $33, $32, $33 ; bottom
 .BoxAttr:
-	db 1,             1,             1 | OAM_XFLIP             ; top
-	db 1,             2 | OAM_BANK1, 1 | OAM_XFLIP             ; middle
-	db 1 | OAM_YFLIP, 1 | OAM_YFLIP, 1 | OAM_XFLIP | OAM_YFLIP ; bottom
+	db 1, 1, 1 | X_FLIP ; top
+	db 1, 2 | VRAM_BANK_1, 1 | X_FLIP ; middle
+	db 1 | Y_FLIP, 1 | Y_FLIP, 1 | X_FLIP | Y_FLIP ; bottom
 
 .SpecialRow:
 ; Draws a nonstandard box outline
@@ -549,7 +549,7 @@ BillsPC_Get2bpp:
 BillsPC_PrintBoxName:
 ; Writes name of current Box to box name area in storage system
 	hlcoord 9, 5
-	ld a, ' '
+	ld a, " "
 	ld bc, 9
 	call ByteFill
 
@@ -567,7 +567,7 @@ BillsPC_PrintBoxName:
 .loop
 	ld a, [hli]
 	inc b
-	cp '@'
+	cp "@"
 	jr nz, .loop
 	srl b
 	ld a, 5
@@ -583,7 +583,7 @@ SetPartyIcons:
 	; Blank current list
 	xor a
 	ld hl, wBillsPC_PartyList
-	ld bc, PARTY_LENGTH
+	ld bc, PARTY_LENGTH * 2
 	call ByteFill
 
 	ld hl, vTiles4 tile $00
@@ -605,7 +605,7 @@ SetBoxIcons:
 	; Blank current list
 	xor a
 	ld hl, wBillsPC_BoxList
-	ld bc, MONS_PER_BOX
+	ld bc, MONS_PER_BOX * 2
 	call ByteFill
 
 	ld hl, vTiles4 tile $18
@@ -635,6 +635,15 @@ PCIconLoop:
 	ld a, [wBufferMonAltSpecies]
 	ld [wCurIcon], a
 	ld [hli], a
+	push hl
+	push bc
+	ld hl, wBufferMonDVs
+	predef GetUnownLetter
+	ld a, [wUnownLetter]
+	ld [wCurIconForm], a
+	pop bc
+	pop hl
+	ld [hli], a
 	ld a, e
 	push hl
 	push de
@@ -649,6 +658,7 @@ PCIconLoop:
 .blank
 	; Fill storage species slot with a blank species.
 	xor a
+	ld [hli], a
 	ld [hli], a
 
 .next
@@ -669,7 +679,7 @@ BillsPC_GetMonIconAddr:
 	jr z, .got_tile_base
 	ld hl, wBillsPC_BoxList
 .got_tile_base
-	ld a, 1
+	ld a, 2
 	ld b, 0
 	dec c
 	call AddNTimes
@@ -911,6 +921,7 @@ CheckPartyShift:
 
 .CheckBlankIcon:
 	; a = [wBillsPC_PartyList + a]
+	add a
 	add LOW(wBillsPC_PartyList)
 	ld l, a
 	adc HIGH(wBillsPC_PartyList)
@@ -939,7 +950,7 @@ BillsPC_SetBoxArrows:
 	jr c, .box_cursors
 
 	; Clear box switch arrows.
-	ld a, ' '
+	ld a, " "
 	hlcoord 8, 5
 	ld [hl], a
 	hlcoord 18, 5
@@ -949,9 +960,9 @@ BillsPC_SetBoxArrows:
 
 .box_cursors
 	hlcoord 8, 5
-	ld [hl], '◀'
+	ld [hl], "◀"
 	hlcoord 18, 5
-	ld [hl], '▶'
+	ld [hl], "▶"
 	ret
 
 _GetCursorMon:
@@ -1005,6 +1016,8 @@ _GetCursorMon:
 	; is unpredictable, but bpp copy can be relied upon).
 	ld hl, wBufferMonDVs
 	predef GetUnownLetter
+	ld a, [wUnownLetter]
+	ld [wCurForm], a
 	ld a, [wBufferMonAltSpecies]
 	ld [wCurPartySpecies], a
 	ld [wCurSpecies], a
@@ -1013,7 +1026,7 @@ _GetCursorMon:
 	newfarcall PrepareFrontpic
 
 	push hl
-	ld a, '@'
+	ld a, "@"
 	ld [wStringBuffer2], a
 	call GetMonItemUnlessCursor
 	jr z, .delay_loop
@@ -1034,7 +1047,7 @@ _GetCursorMon:
 	jr nc, .delay_loop
 
 	ld a, [wAttrmap]
-	and OAM_BANK1
+	and VRAM_BANK_1
 	pop hl
 	push af
 	ld a, 0
@@ -1042,15 +1055,18 @@ _GetCursorMon:
 	ld a, 1
 	ldh [rVBK], a
 .dont_switch_vbk
-	ldh a, [rWBK]
+	ldh a, [rSVBK]
 	push af
 	ld a, BANK(wDecompressScratch)
-	ldh [rWBK], a
+	ldh [rSVBK], a
 	lb bc, BANK(_GetCursorMon), 7 * 7
-	ld de, wDecompressScratch
+	ld a, BANK(sPaddedEnemyFrontpic)
+	call OpenSRAM
+	ld de, sPaddedEnemyFrontpic
 	call BillsPC_Get2bpp
+	call CloseSRAM
 	pop af
-	ldh [rWBK], a
+	ldh [rSVBK], a
 	xor a
 	ldh [rVBK], a
 	ld hl, wBillsPC_ItemVWF
@@ -1089,7 +1105,7 @@ _GetCursorMon:
 	pop af
 	ld a, 2
 	jr nz, .got_new_tile_bank
-	ld a, 2 | OAM_BANK1
+	ld a, 2 | VRAM_BANK_1
 .got_new_tile_bank
 	hlcoord 0, 0, wAttrmap
 	lb bc, 7, 7
@@ -1124,7 +1140,7 @@ _GetCursorMon:
 	ld [hli], a
 	ld a, $20
 	ld [hli], a
-	ld [hl], OAM_BANK1
+	ld [hl], VRAM_BANK_1
 .item_icon_done
 
 	ld b, 0
@@ -1154,7 +1170,7 @@ _GetCursorMon:
 	ld a, [wBufferMonSpecies]
 	ld [wNamedObjectIndex], a
 	hlcoord 8, 1
-	ld a, '/'
+	ld a, "/"
 	ld [hli], a
 	call GetPokemonName
 	ld de, wStringBuffer1
@@ -1171,10 +1187,10 @@ _GetCursorMon:
 	newfarcall GetGender
 	hlcoord 4, 8
 	jr c, .genderless
-	ld a, '♂'
+	ld a, "♂"
 	jr nz, .male
 	; female
-	ld a, '♀'
+	ld a, "♀"
 .male
 	ld [hl], a
 .genderless
@@ -1194,7 +1210,7 @@ _GetCursorMon:
 	and a
 	inc hl
 	jr z, .did_pokerus
-	ld [hl], '.'
+	ld [hl], "."
 	and $f
 	jr z, .did_pokerus
 	ld [hl], $40 ; Rs
@@ -1607,7 +1623,10 @@ BillsPC_CursorPick2:
 BillsPC_SetIcon:
 ; Writes icon tiles to hl depending on species data in de. Assumes vbk1.
 	ld a, [de]
+	inc de
 	ld [wCurIcon], a
+	ld a, [de]
+	ld [wCurIconForm], a
 	push hl
 	call BillsPC_SetPals
 	call DelayFrame
@@ -1619,17 +1638,17 @@ BillsPC_MoveIconData:
 ; Box -1 is a sentinel for held (slot 0) or quick (slot 1).
 ; TODO: can we make this code (.GetAddr especially) less messy?
 	; Copy palette data
-	ldh a, [rWBK]
+	ldh a, [rSVBK]
 	push af
 	ld a, BANK(wOBPals1)
-	ldh [rWBK], a
+	ldh [rSVBK], a
 	xor a
 	ldh [hBGMapMode], a
 
 	; Copy palette data
 	call .Copy
 	pop af
-	ldh [rWBK], a
+	ldh [rSVBK], a
 
 	ld a, 1
 	ldh [rVBK], a
@@ -1739,7 +1758,7 @@ BillsPC_MoveIconData:
 	ld e, l
 	pop hl
 	and a
-	ld bc, 1
+	ld bc, 2
 	jr nz, .got_len
 
 	call BillsPC_IsHoldingItem
@@ -1799,7 +1818,7 @@ BillsPC_MoveIconData:
 	ld hl, wBillsPC_PartyList
 	; fallthrough
 .get_ext_addr
-	ld b, 1
+	ld b, 2
 	; fallthrough
 .addntimes
 	ld a, c
@@ -2115,7 +2134,7 @@ BillsPC_PrepareTransistion:
 
 	; Disable hblank interrupt.
 	ld hl, rIE
-	res B_IE_STAT, [hl]
+	res LCD_STAT, [hl]
 
 	jp ClearSprites
 
@@ -2328,7 +2347,7 @@ BillsPC_MoveItem:
 	ld [hli], a
 	ld a, $06
 	ld [hli], a
-	ld [hl], OAM_BANK1 | PAL_PC_CURSOR_MODE2
+	ld [hl], VRAM_BANK_1 | PAL_PC_CURSOR_MODE2
 
 	; Load held item name
 	ld hl, vTiles5 tile $3b
@@ -2635,32 +2654,7 @@ BillsPC_CanReleaseMon:
 	ld a, 2
 	ret z
 
-	; Ensure that the mon doesn't know any HMs.
-	push de
-	push hl
-	push bc
-	ld hl, wBufferMonMoves
-	ld b, NUM_MOVES
-.loop
-	ld a, [hli]
-	and a
-	jr z, .hm_check_done
-	push hl
-	push bc
-	call IsHMMove
-	pop bc
-	pop hl
-	ld a, 3
-	jr c, .hm_check_done
-	dec b
-	jr nz, .loop
 	xor a
-.hm_check_done
-	pop bc
-	pop hl
-	; fallthrough
-.pop_de_done
-	pop de
 .done
 	and a
 	ret
@@ -2851,7 +2845,7 @@ BillsPC_Rename:
 	ld hl, wStringBuffer2
 
 	; Abort if no name was entered.
-	ld a, '@'
+	ld a, "@"
 	cp [hl]
 	jr z, .abort
 	ld de, wStringBuffer1
@@ -2882,7 +2876,7 @@ BillsPC_Theme:
 	call CloseWindow
 
 	ld a, [wMenuJoypad]
-	cp PAD_B
+	cp B_BUTTON
 	jr z, .refresh_theme ; revert back to what it used to be
 
 	ld a, [wScrollingMenuCursorPosition]
@@ -3298,6 +3292,7 @@ BillsPC_PlaceHeldMon:
 	; Check if the slot is blank.
 	ld a, c
 	dec a
+	add a
 	inc b
 	dec b
 	ld hl, wBillsPC_PartyList
@@ -3427,7 +3422,7 @@ BillsPC_RestoreUI:
 	call SafeCopyTilemapAtOnce
 
 	ld hl, rIE
-	set B_IE_STAT, [hl]
+	set LCD_STAT, [hl]
 
 	ld a, 1
 	ldh [hBGMapMode], a

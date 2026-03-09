@@ -126,7 +126,6 @@ MrPokemonsHouse_OakScript:
 	setscene SCENE_MRPOKEMONSHOUSE_NOOP
 	setmapscene CHERRYGROVE_CITY, SCENE_CHERRYGROVECITY_MEET_RIVAL
 	setmapscene ELMS_LAB, SCENE_ELMSLAB_MEET_OFFICER
-	specialphonecall SPECIALCALL_ROBBED
 	clearevent EVENT_COP_IN_ELMS_LAB
 	checkevent EVENT_GOT_TOTODILE_FROM_ELM
 	iftrue .RivalTakesChikorita
@@ -301,6 +300,11 @@ MrPokemonsHouse_OakText1:
 
 	para "It's a hi-tech"
 	line "encyclopedia!"
+	
+	para "It shows their"
+	line "habitats, how they"
+	cont "evolve, and their"
+	cont "moves."
 	done
 
 MrPokemonsHouse_GetDexText:

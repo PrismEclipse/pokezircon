@@ -93,9 +93,6 @@ PokeGear:
 	ld [wPokegearCard], a ; POKEGEARCARD_CLOCK
 	ld [wPokegearMapRegion], a ; JOHTO_REGION
 	ld [wUnusedPokegearByte], a
-	ld [wPokegearPhoneScrollPosition], a
-	ld [wPokegearPhoneCursorPosition], a
-	ld [wPokegearPhoneSelectedPerson], a
 	ld [wPokegearRadioChannelBank], a
 	ld [wPokegearRadioChannelAddr], a
 	ld [wPokegearRadioChannelAddr + 1], a
@@ -244,6 +241,11 @@ InitPokegearTilemap:
 	ld bc, SCREEN_AREA
 	ld a, $4f
 	call ByteFill
+
+	ld de, PokeGear_TimeofDayIcons
+	ld hl, vTiles2 tile $6d
+	lb bc, BANK(PokeGear_TimeofDayIcons), 3
+	call Request2bpp	
 	ld a, [wPokegearCard]
 	maskbits NUM_POKEGEAR_CARDS
 	add a
@@ -304,23 +306,17 @@ InitPokegearTilemap:
 ; entries correspond to POKEGEARCARD_* constants
 	dw .Clock
 	dw .Map
-	dw .Phone
 	dw .Radio
 
 .Clock:
 	ld de, ClockTilemapRLE
 	call Pokegear_LoadTilemapRLE
-	hlcoord 12, 1
-	ld de, .switch
-	call PlaceString
 	hlcoord 0, 12
 	lb bc, 4, 18
 	call Textbox
 	call Pokegear_UpdateClock
 	ret
 
-.switch
-	db " SWITCH▶@"
 
 .Map:
 	ld a, [wPokegearMapPlayerIconLandmark]
@@ -356,32 +352,6 @@ InitPokegearTilemap:
 	call Textbox
 	ret
 
-.Phone:
-	ld de, PhoneTilemapRLE
-	call Pokegear_LoadTilemapRLE
-	hlcoord 0, 12
-	lb bc, 4, 18
-	call Textbox
-	call .PlacePhoneBars
-	call PokegearPhone_UpdateDisplayList
-	ret
-
-.PlacePhoneBars:
-	hlcoord 17, 1
-	ld a, $3c
-	ld [hli], a
-	inc a
-	ld [hl], a
-	hlcoord 17, 2
-	inc a
-	ld [hli], a
-	call GetMapPhoneService
-	and a
-	ret nz
-	hlcoord 18, 2
-	ld [hl], $3f
-	ret
-
 Pokegear_FinishTilemap:
 	hlcoord 0, 0
 	ld bc, $8
@@ -396,9 +366,6 @@ Pokegear_FinishTilemap:
 	bit POKEGEAR_MAP_CARD_F, a
 	call nz, .PlaceMapIcon
 	ld a, [de]
-	bit POKEGEAR_PHONE_CARD_F, a
-	call nz, .PlacePhoneIcon
-	ld a, [de]
 	bit POKEGEAR_RADIO_CARD_F, a
 	call nz, .PlaceRadioIcon
 	hlcoord 0, 0
@@ -409,11 +376,6 @@ Pokegear_FinishTilemap:
 .PlaceMapIcon:
 	hlcoord 2, 0
 	ld a, $40
-	jr .PlacePokegearCardIcon
-
-.PlacePhoneIcon:
-	hlcoord 4, 0
-	ld a, $44
 	jr .PlacePokegearCardIcon
 
 .PlaceRadioIcon:
@@ -443,10 +405,6 @@ PokegearJumptable:
 	dw PokegearMap_JohtoMap
 	dw PokegearMap_Init
 	dw PokegearMap_KantoMap
-	dw PokegearPhone_Init
-	dw PokegearPhone_Joypad
-	dw PokegearPhone_MakePhoneCall
-	dw PokegearPhone_FinishPhoneCall
 	dw PokegearRadio_Init
 	dw PokegearRadio_Joypad
 
@@ -466,6 +424,9 @@ PokegearClock_Joypad:
 	and PAD_BUTTONS
 	jr nz, .quit
 	ld a, [hl]
+	and PAD_LEFT
+	jr nz, .left
+	ld a, [hl]
 	and PAD_RIGHT
 	ret z
 	ld a, [wPokegearFlags]
@@ -473,6 +434,16 @@ PokegearClock_Joypad:
 	jr z, .no_map_card
 	ld c, POKEGEARSTATE_MAPCHECKREGION
 	ld b, POKEGEARCARD_MAP
+	jr .done
+.left
+	; if have radio card, load that, else, load phone
+	ld a, [wPokegearFlags]
+	bit POKEGEAR_RADIO_CARD_F, a
+	jr nz, .radio_card
+	jr .no_map_card
+.radio_card
+	ld c, POKEGEARSTATE_RADIOINIT
+	ld b, POKEGEARCARD_RADIO
 	jr .done
 
 .no_map_card
@@ -505,24 +476,167 @@ PokegearClock_Joypad:
 	ld a, $1
 	ldh [hBGMapMode], a
 	ret
+	
+	
+GetMapName_hlcoord: ; FarStringLength: ; thanks Rangi!
+; input: a:de = "@"-terminated string
+; output: adjusted hlcoord ;;;; c = length of string
+	push de
+    ld c, 0 ; str len
+    ld h, d
+    ld l, e
+    ld d, a ; bank
+.loop:
+	ld a, d ; bank
+    call GetFarByte
+    cp "@"
+    jr z, .get_hlcoord
+    inc c
+    inc hl
+    jr .loop
+.get_hlcoord
+	pop de
+	hlcoord 1, 8
+	ld a, c
+	cp 18
+	ret z
+	hlcoord 2, 8
+	ret
+	
 
 Pokegear_UpdateClock:
-	hlcoord 3, 5
-	lb bc, 5, 14
+; makes the grey colored box
+	hlcoord 1, 5
+	lb bc, 6, 18
 	call ClearBox
+	
 	ldh a, [hHours]
 	ld b, a
 	ldh a, [hMinutes]
 	ld c, a
-	decoord 6, 8
+	decoord 11, 1
 	farcall PrintHoursMins
 	ld hl, .GearTodayText
-	bccoord 6, 6
-	call PrintTextboxTextAt
-	ret
+		bccoord 2, 6
+	call PrintTextboxTextAt ; PlaceHLTextAtBC bccoord 6, 6
 
-	db "ごぜん@"
-	db "ごご@"
+	; draw border
+	; ; Fix center Box since i cant find the func that originally drew this one
+	hlcoord 0, 4
+	ld [hl], $06 ; left upper corner
+	hlcoord 19, 4
+	ld [hl], $17 ; right upper corner
+	hlcoord 0, 11
+	ld [hl], $26 ; left lower corner
+	hlcoord 19, 11
+	ld [hl], $27 ; right lower corner
+	; draw horizontal bars
+	hlcoord 1, 4
+	ld a, $07
+	ld bc, 18
+	call ByteFill
+	hlcoord 1, 11
+	ld a, $07
+	ld bc, 18
+	call ByteFill
+	
+	hlcoord 0, 5
+	lb bc, 6, 1
+	ld a, $16
+	call FillBoxWithByte
+	
+	hlcoord 19, 5
+	lb bc, 6, 1
+	ld a, $16
+	call FillBoxWithByte
+	
+	; Map Location Name
+	; d ; map num
+	; e ; map group
+	ld a, [wMapGroup]
+	ld e, a
+	ld a, [wMapNumber]
+	ld d, a
+	farcall GetMapGroupNum_Name
+	; return string ptr in de
+	ld a, BANK(MapGroupNum_Names)
+	call GetMapName_hlcoord ; input a:de, output hlcoord 1 or 2 depending on length 
+	ld a, BANK(MapGroupNum_Names)
+	call PlaceFarString
+	; Fishing group
+	; d ; map num
+	; e ; map group
+	ld a, [wMapGroup]
+	ld e, a
+	ld a, [wMapNumber]
+	ld d, a
+	; given map info in 'de'
+	; return: string ptr in 'de'
+	; if 'de' is zero, no fishing group on map
+	farcall GetMapsFishGroup
+	ld a, d
+	and a
+	jr nz, .print_fish_group
+	ld a, e
+	and a
+	jr z, .print_tod
+.print_fish_group
+	ld a, BANK(FishGroups_Names)
+	hlcoord 8, 10
+	call PlaceFarString
+	hlcoord 3, 10
+	ld de, .FishGrpStr
+	call PlaceString
+.print_tod
+	hlcoord 10, 1 ; hlcoord 13, 6
+	ld a, [wTimeOfDay]
+	and a
+	jr z, .Morn
+	cp 1
+	jr z, .Day
+	ld [hl], $6f ; nite icon
+	ld de, .NiteStr
+.got_tod		
+	hlcoord 14, 6
+	; inc hl
+	call PlaceString
+
+hlcoord 9, 0 ; hlcoord 11, 0
+	ld [hl], $30 ; round edge
+	inc hl
+	ld a, $7f
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+	hlcoord 9, 2 ; hlcoord 11, 2
+	ld [hl], $32
+	inc hl
+	ld a, $7f
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+	hlcoord 9, 1
+	; ld [hli], a
+	ld [hl], a
+	ret
+.Morn
+	ld [hl], $6d ; morn icon
+	ld de, .MornStr
+	jr .got_tod
+.Day
+	ld [hl], $6e ; day icon
+	ld de, .DayStr
+	jr .got_tod
+
+.MornStr:
+	db "MORN@"
+.DayStr:
+	db "DAY@"
+.NiteStr:
+	db "NITE@"
+	; db "NIGHT@"
+.FishGrpStr:
+	db "FISH:@"	
 
 .GearTodayText:
 	text_far _GearTodayText
@@ -758,6 +872,10 @@ PokegearRadio_Joypad:
 	ld a, [hl]
 	and PAD_LEFT
 	jr nz, .left
+	ld a, [hl]
+	and PAD_RIGHT ; act like you have no phone and no map going left, takes to clock
+	; jr nz, .right	
+	jr nz, .no_map
 	ld a, [wPokegearRadioChannelAddr]
 	ld l, a
 	ld a, [wPokegearRadioChannelAddr + 1]
@@ -775,6 +893,7 @@ PokegearRadio_Joypad:
 	ld c, POKEGEARSTATE_PHONEINIT
 	ld b, POKEGEARCARD_PHONE
 	jr .switch_page
+.right
 
 .no_phone
 	ld a, [wPokegearFlags]
@@ -796,18 +915,6 @@ PokegearRadio_Joypad:
 	set JUMPTABLE_EXIT_F, [hl]
 	ret
 
-PokegearPhone_Init:
-	ld hl, wJumptableIndex
-	inc [hl]
-	xor a
-	ld [wPokegearPhoneScrollPosition], a
-	ld [wPokegearPhoneCursorPosition], a
-	ld [wPokegearPhoneSelectedPerson], a
-	call InitPokegearTilemap
-	call ExitPokegearRadio_HandleMusic
-	ld hl, PokegearAskWhoCallText
-	call PrintText
-	ret
 
 PokegearPhone_Joypad:
 	ld hl, hJoyPressed
@@ -816,7 +923,7 @@ PokegearPhone_Joypad:
 	jr nz, .b
 	ld a, [hl]
 	and PAD_A
-	jr nz, .a
+	jr nz, .b
 	ld hl, hJoyLast
 	ld a, [hl]
 	and PAD_LEFT
@@ -824,7 +931,6 @@ PokegearPhone_Joypad:
 	ld a, [hl]
 	and PAD_RIGHT
 	jr nz, .right
-	call PokegearPhone_GetDPad
 	ret
 
 .left
@@ -843,9 +949,14 @@ PokegearPhone_Joypad:
 .right
 	ld a, [wPokegearFlags]
 	bit POKEGEAR_RADIO_CARD_F, a
-	ret z
+		; ret z
+	jr z, .no_map ; goes to clock	
+; .radio
 	ld c, POKEGEARSTATE_RADIOINIT
 	ld b, POKEGEARCARD_RADIO
+	jr .switch_page
+; .no_radio ; go to clock
+	
 .switch_page
 	call Pokegear_SwitchPage
 	ret
@@ -853,434 +964,6 @@ PokegearPhone_Joypad:
 .b
 	ld hl, wJumptableIndex
 	set JUMPTABLE_EXIT_F, [hl]
-	ret
-
-.a
-	ld hl, wPhoneList
-	ld a, [wPokegearPhoneScrollPosition]
-	ld e, a
-	ld d, 0
-	add hl, de
-	ld a, [wPokegearPhoneCursorPosition]
-	ld e, a
-	ld d, 0
-	add hl, de
-	ld a, [hl]
-	and a
-	ret z
-	ld [wPokegearPhoneSelectedPerson], a
-	hlcoord 1, 4
-	ld a, [wPokegearPhoneCursorPosition]
-	ld bc, SCREEN_WIDTH * 2
-	call AddNTimes
-	ld [hl], '▷'
-	call PokegearPhoneContactSubmenu
-	jr c, .quit_submenu
-	ld hl, wJumptableIndex
-	inc [hl]
-	ret
-
-.quit_submenu
-	ld a, POKEGEARSTATE_PHONEJOYPAD
-	ld [wJumptableIndex], a
-	ret
-
-PokegearPhone_MakePhoneCall:
-	call GetMapPhoneService
-	and a
-	jr nz, .no_service
-	ld hl, wOptions
-	res NO_TEXT_SCROLL, [hl]
-	xor a
-	ldh [hInMenu], a
-	ld de, SFX_CALL
-	call PlaySFX
-	ld hl, .GearEllipseText
-	call PrintText
-	call WaitSFX
-	ld de, SFX_CALL
-	call PlaySFX
-	ld hl, .GearEllipseText
-	call PrintText
-	call WaitSFX
-	ld a, [wPokegearPhoneSelectedPerson]
-	ld b, a
-	call MakePhoneCallFromPokegear
-	ld c, 10
-	call DelayFrames
-	ld hl, wOptions
-	set NO_TEXT_SCROLL, [hl]
-	ld a, $1
-	ldh [hInMenu], a
-	call PokegearPhone_UpdateCursor
-	ld hl, wJumptableIndex
-	inc [hl]
-	ret
-
-.no_service
-	farcall Phone_NoSignal
-	ld hl, .GearOutOfServiceText
-	call PrintText
-	ld a, POKEGEARSTATE_PHONEJOYPAD
-	ld [wJumptableIndex], a
-	ld hl, PokegearAskWhoCallText
-	call PrintText
-	ret
-
-.GearEllipseText:
-	text_far _GearEllipseText
-	text_end
-
-.GearOutOfServiceText:
-	text_far _GearOutOfServiceText
-	text_end
-
-PokegearPhone_FinishPhoneCall:
-	ldh a, [hJoyPressed]
-	and PAD_A | PAD_B
-	ret z
-	farcall HangUp
-	ld a, POKEGEARSTATE_PHONEJOYPAD
-	ld [wJumptableIndex], a
-	ld hl, PokegearAskWhoCallText
-	call PrintText
-	ret
-
-PokegearPhone_GetDPad:
-	ld hl, hJoyLast
-	ld a, [hl]
-	and PAD_UP
-	jr nz, .up
-	ld a, [hl]
-	and PAD_DOWN
-	jr nz, .down
-	ret
-
-.up
-	ld hl, wPokegearPhoneCursorPosition
-	ld a, [hl]
-	and a
-	jr z, .scroll_page_up
-	dec [hl]
-	jr .done_joypad_same_page
-
-.scroll_page_up
-	ld hl, wPokegearPhoneScrollPosition
-	ld a, [hl]
-	and a
-	ret z
-	dec [hl]
-	jr .done_joypad_update_page
-
-.down
-	ld hl, wPokegearPhoneCursorPosition
-	ld a, [hl]
-	cp PHONE_DISPLAY_HEIGHT - 1
-	jr nc, .scroll_page_down
-	inc [hl]
-	jr .done_joypad_same_page
-
-.scroll_page_down
-	ld hl, wPokegearPhoneScrollPosition
-	ld a, [hl]
-	cp CONTACT_LIST_SIZE - PHONE_DISPLAY_HEIGHT
-	ret nc
-	inc [hl]
-	jr .done_joypad_update_page
-
-.done_joypad_same_page
-	xor a
-	ldh [hBGMapMode], a
-	call PokegearPhone_UpdateCursor
-	call WaitBGMap
-	ret
-
-.done_joypad_update_page
-	xor a
-	ldh [hBGMapMode], a
-	call PokegearPhone_UpdateDisplayList
-	call WaitBGMap
-	ret
-
-PokegearPhone_UpdateCursor:
-	ld a, ' '
-for y, PHONE_DISPLAY_HEIGHT
-	hlcoord 1, 4 + y * 2
-	ld [hl], a
-endr
-	hlcoord 1, 4
-	ld a, [wPokegearPhoneCursorPosition]
-	ld bc, 2 * SCREEN_WIDTH
-	call AddNTimes
-	ld [hl], '▶'
-	ret
-
-PokegearPhone_UpdateDisplayList:
-	hlcoord 1, 3
-	ld b, PHONE_DISPLAY_HEIGHT * 2 + 1
-	ld a, ' '
-.row
-	ld c, SCREEN_WIDTH - 2
-.col
-	ld [hli], a
-	dec c
-	jr nz, .col
-	inc hl
-	inc hl
-	dec b
-	jr nz, .row
-	ld a, [wPokegearPhoneScrollPosition]
-	ld e, a
-	ld d, 0
-	ld hl, wPhoneList
-	add hl, de
-	xor a
-	ld [wPokegearPhoneDisplayPosition], a
-.loop
-	ld a, [hli]
-	push hl
-	push af
-	hlcoord 2, 4
-	ld a, [wPokegearPhoneDisplayPosition]
-	ld bc, 2 * SCREEN_WIDTH
-	call AddNTimes
-	ld d, h
-	ld e, l
-	pop af
-	ld b, a
-	call GetCallerClassAndName
-	pop hl
-	ld a, [wPokegearPhoneDisplayPosition]
-	inc a
-	ld [wPokegearPhoneDisplayPosition], a
-	cp PHONE_DISPLAY_HEIGHT
-	jr c, .loop
-	call PokegearPhone_UpdateCursor
-	ret
-
-PokegearPhone_DeletePhoneNumber:
-	ld hl, wPhoneList
-	ld a, [wPokegearPhoneScrollPosition]
-	ld e, a
-	ld d, 0
-	add hl, de
-	ld a, [wPokegearPhoneCursorPosition]
-	ld e, a
-	ld d, 0
-	add hl, de
-	ld [hl], 0
-	ld hl, wPhoneList
-	ld c, CONTACT_LIST_SIZE
-.loop
-	ld a, [hli]
-	and a
-	jr nz, .skip
-	ld a, [hld]
-	ld [hli], a
-	ld [hl], 0
-.skip
-	dec c
-	jr nz, .loop
-	ret
-
-PokegearPhoneContactSubmenu:
-	ld hl, wPhoneList
-	ld a, [wPokegearPhoneScrollPosition]
-	ld e, a
-	ld d, 0
-	add hl, de
-	ld a, [wPokegearPhoneCursorPosition]
-	ld e, a
-	ld d, 0
-	add hl, de
-	ld c, [hl]
-	farcall CheckCanDeletePhoneNumber
-	ld a, c
-	and a
-	jr z, .cant_delete
-	ld hl, .CallDeleteCancelJumptable
-	ld de, .CallDeleteCancelStrings
-	jr .got_menu_data
-
-.cant_delete
-	ld hl, .CallCancelJumptable
-	ld de, .CallCancelStrings
-.got_menu_data
-	xor a
-	ldh [hBGMapMode], a
-	push hl
-	push de
-	ld a, [de]
-	ld l, a
-	inc de
-	ld a, [de]
-	ld h, a
-	inc de
-	push hl
-	bccoord -1, -2, 0
-	add hl, bc
-	ld a, [de]
-	inc de
-	sla a
-	ld b, a
-	ld c, 8
-	push de
-	call Textbox
-	pop de
-	pop hl
-	inc hl
-	call PlaceString
-	pop de
-	xor a
-	ld [wPokegearPhoneSubmenuCursor], a
-	call .UpdateCursor
-	call WaitBGMap
-.loop
-	push de
-	call JoyTextDelay
-	pop de
-	ld hl, hJoyPressed
-	ld a, [hl]
-	and PAD_UP
-	jr nz, .d_up
-	ld a, [hl]
-	and PAD_DOWN
-	jr nz, .d_down
-	ld a, [hl]
-	and PAD_A | PAD_B
-	jr nz, .a_b
-	call DelayFrame
-	jr .loop
-
-.d_up
-	ld hl, wPokegearPhoneSubmenuCursor
-	ld a, [hl]
-	and a
-	jr z, .loop
-	dec [hl]
-	call .UpdateCursor
-	jr .loop
-
-.d_down
-	ld hl, 2
-	add hl, de
-	ld a, [wPokegearPhoneSubmenuCursor]
-	inc a
-	cp [hl]
-	jr nc, .loop
-	ld [wPokegearPhoneSubmenuCursor], a
-	call .UpdateCursor
-	jr .loop
-
-.a_b
-	xor a
-	ldh [hBGMapMode], a
-	call PokegearPhone_UpdateDisplayList
-	ld a, $1
-	ldh [hBGMapMode], a
-	pop hl
-	ldh a, [hJoyPressed]
-	and PAD_B
-	jr nz, .Cancel
-	ld a, [wPokegearPhoneSubmenuCursor]
-	ld e, a
-	ld d, 0
-	add hl, de
-	add hl, de
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	jp hl
-
-.Cancel:
-	ld hl, PokegearAskWhoCallText
-	call PrintText
-	scf
-	ret
-
-.Delete:
-	ld hl, PokegearAskDeleteText
-	call MenuTextbox
-	call YesNoBox
-	call ExitMenu
-	jr c, .CancelDelete
-	call PokegearPhone_DeletePhoneNumber
-	xor a
-	ldh [hBGMapMode], a
-	call PokegearPhone_UpdateDisplayList
-	ld hl, PokegearAskWhoCallText
-	call PrintText
-	call WaitBGMap
-.CancelDelete:
-	scf
-	ret
-
-.Call:
-	and a
-	ret
-
-.UpdateCursor:
-	push de
-	ld a, [de]
-	inc de
-	ld l, a
-	ld a, [de]
-	inc de
-	ld h, a
-	ld a, [de]
-	ld c, a
-	push hl
-	ld a, ' '
-	ld de, SCREEN_WIDTH * 2
-.clear_column
-	ld [hl], a
-	add hl, de
-	dec c
-	jr nz, .clear_column
-	pop hl
-	ld a, [wPokegearPhoneSubmenuCursor]
-	ld bc, SCREEN_WIDTH  * 2
-	call AddNTimes
-	ld [hl], '▶'
-	pop de
-	ret
-
-.CallDeleteCancelStrings:
-	dwcoord 10, 6
-	db 3
-	db   "CALL"
-	next "DELETE"
-	next "CANCEL"
-	db   "@"
-
-.CallDeleteCancelJumptable:
-	dw .Call
-	dw .Delete
-	dw .Cancel
-
-.CallCancelStrings:
-	dwcoord 10, 8
-	db 2
-	db   "CALL"
-	next "CANCEL"
-	db   "@"
-
-.CallCancelJumptable:
-	dw .Call
-	dw .Cancel
-
-GetAMPMHours: ; unreferenced
-	ldh a, [hHours]
-	cp NOON_HOUR
-	jr c, .am
-	sub NOON_HOUR
-	ld [wTempByteValue], a
-	scf
-	ret
-
-.am
-	ld [wTempByteValue], a
-	and a
 	ret
 
 Pokegear_SwitchPage:
@@ -1355,15 +1038,13 @@ INCBIN "gfx/pokegear/pokegear_sprites.2bpp.lz"
 
 RadioTilemapRLE:
 INCBIN "gfx/pokegear/radio.tilemap.rle"
-PhoneTilemapRLE:
-INCBIN "gfx/pokegear/phone.tilemap.rle"
 ClockTilemapRLE:
 INCBIN "gfx/pokegear/clock.tilemap.rle"
 
 _UpdateRadioStation:
 	jr UpdateRadioStation
 
-; called from engine/sprite_anims/functions.asm
+; called from engine/gfx/sprite_anims.asm
 
 AnimateTuningKnob:
 	push bc
@@ -1438,14 +1119,6 @@ UpdateRadioStation:
 	call PlaceString
 	ld a, $1
 	ldh [hBGMapMode], a
-	ret
-
-LoadPokegearRadioChannelPointer: ; unreferenced
-	ld [wPokegearRadioChannelBank], a
-	ld a, [hli]
-	ld [wPokegearRadioChannelAddr], a
-	ld a, [hli]
-	ld [wPokegearRadioChannelAddr + 1], a
 	ret
 
 RadioChannels:
@@ -1679,9 +1352,6 @@ LoadStation_EvolutionRadio:
 	ld de, UnownStationName
 	ret
 
-DummyLoadStation: ; unreferenced
-	ret
-
 RadioMusicRestartDE:
 	push de
 	ld a, e
@@ -1769,7 +1439,7 @@ _TownMap:
 	xor a
 	ld [wStateFlags], a
 
-	call ClearBGPalettes
+	; call ClearBGPalettes
 	call ClearTilemap
 	call ClearSprites
 	call DisableLCD
@@ -1824,7 +1494,7 @@ _TownMap:
 	ldh [hInMenu], a
 	pop af
 	ld [wOptions], a
-	call ClearBGPalettes
+;	call ClearBGPalettes
 	ret
 
 .loop
@@ -2019,7 +1689,7 @@ PokegearMap:
 
 .kanto
 	call LoadTownMapGFX
-	call FillKantoMap
+	call Dex_FillKantoMap
 	ret
 
 _FlyMap:
@@ -2275,7 +1945,7 @@ FlyMap:
 	ld a, KANTO_FLYPOINT - 1 ; last Johto flypoint
 	ld [wEndFlypoint], a
 ; Fill out the map
-	call FillJohtoMap
+	call Dex_FillJohtoMap
 	call .MapHud
 	pop af
 	call TownMapPlayerIcon
@@ -2372,8 +2042,10 @@ Pokedex_GetArea:
 	call JoyTextDelay
 	ld hl, hJoyPressed
 	ld a, [hl]
-	and PAD_A | PAD_B
-	jr nz, .a_b
+	and PAD_B
+	jr nz, .b
+	and PAD_A
+	jr nz, .a
 	ldh a, [hJoypadDown]
 	and PAD_SELECT
 	jr nz, .select
@@ -2386,8 +2058,9 @@ Pokedex_GetArea:
 .next
 	call DelayFrame
 	jr .loop
-
-.a_b
+.a
+	
+.b
 	call ClearSprites
 	pop af
 	ld [wTownMapCursorLandmark], a
@@ -2417,9 +2090,10 @@ Pokedex_GetArea:
 
 .right
 	ld a, [wStatusFlags]
-	bit STATUSFLAGS_HALL_OF_FAME_F, a
-	ret z
-	ldh a, [hWY]
+; only reveal Kanto map if beaten league: disabled
+	; ld a, [wStatusFlags]
+	; bit STATUSFLAGS_HALL_OF_FAME_F, a
+	; ret z
 	and a
 	ret z
 	call ClearSprites
@@ -2466,6 +2140,21 @@ Pokedex_GetArea:
 	ld l, c
 	ld de, .String_SNest
 	call PlaceString
+; add blurb to let people know they can press select to see current location
+	hlcoord 1, 2
+	ld a, $48 ; part of SELECT >
+	ld [hli], a
+	ld a, $49 ; part of SELECT >
+	ld [hli], a
+	ld a, $4a ; part of SELECT >
+	ld [hli], a
+	ld a, $1d ; custom arrow cap + YOU
+	ld [hli], a ; $78
+	ld [hl], $1e
+
+; show player coords
+; ; show player
+; 	lb de, $28, $34	
 	ret
 
 .String_SNest:
@@ -2556,10 +2245,10 @@ Pokedex_GetArea:
 
 .PlayerOAM:
 	; y pxl, x pxl, tile offset
-	db -1 * TILE_WIDTH, -1 * TILE_WIDTH, 0 ; top left
-	db -1 * TILE_WIDTH,  0 * TILE_WIDTH, 1 ; top right
-	db  0 * TILE_WIDTH, -1 * TILE_WIDTH, 2 ; bottom left
-	db  0 * TILE_WIDTH,  0 * TILE_WIDTH, 3 ; bottom right
+	db -1 * 8, -1 * 8, 0 ; top left
+	db -1 * 8,  0 * 8, 1 ; top right
+	db  0 * 8, -1 * 8, 2 ; bottom left
+	db  0 * 8,  0 * 8, 3 ; bottom right
 	db $80 ; terminator
 
 .CheckPlayerLocation:
@@ -2636,6 +2325,14 @@ TownMapBGUpdate:
 FillJohtoMap:
 	ld de, JohtoMap
 	jr FillTownMap
+	
+Dex_FillJohtoMap:
+	ld de, DEX_JohtoMap
+	jr FillTownMap
+
+Dex_FillKantoMap:
+	ld de, DEX_KantoMap
+	jr FillTownMap	
 
 FillKantoMap:
 	ld de, KantoMap
@@ -2659,10 +2356,15 @@ TownMapPals:
 ; Current tile
 	ld a, [hli]
 	push hl
-; The palette map covers tiles $00 to $5f; $60 and above use palette 0
-	cp $60
+; The palette map covers tiles $00 to $67; $68 and above use palette 0
+	cp $6d
+	jr z, .pal6
+	cp $6e
+	jr z, .pal6
+	cp $6f
+	jr z, .pal6
+	cp $68
 	jr nc, .pal0
-
 ; The palette data is condensed to nybbles, least-significant first.
 	ld hl, .PalMap
 	srl a
@@ -2688,7 +2390,10 @@ TownMapPals:
 	swap a
 	and OAM_PALETTE
 	jr .update
-
+	
+.pal6
+	ld a, $6
+	jr .update
 .pal0
 	xor a
 .update
@@ -2780,96 +2485,24 @@ LoadTownMapGFX:
 	call DecompressRequest2bpp
 	ret
 
+PokeGear_TimeofDayIcons:
+INCBIN "gfx/pokegear/pokegear_timeofday_icons.2bpp"
+
+
 JohtoMap:
 INCBIN "gfx/pokegear/johto.bin"
+DEX_JohtoMap:
+INCBIN "gfx/pokegear/dex_johto.bin"
 
 KantoMap:
 INCBIN "gfx/pokegear/kanto.bin"
+DEX_KantoMap:
+INCBIN "gfx/pokegear/dex_kanto.bin"
 
 PokedexNestIconGFX:
 INCBIN "gfx/pokegear/dexmap_nest_icon.2bpp"
 FlyMapLabelBorderGFX:
 INCBIN "gfx/pokegear/flymap_label_border.1bpp"
-
-EntireFlyMap: ; unreferenced
-; Similar to _FlyMap, but scrolls through the entire
-; Flypoints data of both regions. A debug function?
-	xor a
-	ld [wTownMapPlayerIconLandmark], a
-	call ClearBGPalettes
-	call ClearTilemap
-	call ClearSprites
-	ld hl, hInMenu
-	ld a, [hl]
-	push af
-	ld [hl], $1
-	xor a
-	ldh [hBGMapMode], a
-	farcall ClearSpriteAnims
-	call LoadTownMapGFX
-	ld de, FlyMapLabelBorderGFX
-	ld hl, vTiles2 tile $30
-	lb bc, BANK(FlyMapLabelBorderGFX), 6
-	call Request1bpp
-	call FillKantoMap
-	call TownMapBubble
-	call TownMapPals
-	hlbgcoord 0, 0, vBGMap1
-	call TownMapBGUpdate
-	call FillJohtoMap
-	call TownMapBubble
-	call TownMapPals
-	hlbgcoord 0, 0
-	call TownMapBGUpdate
-	call TownMapMon
-	ld a, c
-	ld [wTownMapCursorCoordinates], a
-	ld a, b
-	ld [wTownMapCursorCoordinates + 1], a
-	ld b, SCGB_POKEGEAR_PALS
-	call GetSGBLayout
-	call SetDefaultBGPAndOBP
-.loop
-	call JoyTextDelay
-	ld hl, hJoyPressed
-	ld a, [hl]
-	and PAD_B
-	jr nz, .pressedB
-	ld a, [hl]
-	and PAD_A
-	jr nz, .pressedA
-	call .HandleDPad
-	call GetMapCursorCoordinates
-	farcall PlaySpriteAnimations
-	call DelayFrame
-	jr .loop
-
-.pressedB
-	ld a, -1
-	jr .exit
-
-.pressedA
-	ld a, [wTownMapPlayerIconLandmark]
-	ld l, a
-	ld h, 0
-	add hl, hl
-	ld de, Flypoints + 1
-	add hl, de
-	ld a, [hl]
-.exit
-	ld [wTownMapPlayerIconLandmark], a
-	pop af
-	ldh [hInMenu], a
-	call ClearBGPalettes
-	ld a, SCREEN_HEIGHT_PX
-	ldh [hWY], a
-	xor a ; LOW(vBGMap0)
-	ldh [hBGMapAddress], a
-	ld a, HIGH(vBGMap0)
-	ldh [hBGMapAddress + 1], a
-	ld a, [wTownMapPlayerIconLandmark]
-	ld e, a
-	ret
 
 .HandleDPad:
 	ld hl, hJoyLast

@@ -9,6 +9,10 @@ DEF BASE_DEF         rb
 DEF BASE_SPD         rb
 DEF BASE_SAT         rb
 DEF BASE_SDF         rb
+DEF BASE_EVS         rw
+rsset BASE_EVS
+DEF BASE_HP_ATK_DEF_SPD_EVS  rb
+DEF BASE_SAT_SDF_EVS         rb
 DEF BASE_TYPES       rw
 rsset BASE_TYPES
 DEF BASE_TYPE_1      rb
@@ -20,9 +24,7 @@ rsset BASE_ITEMS
 DEF BASE_ITEM_1      rb
 DEF BASE_ITEM_2      rb
 DEF BASE_GENDER      rb
-                     rb_skip
 DEF BASE_EGG_STEPS   rb
-                     rb_skip
 DEF BASE_PIC_SIZE    rb
 DEF BASE_FRONTPIC    rw
 DEF BASE_BACKPIC     rw
@@ -77,13 +79,15 @@ DEF MON_ITEM               rb
 DEF MON_MOVES              rb NUM_MOVES
 DEF MON_OT_ID              rw
 DEF MON_EXP                rb 3
-DEF MON_STAT_EXP           rw NUM_EXP_STATS
-rsset MON_STAT_EXP
-DEF MON_HP_EXP             rw
-DEF MON_ATK_EXP            rw
-DEF MON_DEF_EXP            rw
-DEF MON_SPD_EXP            rw
-DEF MON_SPC_EXP            rw
+DEF MON_EVS                rb NUM_STATS
+rsset MON_EVS
+DEF MON_HP_EV              rb
+DEF MON_ATK_EV             rb
+DEF MON_DEF_EV             rb
+DEF MON_SPD_EV             rb
+DEF MON_SAT_EV             rb
+DEF MON_SDF_EV             rb
+                           rb_skip 4
 DEF MON_DVS                rw
 DEF MON_PP                 rb NUM_MOVES
 DEF MON_HAPPINESS          rb
@@ -147,6 +151,9 @@ DEF SAVEMON_STRUCT_LENGTH EQU _RS
 DEF NICKNAMED_MON_STRUCT_LENGTH EQU PARTYMON_STRUCT_LENGTH + MON_NAME_LENGTH
 DEF REDMON_STRUCT_LENGTH EQU 44
 
+; significant EV values
+DEF MAX_EV EQU 252
+
 ; caught data
 
 DEF CAUGHT_TIME_MASK  EQU %11000000
@@ -197,9 +204,7 @@ DEF NUM_HOF_TEAMS EQU 30
 	const EVOLVE_HAPPINESS
 	const EVOLVE_STAT
 	const EVOLVE_MOVE
-	const EVOLVE_MOVE_TYPE
 	const EVOLVE_HOLD
-	const EVOLVE_PARTY
 DEF	EVOLVE_TYPES EQU const_value
 
 ; EVOLVE_HAPPINESS triggers
@@ -224,6 +229,7 @@ DEF WATER_WILDDATA_LENGTH EQU 2 + 1 + NUM_WATERMON * 2
 DEF FISHGROUP_DATA_LENGTH EQU 1 + 2 * 3
 
 DEF NUM_ROAMMON_MAPS EQU 16 ; RoamMaps table size (see data/wild/roammon_maps.asm)
+DEF NUM_ROAMMONS EQU 3
 
 ; treemon sets
 ; TreeMons indexes (see data/wild/treemons.asm)
@@ -235,7 +241,7 @@ DEF NUM_ROAMMON_MAPS EQU 16 ; RoamMaps table size (see data/wild/roammon_maps.as
 	const TREEMON_SET_KANTO
 	const TREEMON_SET_LAKE
 	const TREEMON_SET_FOREST
-	const TREEMON_SET_ROCK
+;	const TREEMON_SET_ROCK
 DEF NUM_TREEMON_SETS EQU const_value
 
 ; treemon scores
@@ -243,6 +249,13 @@ DEF NUM_TREEMON_SETS EQU const_value
 	const TREEMON_SCORE_BAD  ; 0
 	const TREEMON_SCORE_GOOD ; 1
 	const TREEMON_SCORE_RARE ; 2
+
+; rock smash groups, for Nayru's pokedex
+; const TREEMON_SET_ROCK is originally within NUM_TREEMON_SETS
+	const_def
+	const TREEMON_SET_ROCK
+DEF NUM_ROCKSMASH_SETS EQU const_value
+
 
 ; ChangeHappiness arguments (see data/events/happiness_changes.asm)
 	const_def 1

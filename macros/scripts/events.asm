@@ -264,24 +264,6 @@ MACRO checkcoins
 	dw \1 ; coins
 ENDM
 
-	const addcellnum_command ; $28
-MACRO addcellnum
-	db addcellnum_command
-	db \1 ; person
-ENDM
-
-	const delcellnum_command ; $29
-MACRO delcellnum
-	db delcellnum_command
-	db \1 ; person
-ENDM
-
-	const checkcellnum_command ; $2a
-MACRO checkcellnum
-	db checkcellnum_command
-	db \1 ; person
-ENDM
-
 	const checktime_command ; $2b
 MACRO checktime
 	db checktime_command
@@ -942,23 +924,6 @@ MACRO trade
 	db \1 ; trade_id
 ENDM
 
-	const askforphonenumber_command ; $97
-MACRO askforphonenumber
-	db askforphonenumber_command
-	db \1 ; number
-ENDM
-
-	const phonecall_command ; $98
-MACRO phonecall
-	db phonecall_command
-	dw \1 ; caller_name
-ENDM
-
-	const hangup_command ; $99
-MACRO hangup
-	db hangup_command
-ENDM
-
 	const describedecoration_command ; $9a
 MACRO describedecoration
 	db describedecoration_command
@@ -969,17 +934,6 @@ ENDM
 MACRO fruittree
 	db fruittree_command
 	db \1 ; tree_id
-ENDM
-
-	const specialphonecall_command ; $9c
-MACRO specialphonecall
-	db specialphonecall_command
-	dw \1 ; call_id
-ENDM
-
-	const checkphonecall_command ; $9d
-MACRO checkphonecall
-	db checkphonecall_command
 ENDM
 
 	const verbosegiveitem_command ; $9e

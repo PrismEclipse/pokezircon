@@ -64,7 +64,6 @@ INCLUDE "engine/events/bug_contest/judging.asm"
 INCLUDE "engine/events/pokerus/apply_pokerus_tick.asm"
 INCLUDE "engine/events/bug_contest/contest_2.asm"
 INCLUDE "engine/pokemon/correct_party_errors.asm"
-INCLUDE "engine/math/get_square_root.asm"
 
 
 SECTION "bank5", ROMX
@@ -165,7 +164,6 @@ INCLUDE "data/battle/effect_command_pointers.asm"
 
 
 SECTION "bank10", ROMX
-INCLUDE "engine/pokedex/pokedex.asm"
 INCLUDE "data/moves/moves.asm"
 INCLUDE "engine/pokemon/evolve.asm"
 
@@ -306,16 +304,14 @@ INCLUDE "engine/events/magnet_train.asm"
 INCLUDE "engine/battle/battlestart_copytilemapatonce.asm"
 INCLUDE "engine/sprite_anims/core.asm"
 INCLUDE "engine/gfx/mon_icons.asm"
-
+INCLUDE "data/pokemon/dex_numbers.asm"
 
 SECTION "bank24", ROMX
 
 INCLUDE "engine/phone/phone.asm"
 INCLUDE "engine/rtc/timeset.asm"
 INCLUDE "engine/pokegear/pokegear.asm"
-INCLUDE "engine/events/fish.asm"
 INCLUDE "engine/games/slot_machine.asm"
-INCLUDE "data/pokemon/dex_numbers.asm"
 
 SECTION "Phone Scripts 1", ROMX
 
@@ -453,7 +449,6 @@ INCLUDE "engine/games/card_flip.asm"
 INCLUDE "engine/games/unown_puzzle.asm"
 INCLUDE "engine/games/memory_game.asm"
 INCLUDE "engine/pokedex/unown_dex.asm"
-INCLUDE "engine/events/magikarp.asm"
 
 SECTION "bank39", ROMX
 
@@ -465,11 +460,9 @@ INCLUDE "engine/movie/intro.asm"
 SECTION "bank3E", ROMX
 
 INCLUDE "engine/gfx/load_font.asm"
-INCLUDE "engine/link/time_capsule.asm"
 INCLUDE "engine/events/name_rater.asm"
 INCLUDE "engine/events/play_slow_cry.asm"
 INCLUDE "engine/pokedex/new_pokedex_entry.asm"
-INCLUDE "engine/link/time_capsule_2.asm"
 INCLUDE "engine/battle/hidden_power.asm"
 INCLUDE "engine/battle/misc.asm"
 
@@ -500,7 +493,7 @@ INCLUDE "engine/gfx/load_overworld_font.asm"
 SECTION "mobile42", ROMX
 
 INCLUDE "mobile/mobile_42.asm"
-
+INCLUDE "engine/events/fish.asm"
 
 SECTION "Title", ROMX
 
@@ -693,6 +686,46 @@ SECTION "VWF", ROMX
 
 INCLUDE "engine/gfx/vwf.asm"
 
+
+SECTION "Nayru Pokedex", ROMX
+INCLUDE "engine/pokedex/pokedex.asm"
+
+SECTION "Custom GFX", ROMX
+INCLUDE "gfx/rangi_gfx.asm"
+
+SECTION "Map GroupNums Names", ROMX
+INCLUDE "data/maps/map_names.asm"
+
+SECTION "DEX GFX 2", ROMX
+IF USE_COMPRESSED_POKEDEX_GFX == TRUE
+PokedexLZ:
+INCBIN "gfx/pokedex/pokedex.2bpp.lz"
+PokedexSlowpokeLZ:
+INCBIN "gfx/pokedex/slowpoke.2bpp.lz"
+ELSE
+; IF USE_COMPRESSED_POKEDEX_GFX == FALSE
+PokedexGFX:
+INCBIN "gfx/pokedex/pokedex.2bpp"
+PokedexSlowpokeGFX:
+INCBIN "gfx/pokedex/slowpoke.2bpp"
+ENDC
+
+Pokedex_ExtraTiles:
+INCBIN "gfx/pokedex/rangi_dex_tiles.2bpp"
+Pokedex_PageNumTiles:
+INCBIN "gfx/pokedex/dex_pagenums.2bpp"
+Pokedex_MathTiles:
+INCBIN "gfx/pokedex/math_symbols_inverted.1bpp"
+Pokedex_Imperial_Tiles:
+INCBIN "gfx/pokedex/inversed_feet_inches.1bpp"
+Pokedex_RightArrow_Tile:
+INCBIN "gfx/pokedex/inversed_rightarrow.1bpp"
+
+
+SECTION "Bank3E Overflow", ROMX
+INCLUDE "engine/link/time_capsule.asm"
+INCLUDE "engine/link/time_capsule_2.asm"
+INCLUDE "engine/events/magikarp.asm"
 
 SECTION "Stadium 2 Checksums", ROMX[$7DE0], BANK[$7F]
 

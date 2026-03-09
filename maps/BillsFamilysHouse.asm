@@ -68,16 +68,7 @@ BillsMomScript:
 BillsYoungerSisterScript:
 	faceplayer
 	opentext
-	checkcellnum PHONE_BILL
-	iftrue .GotBillsNumber
-	writetext BillsYoungerSisterUsefulNumberText
-	askforphonenumber PHONE_BILL
-	ifequal PHONE_CONTACTS_FULL, .NoRoom
-	ifequal PHONE_CONTACT_REFUSED, .Refused
 	waitsfx
-	addcellnum PHONE_BILL
-	writetext RecordedBillsNumberText
-	playsound SFX_REGISTER_PHONE_NUMBER
 	waitsfx
 	promptbutton
 .GotBillsNumber:

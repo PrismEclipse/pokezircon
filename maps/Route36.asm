@@ -14,24 +14,11 @@ Route36_MapScripts:
 	scene_script Route36Noop1Scene, SCENE_ROUTE36_NOOP
 	scene_script Route36Noop2Scene, SCENE_ROUTE36_SUICUNE
 
-	def_callbacks
-	callback MAPCALLBACK_OBJECTS, Route36ArthurCallback
-
 Route36Noop1Scene:
 	end
 
 Route36Noop2Scene:
 	end
-
-Route36ArthurCallback:
-	readvar VAR_WEEKDAY
-	ifequal THURSDAY, .ArthurAppears
-	disappear ROUTE36_ARTHUR
-	endcallback
-
-.ArthurAppears:
-	appear ROUTE36_ARTHUR
-	endcallback
 
 Route36SuicuneScript:
 	showemote EMOTE_SHOCK, PLAYER, 15
@@ -168,138 +155,11 @@ TrainerSchoolboyAlan1:
 	trainer SCHOOLBOY, ALAN1, EVENT_BEAT_SCHOOLBOY_ALAN, SchoolboyAlan1SeenText, SchoolboyAlan1BeatenText, 0, .Script
 
 .Script:
-	loadvar VAR_CALLERID, PHONE_SCHOOLBOY_ALAN
 	endifjustbattled
 	opentext
-	checkflag ENGINE_ALAN_READY_FOR_REMATCH
-	iftrue .ChooseRematch
-	checkflag ENGINE_ALAN_HAS_FIRE_STONE
-	iftrue .GiveFireStone
-	checkcellnum PHONE_SCHOOLBOY_ALAN
-	iftrue .NumberAccepted
-	checkevent EVENT_ALAN_ASKED_FOR_PHONE_NUMBER
-	iftrue .AskAgainForPhoneNumber
-	writetext SchoolboyAlanBooksText
-	promptbutton
-	setevent EVENT_ALAN_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
-	sjump .ContinueAskForPhoneNumber
-
-.AskAgainForPhoneNumber:
-	scall .AskNumber2
-.ContinueAskForPhoneNumber:
-	askforphonenumber PHONE_SCHOOLBOY_ALAN
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
-	gettrainername STRING_BUFFER_3, SCHOOLBOY, ALAN1
-	scall .RegisteredNumber
-	sjump .NumberAccepted
-
-.ChooseRematch:
-	scall .Rematch
-	winlosstext SchoolboyAlan1BeatenText, 0
-	readmem wAlanFightCount
-	ifequal 4, .Fight4
-	ifequal 3, .Fight3
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight4:
-	checkevent EVENT_RESTORED_POWER_TO_KANTO
-	iftrue .LoadFight4
-.Fight3:
-	checkevent EVENT_BEAT_ELITE_FOUR
-	iftrue .LoadFight3
-.Fight2:
-	checkflag ENGINE_FLYPOINT_BLACKTHORN
-	iftrue .LoadFight2
-.Fight1:
-	checkflag ENGINE_FLYPOINT_OLIVINE
-	iftrue .LoadFight1
-.LoadFight0:
-	loadtrainer SCHOOLBOY, ALAN1
-	startbattle
-	reloadmapafterbattle
-	loadmem wAlanFightCount, 1
-	clearflag ENGINE_ALAN_READY_FOR_REMATCH
-	end
-
-.LoadFight1:
-	loadtrainer SCHOOLBOY, ALAN2
-	startbattle
-	reloadmapafterbattle
-	loadmem wAlanFightCount, 2
-	clearflag ENGINE_ALAN_READY_FOR_REMATCH
-	end
-
-.LoadFight2:
-	loadtrainer SCHOOLBOY, ALAN3
-	startbattle
-	reloadmapafterbattle
-	loadmem wAlanFightCount, 3
-	clearflag ENGINE_ALAN_READY_FOR_REMATCH
-	end
-
-.LoadFight3:
-	loadtrainer SCHOOLBOY, ALAN4
-	startbattle
-	reloadmapafterbattle
-	loadmem wAlanFightCount, 4
-	clearflag ENGINE_ALAN_READY_FOR_REMATCH
-	end
-
-.LoadFight4:
-	loadtrainer SCHOOLBOY, ALAN5
-	startbattle
-	reloadmapafterbattle
-	clearflag ENGINE_ALAN_READY_FOR_REMATCH
-	end
-
-.GiveFireStone:
-	scall .Gift
-	verbosegiveitem FIRE_STONE
-	iffalse .BagFull
-	clearflag ENGINE_ALAN_HAS_FIRE_STONE
-	setevent EVENT_ALAN_GAVE_FIRE_STONE
-	sjump .NumberAccepted
-
-.BagFull:
-	sjump .PackFull
-
-.AskNumber1:
-	jumpstd AskNumber1MScript
-	end
-
-.AskNumber2:
-	jumpstd AskNumber2MScript
-	end
-
-.RegisteredNumber:
-	jumpstd RegisteredNumberMScript
-	end
-
-.NumberAccepted:
-	jumpstd NumberAcceptedMScript
-	end
-
-.NumberDeclined:
-	jumpstd NumberDeclinedMScript
-	end
-
-.PhoneFull:
-	jumpstd PhoneFullMScript
-	end
-
-.Rematch:
-	jumpstd RematchMScript
-	end
-
-.Gift:
-	jumpstd GiftMScript
-	end
-
-.PackFull:
-	jumpstd PackFullMScript
+	writetext SchoolboyAlan1BeatenText
+	waitbutton
+	closetext
 	end
 
 TrainerPsychicMark:
@@ -308,43 +168,7 @@ TrainerPsychicMark:
 .Script:
 	endifjustbattled
 	opentext
-	writetext PsychicMarkAfterBattleText
-	waitbutton
-	closetext
-	end
-
-ArthurScript:
-	faceplayer
-	opentext
-	checkevent EVENT_GOT_HARD_STONE_FROM_ARTHUR
-	iftrue .AlreadyGotStone
-	readvar VAR_WEEKDAY
-	ifnotequal THURSDAY, ArthurNotThursdayScript
-	checkevent EVENT_MET_ARTHUR_OF_THURSDAY
-	iftrue .MetArthur
-	writetext MeetArthurText
-	promptbutton
-	setevent EVENT_MET_ARTHUR_OF_THURSDAY
-.MetArthur:
-	writetext ArthurGivesGiftText
-	promptbutton
-	verbosegiveitem HARD_STONE
-	iffalse .BagFull
-	setevent EVENT_GOT_HARD_STONE_FROM_ARTHUR
-	writetext ArthurGaveGiftText
-	waitbutton
-	closetext
-	end
-
-.AlreadyGotStone:
-	writetext ArthurThursdayText
-	waitbutton
-.BagFull:
-	closetext
-	end
-
-ArthurNotThursdayScript:
-	writetext ArthurNotThursdayText
+	writetext PsychicMarkBeatenText
 	waitbutton
 	closetext
 	end
@@ -579,44 +403,6 @@ SchoolboyAlanBooksText:
 	cont "reading books."
 	done
 
-MeetArthurText:
-	text "ARTHUR: Who are"
-	line "you?"
-
-	para "I'm ARTHUR of"
-	line "Thursday."
-	done
-
-ArthurGivesGiftText:
-	text "Here. You can have"
-	line "this."
-	done
-
-ArthurGaveGiftText:
-	text "ARTHUR: A #MON"
-	line "that uses rock-"
-
-	para "type moves should"
-	line "hold on to that."
-
-	para "It pumps up rock-"
-	line "type attacks."
-	done
-
-ArthurThursdayText:
-	text "ARTHUR: I'm ARTHUR"
-	line "of Thursday. I'm"
-
-	para "the second son out"
-	line "of seven children."
-	done
-
-ArthurNotThursdayText:
-	text "ARTHUR: Today's"
-	line "not Thursday. How"
-	cont "disappointing."
-	done
-
 Route36SignText:
 	text "ROUTE 36"
 	done
@@ -683,6 +469,5 @@ Route36_MapEvents:
 	object_event 51,  8, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route36LassScript, -1
 	object_event 44,  9, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route36RockSmashGuyScript, -1
 	object_event 21,  4, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route36FruitTree, -1
-	object_event 46,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ArthurScript, EVENT_ROUTE_36_ARTHUR_OF_THURSDAY
 	object_event 33, 12, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route36FloriaScript, EVENT_FLORIA_AT_SUDOWOODO
 	object_event 21,  6, SPRITE_SUICUNE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_SAW_SUICUNE_ON_ROUTE_36

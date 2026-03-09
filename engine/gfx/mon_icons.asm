@@ -23,7 +23,7 @@ SetMenuMonIconColor:
 	ld [wCurPartySpecies], a
 	call GetMenuMonIconPalette
 	ld hl, wShadowOAMSprite00Attributes
-	jr _ApplyMenuMonIconColor
+	jp _ApplyMenuMonIconColor
 
 SetMenuMonIconColor_NoShiny:
 	push hl
@@ -37,7 +37,30 @@ SetMenuMonIconColor_NoShiny:
 	call GetMenuMonIconPalette_PredeterminedShininess
 	ld hl, wShadowOAMSprite00Attributes
 	jr _ApplyMenuMonIconColor
+SetMenuMonIconColor_SpritePage:
+	push hl
+	push de
+	push bc
+	push af
 
+	ld a, [wTempIconSpecies]
+	ld [wCurPartySpecies], a
+	and a
+	ld hl, wPokedexShinyToggle
+	bit 0, [hl]
+	jr z, .not_shiny
+	scf
+.not_shiny
+	call GetMenuMonIconPalette_PredeterminedShininess
+	ld hl, wShadowOAMSprite00Attributes
+	push af
+	ldh a, [hObjectStructIndex]
+	swap a
+	ld d, 0
+	ld e, a
+	add hl, de
+	pop af
+	jp _ApplyMenuMonIconColor
 LoadPartyMenuMonIconColors:
 	push hl
 	push de
@@ -433,14 +456,6 @@ FlyFunction_GetMonIcon:
 	add a
 	ld e, a
 	farcall SetFirstOBJPalette
-	ret
-
-GetMonIconDE: ; unreferenced
-	push de
-	ld a, [wTempIconSpecies]
-	ld [wCurIcon], a
-	pop de
-	call GetIcon_de
 	ret
 
 GetMemIconGFX:

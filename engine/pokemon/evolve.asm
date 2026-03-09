@@ -95,17 +95,11 @@ EvolveAfterBattle_MasterLoop:
 	jp z, .stat
 
 
-cp EVOLVE_MOVE
+	cp EVOLVE_MOVE
 	jp z, .move
-
-	cp EVOLVE_MOVE_TYPE
-	jp z, .move_type
 
 	cp EVOLVE_HOLD
 	jp z, .hold
-
-	cp EVOLVE_PARTY
-	jp z, .party
 
 .skip_evolve:
 	call SkipEvo
@@ -264,50 +258,6 @@ ld a, [hli]
 	jp .dont_evolve_3
 
 
-.move_type
-	call IsMonHoldingEverstone
-	jp z, .dont_evolve_2
-
-	ld a, [hli]
-	push hl
-	
-	ld b, a
-	ld hl, wTempMonMoves
-	ld c, NUM_MOVES
-.move_type_loop
-	ld a, [hli]
-	and a
-	jr z, .move_type_next
-	dec a
-
-
-	push hl
-	push bc
-	ld hl, Moves + MOVE_TYPE
-	ld bc, MOVE_LENGTH
-	call AddNTimes
-	ld a, BANK(Moves)
-	call GetFarByte
-	pop bc
-	pop hl
-
-
-	cp b
-	jr z, .move_type_proceed
-
-.move_type_next
-	dec c
-	jp nz, .move_type_loop
-
-	pop hl
-	jp .dont_evolve_3
-
-
-.move_type_proceed
-	pop hl
-	jp .proceed
-
-
 .hold
 	; Get current item
 	push hl
@@ -343,20 +293,6 @@ ld a, [hli]
 
 	jp z, .dont_evolve_3
 	jp .proceed
-
-.party
-	call IsMonHoldingEverstone
-	jp z, .dont_evolve_2
-
-	; Check if any of the party mons are the requested one
-	ld a, [hli]
-	ld b, a
-	push hl
-	farcall FindThatSpecies
-	pop hl
-	jp z, .dont_evolve_3
-	; fallthrough
-
 
 .proceed
 	ld a, [wTempMonLevel]

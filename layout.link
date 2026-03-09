@@ -69,8 +69,7 @@ ROMX $10
 	"Evolutions and Attacks"
 ROMX $11
 	"bank11"
-	"Newbox"
-	"Bill's PC Graphics"
+	"Crystal Phone Text"
 ROMX $12
 	"Crystal Features 1"
 ROMX $13
@@ -88,7 +87,8 @@ ROMX $17
 ROMX $18
 	"Map Scripts 4"
 ROMX $19
-	"Crystal Phone Text"
+	"Newbox"
+	"Bill's PC Graphics"
 ROMX $1a
 	"Map Scripts 5"
 ROMX $1b

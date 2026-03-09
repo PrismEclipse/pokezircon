@@ -135,7 +135,6 @@ if DEF(_DEBUG)
 	loadmem wPartyMon3Moves+2, HEADBUTT
 	loadmem wPartyMon3Moves+3, WATERFALL
 	; intro events
-	addcellnum PHONE_MOM
 	setmapscene PLAYERS_HOUSE_1F, $1
 	setevent EVENT_PLAYERS_HOUSE_MOM_1
 	clearevent EVENT_PLAYERS_HOUSE_MOM_2

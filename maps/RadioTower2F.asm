@@ -18,9 +18,6 @@ RadioTower2F_MapScripts:
 
 	def_callbacks
 
-RadioTower2FNoopScene: ; unreferenced
-	end
-
 RadioTower2FSuperNerdScript:
 	jumptextfaceplayer RadioTower2FSuperNerdText
 
@@ -101,228 +98,8 @@ TrainerGruntF2:
 Buena:
 	faceplayer
 	opentext
-	checkflag ENGINE_ROCKETS_IN_RADIO_TOWER
-	iftrue .MidRocketTakeover
-	checkevent EVENT_MET_BUENA
-	iffalse .Introduction
-	checkflag ENGINE_BUENAS_PASSWORD_2
-	iftrue .PlayedAlready
-	readvar VAR_HOUR
-	ifless NITE_HOUR, .TooEarly
-	checkflag ENGINE_BUENAS_PASSWORD
-	iffalse .TuneIn
-	checkitem BLUE_CARD
-	iffalse .NoBlueCard
-	readvar VAR_BLUECARDBALANCE
-	ifequal BLUE_CARD_POINT_CAP, .BlueCardCapped0
-	playmusic MUSIC_BUENAS_PASSWORD
-	writetext RadioTower2FBuenaDoYouKnowPasswordText
-	special AskRememberPassword
-	iffalse .ForgotPassword
-	writetext RadioTower2FBuenaJoinTheShowText
+	writetext GruntM6AfterBattleText
 	waitbutton
-	closetext
-	turnobject RADIOTOWER2F_BUENA, RIGHT
-	readvar VAR_FACING
-	ifnotequal RIGHT, .DontNeedToMove
-	applymovement PLAYER, RadioTower2FPlayerWalksToMicrophoneMovement
-.DontNeedToMove:
-	turnobject PLAYER, RIGHT
-	opentext
-	writetext RadioTower2FBuenaEveryoneSayPasswordText
-	waitbutton
-	closetext
-	turnobject RADIOTOWER2F_BUENA, DOWN
-	reanchormap
-	special BuenasPassword
-	closetext
-	iffalse .WrongAnswer
-	opentext
-	writetext RadioTower2FBuenaCorrectAnswerText
-	waitbutton
-	closetext
-	readvar VAR_BLUECARDBALANCE
-	addval 1
-	writevar VAR_BLUECARDBALANCE
-	waitsfx
-	playsound SFX_TRANSACTION
-	setflag ENGINE_BUENAS_PASSWORD_2
-	pause 20
-	turnobject RADIOTOWER2F_BUENA, RIGHT
-	opentext
-	writetext RadioTower2FBuenaThanksForComingText
-	waitbutton
-	closetext
-	special FadeOutMusic
-	pause 20
-	special RestartMapMusic
-	readvar VAR_BLUECARDBALANCE
-	ifequal BLUE_CARD_POINT_CAP, .BlueCardCapped1
-	end
-
-.Introduction:
-	writetext RadioTower2FBuenaShowIntroductionText
-	promptbutton
-	setevent EVENT_MET_BUENA
-	verbosegiveitem BLUE_CARD
-.TuneIn:
-	writetext RadioTower2FBuenaTuneInToMyShowText
-	waitbutton
-	closetext
-	checkcellnum PHONE_BUENA
-	iftrue .Registered0
-	checkevent EVENT_BUENA_OFFERED_HER_PHONE_NUMBER
-	iftrue .OfferedNumberBefore
-.Registered0:
-	turnobject RADIOTOWER2F_BUENA, RIGHT
-	end
-
-.ForgotPassword:
-	writetext RadioTower2FBuenaComeBackAfterListeningText
-	waitbutton
-	closetext
-	turnobject RADIOTOWER2F_BUENA, RIGHT
-	special FadeOutMusic
-	pause 20
-	special RestartMapMusic
-	end
-
-.PlayedAlready:
-	writetext RadioTower2FBuenaAlreadyPlayedText
-	waitbutton
-	closetext
-	checkcellnum PHONE_BUENA
-	iftrue .Registered1
-	checkevent EVENT_BUENA_OFFERED_HER_PHONE_NUMBER
-	iftrue .OfferedNumberBefore
-.Registered1:
-	turnobject RADIOTOWER2F_BUENA, RIGHT
-	pause 10
-	end
-
-.WrongAnswer:
-	setflag ENGINE_BUENAS_PASSWORD_2
-	opentext
-	writetext RadioTower2FBuenaDidYouForgetText
-	waitbutton
-	closetext
-	turnobject RADIOTOWER2F_BUENA, RIGHT
-	pause 20
-	opentext
-	writetext RadioTower2FBuenaThanksForComingText
-	waitbutton
-	closetext
-	turnobject RADIOTOWER2F_BUENA, RIGHT
-	special FadeOutMusic
-	pause 20
-	special RestartMapMusic
-	end
-
-.MidRocketTakeover:
-	writetext RadioTower2FBuenaPasswordIsHelpText
-	waitbutton
-	closetext
-	end
-
-.NoBlueCard:
-	writetext RadioTower2FBuenaNoBlueCardText
-	waitbutton
-	closetext
-	checkcellnum PHONE_BUENA
-	iftrue .Registered2
-	checkevent EVENT_BUENA_OFFERED_HER_PHONE_NUMBER_NO_BLUE_CARD
-	iftrue .OfferedNumberBefore
-.Registered2:
-	turnobject RADIOTOWER2F_BUENA, RIGHT
-	end
-
-.BlueCardCapped0:
-	writetext RadioTower2FBuenaCardIsFullText
-	waitbutton
-	closetext
-	checkcellnum PHONE_BUENA
-	iftrue .Registered3
-	checkevent EVENT_BUENA_OFFERED_HER_PHONE_NUMBER_NO_BLUE_CARD
-	iftrue .OfferedNumberBefore
-.Registered3:
-	turnobject RADIOTOWER2F_BUENA, RIGHT
-	end
-
-.TooEarly:
-	writetext RadioTower2FBuenaTuneInAfterSixText
-	waitbutton
-	closetext
-	checkcellnum PHONE_BUENA
-	iftrue .Registered4
-	checkevent EVENT_BUENA_OFFERED_HER_PHONE_NUMBER
-	iftrue .OfferedNumberBefore
-.Registered4:
-	end
-
-.BlueCardCapped1:
-	checkcellnum PHONE_BUENA
-	iftrue .HasNumber
-	pause 20
-	turnobject RADIOTOWER2F_BUENA, DOWN
-	pause 15
-	turnobject PLAYER, UP
-	pause 15
-	checkevent EVENT_BUENA_OFFERED_HER_PHONE_NUMBER_NO_BLUE_CARD
-	iftrue .OfferedNumberBefore
-	showemote EMOTE_SHOCK, RADIOTOWER2F_BUENA, 15
-	setevent EVENT_BUENA_OFFERED_HER_PHONE_NUMBER_NO_BLUE_CARD
-	setevent EVENT_BUENA_OFFERED_HER_PHONE_NUMBER
-	opentext
-	writetext RadioTower2FBuenaOfferPhoneNumberText
-	sjump .AskForNumber
-
-.OfferedNumberBefore:
-	opentext
-	writetext RadioTower2FBuenaOfferNumberAgainText
-.AskForNumber:
-	askforphonenumber PHONE_BUENA
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
-	writetext RadioTower2FRegisteredBuenasNumberText
-	playsound SFX_REGISTER_PHONE_NUMBER
-	waitsfx
-	promptbutton
-	writetext RadioTower2FBuenaCallMeText
-	waitbutton
-	closetext
-	turnobject RADIOTOWER2F_BUENA, RIGHT
-	addcellnum PHONE_BUENA
-	end
-
-.NumberDeclined:
-	writetext RadioTower2FBuenaSadRejectedText
-	waitbutton
-	closetext
-	turnobject RADIOTOWER2F_BUENA, RIGHT
-	end
-
-.PhoneFull:
-	writetext RadioTower2FBuenaYourPhoneIsFullText
-	waitbutton
-	closetext
-	turnobject RADIOTOWER2F_BUENA, RIGHT
-.HasNumber:
-	end
-
-RadioTowerBuenaPrizeReceptionist:
-	faceplayer
-	opentext
-	checkitem BLUE_CARD
-	iffalse .NoCard
-	writetext RadioTower2FBuenaReceptionistPointsForPrizesText
-	promptbutton
-	special BuenaPrize
-	closetext
-	end
-
-.NoCard:
-	writetext RadioTower2FBuenaReceptionistNoCardText
-	promptbutton
 	closetext
 	end
 
@@ -676,13 +453,6 @@ RadioTower2FBuenaYourPhoneIsFullText:
 	line "for me…"
 	done
 
-RadioTower2FBuenaReceptionistPointsForPrizesText:
-	text "You can cash in"
-	line "your saved points"
-
-	para "for a lovely prize"
-	line "of your choice!"
-	done
 
 RadioTower2FBuenaReceptionistNoCardText:
 	text "You can't trade in"
@@ -738,4 +508,3 @@ RadioTower2F_MapEvents:
 	object_event  1,  1, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RadioTower2FBlackBelt2Script, EVENT_RADIO_TOWER_CIVILIANS_AFTER
 	object_event 12,  1, SPRITE_JIGGLYPUFF, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RadioTowerJigglypuff, -1
 	object_event 14,  5, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Buena, -1
-	object_event 12,  7, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, RadioTowerBuenaPrizeReceptionist, EVENT_GOLDENROD_CITY_CIVILIANS

@@ -42,6 +42,34 @@ CheckShininess:
 .not_shiny
 	and a
 	ret
+	
+LoadMonBaseTypePal:
+	; destination address of Palette and Slot is passed in 'de'
+	; Type Index (already fixed/adjusted if a Special Type) is passed in 'c'
+	ld hl, TypeIconPals ; pointer to the Type Colors designated in gfx\types_cats_status_pals.asm
+	ld a, c ; c is the Type Index
+	add a
+	ld c, a
+	ld b, 0
+	add hl, bc
+	ld bc, 2
+	jp FarCopyColorWRAM
+
+LoadSingleBlackPal:
+	; Destination address of the Palette and Slot is passed in 'de'
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wBGPals1)
+	ldh [rSVBK], a
+	xor a ; the color black is $0000
+	ld [de], a
+	inc de
+	ld [de], a
+	inc de
+
+	pop af
+	ldh [rSVBK], a
+	ret	
 
 Unused_CheckShininess:
 ; Return carry if the DVs at hl are all 10 or higher.
@@ -266,36 +294,6 @@ LoadNthMiddleBGPal:
 	ld d, h
 	pop hl
 	call LoadPalette_White_Col1_Col2_Black
-	ret
-
-LoadBetaPokerPalettes: ; unreferenced
-	ldh a, [hCGB]
-	and a
-	jr nz, .cgb
-	ld hl, wBetaPokerSGBPals
-	jp PushSGBPals
-
-.cgb
-	ld a, [wBetaPokerSGBCol]
-	ld c, a
-	ld a, [wBetaPokerSGBRow]
-	hlcoord 0, 0, wAttrmap
-	ld de, SCREEN_WIDTH
-.loop
-	and a
-	jr z, .done
-	add hl, de
-	dec a
-	jr .loop
-
-.done
-	ld b, 0
-	add hl, bc
-	lb bc, 6, 4
-	ld a, [wBetaPokerSGBAttr]
-	and $3
-	call FillBoxCGB
-	call CopyTilemapAtOnce
 	ret
 
 ApplyMonOrTrainerPals:
@@ -660,19 +658,6 @@ InitPartyMenuOBPals:
 	ld a, BANK(wOBPals1)
 	call FarCopyWRAM
 	ret
-
-SetFirstOBJPalette::
-; input: e must contain the offset of the selected palette from PartyMenuOBPals
-	ld hl, PartyMenuOBPals
-	ld d, 0
-	add hl, de
-	ld de, wOBPals1
-	ld bc, 1 palettes
-	ld a, BANK(wOBPals1)
-	call FarCopyWRAM
-	ld a, TRUE
-	ldh [hCGBPalUpdate], a
-	jp ApplyPals
 
 GetBattlemonBackpicPalettePointer:
 	push de
@@ -1171,9 +1156,9 @@ DrawDefaultTiles:
 SGBDelayCycles:
 	ld de, 7000
 .wait
-	nop
-	nop
-	nop
+	nop ; no-optimize nops
+	nop ; no-optimize nops
+	nop ; no-optimize nops
 	dec de
 	ld a, d
 	or e
@@ -1305,7 +1290,142 @@ endr
 	ld bc, 4
 	ld a, BANK(wBGPals1)
 	call FarCopyWRAM
+
+	; Day Care outdoor palettes
+	ld a, [wMapGroup]
+	cp GROUP_ROUTE_34
+	ret nz
+
+	ld a, [wMapNumber]
+	cp MAP_ROUTE_34
+	ret nz
+
+	ld a, BANK(wBreedMon1Species)
+	ld hl, wBreedMon1Species
+	call GetFarWRAMByte
+	and a
+	jr z, .day_care_mon_2
+	ld [wCurPartySpecies], a
+
+	ld hl, wBreedMon1DVs ; HL now points to the params of the wBreedMon1, which is needed by GetMenuMonIconPalette to determine if it's shiny.
+	ld de, GetMenuMonIconPalette
+	ld a, BANK(GetMenuMonIconPalette)	
+	call FarCall_de
+	ld a, e
+	add a
+	add a
+	add a
+	ld e, a
+	ld d, 0
+	ld hl, PartyMenuOBPals
+	add hl, de
+
+	inc hl
+	inc hl
+
+	ld de, wOBPals1 palette PAL_OW_PINK + 2
+	ld bc, 1 palettes - 2
+	ld a, BANK(wOBPals1)
+	call FarCopyWRAM
+
+.day_care_mon_2
+	ld a, BANK(wBreedMon2Species)
+	ld hl, wBreedMon2Species
+	call GetFarWRAMByte
+	and a
+	ret z
+	ld [wCurPartySpecies], a
+
+	ld hl, wBreedMon2DVs ; HL now points to the params of the wBreedMon2, which is needed by GetMenuMonIconPalette to determine if it's shiny.
+	ld de, GetMenuMonIconPalette
+	ld a, BANK(GetMenuMonIconPalette)	
+	call FarCall_de
+	ld a, e
+	add a
+	add a
+	add a
+	ld e, a
+	ld d, 0
+	ld hl, PartyMenuOBPals
+	add hl, de
+
+	inc hl
+	inc hl
+
+	ld de, wOBPals1 palette PAL_OW_ROCK + 2
+	ld bc, 1 palettes - 2
+	ld a, BANK(wOBPals1)
+	call FarCopyWRAM	
 	ret
+
+LoadDexTypePals:
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wBGPals1)
+	ldh [rSVBK], a
+	xor a
+	ld [de], a
+	inc de
+	ld [de], a
+	inc de
+	pop af
+	ldh [rSVBK], a	
+
+	ld hl, TypeIconPals
+	ld a, b
+	add a
+	push bc
+	ld c, a
+	ld b, 0
+	add hl, bc
+	ld bc, 2
+	push de
+	call FarCopyColorWRAM
+	pop de
+
+	ld hl, TypeIconPals
+	pop bc
+	ld a, c
+	add a
+	ld c, a
+	ld b, 0
+	add hl, bc
+	inc de
+	inc de
+	ld bc, 2
+	push de
+	call FarCopyColorWRAM
+	pop de
+	inc de
+	inc de
+
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wBGPals1)
+	ldh [rSVBK], a
+	xor a
+	ld [de], a
+	inc de
+	ld [de], a
+	inc de
+	pop af
+	ldh [rSVBK], a
+	ret
+
+; Input: E must contain the offset of the selected palette from PartyMenuOBPals.
+SetFirstOBJPalette::
+	ld hl, PartyMenuOBPals
+	ld d, 0
+	add hl, de
+ 	ld de, wOBPals1
+	ld bc, 1 palettes
+	ld a, BANK(wOBPals1)
+	call FarCopyWRAM
+	ld a, TRUE
+ 	ldh [hCGBPalUpdate], a
+ 	jp ApplyPals
+
+INCLUDE "gfx/type_pals.asm"
 
 INCLUDE "data/maps/environment_colors.asm"
 
@@ -1327,7 +1447,9 @@ BillsPC_PackPalette:
 	RGB 31,31,31, 31,31,31, 07,19,07, 00,00,00
 BillsPC_WhitePalette:
 	RGB 31,31,31, 31,31,31, 31,31,31, 31,31,31
-
+BillsPC_ItemPalette:
+	RGB 31,31,31, 31,19,10, 31,07,01, 00,00,00
+	
 TilesetBGPalette:
 INCLUDE "gfx/tilesets/bg_tiles.pal"
 

@@ -79,7 +79,6 @@ DoBattleAnimFrame:
 	dw BattleAnimFunc_Spikes
 	dw BattleAnimFunc_HealBellNotes
 	dw BattleAnimFunc_BatonPass
-	dw BattleAnimFunc_Conversion
 	dw BattleAnimFunc_EncoreBellyDrum
 	dw BattleAnimFunc_SwaggerMorningSun
 	dw BattleAnimFunc_HiddenPower

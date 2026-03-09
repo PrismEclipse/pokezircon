@@ -254,10 +254,7 @@ ElmDirectionsScript:
 	writetext ElmDirectionsText1
 	waitbutton
 	closetext
-	addcellnum PHONE_ELM
 	opentext
-	writetext GotElmsNumberText
-	playsound SFX_REGISTER_PHONE_NUMBER
 	waitsfx
 	waitbutton
 	closetext
@@ -998,6 +995,10 @@ ElmAfterTheftText5:
 	para "<PLAY_G>, is that"
 	line "true? Th-that's"
 	cont "incredible!"
+	
+	para "The #DEX shows"
+	line "how #MON evolve"
+	cont "and learn moves."
 
 	para "He is superb at"
 	line "seeing the poten-"

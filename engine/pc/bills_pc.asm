@@ -142,28 +142,6 @@ SwapStorageBoxSlots:
 	newfarcall CheckCurPartyMonFainted
 	jr nc, .not_last_healthy
 
-	; Check if the box mon is healthy.
-	pop bc
-	pop de
-	push de
-	push bc
-	push bc
-	ld b, d
-	ld c, e
-	call GetStorageBoxMon
-	jr z, .no_boxmon
-	ld hl, wBufferMonHP
-	ld a, [hli]
-	or [hl]
-.no_boxmon
-	pop bc
-
-	; Ensure that we return with wTempMon pointing towards the partymon.
-	push af
-	call GetStorageBoxMon
-	pop af
-	jr nz, .not_last_healthy
-
 	; Doing this would lose us our last healthy mon, so abort.
 	ld a, 4
 .pop_bcde_and_return
@@ -272,7 +250,7 @@ SwapPartyMons:
 
 	; Swap partymon struct
 	ld hl, wPartyMon1
-	ld bc, PARTYMON_STRUCT_LENGTH
+	ld c, PARTYMON_STRUCT_LENGTH
 	call DoPartySwap
 
 	; Swap nickname
@@ -426,13 +404,13 @@ NewStoragePointer:
 FlushStorageSystem:
 ; Frees up orphaned pokedb entries and reallocates used entries. Beware of soft-
 ; resets and make sure this process completes before loading up a game.
-	ldh a, [rWBK]
+	ldh a, [rSVBK]
 	push af
 	ld a, BANK(wPokeDB1UsedEntries)
-	ldh [rWBK], a
+	ldh [rSVBK], a
 	call .Function
 	pop af
-	ldh [rWBK], a
+	ldh [rSVBK], a
 	ret
 
 .Function:
@@ -452,8 +430,7 @@ FlushStorageSystem:
 	ld c, 1
 .inner_loop
 	call GetStorageBoxPointer
-	; If e==0 (null entry), this will not set any flag.
-	call SetStorageAllocationFlag
+	call _AllocateStorageFlag
 	ld a, c
 	inc c
 	cp MONS_PER_BOX
@@ -811,18 +788,17 @@ EncodeBufferMon:
 	ld b, wEncodedBufferMonEnd - wEncodedBufferMonNickname
 .charmap_loop
 	ld a, [hl]
-	; ' ' ($7F) -> $46
+	; " " ($7f) -> $46
 	ld c, $46 | ~%01111111
-	cp ' '
+	cp " "
 	jr z, .replace
-	; '@' ($50) -> $47
+	; "@" ($50) -> $47
 	inc c
-	cp '@'
+	cp "@"
 	jr z, .replace
-	; TX_START ($00) -> $48
+	; "<START>" ($00) -> $48
 	inc c
-	assert TX_START == $00
-	and a ; cp TX_START
+	and a ; cp "<START>"
 	jr nz, .removebit
 .replace
 	ld a, c
@@ -910,13 +886,13 @@ DecodeBufferMon:
 	ld a, [hl]
 	or $80
 	sub $c6
-	ld c, ' '
+	ld c, " "
 	jr z, .replace
 	dec a
-	ld c, '@'
+	ld c, "@"
 	jr z, .replace
 	dec a
-	jr z, .replace_a ; a is TX_START ($00) iff the zero flag is set
+	jr z, .replace_a ; a is "<START>" ($00) iff the zero flag is set
 
 	; Reverse the previous decrements
 	add $c8
@@ -935,7 +911,7 @@ DecodeBufferMon:
 	lb bc, 2, PLAYER_NAME_LENGTH - 1
 
 .outer_loop
-	ld a, '@'
+	ld a, "@"
 	ld [de], a
 	dec de
 .inner_loop
@@ -996,9 +972,12 @@ SetTempPartyMonData:
 	; Calculate stats
 	ld a, [wBufferMonSpecies]
 	ld [wCurSpecies], a
+	ld hl, wBufferMonDVs
+	predef GetUnownLetter
+	ld a, [wUnownLetter]
+	ld [wCurForm], a
 	call GetBaseData
 	ld b, TRUE
-	ld hl, wBufferMonStatExp - 1
 	ld de, wBufferMonMaxHP
 	ld a, [wBufferMonLevel]
 	ld [wCurPartyLevel], a
@@ -1063,15 +1042,15 @@ CheckFreeDatabaseEntries:
 	; fallthrough
 _CheckFreeDatabaseEntries:
 	; Now, count used entries.
-	ldh a, [rWBK]
+	ldh a, [rSVBK]
 	push bc
 	push af
 	ld a, BANK(wPokeDB1UsedEntries)
-	ldh [rWBK], a
+	ldh [rSVBK], a
 	call .Function
 	ld c, a
 	pop af
-	ldh [rWBK], a
+	ldh [rSVBK], a
 	ld a, c
 	pop bc
 	ret
@@ -1118,12 +1097,12 @@ InitializeBoxes:
 	sub e
 	sub 10
 	jr c, .next
-	ld [hl], '1'
+	ld [hl], "1"
 	inc hl
 	sub 10
 .next
 	ld [hli], a
-	ld [hl], '@'
+	ld [hl], "@"
 	pop hl
 	ld c, sNewBox2 - sNewBox1Name
 	add hl, bc
@@ -1216,7 +1195,7 @@ GetBoxName:
 
 	; Ensure that there's a terminator at the end. This isn't included as part
 	; of saved box name.
-	ld a, '@'
+	ld a, "@"
 	ld [wStringBuffer1 + BOX_NAME_LENGTH], a
 	ret
 
@@ -1345,6 +1324,10 @@ GetStorageBoxMon:
 	; Calculate stats
 	ld a, [wBufferMonSpecies]
 	ld [wCurSpecies], a
+	ld hl, wBufferMonDVs
+	predef GetUnownLetter
+	ld a, [wUnownLetter]
+	ld [wCurForm], a
 	call GetBaseData
 	or 1
 	jp PopBCDEHL
@@ -1378,7 +1361,7 @@ AllocateStorageFlag:
 ; Allocates the given storage flag. Returns nz if storage is already in use.
 	call IsStorageUsed
 	ret nz
-	call SetStorageAllocationFlag
+	call _AllocateStorageFlag
 	xor a
 	ret
 
@@ -1386,7 +1369,7 @@ IsStorageUsed:
 ; Returns z if the given storage slot is unused. Preserves wBufferMon.
 	ld a, CHECK_FLAG
 	jr StorageFlagAction
-SetStorageAllocationFlag:
+_AllocateStorageFlag:
 	ld a, SET_FLAG
 	; fallthrough
 StorageFlagAction:
@@ -1412,14 +1395,14 @@ StorageFlagAction:
 	jp PopBCDEHL
 
 .do_it
-	ldh a, [rWBK]
+	ldh a, [rSVBK]
 	push bc
 	push af
 	ld a, BANK(wPokeDB1UsedEntries)
-	ldh [rWBK], a
+	ldh [rSVBK], a
 	call .Function
 	pop af
-	ldh [rWBK], a
+	ldh [rSVBK], a
 	ld a, c
 	pop bc
 	ret
@@ -1440,9 +1423,6 @@ Special_CurBoxFullCheck:
 ; Returns [wScriptVar] = zero if wBufferMonBox == wCurBox
 ; Returns [wScriptVar] = nonzero if wBufferMonBox != wCurBox
 	call CurBoxFullCheck
-	jr nz, .not_equal
-	xor a
-.not_equal
 	ld [wScriptVar], a
 	ret
 

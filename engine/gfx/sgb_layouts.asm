@@ -28,6 +28,8 @@ SGBLayoutJumptable:
 	dw .SGB_BattleColors
 	dw .SGB_PokegearPals
 	dw .SGB_StatsScreenHPPals
+	dw .SGB_Pokedex_EvoPage
+	dw .SGB_Pokedex_PicsPage	
 	dw .SGB_Pokedex
 	dw .SGB_SlotMachine
 	dw .SGB_BetaTitleScreen
@@ -226,6 +228,9 @@ SGBLayoutJumptable:
 	ld de, BlkPacket_Pokedex_PC
 	ret
 
+.SGB_Pokedex_EvoPage:
+.SGB_Pokedex_PicsPage:
+	ret
 .SGB_BillsPC:
 	ld hl, PalPacket_Pal01
 	ld de, wSGBPals
