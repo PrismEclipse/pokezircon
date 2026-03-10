@@ -4,7 +4,7 @@ DEF USE_GEN3_STYLE_TYPE_GFX EQU TRUE
 	; see 'engine\pokedex\pokedex2.asm'
 
 	; Want to obfuscate unseen pokemon from the Evolution chart Page?
-DEF EVO_HIDE_UNSEEN EQU TRUE
+DEF EVO_HIDE_UNSEEN EQU FALSE
 	; will still show evolution methods and requirements, but not name or icon
 
 ; Using custom Evolution Methods?
@@ -18,7 +18,7 @@ DEF EVO_HIDE_UNSEEN EQU TRUE
 
 
 	; using 'Increase Pokémon sprite animation size'?
-DEF USING_INCREASED_SPRITE_ANIMATION EQU FALSE
+DEF USING_INCREASED_SPRITE_ANIMATION EQU TRUE
 	; https://github.com/pret/pokecrystal/wiki/Increase-Pok%C3%A9mon-sprite-animation-size
 		; NOTE this should only be enabled if you've already implemented the tutorial
 

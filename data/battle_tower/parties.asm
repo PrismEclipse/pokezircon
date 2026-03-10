@@ -70,7 +70,7 @@ BattleTowerMons:
 	bigdw 39 ; SDef
 	dname "BURAtuKI-", MON_NAME_LENGTH
 
-	db WOBBUFFET
+	db MISMAGIUS
 	db FOCUS_BAND
 	db COUNTER, MIRROR_COAT, SAFEGUARD, DESTINY_BOND
 	dw 0 ; OT ID
@@ -114,7 +114,7 @@ BattleTowerMons:
 	bigdw 28 ; SDef
 	dname "GARU-RA", MON_NAME_LENGTH
 
-	db CORSOLA
+	db MAMOSWINE
 	db SCOPE_LENS
 	db SURF, PSYCHIC_M, RECOVER, ANCIENTPOWER
 	dw 0 ; OT ID
@@ -290,7 +290,7 @@ BattleTowerMons:
 	bigdw 22 ; SDef
 	dname "DERUBIRU", MON_NAME_LENGTH
 
-	db GIRAFARIG
+	db TREVENANT
 	db KINGS_ROCK
 	db PSYBEAM, MUD_SLAP, SHADOW_BALL, AGILITY
 	dw 0 ; OT ID
@@ -422,7 +422,7 @@ BattleTowerMons:
 	bigdw 21 ; SDef
 	dname "ANNO-N", MON_NAME_LENGTH
 
-	db TAUROS
+	db LUXWAN
 	db KINGS_ROCK
 	db HEADBUTT, SWAGGER, DISARM, ICY_WIND
 	dw 0 ; OT ID
@@ -444,7 +444,7 @@ BattleTowerMons:
 	bigdw 24 ; SDef
 	dname "KENTAROSU", MON_NAME_LENGTH
 
-	db MR__MIME
+	db LICKIKING
 	db QUICK_CLAW
 	db TOXIC, BULK_UP, FIRE_PUNCH, HEADBUTT
 	dw 0 ; OT ID
@@ -777,7 +777,7 @@ BattleTowerMons:
 	bigdw 62 ; SDef
 	dname "EBIWARA-", MON_NAME_LENGTH
 
-	db TAUROS
+	db LUXWAN
 	db BRIGHTPOWDER
 	db THUNDERBOLT, EARTHQUAKE, HYPER_BEAM, BLIZZARD
 	dw 0 ; OT ID
@@ -1000,7 +1000,7 @@ BattleTowerMons:
 	bigdw 81 ; SDef
 	dname "SUTA-MI-", MON_NAME_LENGTH
 
-	db JYNX
+	db SWAVYBELL
 	db SITRUS_BERRY
 	db BLIZZARD, SPLASH, CALM_MIND, ATTRACT
 	dw 0 ; OT ID
@@ -1044,7 +1044,7 @@ BattleTowerMons:
 	bigdw 72 ; SDef
 	dname "DAGUTORIO", MON_NAME_LENGTH
 
-	db BELLOSSOM
+	db RHYPERIOR
 	db BRIGHTPOWDER
 	db GIGA_DRAIN, SUNNY_DAY, SOLARBEAM, DOUBLE_TEAM
 	dw 0 ; OT ID
@@ -1399,7 +1399,7 @@ BattleTowerMons:
 
 ; BattleTowerMons group 4
 
-	db TAUROS
+	db LUXWAN
 	db SITRUS_BERRY
 	db RETURN, HYPER_BEAM, EARTHQUAKE, IRON_TAIL
 	dw 0 ; OT ID
@@ -1553,7 +1553,7 @@ BattleTowerMons:
 	bigdw 105 ; SDef
 	dname "SUTA-MI-", MON_NAME_LENGTH
 
-	db WOBBUFFET
+	db MISMAGIUS
 	db SITRUS_BERRY
 	db COUNTER, MIRROR_COAT, SAFEGUARD, DESTINY_BOND
 	dw 0 ; OT ID
@@ -1908,7 +1908,7 @@ BattleTowerMons:
 	bigdw 127 ; SDef
 	dname "HERUGA-", MON_NAME_LENGTH
 
-	db SHUCKLE
+	db NUMPUFF
 	db LEFTOVERS
 	db SANDSTORM, REST, TOXIC, WRAP
 	dw 0 ; OT ID
@@ -2194,7 +2194,7 @@ BattleTowerMons:
 	bigdw 136 ; SDef
 	dname "SANDA-", MON_NAME_LENGTH
 
-	db SKARMORY
+	db TREVENANT
 	db SITRUS_BERRY
 	db SANDSTORM, FLY, STEEL_WING, TOXIC
 	dw 0 ; OT ID
@@ -2260,7 +2260,7 @@ BattleTowerMons:
 	bigdw 109 ; SDef
 	dname "HAGANE-RU", MON_NAME_LENGTH
 
-	db GIRAFARIG
+	db TREVENANT
 	db SCOPE_LENS
 	db CALM_MIND, CRUNCH, PSYCHIC_M, EARTHQUAKE
 	dw 0 ; OT ID
@@ -2461,7 +2461,7 @@ BattleTowerMons:
 	bigdw 161 ; SDef
 	dname "SANDA-", MON_NAME_LENGTH
 
-	db WOBBUFFET
+	db MISMAGIUS
 	db SITRUS_BERRY
 	db COUNTER, MIRROR_COAT, DESTINY_BOND, SAFEGUARD
 	dw 0 ; OT ID
@@ -2571,7 +2571,7 @@ BattleTowerMons:
 	bigdw 149 ; SDef
 	dname "UINDEi", MON_NAME_LENGTH
 
-	db SKARMORY
+	db TREVENANT
 	db MIRACLEBERRY
 	db STEEL_WING, FLY, TOXIC, PROTECT
 	dw 0 ; OT ID
@@ -2659,7 +2659,7 @@ BattleTowerMons:
 	bigdw 167 ; SDef
 	dname "HERAKUROSU", MON_NAME_LENGTH
 
-	db JYNX
+	db SWAVYBELL
 	db MIRACLEBERRY
 	db BLIZZARD, PSYCHIC_M, SHADOW_BALL, ICY_WIND
 	dw 0 ; OT ID
@@ -3080,7 +3080,7 @@ BattleTowerMons:
 	bigdw 166 ; SDef
 	dname "RINGUMA", MON_NAME_LENGTH
 
-	db MR__MIME
+	db LICKIKING
 	db KINGS_ROCK
 	db REFLECT, FIRE_PUNCH, PSYCHIC_M, ENCORE
 	dw 0 ; OT ID
@@ -3124,7 +3124,7 @@ BattleTowerMons:
 	bigdw 162 ; SDef
 	dname "OKORIZARU", MON_NAME_LENGTH
 
-	db GIRAFARIG
+	db TREVENANT
 	db SITRUS_BERRY
 	db AGILITY, BATON_PASS, CRUNCH, EARTHQUAKE
 	dw 0 ; OT ID
@@ -3325,7 +3325,7 @@ BattleTowerMons:
 	bigdw 197 ; SDef
 	dname "HERUGA-", MON_NAME_LENGTH
 
-	db TAUROS
+	db LUXWAN
 	db SITRUS_BERRY
 	db EARTHQUAKE, BODY_SLAM, IRON_TAIL, HYPER_BEAM
 	dw 0 ; OT ID
@@ -3501,7 +3501,7 @@ BattleTowerMons:
 	bigdw 221 ; SDef
 	dname "PORIGON2", MON_NAME_LENGTH
 
-	db JYNX
+	db SWAVYBELL
 	db QUICK_CLAW
 	db SPLASH, BLIZZARD, CALM_MIND, PSYCHIC_M
 	dw 0 ; OT ID
@@ -3545,7 +3545,7 @@ BattleTowerMons:
 	bigdw 292 ; SDef
 	dname "MANTAIN", MON_NAME_LENGTH
 
-	db SKARMORY
+	db TREVENANT
 	db QUICK_CLAW
 	db STEEL_WING, FLY, MUD_SLAP, TOXIC
 	dw 0 ; OT ID
@@ -3699,7 +3699,7 @@ BattleTowerMons:
 	bigdw 157 ; SDef
 	dname "KAIROSU", MON_NAME_LENGTH
 
-	db GRANBULL
+	db PORYGONZ
 	db BRIGHTPOWDER
 	db SEND_AWAY, SHADOW_BALL, HYPER_BEAM, THUNDERPUNCH
 	dw 0 ; OT ID
@@ -4054,7 +4054,7 @@ BattleTowerMons:
 	bigdw 223 ; SDef
 	dname "HERUGA-", MON_NAME_LENGTH
 
-	db SKARMORY
+	db TREVENANT
 	db QUICK_CLAW
 	db SANDSTORM, STEEL_WING, TOXIC, RETURN
 	dw 0 ; OT ID
@@ -4076,7 +4076,7 @@ BattleTowerMons:
 	bigdw 193 ; SDef
 	dname "EA-MUDO", MON_NAME_LENGTH
 
-	db SHUCKLE
+	db NUMPUFF
 	db LEFTOVERS
 	db TOXIC, WRAP, PROTECT, ENCORE
 	dw 0 ; OT ID
@@ -4142,7 +4142,7 @@ BattleTowerMons:
 	bigdw 182 ; SDef
 	dname "MIRUTANKU", MON_NAME_LENGTH
 
-	db TAUROS
+	db LUXWAN
 	db PINK_BOW
 	db THUNDERBOLT, HYPER_BEAM, ATTRACT, EARTHQUAKE
 	dw 0 ; OT ID
@@ -4277,7 +4277,7 @@ BattleTowerMons:
 	bigdw 278 ; SDef
 	dname "SANDA-SU", MON_NAME_LENGTH
 
-	db TAUROS
+	db LUXWAN
 	db KINGS_ROCK
 	db HYPER_BEAM, EARTHQUAKE, IRON_TAIL, THUNDERBOLT
 	dw 0 ; OT ID

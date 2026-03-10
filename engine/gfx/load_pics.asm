@@ -65,7 +65,7 @@ GetAnimatedFrontpic:
 	ld [wCurSpecies], a
 	call IsAPokemon
 	ret c
-	ldh a, [rWBK]
+	ldh a, [rSVBK]
 	push af
 	xor a
 	ldh [hBGMapMode], a
@@ -76,7 +76,7 @@ GetAnimatedFrontpic:
 	xor a
 	ldh [rVBK], a
 	pop af
-	ldh [rWBK], a
+	ldh [rSVBK], a
 	jp CloseSRAM
 
 PrepareFrontpic:
@@ -98,7 +98,7 @@ _PrepareFrontpic:
 	push bc
 	call GetFrontpicPointer
 	ld a, BANK(wDecompressScratch)
-	ldh [rWBK], a
+	ldh [rSVBK], a
 	ld a, b
 	ld de, wDecompressScratch
 	call FarDecompress
@@ -108,7 +108,7 @@ _PrepareFrontpic:
 	ld a, d
 	and $f0
 	or e
-	ld [sEnemyFrontpicTileCount], a	
+	ld [sEnemyFrontpicTileCount], a
 	pop bc
 	ld hl, sPaddedEnemyFrontpic
 	ld de, wDecompressScratch
@@ -132,15 +132,16 @@ GetFrontpicPointer:
 	ld a, [wCurPartySpecies]
 	cp UNOWN
 	jr z, .unown
-	ld hl, PokemonPicPointers
 	ld a, [wCurPartySpecies]
 	ld d, BANK(PokemonPicPointers)
 	jr .ok
 .unown
-	ld hl, UnownPicPointers
 	ld a, [wUnownLetter]
 	ld d, BANK(UnownPicPointers)
 .ok
+	; These are assumed to be at the same address in their respective banks.
+	assert PokemonPicPointers == UnownPicPointers
+	ld hl, PokemonPicPointers
 	dec a
 	ld bc, 6
 	call AddNTimes
@@ -200,7 +201,7 @@ GetAnimatedEnemyFrontpic:
 	; Otherwise, load the first part...
 	inc a
 	ld [sEnemyFrontpicTileCount], a
-	ld c, 127 - 7 * 7	
+	ld c, 127 - 7 * 7
 	call Get2bpp
 	; ...then load the rest into vTiles4
 	ld de, wDecompressScratch + (127 - 7 * 7) tiles
@@ -228,17 +229,17 @@ LoadFrontpicTiles:
 	and a
 	jr z, .handle_loop
 	inc b
-	jr .handle_loop	
+	jr .handle_loop
 .loop
 	push bc
 	ld c, 0
 	call LoadOrientedFrontpic
 	pop bc
-.handle_loop	
+.handle_loop
 	dec b
 	jr nz, .loop
 	ret
-
+	
 GetMonBackpic:
 	ld a, [wCurPartySpecies]
 	call IsAPokemon

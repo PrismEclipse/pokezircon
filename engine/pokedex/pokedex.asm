@@ -414,12 +414,12 @@ Pokedex_toggle_shininess_Entry:
 	; add or remove shiny icon
 	hlcoord 8, 1
 	ld a, [hl]
-	cp "<DEX_⁂>"
+	cp '<DEX_⁂>'
 	jr z, .shinyicon_set
-	ld [hl], "<DEX_⁂>"
+	ld [hl], '<DEX_⁂>'
 	jr .done
 .shinyicon_set
-	ld [hl], " "
+	ld [hl], ' '
 .done	
 	call Pokedex_toggle_shininess2
 	ret
@@ -433,12 +433,12 @@ Pokedex_toggle_shininess_Pics:
 	; add or remove shiny icon
 	hlcoord 3, 11 ; 1, 9 ; 9, 7 ; 0, 9
 	ld a, [hl]
-	cp "<DEX_⁂>"
+	cp '<DEX_⁂>'
 	jr z, .shinyicon_set
-	ld [hl], "<DEX_⁂>"
+	ld [hl], '<DEX_⁂>'
 	jr .done
 .shinyicon_set
-	ld [hl], " "
+	ld [hl], ' '
 .done	
 	call Pokedex_toggle_shininess2
 	ret
@@ -500,7 +500,7 @@ Pokedex_ReinitDexEntryScreen:
 .evo2
 	xor a
 	ld [wPokedexEntryPageNum], a
-	call Evos_Page
+	call Pics_Page
 	jr .cont
 
 .lore
@@ -559,10 +559,10 @@ Pokedex_ReinitDexEntryScreen:
 	ld a, [wPokedexShinyToggle]
 	bit 0, a
 	jr z, .not_shiny
-	ld [hl], "<DEX_⁂>"
+	ld [hl], '<DEX_⁂>'
 	jr .shiny_done
 .not_shiny
-	ld [hl], " "
+	ld [hl], ' '
 .shiny_done
 	call WaitBGMap
 	call Pokedex_GetSelectedMon
@@ -585,12 +585,11 @@ Pokedex_Handle_Reinit_Evo:
 	ret
 
 DexEntryScreen_ArrowCursorData:
-	db D_RIGHT | D_LEFT, 6
+	db D_RIGHT | D_LEFT, 5
 	dwcoord 1, 17  ; INFO
 	dwcoord 4, 17  ; STAT
 	dwcoord 7, 17  ; MOVES
 	dwcoord 11, 17 ; AREA
-	dwcoord 14, 17 ; EVO
 	dwcoord 17, 17 ; PICS
 	
 DexEntryScreen_MenuActionJumptable:
@@ -598,7 +597,6 @@ DexEntryScreen_MenuActionJumptable:
 	dw BaseStat_Page
 	dw Moves_Page
 	dw Area_Page
-	dw Evos_Page
 	dw Pics_Page ; .SpriteAnim
 
 Handle_Button_Banner:
@@ -767,7 +765,7 @@ Evos_Page:
 	call Pokedex_GetSelectedMon
 	ld [wCurPartySpecies], a
 	push af
-	farcall DisplayDexMonEvos
+	farcall DisplayDexMonStats
 	call WaitBGMap
 	pop af
 ld [wCurPartySpecies], a 
@@ -850,10 +848,10 @@ ld [wCurPartySpecies], a
 	ld a, [wPokedexShinyToggle]
 	bit 0, a
 	jr z, .not_shiny
-	ld [hl], "<DEX_⁂>"
+	ld [hl], '<DEX_⁂>'
 	jr .shiny_done
 .not_shiny
-	ld [hl], " "
+	ld [hl], ' '
 .shiny_done	
 	call WaitBGMap
 	ret
@@ -1032,10 +1030,10 @@ ENDC
 	ld a, [wPokedexShinyToggle]
 	bit 0, a
 	jr z, .not_shiny
-	ld [hl], "<DEX_⁂>"
+	ld [hl], '<DEX_⁂>'
 	jr .shiny_done
 .not_shiny
-	ld [hl], " "
+	ld [hl], ' '
 .shiny_done	
 	call WaitBGMap
 	ret
@@ -1810,7 +1808,7 @@ Pokedex_LoadTextboxSpaceGFX:
 	ldh [rVBK], a
 	ld de, TextboxSpaceGFX
 	lb bc, BANK(TextboxSpaceGFX), 1
-	ld hl, vTiles2 tile " "
+	ld hl, vTiles2 tile ' '
 	call Get2bpp
 	pop af
 	ldh [rVBK], a

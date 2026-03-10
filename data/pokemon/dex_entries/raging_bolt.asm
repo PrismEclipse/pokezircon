@@ -1,10 +1,10 @@
 	db "PARADOX@" ; species name
-	dw 1701, 10582 ; height, weight
+	dw 1701, 10580 ; height, weight
 
-	db   "It's said to"
-	next "incinerate"
-	next "everything around"
+	db   "Believed to be"
+	next "RAIKOU's ancestor,"
+	next "The lightning that"
 
-	page "it with lightning"
-	next "launched from its"
-	next "fur.@"
+	page "it shoots from its"
+	next "cloud-shaped mane"
+	next "can burn anything.@"

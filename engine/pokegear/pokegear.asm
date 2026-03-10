@@ -2,8 +2,7 @@
 	const_def
 	const POKEGEARCARD_CLOCK ; 0
 	const POKEGEARCARD_MAP   ; 1
-	const POKEGEARCARD_PHONE ; 2
-	const POKEGEARCARD_RADIO ; 3
+	const POKEGEARCARD_RADIO ; 2
 DEF NUM_POKEGEAR_CARDS EQU const_value
 
 DEF PHONE_DISPLAY_HEIGHT EQU 4
@@ -17,10 +16,6 @@ DEF PHONE_DISPLAY_HEIGHT EQU 4
 	const POKEGEARSTATE_JOHTOMAPJOYPAD  ; 4
 	const POKEGEARSTATE_KANTOMAPINIT    ; 5
 	const POKEGEARSTATE_KANTOMAPJOYPAD  ; 6
-	const POKEGEARSTATE_PHONEINIT       ; 7
-	const POKEGEARSTATE_PHONEJOYPAD     ; 8
-	const POKEGEARSTATE_MAKEPHONECALL   ; 9
-	const POKEGEARSTATE_FINISHPHONECALL ; a
 	const POKEGEARSTATE_RADIOINIT       ; b
 	const POKEGEARSTATE_RADIOJOYPAD     ; c
 
@@ -183,8 +178,7 @@ AnimatePokegearModeIndicatorArrow:
 .XCoords:
 	db $00 ; POKEGEARCARD_CLOCK
 	db $10 ; POKEGEARCARD_MAP
-	db $20 ; POKEGEARCARD_PHONE
-	db $30 ; POKEGEARCARD_RADIO
+	db $20 ; POKEGEARCARD_RADIO
 
 TownMap_GetCurrentLandmark:
 	ld a, [wMapGroup]
@@ -448,18 +442,18 @@ PokegearClock_Joypad:
 
 .no_map_card
 	ld a, [wPokegearFlags]
-	bit POKEGEAR_PHONE_CARD_F, a
+	bit POKEGEAR_RADIO_CARD_F, a
 	jr z, .no_phone_card
-	ld c, POKEGEARSTATE_PHONEINIT
-	ld b, POKEGEARCARD_PHONE
+	ld c, POKEGEARSTATE_RADIOINIT
+	ld b, POKEGEARCARD_RADIO
 	jr .done
 
 .no_phone_card
 	ld a, [wPokegearFlags]
 	bit POKEGEAR_RADIO_CARD_F, a
 	ret z
-	ld c, POKEGEARSTATE_RADIOINIT
-	ld b, POKEGEARCARD_RADIO
+	ld c, POKEGEARSTATE_CLOCKINIT
+	ld b, POKEGEARCARD_CLOCK
 .done
 	call Pokegear_SwitchPage
 	ret
@@ -489,7 +483,7 @@ GetMapName_hlcoord: ; FarStringLength: ; thanks Rangi!
 .loop:
 	ld a, d ; bank
     call GetFarByte
-    cp "@"
+    cp '@'
     jr z, .get_hlcoord
     inc c
     inc hl
@@ -697,10 +691,10 @@ PokegearMap_ContinueMap:
 
 .right
 	ld a, [wPokegearFlags]
-	bit POKEGEAR_PHONE_CARD_F, a
+	bit POKEGEAR_RADIO_CARD_F, a
 	jr z, .no_phone
-	ld c, POKEGEARSTATE_PHONEINIT
-	ld b, POKEGEARCARD_PHONE
+	ld c, POKEGEARSTATE_CLOCKINIT
+	ld b, POKEGEARCARD_CLOCK
 	jr .done
 
 .no_phone
@@ -888,10 +882,10 @@ PokegearRadio_Joypad:
 
 .left
 	ld a, [wPokegearFlags]
-	bit POKEGEAR_PHONE_CARD_F, a
+	bit POKEGEAR_RADIO_CARD_F, a
 	jr z, .no_phone
-	ld c, POKEGEARSTATE_PHONEINIT
-	ld b, POKEGEARCARD_PHONE
+	ld c, POKEGEARSTATE_RADIOINIT
+	ld b, POKEGEARCARD_RADIO
 	jr .switch_page
 .right
 

@@ -1,10 +1,10 @@
 	db "PARADOX@" ; species name
-	dw 1106, 6173 ; height, weight
+	dw 1106, 6170 ; height, weight
 
-	db   "This ferocious"
-	next "creature is"
-	next "shrouded in"
+	db   "This prehistoric,"
+	next "ferocious creature"
+	next "resembles SUICUNE."
 
-	page "mystery. It's"
-	next "named after an"
-	next "aquatic monster.@"
+	page "Has been witnessed"
+	next "racing atop lakes"
+	next "at high speed.@"

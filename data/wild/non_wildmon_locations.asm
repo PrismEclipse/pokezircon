@@ -21,7 +21,7 @@ CasinoMons::
 	map_id GOLDENROD_GAME_CORNER
 	casinomon ABRA, GOLDENRODGAMECORNER_ABRA_COINS
 	casinomon CUBONE, GOLDENRODGAMECORNER_CUBONE_COINS
-	casinomon WOBBUFFET, GOLDENRODGAMECORNER_WOBBUFFET_COINS 
+	casinomon SNEASEL, GOLDENRODGAMECORNER_SNEASEL_COINS 
 	db -1
 	; kanto, from maps\celadongamecornerprizeroom.asm
 	map_id CELADON_GAME_CORNER_PRIZE_ROOM
@@ -47,7 +47,7 @@ EventWildMons::
 ; specialencounter 	 SPECIES,   EVENT_FLAG,                         map_id, blurb string ptr
 	specialencounter LAPRAS, 	-1, 								UNION_CAVE_B2F, FridayLapras_Str ; reoccurs every Friday
 	specialencounter ELECTRODE, -1, 								TEAM_ROCKET_BASE_B2F, Trap_Electrode_Str ; keep location hidden
-	specialencounter SUDOWOODO, EVENT_FOUGHT_SUDOWOODO, 			ROUTE_36, SudowoodoEvent_Str
+	specialencounter METTO, EVENT_FOUGHT_SUDOWOODO, 			ROUTE_36, SudowoodoEvent_Str
 	specialencounter GYARADOS, 	EVENT_LAKE_OF_RAGE_RED_GYARADOS, 	LAKE_OF_RAGE, ShinyGyarados_Str
 	specialencounter SNORLAX, 	EVENT_FOUGHT_SNORLAX, 				VERMILION_CITY, SnorlaxEvent_Str
 	specialencounter ZYGARDE100, EVENT_FOUGHT_SUICUNE, 				TIN_TOWER_1F, SuicuneEvent_Str ; will not normally be seen by player w/o Dex Splash Page, may need new EVENT constant
@@ -122,7 +122,7 @@ HoOhEvent_Str:
 GiftMons::
 ; replace map_id with -1 to hide location but keep hint
 ; species, EVENT_FLAG, map_id, blurb string ptr
-	specialencounter SHUCKLE, 	EVENT_MANIA_TOOK_SHUCKIE_OR_LET_YOU_KEEP_HIM, MANIAS_HOUSE, ShuckieEvent_Str ; EVENT_GOT_SHUCKIE / EVENT_MANIA_TOOK_SHUCKIE_OR_LET_YOU_KEEP_HIM
+	specialencounter GRAVELER, 	EVENT_MANIA_TOOK_SHUCKIE_OR_LET_YOU_KEEP_HIM, MANIAS_HOUSE, ShuckieEvent_Str ; EVENT_GOT_SHUCKIE / EVENT_MANIA_TOOK_SHUCKIE_OR_LET_YOU_KEEP_HIM
 	specialencounter SPEAROW, 	EVENT_GOT_KENYA, 					ROUTE_35_GOLDENROD_GATE, KenyaEvent_Str
 	specialencounter DRATINI, 	EVENT_GOT_DRATINI, 					DRAGON_SHRINE, ExtremespeedDratini_Str
 	specialencounter EEVEE,	 	EVENT_GOT_EEVEE, 					BILLS_FAMILYS_HOUSE, BillsEevee_Str

@@ -47,7 +47,7 @@ _GiveOddEgg:
 	ld bc, NICKNAMED_MON_STRUCT_LENGTH + NAME_LENGTH
 	call CopyBytes
 
-	ld a, EGG_TICKET
+	ld a, RED_SCALE
 	ld [wCurItem], a
 	ld a, 1
 	ld [wItemQuantityChange], a

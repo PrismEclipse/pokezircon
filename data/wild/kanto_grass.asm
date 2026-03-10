@@ -318,16 +318,16 @@ KantoGrassWildMons:
 	db 14, MAGNEMITE
 	db 15, RATICATE
 	db 12, JIGGLYPUFF
-	db 15, GRANBULL
-	db 15, GRANBULL
+	db 15, WIGGLYTUFF
+	db 15, WIGGLYTUFF
 	; day
 	db 13, RATTATA
 	db 13, SNUBBULL
 	db 14, MAGNEMITE
 	db 15, RATICATE
 	db 12, JIGGLYPUFF
-	db 15, GRANBULL
-	db 15, GRANBULL
+	db 15, WIGGLYTUFF
+	db 15, WIGGLYTUFF
 	; nite
 	db 13, MEOWTH
 	db 13, DROWZEE
@@ -358,7 +358,7 @@ KantoGrassWildMons:
 	db 16, ABRA
 	; nite
 	db 17, MEOWTH
-	db 17, MURKROW
+	db 17, PHANTUMP
 	db 18, HOUNDOUR
 	db 18, PERSIAN
 	db 18, JIGGLYPUFF
@@ -584,8 +584,8 @@ KantoGrassWildMons:
 	db 26, GRIMER
 	db 27, GRIMER
 	db 28, GRIMER
-	db 29, MURKROW
-	db 29, MURKROW
+	db 29, PHANTUMP
+	db 29, PHANTUMP
 	db 30, MUK
 	db 30, MUK
 	end_grass_wildmons
@@ -653,17 +653,17 @@ KantoGrassWildMons:
 	db 25, RATTATA
 	db 35, TANGELA
 	db 20, RATICATE
-	db 30, MR__MIME
-	db 28, MR__MIME
-	db 28, MR__MIME
+	db 30, KADABRA
+	db 28, KADABRA
+	db 28, KADABRA
 	; day
 	db 30, TANGELA
 	db 25, RATTATA
 	db 35, TANGELA
 	db 20, RATICATE
-	db 28, MR__MIME
-	db 30, MR__MIME
-	db 30, MR__MIME
+	db 28, KADABRA
+	db 30, KADABRA
+	db 30, KADABRA
 	; nite
 	db 30, TANGELA
 	db 25, RATTATA

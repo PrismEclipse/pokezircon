@@ -3,7 +3,7 @@ HornDrillUsers:
 	db DUGTRIO
 	db RHYHORN
 	db RHYDON
-	db BELLOSSOM
+	db RHYPERIOR
 	db AERODACTYL
 	db SNORLAX
 	db -1

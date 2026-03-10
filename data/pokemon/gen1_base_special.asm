@@ -153,4 +153,12 @@ KantoMonSpecials:
 	db 100 ; DRAGONITE
 	db 154 ; MEWTWO
 	db 100 ; MEW
+	db 1   ; RHYPERIOR
+	db 1   ; PRAXE
+	db 1   ; LUXWAN
+	db 1   ; SLOWKING
+	db 1   ; TURBANN
+	db 1   ; SWAVYBELL
+	db 1   ; TANGOREST
+	db 1   ; LICKIKING
 	assert_table_length JOHTO_POKEMON - 1

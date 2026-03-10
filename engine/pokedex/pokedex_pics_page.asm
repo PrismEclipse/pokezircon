@@ -52,7 +52,6 @@ Pokedex_PlayMonCry_AnimateFrontpic:
 	xor a
 	ld [wPokedexEntryType], a
 .loop
-	call .Pokedex_WaitAnim
 	call .PokedexWaitCry
 	ld a, [wPokedexEntryType]
 	;bit 7, a
@@ -234,10 +233,10 @@ ENDC
 	ld a, [wPokedexShinyToggle]
 	bit 0, a
 	jr z, .not_shiny
-	ld [hl], "<DEX_⁂>"
+	ld [hl], '<DEX_⁂>'
 	jr .shiny_done
 .not_shiny
-	ld [hl], " "
+	ld [hl], ' '
 .shiny_done
 ; SELECT > SHINY START > CRY
 	hlcoord 0, 17

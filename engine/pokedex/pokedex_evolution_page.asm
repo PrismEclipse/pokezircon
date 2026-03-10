@@ -1010,8 +1010,8 @@ EVO_set_multi_page_ptr:
 	ld a, d
 	cp EVOLVE_STAT
 	jr z, .extra_4
-IF DEF(EVOLVE_HELD_ITEM)
-	cp EVOLVE_HELD_ITEM
+IF DEF(EVOLVE_HELD)
+	cp EVOLVE_HELD
 	jr z, .extra_4
 ENDC
 	jr .no_extra_4
@@ -1028,8 +1028,8 @@ ENDC
 	; check for 0? shouldnt encounter 0
 	cp EVOLVE_STAT
 	jr z, .extra_5
-IF DEF(EVOLVE_HELD_ITEM)
-	cp EVOLVE_HELD_ITEM
+IF DEF(EVOLVE_HELD)
+	cp EVOLVE_HELD
 	jr z, .extra_5
 ENDC
 	jr .no_extra_5

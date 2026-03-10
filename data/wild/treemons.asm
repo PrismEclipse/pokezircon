@@ -139,5 +139,5 @@ TreeMonSet_Forest:
 ; feel free to add new rock smash sets
 TreeMonSet_Rock:
 	db 90, KRABBY,     15
-	db 10, SHUCKLE,    15
+	db 10, GRAVELER,    15
 	db -1

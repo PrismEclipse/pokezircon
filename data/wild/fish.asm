@@ -67,7 +67,7 @@ FishGroups:
 	db  40 percent,     GOLDEEN,    40
 	db  70 percent,     time_group 5
 	db  90 percent + 1, MAGIKARP,   40
-	db 100 percent,     SEAKING,    40
+	db 100 percent,     GYARADOS,    40
 
 .Pond_Old:
 	db  70 percent + 1, MAGIKARP,   10
@@ -209,8 +209,8 @@ FishGroups:
 
 TimeFishGroups:
 	;  day              nite
-	db CORSOLA,    20,  STARYU,     20 ; 0
-	db CORSOLA,    40,  STARYU,     40 ; 1
+	db STARYU,    20,  STARYU,     20 ; 0
+	db STARYU,    40,  STARYU,     40 ; 1
 	db SHELLDER,   20,  SHELLDER,   20 ; 2
 	db SHELLDER,   40,  SHELLDER,   40 ; 3
 	db GOLDEEN,    20,  GOLDEEN,    20 ; 4

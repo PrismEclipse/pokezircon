@@ -76,5 +76,6 @@
 	const CRY_ZYGARDE
 	const CRY_STOUTLAND
 	const CRY_EMPOLEON
+	const CRY_MAGNEZONE
 
 DEF NUM_CRIES EQU const_value

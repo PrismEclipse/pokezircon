@@ -5,8 +5,8 @@ FuryAttackUsers:
 	db RHYDON
 	db HERACROSS
 	db PILOSWINE
-	db CORSOLA
-	db FARFETCH_D
+	db MAMOSWINE
+	db LUXWAN
 	db HOOTHOOT
 	db NOCTOWL
 	db PIPLUP

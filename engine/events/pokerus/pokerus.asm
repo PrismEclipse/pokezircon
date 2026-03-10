@@ -136,12 +136,12 @@ ConvertBerriesToBerryJuice:
 	push af
 	push hl
 	ld a, [hl]
-	cp SHUCKLE
+	cp GLIGAR
 	jr nz, .loopMon
 	ld bc, MON_ITEM
 	add hl, bc
 	ld a, [hl]
-	cp BERRY
+	cp QUICK_CLAW
 	jr z, .convertToJuice
 
 .loopMon
@@ -154,7 +154,7 @@ ConvertBerriesToBerryJuice:
 	ret
 
 .convertToJuice
-	ld a, BERRY_JUICE
+	ld a, BRICK_PIECE
 	ld [hl], a
 	pop hl
 	pop af

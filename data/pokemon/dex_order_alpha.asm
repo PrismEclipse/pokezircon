@@ -11,7 +11,7 @@ AlphabeticalPokedexOrder:
 	db ARCANINE
 	db AZUMARILL
 	db BEEDRILL
-	db BELLOSSOM
+	db RHYPERIOR
 	db BELLSPROUT
 	db BLASTOISE
 	db BLISSEY
@@ -29,11 +29,11 @@ AlphabeticalPokedexOrder:
 	db CLEFAIRY
 	db CLEFFA
 	db CLOYSTER
-	db CORSOLA
+	db MAMOSWINE
 	db CUBONE
 	db DARTRIX
 	db DECIDUEYE
-	db DELIBIRD
+	db TURBANN
 	db DELPHOX
 	db DEWGONG
 	db DIGLETT
@@ -68,7 +68,7 @@ AlphabeticalPokedexOrder:
 	db GASTLY
 	db GENGAR
 	db GEODUDE
-	db GIRAFARIG
+	db PHANTUMP
 	db GLIGAR
 	db GLOOM
 	db GOLBAT
@@ -76,7 +76,7 @@ AlphabeticalPokedexOrder:
 	db GOLDUCK
 	db GOLEM
 	db GOUGING_FIRE
-	db GRANBULL
+	db PORYGONZ
 	db GRAVELER
 	db GRIMER
 	db GROWLITHE
@@ -93,12 +93,12 @@ AlphabeticalPokedexOrder:
 	db HOUNDOOM
 	db HOUNDOUR
 	db HYPNO
-	db IGGLYBUFF
+	db MAGNEZONE
 	db IVYSAUR
 	db JIGGLYPUFF
 	db JOLTEON
 	db JUMPLUFF
-	db JYNX
+	db SWAVYBELL
 	db KABUTO
 	db KABUTOPS
 	db KADABRA
@@ -135,9 +135,9 @@ AlphabeticalPokedexOrder:
 	db MEW
 	db MILTANK
 	db MISDREAVUS
-	db MR__MIME
+	db LICKIKING
 	db MUK
-	db MURKROW
+	db YANMEGA
 	db TINKATUFF
 	db NECROZMA
 	db NIDOKING
@@ -166,7 +166,7 @@ AlphabeticalPokedexOrder:
 	db PIPLUP
 	db PINECO
 	db PINSIR
-	db POLITOED
+	db PRAXE
 	db POLIWAG
 	db POLIWHIRL
 	db POLIWRATH
@@ -194,12 +194,12 @@ AlphabeticalPokedexOrder:
 	db SCIZOR
 	db SCYTHER
 	db SEADRA
-	db SEAKING
+	db TANGOREST
 	db SEEL
 	db SENTRET
 	db SHELLDER
-	db SHUCKLE
-	db SKARMORY
+	db NUMPUFF
+	db TREVENANT
 	db SKIPLOOM
 	db SLOWBRO
 	db SLOWKING
@@ -216,13 +216,13 @@ AlphabeticalPokedexOrder:
 	db STARMIE
 	db STARYU
 	db STEELIX
-	db SUDOWOODO
+	db METTO
 	db SUNFLORA
 	db SUNKERN
 	db SWINUB
 	db TANGELA
-	db TAUROS
-	db TEDDIURSA
+	db LUXWAN
+	db WEAVILE
 	db TENTACOOL
 	db TENTACRUEL
 	db TINKATINK
@@ -245,7 +245,7 @@ AlphabeticalPokedexOrder:
 	db WEEPINBELL
 	db WEEZING
 	db WIGGLYTUFF
-	db WOBBUFFET
+	db MISMAGIUS
 	db WOOPER
 	db TINKATON
 	db YANMA

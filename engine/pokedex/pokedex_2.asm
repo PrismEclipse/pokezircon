@@ -161,10 +161,10 @@ DisplayDexEntry:
 	ld a, [wPokedexShinyToggle]
 	bit 0, a
 	jr z, .not_shiny
-	ld [hl], "<DEX_⁂>"
+	ld [hl], '<DEX_⁂>'
 	jr .next
 .not_shiny
-	ld [hl], " "	
+	ld [hl], ' '	
 .next
 	ld a, DEXENTRY_LORE
 	call HandlePageNumReset
@@ -192,7 +192,7 @@ DisplayDexEntry:
 	
 	push bc
 	hlcoord 9, 6
-	ld a, " "
+	ld a, ' '
 	ld bc, 11
 	call ByteFill
 	pop bc
@@ -464,7 +464,6 @@ DEX_NO_CUSTOM_GFX_PrintType_Short:
 ENDC	
 
 INCLUDE "data/pokemon/dex_entry_pointers.asm"
-INCLUDE "engine/pokedex/pokedex_evolution_page.asm"
 INCLUDE "engine/pokedex/pokedex_stats_page.asm"
 INCLUDE "engine/pokedex/pokedex_pics_page.asm"
 INCLUDE "engine/pokedex/pokedex_moves_page.asm"
@@ -536,11 +535,11 @@ Print_Category_text:
 	push bc
 	push hl ; bottom str ptr
 	hlcoord 9, 6
-	ld a, " "
+	ld a, ' '
 	ld bc, 11
 	call ByteFill
 	hlcoord 9, 7
-	ld a, " "
+	ld a, ' '
 	ld bc, 9
 	call ByteFill	
 
@@ -562,6 +561,6 @@ UncaughtMon_Info_Erase_PageNum:
 	call ByteFill
 	hlcoord 18, 7
 	ld bc, 2
-	ld a, " " ; category box border
+	ld a, ' ' ; category box border
 	call ByteFill	
 	ret

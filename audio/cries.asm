@@ -82,6 +82,12 @@ Cry_Empoleon:
 	channel 5, Cry_Empoleon_Ch5
 	channel 6, Cry_Empoleon_Ch6
 	channel 8, Cry_Empoleon_Ch8	
+	
+Cry_Magnezone:
+	channel_count 3
+	channel 5, Cry_Magnezone_Ch5
+	channel 6, Cry_Magnezone_Ch6
+	channel 8, Cry_Magnezone_Ch8	
 
 Cry_Gligar:
 	channel_count 2
@@ -547,6 +553,45 @@ Cry_Empoleon_Ch8:
 	noise_note 6, 14, 6, 76
 	noise_note 12, 7, -5, 76
 	noise_note 15, 13, 3, 76
+	sound_ret	
+
+Cry_Magnezone_Ch5:
+	duty_cycle_pattern 0, 2, 0, 2
+	square_note  6, 15, 2, 1616
+	square_note 10, 15, 1, 1632
+	square_note  6, 14, 2, 1554
+	square_note 10, 13, 1, 1570
+	square_note  6, 15, 2, 1452
+	square_note  7, 14, 1, 1468
+	square_note  6, 15, 2, 1316
+	square_note 10, 14, 1, 1332
+	square_note  6, 15, 2, 1254
+	square_note 10, 13, 1, 1270
+	square_note  6, 15, 2, 1152
+	square_note  7, 14, 1, 1168
+	sound_ret
+
+Cry_Magnezone_Ch6:
+	duty_cycle_pattern 0, 0, 0, 1
+	square_note  5, 8, 0, 0
+	square_note  6, 15, 2, 1617
+	square_note 10, 14, 1, 1617
+	square_note  6, 15, 2, 1556
+	square_note  9, 13, 1, 1572
+	square_note  6, 15, 2, 1453
+	square_note 13, 14, 1, 1469
+	square_note  6, 15, 2, 1356
+	square_note  9, 13, 1, 1372
+	square_note  6, 15, 2, 1253
+	square_note  5, 14, 1, 1269
+	sound_ret
+
+Cry_Magnezone_Ch8:
+	noise __,  7, 14, 2, 28
+	noise __, 10, 11, 1, 44
+	noise __,  9, 13, 2, 44
+	noise __, 10, 11, 1, 60
+	noise __,  7, 13, 2, 44
 	sound_ret		
 
 Cry_Gligar_Ch8:

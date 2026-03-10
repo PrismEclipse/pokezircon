@@ -25,7 +25,7 @@ TailWhipUsers:
 	db RATTATA
 	db RATICATE
 	db AIPOM
-	db BELLOSSOM
+	db RHYPERIOR
 	db FENNEKIN
 	db BRAIXEN
 	db DELPHOX

@@ -4,7 +4,7 @@ WhirlwindUsers:
 	db HO_OH
 	db VENOMOTH
 	db FARFETCH_D
-	db TAUROS
+	db LUXWAN
 	db YANMA
-	db MURKROW
+	db YANMEGA
 	db -1

@@ -18,7 +18,7 @@ SpriteMons:
 	db PIKACHU
 	db CLEFAIRY
 	db CHARMANDER
-	db JYNX
+	db SWAVYBELL
 	db STARMIE
 	db BULBASAUR
 	db JIGGLYPUFF
@@ -26,7 +26,7 @@ SpriteMons:
 	db EKANS
 	db PARAS
 	db TENTACOOL
-	db TAUROS
+	db LUXWAN
 	db MACHOP
 	db VOLTORB
 	db LAPRAS

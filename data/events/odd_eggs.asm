@@ -141,7 +141,7 @@ OddEggs:
 	bigdw 11 ; SDef
 	dname "EGG", MON_NAME_LENGTH
 
-	db IGGLYBUFF
+	db RALTS
 	db NO_ITEM
 	db SING, CHARM, SPLASH, 0
 	dw 04096 ; OT ID
@@ -167,7 +167,7 @@ OddEggs:
 	bigdw 7 ; SDef
 	dname "EGG", MON_NAME_LENGTH
 
-	db IGGLYBUFF
+	db RALTS
 	db NO_ITEM
 	db SING, CHARM, SPLASH, 0
 	dw 00768 ; OT ID

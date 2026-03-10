@@ -121,7 +121,7 @@
 	const SPELL_TAG    ; 71
 	const RAGECANDYBAR ; 72
 	const GS_BALL      ; 73
-	const BLUE_CARD    ; 74
+	const HEART_STONE  ; 74
 	const MIRACLE_SEED ; 75
 	const THICK_CLUB   ; 76
 	const FOCUS_BAND   ; 77
@@ -134,7 +134,7 @@
 	const LUCKY_EGG    ; 7e
 	const CARD_KEY     ; 7f
 	const MACHINE_PART ; 80
-	const EGG_TICKET   ; 81
+	const POISON_STONE ; 81
 	const LOST_ITEM    ; 82
 	const STARDUST     ; 83
 	const STAR_PIECE   ; 84
