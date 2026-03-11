@@ -1,9 +1,9 @@
 	object_const_def
 	const VERMILIONCITY_TEACHER
 	const VERMILIONCITY_GRAMPS
-	const VERMILIONCITY_MACHOP
+	const VERMILIONCITY_GOLETT
 	const VERMILIONCITY_SUPER_NERD
-	const VERMILIONCITY_BIG_SNORLAX
+	const VERMILIONCITY_BIG_SPIRITOMB
 	const VERMILIONCITY_POKEFAN_M
 
 VermilionCity_MapScripts:
@@ -25,7 +25,7 @@ VermilionMachopOwner:
 VermilionMachop:
 	opentext
 	writetext VermilionMachopText1
-	cry MACHOP
+	cry GOLETT
 	waitbutton
 	closetext
 	earthquake 30
@@ -50,12 +50,12 @@ VermilionSnorlax:
 .Awake:
 	writetext VermilionCityRadioNearSnorlaxText
 	pause 15
-	cry SNORLAX
+	cry SPIRITOMB
 	closetext
 	loadvar VAR_BATTLETYPE, BATTLETYPE_FORCEITEM
-	loadwildmon SNORLAX, 50
+	loadwildmon SPIRITOMB, 50
 	startbattle
-	disappear VERMILIONCITY_BIG_SNORLAX
+	disappear VERMILIONCITY_BIG_SPIRITOMB
 	setevent EVENT_FOUGHT_SNORLAX
 	reloadmapafterbattle
 	end
@@ -144,12 +144,12 @@ VermilionMachopOwnerText:
 	done
 
 VermilionMachopText1:
-	text "MACHOP: Guooh"
+	text "GOLETT: Guooh"
 	line "gogogoh!"
 	done
 
 VermilionMachopText2:
-	text "A MACHOP is growl-"
+	text "A GOLETT is growl-"
 	line "ing while stomping"
 	cont "the ground flat."
 	done
@@ -164,18 +164,18 @@ VermilionCitySuperNerdText:
 	done
 
 VermilionCitySnorlaxSleepingText:
-	text "SNORLAX is snoring"
+	text "SPIRITOMB is snoring"
 	line "peacefully…"
 	done
 
 VermilionCityRadioNearSnorlaxText:
 	text "The #GEAR was"
 	line "placed near the"
-	cont "sleeping SNORLAX…"
+	cont "sleeping SPIRITOMB…"
 
 	para "…"
 
-	para "SNORLAX woke up!"
+	para "SPIRITOMB woke up!"
 	done
 
 VermilionCityBadgeGuyTrainerText:
@@ -257,7 +257,7 @@ PokemonFanClubSignText:
 	done
 
 VermilionCityDiglettsCaveSignText:
-	text "DIGLETT'S CAVE"
+	text "DRILBUR'S CAVE"
 	done
 
 VermilionCityPortSignText:

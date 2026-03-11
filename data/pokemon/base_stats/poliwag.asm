@@ -11,10 +11,10 @@
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/poliwag/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+
 	db GROWTH_MEDIUM_SLOW ; growth rate
 	dn EGG_WATER_1, EGG_WATER_1 ; egg groups
 
 	; tm/hm learnset
-	tmhm HEADBUTT, CURSE, TOXIC, HIDDEN_POWER, SWORDS_DANCE, BLIZZARD, ICY_WIND, PROTECT, RAIN_DANCE, ENDURE, THUNDER_WAVE, RETURN, PSYCHIC_M, DOUBLE_TEAM, SWAGGER, SLEEP_TALK, DEFENSE_CURL, REST, ATTRACT, THIEF, SURF, WHIRLPOOL, WATERFALL, ICE_BEAM
+	tmhm HIDDEN_POWER
 	; end

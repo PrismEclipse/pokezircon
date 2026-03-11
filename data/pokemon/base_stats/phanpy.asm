@@ -11,10 +11,10 @@
 	db GENDER_F50 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/phanpy/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_GROUND, EGG_GROUND ; egg groups
 
 	; tm/hm learnset
-	tmhm HEADBUTT, CURSE, ROLLOUT, SEND_AWAY, TOXIC, ROCK_SMASH, HIDDEN_POWER, SUNNY_DAY, SWORDS_DANCE, PROTECT, ENDURE, THUNDER_WAVE, EARTHQUAKE, RETURN, MUD_SLAP, DOUBLE_TEAM, SWAGGER, SLEEP_TALK, SANDSTORM, DEFENSE_CURL, REST, ATTRACT, STRENGTH
+	tmhm HIDDEN_POWER
 	; end

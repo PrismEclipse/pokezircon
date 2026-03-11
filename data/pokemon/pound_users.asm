@@ -12,6 +12,6 @@ PoundUsers:
 	db PIPLUP
 	db PRINPLUP
 	db EMPOLEON
-	db MACHOKE
-	db MACHAMP
+	db GOLETT
+	db GOLURK
 	db -1

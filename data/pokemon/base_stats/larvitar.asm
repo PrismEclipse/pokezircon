@@ -11,10 +11,10 @@
 	db GENDER_F50 ; gender ratio
 	db 40 ; step cycles to hatch
 	INCBIN "gfx/pokemon/larvitar/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+
 	db GROWTH_SLOW ; growth rate
 	dn EGG_MONSTER, EGG_MONSTER ; egg groups
 
 	; tm/hm learnset
-	tmhm HEADBUTT, CURSE, TOXIC, HIDDEN_POWER, SUNNY_DAY, SWORDS_DANCE, HYPER_BEAM, PROTECT, RAIN_DANCE, ENDURE, THUNDER_WAVE, EARTHQUAKE, RETURN, DIG, MUD_SLAP, DOUBLE_TEAM, SWAGGER, SLEEP_TALK, SANDSTORM, DRAGON_CLAW, REST, ATTRACT
+	tmhm HIDDEN_POWER
 	; end

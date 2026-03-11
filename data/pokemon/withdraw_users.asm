@@ -3,6 +3,6 @@ WithdrawUsers:
 	db SLOWBRO
 	db SHELLDER
 	db CLOYSTER
-	db OMANYTE
-	db OMASTAR
+	db TIRTOUGA
+	db CARRACOSTA
 	dw 0

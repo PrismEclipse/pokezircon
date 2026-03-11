@@ -23,7 +23,6 @@ INCLUDE "audio/music/goldenrodcity.asm"
 INCLUDE "audio/music/vermilioncity.asm"
 INCLUDE "audio/music/titlescreen.asm"
 INCLUDE "audio/music/ruinsofalphinterior.asm"
-INCLUDE "audio/music/lookpokemaniac.asm"
 INCLUDE "audio/music/trainervictory.asm"
 
 
@@ -73,6 +72,7 @@ INCLUDE "audio/music/printer.asm"
 INCLUDE "audio/music/mtmoonsquare.asm"
 INCLUDE "audio/music/gym.asm"
 INCLUDE "audio/music/pallettown.asm"
+INCLUDE "audio/music/lookpokemaniac.asm"
 
 SECTION "Songs 4", ROMX
 

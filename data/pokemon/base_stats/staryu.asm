@@ -11,10 +11,10 @@
 	db GENDER_UNKNOWN ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/staryu/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+
 	db GROWTH_SLOW ; growth rate
 	dn EGG_WATER_3, EGG_WATER_3 ; egg groups
 
 	; tm/hm learnset
-	tmhm CURSE, TOXIC, ZAP_CANNON, BULK_UP, HIDDEN_POWER, SWORDS_DANCE, BLIZZARD, ICY_WIND, PROTECT, RAIN_DANCE, ENDURE, THUNDER_WAVE, THUNDER, RETURN, PSYCHIC_M, DOUBLE_TEAM, SWAGGER, SLEEP_TALK, SWIFT, REST, ATTRACT, SURF, FLASH, WHIRLPOOL, WATERFALL, THUNDERBOLT, ICE_BEAM
+	tmhm HIDDEN_POWER
 	; end

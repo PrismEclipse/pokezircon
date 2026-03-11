@@ -143,7 +143,7 @@ OddEggs:
 
 	db RALTS
 	db NO_ITEM
-	db SING, CHARM, SPLASH, 0
+	db HYPNOTIZE, CHARM, SPLASH, 0
 	dw 04096 ; OT ID
 	bigdt 125 ; Exp
 	; Stat exp
@@ -169,7 +169,7 @@ OddEggs:
 
 	db RALTS
 	db NO_ITEM
-	db SING, CHARM, SPLASH, 0
+	db HYPNOTIZE, CHARM, SPLASH, 0
 	dw 00768 ; OT ID
 	bigdt 125 ; Exp
 	; Stat exp

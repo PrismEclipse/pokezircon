@@ -1,5 +1,13 @@
 JohtoFrames: ; used only for BANK(JohtoFrames)
 
+RagingBoltFrames:   INCLUDE "gfx/pokemon/ragingbolt/frames.asm"
+GougingFireFrames:     INCLUDE "gfx/pokemon/gougingfire/frames.asm"
+WalkingWakeFrames:    INCLUDE "gfx/pokemon/walkingwake/frames.asm"
+GibleFrames:    INCLUDE "gfx/pokemon/gible/frames.asm"
+GabiteFrames:  INCLUDE "gfx/pokemon/gabite/frames.asm"
+GarchompFrames:  INCLUDE "gfx/pokemon/garchomp/frames.asm"
+NecrozmaFrames:     INCLUDE "gfx/pokemon/necrozma/frames.asm"
+MewFrames:        INCLUDE "gfx/pokemon/mew/frames.asm"
 RowletFrames:  INCLUDE "gfx/pokemon/rowlet/frames.asm"
 DartrixFrames:    INCLUDE "gfx/pokemon/dartrix/frames.asm"
 DecidueyeFrames:   INCLUDE "gfx/pokemon/decidueye/frames.asm"

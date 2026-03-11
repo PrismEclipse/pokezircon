@@ -1,11 +1,11 @@
 DEF GOLDENRODGAMECORNER_TM25_COINS      EQU 5500
 DEF GOLDENRODGAMECORNER_TM14_COINS      EQU 5500
 DEF GOLDENRODGAMECORNER_TM38_COINS      EQU 5500
-DEF GOLDENRODGAMECORNER_ABRA_COINS      EQU 100
+DEF GOLDENRODGAMECORNER_HATENNA_COINS      EQU 100
 DEF GOLDENRODGAMECORNER_CUBONE_COINS    EQU 800
 DEF GOLDENRODGAMECORNER_SNEASEL_COINS EQU 1500
 
-EXPORT GOLDENRODGAMECORNER_ABRA_COINS
+EXPORT GOLDENRODGAMECORNER_HATENNA_COINS
 EXPORT GOLDENRODGAMECORNER_CUBONE_COINS
 EXPORT GOLDENRODGAMECORNER_SNEASEL_COINS
 
@@ -180,21 +180,21 @@ GoldenrodGameCornerPrizeMonVendorScript:
 	sjump GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
 
 .Abra:
-	checkcoins GOLDENRODGAMECORNER_ABRA_COINS
+	checkcoins GOLDENRODGAMECORNER_HATENNA_COINS
 	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
 	readvar VAR_PARTYCOUNT
 	ifequal PARTY_LENGTH, GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
-	getmonname STRING_BUFFER_3, ABRA
+	getmonname STRING_BUFFER_3, HATENNA
 	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
 	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
 	waitsfx
 	playsound SFX_TRANSACTION
 	writetext GoldenrodGameCornerPrizeVendorHereYouGoText
 	waitbutton
-	setval ABRA
+	setval HATENNA
 	special GameCornerPrizeMonCheckDex
-	givepoke ABRA, 5
-	takecoins GOLDENRODGAMECORNER_ABRA_COINS
+	givepoke HATENNA, 5
+	takecoins GOLDENRODGAMECORNER_HATENNA_COINS
 	sjump .loop
 
 .Cubone:
@@ -242,7 +242,7 @@ GoldenrodGameCornerPrizeMonVendorScript:
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
-	db "ABRA        100@"
+	db "HATENNA        100@"
 	db "CUBONE      800@"
 	db "WOBBUFFET  1500@"
 	db "CANCEL@"

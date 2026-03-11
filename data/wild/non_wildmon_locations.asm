@@ -19,7 +19,7 @@ CasinoMons::
 
 	; johto, from maps\goldenrodgamecorner.asm
 	map_id GOLDENROD_GAME_CORNER
-	casinomon ABRA, GOLDENRODGAMECORNER_ABRA_COINS
+	casinomon HATENNA, GOLDENRODGAMECORNER_HATENNA_COINS
 	casinomon CUBONE, GOLDENRODGAMECORNER_CUBONE_COINS
 	casinomon SNEASEL, GOLDENRODGAMECORNER_SNEASEL_COINS 
 	db -1
@@ -46,10 +46,10 @@ EventWildMons::
 ; BROKEN: replace map_id with -1 to hide location but keep hint
 ; specialencounter 	 SPECIES,   EVENT_FLAG,                         map_id, blurb string ptr
 	specialencounter LAPRAS, 	-1, 								UNION_CAVE_B2F, FridayLapras_Str ; reoccurs every Friday
-	specialencounter ELECTRODE, -1, 								TEAM_ROCKET_BASE_B2F, Trap_Electrode_Str ; keep location hidden
+	specialencounter MORGREM, -1, 								TEAM_ROCKET_BASE_B2F, Trap_Electrode_Str ; keep location hidden
 	specialencounter METTO, EVENT_FOUGHT_SUDOWOODO, 			ROUTE_36, SudowoodoEvent_Str
 	specialencounter GYARADOS, 	EVENT_LAKE_OF_RAGE_RED_GYARADOS, 	LAKE_OF_RAGE, ShinyGyarados_Str
-	specialencounter SNORLAX, 	EVENT_FOUGHT_SNORLAX, 				VERMILION_CITY, SnorlaxEvent_Str
+	specialencounter SPIRITOMB, 	EVENT_FOUGHT_SNORLAX, 				VERMILION_CITY, SnorlaxEvent_Str
 	specialencounter ZYGARDE100, EVENT_FOUGHT_SUICUNE, 				TIN_TOWER_1F, SuicuneEvent_Str ; will not normally be seen by player w/o Dex Splash Page, may need new EVENT constant
 	specialencounter CELEBI, 	EVENT_CELEBI_FATEFUL_ENCOUNTER, 	ILEX_FOREST, CelebiEvent_Str ; will not normally be seen by player w/o Dex Splash Page, may need new EVENT constant
 	specialencounter LUGIA, 	EVENT_FOUGHT_LUGIA, 				WHIRL_ISLAND_LUGIA_CHAMBER, LugiaEvent_Str ; will not normally be seen by player w/o Dex Splash Page, may need new EVENT constant
@@ -122,9 +122,9 @@ HoOhEvent_Str:
 GiftMons::
 ; replace map_id with -1 to hide location but keep hint
 ; species, EVENT_FLAG, map_id, blurb string ptr
-	specialencounter GRAVELER, 	EVENT_MANIA_TOOK_SHUCKIE_OR_LET_YOU_KEEP_HIM, MANIAS_HOUSE, ShuckieEvent_Str ; EVENT_GOT_SHUCKIE / EVENT_MANIA_TOOK_SHUCKIE_OR_LET_YOU_KEEP_HIM
-	specialencounter SPEAROW, 	EVENT_GOT_KENYA, 					ROUTE_35_GOLDENROD_GATE, KenyaEvent_Str
-	specialencounter DRATINI, 	EVENT_GOT_DRATINI, 					DRAGON_SHRINE, ExtremespeedDratini_Str
+	specialencounter LAIRON, 	EVENT_MANIA_TOOK_SHUCKIE_OR_LET_YOU_KEEP_HIM, MANIAS_HOUSE, ShuckieEvent_Str ; EVENT_GOT_SHUCKIE / EVENT_MANIA_TOOK_SHUCKIE_OR_LET_YOU_KEEP_HIM
+	specialencounter TAILLOW, 	EVENT_GOT_KENYA, 					ROUTE_35_GOLDENROD_GATE, KenyaEvent_Str
+	specialencounter GIBLE, 	EVENT_GOT_DRATINI, 					DRAGON_SHRINE, ExtremespeedDratini_Str
 	specialencounter EEVEE,	 	EVENT_GOT_EEVEE, 					BILLS_FAMILYS_HOUSE, BillsEevee_Str
 	specialencounter RALTS, 	EVENT_GOT_TYROGUE_FROM_KIYO, 		MOUNT_MORTAR_1F_OUTSIDE, TyrogueEvent_Str
 	; specialencounter AERODACTYL,EVENT_GAVE_SCIENTIST_OLD_AMBER, 	RUINS_OF_ALPH_RESEARCH_CENTER, OldAmberEvent_Str

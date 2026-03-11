@@ -1,9 +1,9 @@
 	object_const_def
 	const MRFUJISHOUSE_SUPER_NERD
 	const MRFUJISHOUSE_LASS
-	const MRFUJISHOUSE_PSYDUCK
+	const MRFUJISHOUSE_WIMPOD
 	const MRFUJISHOUSE_NIDORINO
-	const MRFUJISHOUSE_PIDGEY
+	const MRFUJISHOUSE_ROOKIDEE
 
 MrFujisHouse_MapScripts:
 	def_scene_scripts
@@ -19,7 +19,7 @@ MrFujisHouseLassScript:
 MrFujisPsyduck:
 	opentext
 	writetext MrFujisPsyduckText
-	cry PSYDUCK
+	cry WIMPOD
 	waitbutton
 	closetext
 	end
@@ -35,7 +35,7 @@ MrFujisNidorino:
 MrFujisPidgey:
 	opentext
 	writetext MrFujisPidgeyText
-	cry PIDGEY
+	cry ROOKIDEE
 	waitbutton
 	closetext
 	end
@@ -66,7 +66,7 @@ MrFujisHouseLassText:
 	done
 
 MrFujisPsyduckText:
-	text "PSYDUCK: Gu-guwa?"
+	text "WIMPOD: Gu-guwa?"
 	done
 
 MrFujisNidorinoText:
@@ -74,7 +74,7 @@ MrFujisNidorinoText:
 	done
 
 MrFujisPidgeyText:
-	text "PIDGEY: Pijji!"
+	text "ROOKIDEE: Pijji!"
 	done
 
 MrFujisHouse_MapEvents:

@@ -9,7 +9,7 @@ DEF BLUE_CARD_POINT_CAP EQU 30
 	const RADIOTOWER2F_ROCKET_GIRL
 	const RADIOTOWER2F_BLACK_BELT1
 	const RADIOTOWER2F_BLACK_BELT2
-	const RADIOTOWER2F_JIGGLYPUFF
+	const RADIOTOWER2F_CUTIEFLY
 	const RADIOTOWER2F_BUENA
 	const RADIOTOWER2F_RECEPTIONIST
 
@@ -40,7 +40,7 @@ RadioTower2FTeacherScript:
 RadioTowerJigglypuff:
 	opentext
 	writetext RadioTowerJigglypuffText
-	cry JIGGLYPUFF
+	cry CUTIEFLY
 	waitbutton
 	closetext
 	end
@@ -139,7 +139,7 @@ RadioTower2FTeacherText_Rockets:
 	done
 
 RadioTowerJigglypuffText:
-	text "JIGGLYPUFF:"
+	text "CUTIEFLY:"
 	line "Jiggly…"
 	done
 

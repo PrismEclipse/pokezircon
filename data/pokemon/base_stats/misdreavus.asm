@@ -11,10 +11,10 @@
 	db GENDER_F50 ; gender ratio
 	db 25 ; step cycles to hatch
 	INCBIN "gfx/pokemon/misdreavus/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+
 	db GROWTH_FAST ; growth rate
 	dn EGG_INDETERMINATE, EGG_INDETERMINATE ; egg groups
 
 	; tm/hm learnset
-	tmhm HEADBUTT, CURSE, TOXIC, ZAP_CANNON, BULK_UP, HIDDEN_POWER, SUNNY_DAY, SWORDS_DANCE, PROTECT, RAIN_DANCE, ENDURE, THUNDER_WAVE, THUNDER, RETURN, PSYCHIC_M, SHADOW_BALL, DOUBLE_TEAM, SWAGGER, SLEEP_TALK, SWIFT, DEFENSE_CURL, CALM_MIND, REST, ATTRACT, THIEF, NASTY_PLOT, FLASH, THUNDERBOLT
+	tmhm HIDDEN_POWER
 	; end

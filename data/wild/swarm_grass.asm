@@ -6,26 +6,26 @@ SwarmGrassWildMons:
 	map_id DARK_CAVE_VIOLET_ENTRANCE
 	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
 	; morn
-	db 3, GEODUDE
+	db 3, ARON
 	db 3, DUNSPARCE
-	db 2, ZUBAT
-	db 2, GEODUDE
+	db 2, RINRING
+	db 2, ARON
 	db 2, DUNSPARCE
 	db 4, DUNSPARCE
 	db 4, DUNSPARCE
 	; day
-	db 3, GEODUDE
+	db 3, ARON
 	db 3, DUNSPARCE
-	db 2, ZUBAT
-	db 2, GEODUDE
+	db 2, RINRING
+	db 2, ARON
 	db 2, DUNSPARCE
 	db 4, DUNSPARCE
 	db 4, DUNSPARCE
 	; nite
-	db 3, GEODUDE
+	db 3, ARON
 	db 3, DUNSPARCE
-	db 2, ZUBAT
-	db 2, GEODUDE
+	db 2, RINRING
+	db 2, ARON
 	db 2, DUNSPARCE
 	db 4, DUNSPARCE
 	db 4, DUNSPARCE
@@ -38,7 +38,7 @@ SwarmGrassWildMons:
 	db 12, NIDORAN_F
 	db 12, YANMA
 	db 14, YANMA
-	db 14, PIDGEY
+	db 14, ROOKIDEE
 	db 10, DITTO
 	db 10, DITTO
 	; day
@@ -46,7 +46,7 @@ SwarmGrassWildMons:
 	db 12, NIDORAN_F
 	db 12, YANMA
 	db 14, YANMA
-	db 14, PIDGEY
+	db 14, ROOKIDEE
 	db 10, DITTO
 	db 10, DITTO
 	; nite

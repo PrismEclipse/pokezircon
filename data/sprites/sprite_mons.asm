@@ -2,18 +2,18 @@ SpriteMons:
 ; entries correspond to SPRITE_* constants past SPRITE_POKEMON
 	table_width 1
 	db UNOWN
-	db GEODUDE
-	db GROWLITHE
+	db ARON
+	db ORTHWORM
 	db WEEDLE
 	db SHELLDER
 	db ODDISH
 	db GENGAR
-	db ZUBAT
+	db RINRING
 	db MAGIKARP
 	db SQUIRTLE
 	db GALLADE
 	db BUTTERFREE
-	db DIGLETT
+	db DRILBUR
 	db POLIWAG
 	db PIKACHU
 	db CLEFAIRY
@@ -21,18 +21,18 @@ SpriteMons:
 	db SWAVYBELL
 	db STARMIE
 	db BULBASAUR
-	db JIGGLYPUFF
-	db GRIMER
-	db EKANS
-	db PARAS
-	db TENTACOOL
+	db CUTIEFLY
+	db SKRELP
+	db KOTORA
+	db SHROOMISH
+	db LILLIGANT_H
 	db LUXWAN
-	db MACHOP
-	db VOLTORB
+	db DEDENNE
+	db IMPIDIMP
 	db LAPRAS
 	db RHYDON
 	db GOUGING_FIRE
-	db SNORLAX
+	db TYRANTRUM
 	db GYARADOS
 	db LUGIA
 	db HO_OH

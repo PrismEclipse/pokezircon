@@ -2,7 +2,7 @@
 	const CERULEANTRADESPEECHHOUSE_GRANNY
 	const CERULEANTRADESPEECHHOUSE_GRAMPS
 	const CERULEANTRADESPEECHHOUSE_RHYDON
-	const CERULEANTRADESPEECHHOUSE_ZUBAT
+	const CERULEANTRADESPEECHHOUSE_RINRING
 
 CeruleanTradeSpeechHouse_MapScripts:
 	def_scene_scripts
@@ -18,7 +18,7 @@ CeruleanTradeSpeechHouseGrampsScript:
 CeruleanTradeSpeechHouseRhydonScript:
 	opentext
 	writetext CeruleanTradeSpeechHouseRhydonText
-	cry KANGASKHAN
+	cry BOMSEEKER
 	waitbutton
 	closetext
 	end
@@ -26,7 +26,7 @@ CeruleanTradeSpeechHouseRhydonScript:
 CeruleanTradeSpeechHouseZubatScript:
 	opentext
 	writetext CeruleanTradeSpeechHouseZubatText
-	cry ZUBAT
+	cry RINRING
 	waitbutton
 	closetext
 	end
@@ -43,12 +43,12 @@ CeruleanTradeSpeechHouseGrampsText:
 	done
 
 CeruleanTradeSpeechHouseRhydonText:
-	text "KANGASKHAN: Garu"
+	text "BOMSEEKER: Garu"
 	line "garuu."
 	done
 
 CeruleanTradeSpeechHouseZubatText:
-	text "ZUBAT: Zuba zubaa."
+	text "RINRING: Zuba zubaa."
 	done
 
 CeruleanTradeSpeechHouse_MapEvents:

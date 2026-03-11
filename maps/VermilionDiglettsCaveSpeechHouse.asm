@@ -1,5 +1,5 @@
 	object_const_def
-	const VERMILIONDIGLETTSCAVESPEECHHOUSE_GENTLEMAN
+	const VERMILIONDRILBURSCAVESPEECHHOUSE_GENTLEMAN
 
 VermilionDiglettsCaveSpeechHouse_MapScripts:
 	def_scene_scripts
@@ -11,7 +11,7 @@ VermilionDiglettsCaveSpeechHouseGentlemanScript:
 
 VermilionDiglettsCaveSpeechHouseGentlemanText:
 	text "Over many years,"
-	line "DIGLETT dug a"
+	line "DRILBUR dug a"
 	cont "large tunnel."
 
 	para "That tunnel goes"

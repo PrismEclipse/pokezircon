@@ -447,31 +447,31 @@ ExplodingTrap22:
 
 VoltorbExplodingTrap:
 	special FadeOutToWhite
-	cry VOLTORB
+	cry JOLTIK
 	special FadeInFromWhite
 	setlasttalked -1
 	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
-	loadwildmon VOLTORB, 23
+	loadwildmon JOLTIK, 23
 	startbattle
 	end
 
 GeodudeExplodingTrap:
 	special FadeOutToWhite
-	cry GEODUDE
+	cry ARON
 	special FadeInFromWhite
 	setlasttalked -1
 	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
-	loadwildmon GEODUDE, 21
+	loadwildmon ARON, 21
 	startbattle
 	end
 
 KoffingExplodingTrap:
 	special FadeOutToWhite
-	cry KOFFING
+	cry VAROOM
 	special FadeInFromWhite
 	setlasttalked -1
 	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
-	loadwildmon KOFFING, 21
+	loadwildmon VAROOM, 21
 	startbattle
 	end
 

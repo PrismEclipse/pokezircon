@@ -46,17 +46,16 @@ MoveGrammar:
 ; 3: originally "[mon]の<LINE>[move]　こうげき！" ("[mon]'s<LINE>[move] attack!")
 	db TACKLE
 	db SCRATCH
-	db VICEGRIP
 	db WING_ATTACK
 	db FLY
-	db HORN_ATTACK
+	db PIERCE
 	db WRAP
 	db THRASH
 	db DISARM
 	db BITE
 	db GROWL
 	db SEND_AWAY
-	db SING
+	db HYPNOTIZE
 	db PECK
 	db ABSORB
 	db SLOW_DOWN

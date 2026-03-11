@@ -1,6 +1,6 @@
 	object_const_def
 	const COPYCATSHOUSE2F_COPYCAT1 ; if player is male
-	const COPYCATSHOUSE2F_DODRIO
+	const COPYCATSHOUSE2F_HAWLUCHA
 	const COPYCATSHOUSE2F_FAIRYDOLL ; lost item
 	const COPYCATSHOUSE2F_MONSTERDOLL
 	const COPYCATSHOUSE2F_BIRDDOLL
@@ -173,7 +173,7 @@ Copycat:
 CopycatsDodrio:
 	opentext
 	writetext CopycatsDodrioText1
-	cry DODRIO
+	cry HAWLUCHA
 	promptbutton
 	writetext CopycatsDodrioText2
 	waitbutton
@@ -340,7 +340,7 @@ CopycatText_Female_3:
 	done
 
 CopycatsDodrioText1:
-	text "DODRIO: Gii giii!"
+	text "HAWLUCHA: Gii giii!"
 	done
 
 CopycatsDodrioText2:

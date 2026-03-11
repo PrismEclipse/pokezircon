@@ -4,17 +4,17 @@
 	evs  0,   0,   0,   0,   0,   0
 	;   hp  atk  def  spd  sat  sdf
 
-	db NORMAL, NORMAL ; type
+	db FAIRY, FAIRY ; type
 	db 25 ; catch rate
 	db 129 ; base exp
 	db MYSTERYBERRY, MOON_STONE ; items
 	db GENDER_F75 ; gender ratio
 	db 10 ; step cycles to hatch
 	INCBIN "gfx/pokemon/clefable/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+
 	db GROWTH_FAST ; growth rate
 	dn EGG_FAIRY, EGG_FAIRY ; egg groups
 
 	; tm/hm learnset
-	tmhm DYNAMICPUNCH, HEADBUTT, CURSE, ROLLOUT, TOXIC, ZAP_CANNON, BULK_UP, HIDDEN_POWER, SUNNY_DAY, SWORDS_DANCE, BLIZZARD, HYPER_BEAM, PROTECT, RAIN_DANCE, ENDURE, THUNDER_WAVE, SOLARBEAM, IRON_TAIL, THUNDER, RETURN, PSYCHIC_M, SHADOW_BALL, MUD_SLAP, DOUBLE_TEAM, ICE_PUNCH, SWAGGER, SLEEP_TALK, FIRE_BLAST, DEFENSE_CURL, THUNDERPUNCH, CALM_MIND, DRAGON_CLAW, REST, ATTRACT, FIRE_PUNCH, NASTY_PLOT, STRENGTH, FLASH, FLAMETHROWER, THUNDERBOLT, ICE_BEAM
+	tmhm HIDDEN_POWER
 	; end

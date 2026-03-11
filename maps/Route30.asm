@@ -203,7 +203,7 @@ SkipSwarmText:
 	done	
 
 Text_UseTackle:
-	text "Go, RATTATA!"
+	text "Go, ZIGZAGOON!"
 
 	para "TACKLE!"
 	done

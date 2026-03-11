@@ -16,7 +16,7 @@ GiveDratini:
 .CheckForDratini:
 ; start at the end of the party and search backwards for a Dratini
 	ld a, [hl]
-	cp DRATINI
+	cp GIBLE
 	jr z, .GiveMoveset
 	ld a, l
 	sub e
@@ -73,7 +73,7 @@ GiveDratini:
 ; Dratini does not normally learn Extremespeed. This is a special gift.
 	db WRAP
 	db THUNDER_WAVE
-	db TWISTER
+	db GUST
 	db EXTREMESPEED
 	db 0
 .Moveset1:
@@ -81,7 +81,7 @@ GiveDratini:
 	db WRAP
 	db DISARM
 	db THUNDER_WAVE
-	db TWISTER
+	db GUST
 	db 0
 
 .GetNthPartyMon:

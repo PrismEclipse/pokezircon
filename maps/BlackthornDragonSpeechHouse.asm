@@ -13,7 +13,7 @@ BlackthornDragonSpeechHouseGrannyScript:
 BlackthornDragonSpeechHouseDratiniScript:
 	opentext
 	writetext BlackthornDragonSpeechHouseDratiniText
-	cry DRATINI
+	cry GIBLE
 	waitbutton
 	closetext
 	end

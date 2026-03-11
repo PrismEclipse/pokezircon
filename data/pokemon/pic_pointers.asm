@@ -18,19 +18,19 @@ PokemonPicPointers::
 	dbas WeedleFrontpic, WeedleBackpic
 	dbas KakunaFrontpic, KakunaBackpic
 	dbas BeedrillFrontpic, BeedrillBackpic
-	dbas PidgeyFrontpic, PidgeyBackpic
-	dbas PidgeottoFrontpic, PidgeottoBackpic
-	dbas PidgeotFrontpic, PidgeotBackpic
-	dbas RattataFrontpic, RattataBackpic
-	dbas RaticateFrontpic, RaticateBackpic
-	dbas SpearowFrontpic, SpearowBackpic
-	dbas FearowFrontpic, FearowBackpic
-	dbas EkansFrontpic, EkansBackpic
-	dbas ArbokFrontpic, ArbokBackpic
+	dbas RookideeFrontpic, RookideeBackpic
+	dbas CorvisquireFrontpic, CorvisquireBackpic
+	dbas CorviknightFrontpic, CorviknightBackpic
+	dbas ZigzagoonFrontpic, ZigzagoonBackpic
+	dbas LinooneFrontpic, LinooneBackpic
+	dbas TaillowFrontpic, TaillowBackpic
+	dbas SwellowFrontpic, SwellowBackpic
+	dbas KotoraFrontpic, KotoraBackpic
+	dbas RaitoraFrontpic, RaitoraBackpic
 	dbas PikachuFrontpic, PikachuBackpic
 	dbas RaichuFrontpic, RaichuBackpic
-	dbas SandshrewFrontpic, SandshrewBackpic
-	dbas SandslashFrontpic, SandslashBackpic
+	dbas SandygastFrontpic, SandygastBackpic
+	dbas PalossandFrontpic, PalossandBackpic
 	dbas NidoranFFrontpic, NidoranFBackpic
 	dbas NidorinaFrontpic, NidorinaBackpic
 	dbas NidoqueenFrontpic, NidoqueenBackpic
@@ -39,48 +39,48 @@ PokemonPicPointers::
 	dbas NidokingFrontpic, NidokingBackpic
 	dbas ClefairyFrontpic, ClefairyBackpic
 	dbas ClefableFrontpic, ClefableBackpic
-	dbas VulpixFrontpic, VulpixBackpic
-	dbas NinetalesFrontpic, NinetalesBackpic
-	dbas JigglypuffFrontpic, JigglypuffBackpic
-	dbas WigglytuffFrontpic, WigglytuffBackpic
-	dbas ZubatFrontpic, ZubatBackpic
-	dbas GolbatFrontpic, GolbatBackpic
+	dbas GlimmetFrontpic, GlimmetBackpic
+	dbas GlimmoraFrontpic, GlimmoraBackpic
+	dbas CutieflyFrontpic, CutieflyBackpic
+	dbas RibombeeFrontpic, RibombeeBackpic
+	dbas RinringFrontpic, RinringBackpic
+	dbas BellerunFrontpic, BellerunBackpic
 	dbas OddishFrontpic, OddishBackpic
 	dbas GloomFrontpic, GloomBackpic
 	dbas VileplumeFrontpic, VileplumeBackpic
-	dbas ParasFrontpic, ParasBackpic
-	dbas ParasectFrontpic, ParasectBackpic
-	dbas VenonatFrontpic, VenonatBackpic
-	dbas VenomothFrontpic, VenomothBackpic
-	dbas DiglettFrontpic, DiglettBackpic
-	dbas DugtrioFrontpic, DugtrioBackpic
+	dbas ShroomishFrontpic, ShroomishBackpic
+	dbas BreloomFrontpic, BreloomBackpic
+	dbas LarvestaFrontpic, LarvestaBackpic
+	dbas VolcaronaFrontpic, VolcaronaBackpic
+	dbas DrilburFrontpic, DrilburBackpic
+	dbas ExcadrillFrontpic, ExcadrillBackpic
 	dbas MeowthFrontpic, MeowthBackpic
 	dbas PersianFrontpic, PersianBackpic
-	dbas PsyduckFrontpic, PsyduckBackpic
-	dbas GolduckFrontpic, GolduckBackpic
-	dbas MankeyFrontpic, MankeyBackpic
-	dbas PrimeapeFrontpic, PrimeapeBackpic
-	dbas TentacoolFrontpic, TentacoolBackpic
-	dbas GrowlitheFrontpic, GrowlitheBackpic
-	dbas ArcanineFrontpic, ArcanineBackpic
+	dbas WimpodFrontpic, WimpodBackpic
+	dbas GolisopodFrontpic, GolisopodBackpic
+	dbas PetililFrontpic, PetililBackpic
+	dbas LilligantFrontpic, LilligantBackpic
+	dbas LilligantHisuiFrontpic, LilligantHisuiBackpic
+	dbas OrthwormFrontpic, OrthwormBackpic
+	dbas MimikyuFrontpic, MimikyuBackpic
 	dbas PoliwagFrontpic, PoliwagBackpic
 	dbas PoliwhirlFrontpic, PoliwhirlBackpic
 	dbas PoliwrathFrontpic, PoliwrathBackpic
-	dbas AbraFrontpic, AbraBackpic
-	dbas KadabraFrontpic, KadabraBackpic
-	dbas AlakazamFrontpic, AlakazamBackpic
-	dbas MachopFrontpic, MachopBackpic
-	dbas MachokeFrontpic, MachokeBackpic
-	dbas MachampFrontpic, MachampBackpic
+	dbas HatennaFrontpic, HatennaBackpic
+	dbas HattremFrontpic, HattremBackpic
+	dbas HattereneFrontpic, HattereneBackpic
+	dbas DedenneFrontpic, DedenneBackpic
+	dbas GolettFrontpic, GolettBackpic
+	dbas GolurkFrontpic, GolurkBackpic
 	dbas BellsproutFrontpic, BellsproutBackpic
 	dbas WeepinbellFrontpic, WeepinbellBackpic
 	dbas VictreebelFrontpic, VictreebelBackpic
 	dbas SwavybellFrontpic, SwavybellBackpic
-	dbas GeodudeFrontpic, GeodudeBackpic
-	dbas GravelerFrontpic, GravelerBackpic
-	dbas GolemFrontpic, GolemBackpic
-	dbas PonytaFrontpic, PonytaBackpic
-	dbas RapidashFrontpic, RapidashBackpic
+	dbas AronFrontpic, AronBackpic
+	dbas LaironFrontpic, LaironBackpic
+	dbas AggronFrontpic, AggronBackpic
+	dbas DarumakaFrontpic, DarumakaBackpic
+	dbas DarmanitanFrontpic, DarmanitanBackpic
 	dbas SlowpokeFrontpic, SlowpokeBackpic
 	dbas SlowbroFrontpic, SlowbroBackpic
 	dbas SlowkingFrontpic, SlowkingBackpic
@@ -89,35 +89,35 @@ PokemonPicPointers::
 	dbas MagnezoneFrontpic, MagnezoneBackpic
 	dbas FarfetchDFrontpic, FarfetchDBackpic
 	dbas LuxwanFrontpic, LuxwanBackpic
-	dbas DoduoFrontpic, DoduoBackpic
-	dbas DodrioFrontpic, DodrioBackpic
-	dbas SeelFrontpic, SeelBackpic
-	dbas DewgongFrontpic, DewgongBackpic
-	dbas GrimerFrontpic, GrimerBackpic
-	dbas MukFrontpic, MukBackpic
+	dbas ChatotFrontpic, ChatotBackpic
+	dbas HawluchaFrontpic, HawluchaBackpic
+	dbas WailmerFrontpic, WailmerBackpic
+	dbas WailordFrontpic, WailordBackpic
+	dbas SkrelpFrontpic, SkrelpBackpic
+	dbas DragalgeFrontpic, DragalgeBackpic
 	dbas ShellderFrontpic, ShellderBackpic
 	dbas CloysterFrontpic, CloysterBackpic
 	dbas TurbannFrontpic,  TurbannBackpic
 	dbas GastlyFrontpic, GastlyBackpic
 	dbas HaunterFrontpic, HaunterBackpic
 	dbas GengarFrontpic, GengarBackpic
-	dbas OnixFrontpic, OnixBackpic
-	dbas DrowzeeFrontpic, DrowzeeBackpic
-	dbas HypnoFrontpic, HypnoBackpic
-	dbas KrabbyFrontpic, KrabbyBackpic
-	dbas KinglerFrontpic, KinglerBackpic
-	dbas VoltorbFrontpic, VoltorbBackpic
-	dbas ElectrodeFrontpic, ElectrodeBackpic
-	dbas ExeggcuteFrontpic, ExeggcuteBackpic
-	dbas ExeggutorFrontpic, ExeggutorBackpic
+	dbas AbsolFrontpic, AbsolBackpic
+	dbas InkayFrontpic, InkayBackpic
+	dbas MalamarFrontpic, MalamarBackpic
+	dbas ClauncherFrontpic, ClauncherBackpic
+	dbas ClawitzerFrontpic, ClawitzerBackpic
+	dbas ImpidimpFrontpic, ImpidimpBackpic
+	dbas MorgremFrontpic, MorgremBackpic
+	dbas GrimmsnarlFrontpic, GrimmsnarlBackpic
+	dbas SpiritombFrontpic, SpiritombBackpic
 	dbas CuboneFrontpic, CuboneBackpic
 	dbas MarowakFrontpic, MarowakBackpic
 	dbas LatiasFrontpic, LatiasBackpic
 	dbas LatiosFrontpic, LatiosBackpic
 	dbas LickitungFrontpic, LickitungBackpic
 	dbas LickikingFrontpic, LickikingBackpic
-	dbas KoffingFrontpic, KoffingBackpic
-	dbas WeezingFrontpic, WeezingBackpic
+	dbas VaroomFrontpic, VaroomBackpic
+	dbas RevavroomFrontpic, RevavroomBackpic
 	dbas RhyhornFrontpic, RhyhornBackpic
 	dbas RhydonFrontpic, RhydonBackpic
 	dbas RhyperiorFrontpic, RhyperiorBackpic
@@ -125,15 +125,15 @@ PokemonPicPointers::
 	dbas BlisseyFrontpic, BlisseyBackpic
 	dbas TangelaFrontpic, TangelaBackpic
 	dbas TangorestFrontpic, TangorestBackpic
-	dbas KangaskhanFrontpic, KangaskhanBackpic
-	dbas HorseaFrontpic, HorseaBackpic
-	dbas SeadraFrontpic, SeadraBackpic
-	dbas GoldeenFrontpic, GoldeenBackpic
+	dbas BomseekerFrontpic, BomseekerBackpic
+	dbas CorasunFrontpic, CorasunBackpic
+	dbas AnchorageFrontpic, AnchorageBackpic
+	dbas GrotessFrontpic, GrotessBackpic
 	dbas StaryuFrontpic, StaryuBackpic
 	dbas StarmieFrontpic, StarmieBackpic
 	dbas ScytherFrontpic, ScytherBackpic
-	dbas ElectabuzzFrontpic, ElectabuzzBackpic
-	dbas MagmarFrontpic, MagmarBackpic
+	dbas JoltikFrontpic, JoltikBackpic
+	dbas GalvantulaFrontpic, GalvantulaBackpic
 	dbas PinsirFrontpic, PinsirBackpic
 	dbas PraxeFrontpic,  PraxeBackpic
 	dbas MagikarpFrontpic, MagikarpBackpic
@@ -146,20 +146,20 @@ PokemonPicPointers::
 	dbas JolteonFrontpic, JolteonBackpic
 	dbas FlareonFrontpic, FlareonBackpic
 	dbas PorygonFrontpic, PorygonBackpic
-	dbas OmanyteFrontpic, OmanyteBackpic
-	dbas OmastarFrontpic, OmastarBackpic
-	dbas KabutoFrontpic, KabutoBackpic
-	dbas KabutopsFrontpic, KabutopsBackpic
-	dbas AerodactylFrontpic, AerodactylBackpic
-	dbas SnorlaxFrontpic, SnorlaxBackpic
-	dbas ChinchouFrontpic, ChinchouBackpic
-	dbas LanturnFrontpic, LanturnBackpic
+	dbas TirtougaFrontpic, TirtougaBackpic
+	dbas CarracostaFrontpic, CarracostaBackpic
+	dbas ArchenFrontpic, ArchenBackpic
+	dbas ArcheopsFrontpic, ArcheopsBackpic
+	dbas TyruntFrontpic, TyruntBackpic
+	dbas TyrantrumFrontpic, TyrantrumBackpic
+	dbas AmauraFrontpic, AmauraBackpic
+	dbas AurorusFrontpic, AurorusBackpic
 	dbas RagingBoltFrontpic, RagingBoltBackpic
 	dbas GougingFireFrontpic, GougingFireBackpic
 	dbas WalkingWakeFrontpic, WalkingWakeBackpic
-	dbas DratiniFrontpic, DratiniBackpic
-	dbas DragonairFrontpic, DragonairBackpic
-	dbas DragoniteFrontpic, DragoniteBackpic
+	dbas GibleFrontpic, GibleBackpic
+	dbas GabiteFrontpic, GabiteBackpic
+	dbas GarchompFrontpic, GarchompBackpic
 	dbas NecrozmaFrontpic, NecrozmaBackpic
 	dbas MewFrontpic, MewBackpic
 	dbas RowletFrontpic, RowletBackpic

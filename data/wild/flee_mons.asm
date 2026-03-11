@@ -3,13 +3,13 @@ FleeMons:
 
 SometimesFleeMons:
 	db MAGNEMITE
-	db GRIMER
+	db SKRELP
 	db TANGELA
-	db KADABRA
+	db HATTREM
 	db EEVEE
 	db PORYGON
-	db DRATINI
-	db DRAGONAIR
+	db GIBLE
+	db GABITE
 	db TINKATINK
 	db UMBREON
 	db UNOWN

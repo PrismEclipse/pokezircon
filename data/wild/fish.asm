@@ -27,44 +27,44 @@ FishGroups:
 .Shore_Old:
 	db  70 percent + 1, MAGIKARP,   10
 	db  85 percent + 1, MAGIKARP,   10
-	db 100 percent,     KRABBY,     10
+	db 100 percent,     CLAUNCHER,     10
 .Shore_Good:
 	db  35 percent,     MAGIKARP,   20
-	db  70 percent,     KRABBY,     20
-	db  90 percent + 1, KRABBY,     20
+	db  70 percent,     CLAUNCHER,     20
+	db  90 percent + 1, CLAUNCHER,     20
 	db 100 percent,     time_group 0
 .Shore_Super:
-	db  40 percent,     KRABBY,     40
+	db  40 percent,     CLAUNCHER,     40
 	db  70 percent,     time_group 1
-	db  90 percent + 1, KRABBY,     40
-	db 100 percent,     KINGLER,    40
+	db  90 percent + 1, CLAUNCHER,     40
+	db 100 percent,     CLAWITZER,    40
 
 .Ocean_Old:
 	db  70 percent + 1, MAGIKARP,   10
 	db  85 percent + 1, MAGIKARP,   10
-	db 100 percent,     TENTACOOL,  10
+	db 100 percent,     SKRELP,  10
 .Ocean_Good:
 	db  35 percent,     MAGIKARP,   20
-	db  70 percent,     TENTACOOL,  20
-	db  90 percent + 1, CHINCHOU,   20
+	db  70 percent,     SKRELP,  20
+	db  90 percent + 1, CLAUNCHER,   20
 	db 100 percent,     time_group 2
 .Ocean_Super:
-	db  40 percent,     CHINCHOU,   40
+	db  40 percent,     CLAUNCHER,   40
 	db  70 percent,     time_group 3
 	db  90 percent + 1, TENTACRUEL, 40
-	db 100 percent,     LANTURN,    40
+	db 100 percent,     CLAWITZER,    40
 
 .Lake_Old:
 	db  70 percent + 1, MAGIKARP,   10
 	db  85 percent + 1, MAGIKARP,   10
-	db 100 percent,     GOLDEEN,    10
+	db 100 percent,     ANCHORAGE,    10
 .Lake_Good:
 	db  35 percent,     MAGIKARP,   20
-	db  70 percent,     GOLDEEN,    20
-	db  90 percent + 1, GOLDEEN,    20
+	db  70 percent,     ANCHORAGE,    20
+	db  90 percent + 1, ANCHORAGE,    20
 	db 100 percent,     time_group 4
 .Lake_Super:
-	db  40 percent,     GOLDEEN,    40
+	db  40 percent,     ANCHORAGE,    40
 	db  70 percent,     time_group 5
 	db  90 percent + 1, MAGIKARP,   40
 	db 100 percent,     GYARADOS,    40
@@ -97,7 +97,7 @@ FishGroups:
 	db  40 percent,     MAGIKARP,   40
 	db  70 percent,     time_group 9
 	db  90 percent + 1, MAGIKARP,   40
-	db 100 percent,     DRAGONAIR,  40
+	db 100 percent,     GABITE,  40
 
 .Qwilfish_Swarm_Old:
 	db  70 percent + 1, MAGIKARP,   5
@@ -157,37 +157,37 @@ FishGroups:
 	db  40 percent,     MAGIKARP,   10
 	db  70 percent,     time_group 17
 	db  90 percent + 1, MAGIKARP,   10
-	db 100 percent,     DRAGONAIR,  10
+	db 100 percent,     GABITE,  10
 
 .WhirlIslands_Old:
 	db  70 percent + 1, MAGIKARP,   10
 	db  85 percent + 1, MAGIKARP,   10
-	db 100 percent,     KRABBY,     10
+	db 100 percent,     CLAUNCHER,     10
 .WhirlIslands_Good:
 	db  35 percent,     MAGIKARP,   20
-	db  70 percent,     KRABBY,     20
-	db  90 percent + 1, KRABBY,     20
+	db  70 percent,     CLAUNCHER,     20
+	db  90 percent + 1, CLAUNCHER,     20
 	db 100 percent,     time_group 18
 .WhirlIslands_Super:
-	db  40 percent,     KRABBY,     40
+	db  40 percent,     CLAUNCHER,     40
 	db  70 percent,     time_group 19
-	db  90 percent + 1, KINGLER,    40
-	db 100 percent,     SEADRA,     40
+	db  90 percent + 1, CLAWITZER,    40
+	db 100 percent,     ANCHORAGE,     40
 
 .Qwilfish_NoSwarm_Old:
 .Qwilfish_Old:
 	db  70 percent + 1, MAGIKARP,   10
 	db  85 percent + 1, MAGIKARP,   10
-	db 100 percent,     TENTACOOL,  10
+	db 100 percent,     SKRELP,  10
 .Qwilfish_NoSwarm_Good:
 .Qwilfish_Good:
 	db  35 percent,     MAGIKARP,   20
-	db  70 percent,     TENTACOOL,  20
-	db  90 percent + 1, TENTACOOL,  20
+	db  70 percent,     SKRELP,  20
+	db  90 percent + 1, SKRELP,  20
 	db 100 percent,     time_group 20
 .Qwilfish_NoSwarm_Super:
 .Qwilfish_Super:
-	db  40 percent,     TENTACOOL,  40
+	db  40 percent,     SKRELP,  40
 	db  70 percent,     time_group 21
 	db  90 percent + 1, MAGIKARP,   40
 	db 100 percent,     QWILFISH,   40
@@ -213,24 +213,24 @@ TimeFishGroups:
 	db STARYU,    40,  STARYU,     40 ; 1
 	db SHELLDER,   20,  SHELLDER,   20 ; 2
 	db SHELLDER,   40,  SHELLDER,   40 ; 3
-	db GOLDEEN,    20,  GOLDEEN,    20 ; 4
-	db GOLDEEN,    40,  GOLDEEN,    40 ; 5
+	db ANCHORAGE,    20,  ANCHORAGE,    20 ; 4
+	db ANCHORAGE,    40,  ANCHORAGE,    40 ; 5
 	db POLIWAG,    20,  POLIWAG,    20 ; 6
 	db POLIWAG,    40,  POLIWAG,    40 ; 7
-	db DRATINI,    20,  DRATINI,    20 ; 8
-	db DRATINI,    40,  DRATINI,    40 ; 9
+	db GIBLE,    20,  GIBLE,    20 ; 8
+	db GIBLE,    40,  GIBLE,    40 ; 9
 	db QWILFISH,   20,  QWILFISH,   20 ; 10
 	db QWILFISH,   40,  QWILFISH,   40 ; 11
 	db REMORAID,   20,  REMORAID,   20 ; 12
 	db REMORAID,   40,  REMORAID,   40 ; 13
 	db GYARADOS,   20,  GYARADOS,   20 ; 14
 	db GYARADOS,   40,  GYARADOS,   40 ; 15
-	db DRATINI,    10,  DRATINI,    10 ; 16
-	db DRATINI,    10,  DRATINI,    10 ; 17
-	db HORSEA,     20,  HORSEA,     20 ; 18
-	db HORSEA,     40,  HORSEA,     40 ; 19
-	db TENTACOOL,  20,  TENTACOOL,  20 ; 20
-	db TENTACOOL,  40,  TENTACOOL,  40 ; 21
+	db GIBLE,    10,  GIBLE,    10 ; 16
+	db GIBLE,    10,  GIBLE,    10 ; 17
+	db CORASUN,     20,  CORASUN,     20 ; 18
+	db CORASUN,     40,  CORASUN,     40 ; 19
+	db SKRELP,  20,  SKRELP,  20 ; 20
+	db SKRELP,  40,  SKRELP,  40 ; 21
 
 FishGroups_Names::
 	table_width 2, FishGroups_Names
@@ -258,7 +258,7 @@ Group3_Name:
 Group4_Name:
 	db " POND@"
 Group5_Name:
-	db " DRATINI@"
+	db " GIBLE@"
 Group6_Name:
 	db " SWARM 1@"
 Group7_Name:
@@ -267,7 +267,7 @@ Group8_Name:
 	db " GYARADOS@"
 Group9_Name:
 	db " ROUTE 45@"
-	; db " DRATINI 2@"
+	; db " GIBLE 2@"
 Group10_Name:
 	db " WHIRL@"
 Group11_Name:

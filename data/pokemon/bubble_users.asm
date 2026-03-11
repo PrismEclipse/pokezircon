@@ -8,8 +8,8 @@ BubbleUsers:
 	db PIPLUP
 	db PRINPLUP
 	db EMPOLEON
-	db GRIMER
-	db MUK
-	db KRABBY
-	db KINGLER
+	db SKRELP
+	db DRAGALGE
+	db CLAUNCHER
+	db CLAWITZER
 	db -1

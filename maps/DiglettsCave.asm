@@ -1,5 +1,5 @@
 	object_const_def
-	const DIGLETTSCAVE_POKEFAN_M
+	const DRILBURSCAVE_POKEFAN_M
 
 DiglettsCave_MapScripts:
 	def_scene_scripts
@@ -13,7 +13,7 @@ DiglettsCaveHiddenMaxRevive:
 	hiddenitem MAX_REVIVE, EVENT_DIGLETTS_CAVE_HIDDEN_MAX_REVIVE
 
 DiglettsCavePokefanMText:
-	text "A bunch of DIGLETT"
+	text "A bunch of DRILBUR"
 	line "popped out of the"
 
 	para "ground! That was"
