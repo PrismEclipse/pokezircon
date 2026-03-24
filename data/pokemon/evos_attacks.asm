@@ -166,30 +166,10 @@ MarshtompEvosAttacks:
 	db 40, ROCK_SLIDE
 	db 46, PROTECT
 	db 52, HYDRO_PUMP
-	db 0 ; no more level-up moves
 
 SwampertEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 1, GROWL
-	db 1, MUD_SLAP
-	db 1, WATER_GUN
-	db 15, BUBBLEBEAM
-	db 17, ROCK_THROW
-	db 22, CONFUSE_RAY
-	db 28, WHIRLPOOL
-	db 34, TAKE_DOWN
-	db 35, MUDDY_WATER
-	db 43, ROCK_SLIDE
-	db 50, PROTECT
-	db 57, HYDRO_PUMP
-	db 64, EARTHQUAKE
-	db 69, HYDRO_CANNON
-	db 0 ; no more level-up moves
-
-GrubbinEvosAttacks:
-	db EVOLVE_LEVEL, 20, CHARJABUG
-	db 0 ; no more evolutions
 	db 1, MUD_SLAP
 	db 1, PIERCE
 	db 5, SLOW_DOWN
