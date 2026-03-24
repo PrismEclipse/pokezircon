@@ -3,7 +3,6 @@
 
 UsefulMoves:
 	db DOUBLE_EDGE
-	db SING
 	db FLAMETHROWER
 	db HYDRO_PUMP
 	db SURF
@@ -16,7 +15,7 @@ UsefulMoves:
 	db EARTHQUAKE
 	db TOXIC
 	db PSYCHIC_M
-	db HYPNOSIS
+	db HYPNOTIZE
 	db RECOVER
 	db FIRE_BLAST
 	db SUPER_FANG

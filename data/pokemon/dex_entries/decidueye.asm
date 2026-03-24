@@ -1,10 +1,10 @@
-	db "HERB@" ; species name
-	dw 511, 2220 ; height, weight
+	db "ARROW QUILL@" ; species name
+	dw 503, 807 ; height, weight
 
-	db   "Anyone who stands"
-	next "beside it becomes"
-	next "refreshed, just as"
+	db   "As if wielding a"
+	next "bow, it launches"
+	next "the arrow quills"
 
-	page "if they were"
-	next "relaxing in a"
-	next "sunny forest.@"
+	page "hidden among the"
+	next "feathers of its"
+	next "wings.@"

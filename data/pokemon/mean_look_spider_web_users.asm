@@ -11,8 +11,8 @@ MeanLookUsers:
 
 SpiderWebUsers:
 ; Block += SpiderWeb
-	db ELECTABUZZ
-	db MAGMAR
-	db LEDYBA
-	db LEDIAN
+	db JOLTIK
+	db GALVANTULA
+	db TAROUNTULA
+	db SPIDOPS
 	db 0

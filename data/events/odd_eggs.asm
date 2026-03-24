@@ -143,7 +143,7 @@ OddEggs:
 
 	db RALTS
 	db NO_ITEM
-	db SING, CHARM, SPLASH, 0
+	db HYPNOTIZE, CHARM, SPLASH, 0
 	dw 04096 ; OT ID
 	bigdt 125 ; Exp
 	; Stat exp
@@ -169,7 +169,7 @@ OddEggs:
 
 	db RALTS
 	db NO_ITEM
-	db SING, CHARM, SPLASH, 0
+	db HYPNOTIZE, CHARM, SPLASH, 0
 	dw 00768 ; OT ID
 	bigdt 125 ; Exp
 	; Stat exp
@@ -193,7 +193,7 @@ OddEggs:
 	bigdw 8 ; SDef
 	dname "EGG", MON_NAME_LENGTH
 
-	db SMOOCHUM
+	db RINRING
 	db NO_ITEM
 	db TACKLE, LICK, SPLASH, 0
 	dw 03584 ; OT ID
@@ -219,7 +219,7 @@ OddEggs:
 	bigdw 11 ; SDef
 	dname "EGG", MON_NAME_LENGTH
 
-	db SMOOCHUM
+	db RINRING
 	db NO_ITEM
 	db TACKLE, LICK, SPLASH, 0
 	dw 00512 ; OT ID
@@ -245,7 +245,7 @@ OddEggs:
 	bigdw 12 ; SDef
 	dname "EGG", MON_NAME_LENGTH
 
-	db MAGBY
+	db KOTORA
 	db NO_ITEM
 	db EMBER, SPLASH, 0, 0
 	dw 02560 ; OT ID
@@ -271,7 +271,7 @@ OddEggs:
 	bigdw 10 ; SDef
 	dname "EGG", MON_NAME_LENGTH
 
-	db MAGBY
+	db KOTORA
 	db NO_ITEM
 	db EMBER, SPLASH, 0, 0
 	dw 00512 ; OT ID
@@ -297,7 +297,7 @@ OddEggs:
 	bigdw 11 ; SDef
 	dname "EGG", MON_NAME_LENGTH
 
-	db ELEKID
+	db WOLFMAN
 	db NO_ITEM
 	db QUICK_ATTACK, DISARM, SPLASH, 0
 	dw 03072 ; OT ID
@@ -323,7 +323,7 @@ OddEggs:
 	bigdw 10 ; SDef
 	dname "EGG", MON_NAME_LENGTH
 
-	db ELEKID
+	db WOLFMAN
 	db NO_ITEM
 	db QUICK_ATTACK, DISARM, SPLASH, 0
 	dw 00512 ; OT ID

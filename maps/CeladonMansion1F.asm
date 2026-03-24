@@ -1,8 +1,8 @@
 	object_const_def
 	const CELADONMANSION1F_GRANNY
-	const CELADONMANSION1F_GROWLITHE1
+	const CELADONMANSION1F_ORTHWORM1
 	const CELADONMANSION1F_CLEFAIRY
-	const CELADONMANSION1F_GROWLITHE2
+	const CELADONMANSION1F_ORTHWORM2
 
 CeladonMansion1F_MapScripts:
 	def_scene_scripts
@@ -31,7 +31,7 @@ CeladonMansion1FClefairy:
 CeladonMansion1FNidoranF:
 	opentext
 	writetext CeladonMansion1FNidoranFText
-	cry NIDORAN_F
+	cry BUDEW
 	waitbutton
 	closetext
 	end

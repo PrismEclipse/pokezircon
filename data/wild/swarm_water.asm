@@ -7,5 +7,5 @@ SwarmWaterWildMons:
        db 6 percent ; encounter rate
 	db 15, QWILFISH
 	db 20, QWILFISH
-	db 20, TENTACRUEL
+	db 20, MAGIKARP
 	db -1 ; end

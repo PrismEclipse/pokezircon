@@ -11,10 +11,10 @@
 	db GENDER_F100 ; gender ratio
 	db 25 ; step cycles to hatch
 	INCBIN "gfx/pokemon/smoochum/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_NONE, EGG_NONE ; egg groups
 
 	; tm/hm learnset
-	tmhm DYNAMICPUNCH, CURSE, TOXIC, BULK_UP, HIDDEN_POWER, SWEET_SCENT, SWORDS_DANCE, BLIZZARD, ICY_WIND, PROTECT, RAIN_DANCE, ENDURE, THUNDER_WAVE, RETURN, PSYCHIC_M, SHADOW_BALL, MUD_SLAP, DOUBLE_TEAM, ICE_PUNCH, SWAGGER, SLEEP_TALK, CALM_MIND, REST, ATTRACT, THIEF, NASTY_PLOT, ICE_BEAM
+	tmhm HIDDEN_POWER
 	; end

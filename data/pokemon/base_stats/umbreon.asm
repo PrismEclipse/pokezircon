@@ -11,10 +11,10 @@
 	db GENDER_F12_5 ; gender ratio
 	db 35 ; step cycles to hatch
 	INCBIN "gfx/pokemon/umbreon/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_GROUND, EGG_GROUND ; egg groups
 
 	; tm/hm learnset
-	tmhm HEADBUTT, CURSE, TOXIC, ZAP_CANNON, BULK_UP, HIDDEN_POWER, SUNNY_DAY, SWORDS_DANCE, HYPER_BEAM, PROTECT, RAIN_DANCE, ENDURE, THUNDER_WAVE, IRON_TAIL, RETURN, PSYCHIC_M, SHADOW_BALL, MUD_SLAP, DOUBLE_TEAM, SWAGGER, SLEEP_TALK, SWIFT, CALM_MIND, DRAGON_CLAW, REST, ATTRACT, NASTY_PLOT, CUT, FLASH
+	tmhm HIDDEN_POWER
 	; end

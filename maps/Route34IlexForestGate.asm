@@ -69,7 +69,7 @@ Route34IlexForestGateTeacherScript:
 Route34IlexForestGateButterfreeScript:
 	opentext
 	writetext Route34IlexForestGateButterfreeText
-	cry BUTTERFREE
+	cry VIKAVOLT
 	waitbutton
 	closetext
 	end

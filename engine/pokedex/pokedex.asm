@@ -1765,8 +1765,10 @@ Pokedex_DrawDexEntryScreenBG:
 	ld a, $e8 ; .
 	ld [hli], a
 	ld de, wTempSpecies
-	lb bc, PRINTNUM_LEADINGZEROS | 1, 3
-	call PrintNum
+	push hl
+	call GetPokemonNumber
+	pop hl
+	call PlaceString
 ; up/down arrow indicators
 	hlcoord 19, 0
 	ld [hl], $3f
@@ -3237,7 +3239,6 @@ Pokedex_LoadAnyFootprint:
 	dec a
 	and %111
 	swap a
-	add a, a
 	add a, a
 	ld l, a
 	ld h, 0

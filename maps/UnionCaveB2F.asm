@@ -27,8 +27,8 @@ UnionCaveB2FLaprasCallback:
 
 UnionCaveLapras:
 	faceplayer
-	cry LAPRAS
-	loadwildmon LAPRAS, 20
+	cry FALINKS
+	loadwildmon FALINKS, 20
 	startbattle
 	disappear UNIONCAVEB2F_LAPRAS
 	setflag ENGINE_UNION_CAVE_LAPRAS

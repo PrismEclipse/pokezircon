@@ -3950,7 +3950,7 @@ BattleTower_UbersCheck:
 	ld a, [de]
 	cp NECROZMA
 	jr z, .uber
-	cp MEW
+	cp JIRACHI
 	jr z, .uber
 	cp LUGIA
 	jr c, .next

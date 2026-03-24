@@ -6,7 +6,7 @@
 	const GOLDENRODDEPTSTOREB1F_BLACK_BELT1
 	const GOLDENRODDEPTSTOREB1F_BLACK_BELT2
 	const GOLDENRODDEPTSTOREB1F_BLACK_BELT3
-	const GOLDENRODDEPTSTOREB1F_MACHOP
+	const GOLDENRODDEPTSTOREB1F_GOLETT
 
 GoldenrodDeptStoreB1F_MapScripts:
 	def_scene_scripts
@@ -56,7 +56,7 @@ GoldenrodDeptStoreB1FBlackBelt3Script:
 GoldenrodDeptStoreB1FMachopScript:
 	opentext
 	writetext GoldenrodDeptStoreB1FMachokeText
-	cry MACHOKE
+	cry GOLETT
 	waitbutton
 	closetext
 	end
@@ -104,7 +104,7 @@ GoldenrodDeptStoreB1FBlackBelt3Text:
 	done
 
 GoldenrodDeptStoreB1FMachokeText:
-	text "MACHOKE: Maaacho!"
+	text "GOLETT: Maaacho!"
 	done
 
 GoldenrodDeptStoreB1F_MapEvents:

@@ -4,7 +4,7 @@
 	const INDIGOPLATEAUPOKECENTER1F_COOLTRAINER_M
 	const INDIGOPLATEAUPOKECENTER1F_RIVAL
 	const INDIGOPLATEAUPOKECENTER1F_GRAMPS
-	const INDIGOPLATEAUPOKECENTER1F_ABRA
+	const INDIGOPLATEAUPOKECENTER1F_HATENNA
 
 IndigoPlateauPokecenter1F_MapScripts:
 	def_scene_scripts
@@ -170,7 +170,7 @@ TeleportGuyScript:
 AbraScript:
 	opentext
 	writetext AbraText
-	cry ABRA
+	cry HATENNA
 	waitbutton
 	closetext
 	end
@@ -275,7 +275,7 @@ TeleportGuyText1:
 	para "If you need to"
 	line "train some more,"
 
-	para "my ABRA can help"
+	para "my HATENNA can help"
 	line "you."
 
 	para "It can TELEPORT"
@@ -297,7 +297,7 @@ TeleportGuyNoText:
 	done
 
 AbraText:
-	text "ABRA: Aabra…"
+	text "HATENNA: Aabra…"
 	done
 
 IndigoPlateauPokecenter1F_MapEvents:

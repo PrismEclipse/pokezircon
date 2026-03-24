@@ -1,10 +1,10 @@
-	db "LEAF@" ; species name
-	dw 311, 350 ; height, weight
+	db "BLADE QUILL@" ; species name
+	dw 204, 353 ; height, weight
 
-	db   "The scent that"
-	next "wafts from the"
-	next "leaves on its neck"
+	db   "It throws one"
+	next "knifelike feather"
+	next "after another at"
 
-	page "causes anyone who"
-	next "smells it to"
-	next "become energetic.@"
+	page "enemies, and each"
+	next "one precisely str-"
+	next "ikes a weak point.@"

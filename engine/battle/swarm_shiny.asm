@@ -19,7 +19,7 @@ GenerateSwarmShiny:
        jr .rollshiny
 .dunsparce
        ld a, [wCurPartySpecies]
-       cp DUNSPARCE
+       cp WOLFMAN
        jr nz, .skipshine
        jr .rollshiny
 .qwilfish

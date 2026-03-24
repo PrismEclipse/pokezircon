@@ -3,17 +3,17 @@ FleeMons:
 
 SometimesFleeMons:
 	db MAGNEMITE
-	db GRIMER
+	db SKRELP
 	db TANGELA
-	db KADABRA
+	db HATTREM
 	db EEVEE
 	db PORYGON
-	db DRATINI
-	db DRAGONAIR
+	db GIBLE
+	db GABITE
 	db TINKATINK
 	db UMBREON
 	db UNOWN
-	db SNUBBULL
+	db MAGIKARP
 	db HERACROSS
 	db -1
 
@@ -21,7 +21,7 @@ OftenFleeMons:
 	db CUBONE
 	db QUAGSIRE
 	db TURBANN
-	db PHANPY
+	db MAGIKARP
 	db SNEASEL
 	db -1
 

@@ -1,9 +1,9 @@
 HornDrillUsers:
 ; "Fatal Blow" = Horn Drill + Guillotine
-	db DUGTRIO
+	db EXCADRILL
 	db RHYHORN
 	db RHYDON
 	db RHYPERIOR
-	db AERODACTYL
-	db SNORLAX
+	db TYRUNT
+	db TYRANTRUM
 	db -1

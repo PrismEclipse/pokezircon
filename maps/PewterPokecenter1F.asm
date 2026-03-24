@@ -1,7 +1,7 @@
 	object_const_def
 	const PEWTERPOKECENTER1F_NURSE
 	const PEWTERPOKECENTER1F_TEACHER
-	const PEWTERPOKECENTER1F_JIGGLYPUFF
+	const PEWTERPOKECENTER1F_CUTIEFLY
 	const PEWTERPOKECENTER1F_BUG_CATCHER
 	const PEWTERPOKECENTER1F_CHRIS
 
@@ -19,7 +19,7 @@ PewterPokecenter1FTeacherScript:
 PewterJigglypuff:
 	opentext
 	writetext PewterJigglypuffText
-	cry JIGGLYPUFF
+	cry CUTIEFLY
 	waitbutton
 	closetext
 	end
@@ -47,7 +47,7 @@ PewterPokecenter1FTeacherText:
 	done
 
 PewterJigglypuffText:
-	text "JIGGLYPUFF: Puu"
+	text "CUTIEFLY: Puu"
 	line "pupuu."
 	done
 
@@ -55,7 +55,7 @@ PewterPokecenter1FBugCatcherText:
 	text "Most #MON get"
 	line "drowsy if they"
 
-	para "hear a JIGGLYPUFF"
+	para "hear a CUTIEFLY"
 	line "singing."
 
 	para "There are several"

@@ -18,7 +18,7 @@ Route39_MapScripts:
 Route39Miltank:
 	opentext
 	writetext Route39MiltankText
-	cry MILTANK
+	cry PANGSHI
 	waitbutton
 	closetext
 	end

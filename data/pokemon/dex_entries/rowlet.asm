@@ -1,10 +1,10 @@
-	db "LEAF@" ; species name
-	dw 211, 140 ; height, weight
+	db "GRASS QUILL@" ; species name
+	dw 100, 33 ; height, weight
 
-	db   "It loves to bask"
-	next "in the sunlight."
-	next "It uses the leaf"
+	db   "It feels relaxed"
+	next "in tight, dark pl-"
+	next "aces. It has been"
 
-	page "on its head to"
-	next "seek out warm"
-	next "places.@"
+	page "known to use its"
+	next "trainer's pocket"
+	next "or bag as a nest.@"

@@ -11,10 +11,10 @@
 	db GENDER_F50 ; gender ratio
 	db 15 ; step cycles to hatch
 	INCBIN "gfx/pokemon/noctowl/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_FLYING, EGG_FLYING ; egg groups
 
 	; tm/hm learnset
-	tmhm CURSE, TOXIC, HIDDEN_POWER, SUNNY_DAY, SWORDS_DANCE, HYPER_BEAM, PROTECT, ENDURE, THUNDER_WAVE, RETURN, MUD_SLAP, DOUBLE_TEAM, SWAGGER, SLEEP_TALK, SWIFT, CALM_MIND, DRAGON_CLAW, REST, ATTRACT, THIEF, STEEL_WING, NASTY_PLOT, FLY, FLASH
+	tmhm HIDDEN_POWER
 	; end

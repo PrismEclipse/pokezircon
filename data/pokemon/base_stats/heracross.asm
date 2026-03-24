@@ -11,10 +11,10 @@
 	db GENDER_F50 ; gender ratio
 	db 25 ; step cycles to hatch
 	INCBIN "gfx/pokemon/heracross/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+
 	db GROWTH_SLOW ; growth rate
 	dn EGG_BUG, EGG_BUG ; egg groups
 
 	; tm/hm learnset
-	tmhm HEADBUTT, CURSE, TOXIC, ROCK_SMASH, HIDDEN_POWER, SUNNY_DAY, SWORDS_DANCE, PROTECT, ENDURE, THUNDER_WAVE, EARTHQUAKE, RETURN, DOUBLE_TEAM, SWAGGER, SLEEP_TALK, DRAGON_CLAW, REST, ATTRACT, THIEF, CROSS_CUTTER, CUT, STRENGTH
+	tmhm HIDDEN_POWER
 	; end

@@ -6,12 +6,12 @@ PoundUsers:
 	db CLEFFA
 	db SUNFLORA
 	db BLISSEY
-	db BULBASAUR
-	db IVYSAUR
-	db VENUSAUR
+	db TREECKO
+	db GROVYLE
+	db SCEPTILE
 	db PIPLUP
 	db PRINPLUP
 	db EMPOLEON
-	db MACHOKE
-	db MACHAMP
+	db GOLETT
+	db GOLURK
 	db -1

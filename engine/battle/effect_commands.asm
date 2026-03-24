@@ -1723,11 +1723,9 @@ BattleCommand_CheckHit:
 
 	cp GUST
 	ret z
-	cp WHIRLWIND
-	ret z
 	cp THUNDER
 	ret z
-	cp TWISTER
+	cp HURRICANE
 	ret
 
 .DigMoves:
@@ -6987,9 +6985,9 @@ CheckBattleAnimSubstitution:
 	db FLAREON
 	db ESPEON
 	db UMBREON
-	db PIDGEY
-	db PIDGEOTTO
-	db PIDGEOT
+	db ROOKIDEE
+	db CORVISQUIRE
+	db CORVIKNIGHT
 	db 0	
 
 _CheckBattleScene:

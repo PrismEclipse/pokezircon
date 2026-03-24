@@ -11,7 +11,7 @@
 	db GENDER_F0 ; gender ratio
 	db 20 ; step cycles to hatch
 	INCBIN "gfx/pokemon/gallade/front.dimensions"
-	db 0, 0, 0, 0 ; padding
+
 	db GROWTH_SLOW ; growth rate
 	dn EGG_INDETERMINATE, EGG_HUMANSHAPE ; egg groups
 

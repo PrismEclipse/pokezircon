@@ -49,7 +49,7 @@ MoomooScript:
 	checkevent EVENT_HEALED_MOOMOO
 	iftrue .HappyCow
 	writetext MoomooWeakMooText
-	setval MILTANK
+	setval CHIMECHO
 	special PlaySlowCry
 	promptbutton
 	writetext Route39BarnItsCryIsWeakText
@@ -120,7 +120,7 @@ MoomooScript:
 
 .HappyCow:
 	writetext MoomooHappyMooText
-	cry MILTANK
+	cry PANGSHI
 	waitbutton
 	closetext
 	end

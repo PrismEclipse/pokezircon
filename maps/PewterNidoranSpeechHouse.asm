@@ -13,7 +13,7 @@ PewterNidoranSpeechHouseSuperNerdScript:
 PewterNidoran:
 	opentext
 	writetext PewterNidoranText
-	cry NIDORAN_M
+	cry CHARCADET
 	waitbutton
 	closetext
 	end

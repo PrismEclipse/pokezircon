@@ -16,14 +16,14 @@
 	const ICE_PUNCH    ; 08
 	const THUNDERPUNCH ; 09
 	const SCRATCH      ; 0a
-	const VICEGRIP     ; 0b
+	const AQUA_JET     ; 0b
 	const FATAL_BLOW   ; 0c
 	const BURNING_BULWARK  ; 0d
 	const SWORDS_DANCE ; 0e
 	const CUT          ; 0f
 	const GUST         ; 10
 	const WING_ATTACK  ; 11
-	const WHIRLWIND    ; 12
+	const DRAGON_RUSH    ; 12
 	const FLY          ; 13
 	const MUDDY_WATER  ; 14
 	const AERIAL_ACE   ; 15
@@ -35,7 +35,7 @@
 	const BULLDOZE     ; 1b
 	const LUSTER_PURGE ; 1c
 	const HEADBUTT     ; 1d
-	const HORN_ATTACK  ; 1e
+	const PIERCE  ; 1e
 	const ENERGY_BALL  ; 1f
 	const DRAGON_PULSE ; 20
 	const BULK_UP      ; 21
@@ -52,8 +52,8 @@
 	const BITE         ; 2c
 	const GROWL        ; 2d
 	const SEND_AWAY        ; 2e
-	const SING         ; 2f
-	const SUPERSONIC   ; 30
+	const METEOR_MASH  ; 2f
+	const HEAD_SMASH   ; 30
 	const DARK_PULSE   ; 31
 	const DISABLE      ; 32
 	const ACID         ; 33
@@ -100,7 +100,7 @@
 	const TOXIC        ; 5c
 	const CONFUSION    ; 5d
 	const PSYCHIC_M    ; 5e
-	const HYPNOSIS     ; 5f
+	const HYPNOTIZE     ; 5f
 	const X_SCISSOR     ; 60
 	const AGILITY      ; 61
 	const QUICK_ATTACK ; 62
@@ -243,8 +243,8 @@
 	const HEALING_LIGHT    ; eb
 	const MOONBLAST    ; ec
 	const HIDDEN_POWER ; ed
-	const CROSS_CHOP   ; ee
-	const TWISTER      ; ef
+	const HAMMER_ARM   ; ee
+	const BULLET_PUNCH ; ef
 	const RAIN_DANCE   ; f0
 	const SUNNY_DAY    ; f1
 	const CRUNCH       ; f2

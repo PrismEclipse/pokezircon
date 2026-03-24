@@ -2,7 +2,7 @@ WhirlwindUsers:
 ; "Send Away" = Whirlwind + Roar
 	db LUGIA
 	db HO_OH
-	db VENOMOTH
+	db VOLCARONA
 	db FARFETCH_D
 	db LUXWAN
 	db YANMA

@@ -1,7 +1,7 @@
 	object_const_def
 	const CERULEANPOLICESTATION_FISHING_GURU
 	const CERULEANPOLICESTATION_POKEFAN_F
-	const CERULEANPOLICESTATION_DIGLETT
+	const CERULEANPOLICESTATION_DRILBUR
 
 CeruleanPoliceStation_MapScripts:
 	def_scene_scripts
@@ -17,7 +17,7 @@ CeruleanPoliceStationPokefanFScript:
 CeruleanDiglett:
 	opentext
 	writetext CeruleanDiglettText
-	cry DIGLETT
+	cry DRILBUR
 	waitbutton
 	closetext
 	end
@@ -38,7 +38,7 @@ CeruleanPoliceStationPokefanFText:
 	done
 
 CeruleanDiglettText:
-	text "DIGLETT: Dug dug."
+	text "DRILBUR: Dug dug."
 	done
 
 CeruleanPoliceStation_MapEvents:

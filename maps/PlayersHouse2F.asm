@@ -124,8 +124,8 @@ if DEF(_DEBUG)
 	; good party
 	givepoke NECROZMA, 100, BRIGHTPOWDER
 	; hm slaves
-	givepoke MEW, 100, LEFTOVERS
-	givepoke MEW, 100, LEFTOVERS
+	givepoke JIRACHI, 100, LEFTOVERS
+	givepoke JIRACHI, 100, LEFTOVERS
 	loadmem wPartyMon2Moves+0, FLY
 	loadmem wPartyMon2Moves+1, SURF
 	loadmem wPartyMon2Moves+2, STRENGTH

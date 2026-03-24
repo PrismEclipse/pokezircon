@@ -74,4 +74,18 @@ Cries:
 	dba Cry_Stoutland ;BW3G
 	dba Cry_Empoleon ;WIP Cry
 	dba Cry_Magnezone ;BW3G
+	dba Cry_Patrat
+	dba Cry_Meditite
+	dba Cry_Yamask
+	dba Cry_Whimsicott
+	dba Cry_Karrablast
+	dba Cry_Shelmet
+	dba Cry_Tirtouga
+	dba Cry_Mudkip
+	dba Cry_Ceruledge
+	dba Cry_Swampert
+	dba Cry_Charjabug
+	dba Cry_Vikavolt
+	dba Cry_Corviknight
+	dba Cry_Gorochu
 	assert_table_length NUM_CRIES

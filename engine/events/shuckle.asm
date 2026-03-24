@@ -6,7 +6,7 @@ GiveShuckle:
 	ld [wMonType], a
 
 ; Level 15 Shuckle.
-	ld a, DUNSPARCE
+	ld a, WOLFMAN
 	ld [wCurPartySpecies], a
 	ld a, 25
 	ld [wCurPartyLevel], a
@@ -76,7 +76,7 @@ ReturnShuckie:
 	jr c, .refused
 
 	ld a, [wCurPartySpecies]
-	cp DUNSPARCE
+	cp WOLFMAN
 	jr nz, .DontReturn
 
 	ld a, [wCurPartyMon]

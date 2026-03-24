@@ -2001,10 +2001,10 @@ LinkTrade:
 	ld b, 1
 	pop af
 	ld c, a
-	cp MEW
+	cp JIRACHI
 	jr z, .send_checkbyte
 	ld a, [wCurPartySpecies]
-	cp MEW
+	cp JIRACHI
 	jr z, .send_checkbyte
 	ld b, 2
 	ld a, c
