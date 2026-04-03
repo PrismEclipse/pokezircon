@@ -1,27 +1,27 @@
 DEF time_group EQUS "0," ; use the nth TimeFishGroups entry
 
 MACRO fishgroup
-; chance, old rod, good rod, super rod
+; chance, old rod, good rod, super rod, master rod
 	db \1
-	dw \2, \3, \4
+	dw \2, \3, \4, \5
 ENDM
 
 FishGroups:
 ; entries correspond to FISHGROUP_* constants
 	table_width FISHGROUP_DATA_LENGTH
-	fishgroup 50 percent + 1, .Shore_Old,            .Shore_Good,            .Shore_Super
-	fishgroup 50 percent + 1, .Ocean_Old,            .Ocean_Good,            .Ocean_Super
-	fishgroup 50 percent + 1, .Lake_Old,             .Lake_Good,             .Lake_Super
-	fishgroup 50 percent + 1, .Pond_Old,             .Pond_Good,             .Pond_Super
-	fishgroup 50 percent + 1, .Dratini_Old,          .Dratini_Good,          .Dratini_Super
-	fishgroup 50 percent + 1, .Qwilfish_Swarm_Old,   .Qwilfish_Swarm_Good,   .Qwilfish_Swarm_Super
-	fishgroup 50 percent + 1, .Remoraid_Swarm_Old,   .Remoraid_Swarm_Good,   .Remoraid_Swarm_Super
-	fishgroup 50 percent + 1, .Gyarados_Old,         .Gyarados_Good,         .Gyarados_Super
-	fishgroup 50 percent + 1, .Dratini_2_Old,        .Dratini_2_Good,        .Dratini_2_Super
-	fishgroup 50 percent + 1, .WhirlIslands_Old,     .WhirlIslands_Good,     .WhirlIslands_Super
-	fishgroup 50 percent + 1, .Qwilfish_Old,         .Qwilfish_Good,         .Qwilfish_Super
-	fishgroup 50 percent + 1, .Remoraid_Old,         .Remoraid_Good,         .Remoraid_Super
-	fishgroup 50 percent + 1, .Qwilfish_NoSwarm_Old, .Qwilfish_NoSwarm_Good, .Qwilfish_NoSwarm_Super
+	fishgroup 50 percent + 1, .Shore_Old,            .Shore_Good,            .Shore_Super,  	.Shore_Master
+	fishgroup 50 percent + 1, .Ocean_Old,            .Ocean_Good,            .Ocean_Super, 		.Ocean_Master
+	fishgroup 50 percent + 1, .Lake_Old,             .Lake_Good,             .Lake_Super, 		.Lake_Master
+	fishgroup 50 percent + 1, .Pond_Old,             .Pond_Good,             .Pond_Super, 		.Pond_Master
+	fishgroup 50 percent + 1, .Dratini_Old,          .Dratini_Good,          .Dratini_Super, 	.Dratini_Master
+	fishgroup 50 percent + 1, .Qwilfish_Swarm_Old,   .Qwilfish_Swarm_Good,   .Qwilfish_Swarm_Super,  .Qwilfish_Swarm_Master
+	fishgroup 50 percent + 1, .Remoraid_Swarm_Old,   .Remoraid_Swarm_Good,   .Remoraid_Swarm_Super,  .Remoraid_Swarm_Master
+	fishgroup 50 percent + 1, .Gyarados_Old,         .Gyarados_Good,         .Gyarados_Super, 		.Gyarados_Master
+	fishgroup 50 percent + 1, .Dratini_2_Old,        .Dratini_2_Good,        .Dratini_2_Super, 		.Dratini_2_Master
+	fishgroup 50 percent + 1, .WhirlIslands_Old,     .WhirlIslands_Good,     .WhirlIslands_Super, 	.WhirlIslands_Master
+	fishgroup 50 percent + 1, .Qwilfish_Old,         .Qwilfish_Good,         .Qwilfish_Super, 		.Qwilfish_Master
+	fishgroup 50 percent + 1, .Remoraid_Old,         .Remoraid_Good,         .Remoraid_Super, 		.Remoraid_Master
+	fishgroup 50 percent + 1, .Qwilfish_NoSwarm_Old, .Qwilfish_NoSwarm_Good, .Qwilfish_NoSwarm_Super, 	.Qwilfish_NoSwarm_Master
 	assert_table_length NUM_FISHGROUPS
 
 .Shore_Old:
@@ -206,6 +206,45 @@ FishGroups:
 	db  70 percent,     time_group 7
 	db  90 percent + 1, MAGIKARP,   40
 	db 100 percent,     REMORAID,   40
+
+.Shore_Master:
+.Ocean_Master:
+.Lake_Master:
+.Pond_Master:
+.WhirlIslands_Master:
+	db  20 percent,     CARRACOSTA,    60
+	db  40 percent,     EMPOLEON,   60
+	db  70 percent,     OCTILLERY,  60
+	db  90 percent + 1, RELICANTH,     60
+	db 100 percent,     SWAMPERT,    60
+
+.Gyarados_Master:
+	db  40 percent,     MAGIKARP,   60
+	db  70 percent,     GYARADOS,   60
+	db  90 percent + 1, GYARADOS,   60
+	db 100 percent,     GYARADOS,   60
+
+.Dratini_Master:
+.Dratini_2_Master:
+	db  40 percent,     GYARADOS,   60
+	db  70 percent,     ANCHORAGE,    60
+	db  90 percent + 1, GROTESS,  60
+	db 100 percent,     GROTESS,  60
+
+.Qwilfish_Master:
+.Qwilfish_Swarm_Master:
+.Qwilfish_NoSwarm_Master:
+	db  40 percent,     DRAGALGE, 60
+	db  70 percent,     QWILFISH,   60
+	db  90 percent + 1, QWILFISH,   60
+	db 100 percent,     QWILFISH,   60
+
+.Remoraid_Master:
+.Remoraid_Swarm_Master:
+	db  40 percent,     DRAGALGE, 60
+	db  70 percent,     REMORAID,   60
+	db  90 percent + 1, REMORAID,   60
+	db 100 percent,     OCTILLERY,  60
 
 TimeFishGroups:
 	;  day              nite

@@ -153,6 +153,10 @@ CheckHeadbuttTreeTile::
 	cp COLL_HEADBUTT_TREE_1D
 	ret
 
+CheckRockyWallTile::
+	cp COLL_ROCKY_WALL
+	ret
+
 CheckCounterTile::
 	cp COLL_COUNTER
 	ret z
@@ -168,16 +172,12 @@ CheckPitTile::
 CheckIceTile::
 	cp COLL_ICE
 	ret z
-	cp COLL_ICE_2B
-	ret z
 	scf
 	ret
 
 CheckWhirlpoolTile::
 	nop
 	cp COLL_WHIRLPOOL
-	ret z
-	cp COLL_WHIRLPOOL_2C
 	ret z
 	scf
 	ret
@@ -187,6 +187,13 @@ CheckWaterfallTile::
 	ret z
 	cp COLL_CURRENT_DOWN
 	ret
+	
+CheckDiveTile::
+	cp COLL_DIVE_UP
+	ret z
+	cp COLL_DIVE_DOWN
+	ret
+	
 
 CheckStandingOnEntrance::
 	ld a, [wPlayerTileCollision]

@@ -30,7 +30,7 @@ EvosAttacksPointers::
 	dw RaichuEvosAttacks
 	dw SandygastEvosAttacks
 	dw PalossandEvosAttacks
-	dw BudewEvosAttacks
+	dw SableyeEvosAttacks
 	dw RoseliaEvosAttacks
 	dw RoseradeEvosAttacks
 	dw CharcadetEvosAttacks
@@ -180,8 +180,8 @@ EvosAttacksPointers::
 	dw KirliaEvosAttacks
 	dw GardevoirEvosAttacks
 	dw GalladeEvosAttacks
-	dw PichuEvosAttacks
-	dw CleffaEvosAttacks
+	dw MissingNoEvosAttacks
+	dw LeafeonEvosAttacks
 	dw TinkatinkEvosAttacks
 	dw TinkatuffEvosAttacks
 	dw TinkatonEvosAttacks
@@ -193,7 +193,7 @@ EvosAttacksPointers::
 	dw HoppipEvosAttacks
 	dw SkiploomEvosAttacks
 	dw JumpluffEvosAttacks
-	dw KecleonEvosAttacks
+	dw UmbreonRedEvosAttacks
 	dw SunkernEvosAttacks
 	dw SunfloraEvosAttacks
 	dw YanmaEvosAttacks

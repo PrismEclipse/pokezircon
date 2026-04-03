@@ -243,10 +243,6 @@ INCBIN "data/tilesets/battle_tower_outside_metatiles.bin"
 TilesetBattleTowerOutsideColl::
 INCLUDE "data/tilesets/battle_tower_outside_collision.asm"
 
-TilesetBetaWordRoomMeta::
-INCBIN "data/tilesets/beta_word_room_metatiles.bin"
-
-TilesetBetaWordRoomColl::
 TilesetHoOhWordRoomColl::
 TilesetKabutoWordRoomColl::
 TilesetOmanyteWordRoomColl::
@@ -257,7 +253,6 @@ INCLUDE "data/tilesets/beta_word_room_collision.asm"
 SECTION "Tileset Data 7", ROMX
 
 TilesetRuinsOfAlphGFX::
-TilesetBetaWordRoomGFX::
 TilesetHoOhWordRoomGFX::
 TilesetKabutoWordRoomGFX::
 TilesetOmanyteWordRoomGFX::
@@ -270,6 +265,14 @@ INCBIN "data/tilesets/ruins_of_alph_metatiles.bin"
 TilesetRuinsOfAlphColl::
 INCLUDE "data/tilesets/ruins_of_alph_collision.asm"
 
+TilesetForestAltGFX::
+INCBIN "gfx/tilesets/forest_alt.2bpp.lz"
+
+TilesetForestAltColl::
+INCLUDE "data/tilesets/forest_alt_collision.asm"
+
+TilesetForestAltMeta::
+INCBIN "data/tilesets/forest_alt_metatiles.bin"
 
 SECTION "Tileset Data 8", ROMX
 
@@ -306,7 +309,6 @@ INCBIN "data/tilesets/gate_metatiles.bin"
 TilesetGateColl::
 INCLUDE "data/tilesets/gate_collision.asm"
 
-
 SECTION "Tileset Data 9", ROMX
 
 
@@ -328,17 +330,35 @@ INCBIN "gfx/tilesets/forest.2bpp.lz"
 TilesetForestMeta::
 INCBIN "data/tilesets/forest_metatiles.bin"
 
+TilesetUnderwaterGFX::
+INCBIN "gfx/tilesets/underwater.2bpp.lz"
+
+TilesetUnderwaterColl::
+INCLUDE "data/tilesets/underwater_collision.asm"
+
+TilesetUnderwaterMeta::
+INCBIN "data/tilesets/underwater_metatiles.bin"
+
+TilesetGraveyardGFX::
+INCBIN "gfx/tilesets/graveyard.2bpp.lz"
+
+TilesetGraveyardColl::
+INCLUDE "data/tilesets/graveyard_collision.asm"
+
+TilesetGraveyardMeta::
+INCBIN "data/tilesets/graveyard_metatiles.bin"
+
 
 SECTION "Tileset Data 10", ROMX
 
 
-TilesetMountainSideGFX::
+TilesetMountainsideGFX::
 INCBIN "gfx/tilesets/mountainside.2bpp.lz"
 
-TilesetMountainSideMeta::
+TilesetMountainsideMeta::
 INCBIN "data/tilesets/mountainside_metatiles.bin"
 
-TilesetMountainSideColl::
+TilesetMountainsideColl::
 INCLUDE "data/tilesets/mountainside_collision.asm"
 
 TilesetCaveGFX::
@@ -349,3 +369,12 @@ INCLUDE "data/tilesets/cave_collision.asm"
 
 TilesetCaveMeta::
 INCBIN "data/tilesets/cave_metatiles.bin"
+
+TilesetJohtoBetaGFX::
+INCBIN "gfx/tilesets/unused_johto.2bpp.lz"
+
+TilesetJohtoBetaColl::
+INCLUDE "data/tilesets/unused_johto_collision.asm"
+
+TilesetJohtoBetaMeta::
+INCBIN "data/tilesets/unused_johto_metatiles.bin"

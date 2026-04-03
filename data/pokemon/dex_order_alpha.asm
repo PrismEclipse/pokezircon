@@ -2,6 +2,15 @@
 
 AlphabeticalPokedexOrder:
 	table_width 1
+	db ROWLET
+	db DARTRIX
+	db DECIDUEYE
+	db FENNEKIN
+	db BRAIXEN
+	db DELPHOX
+	db PIPLUP
+	db PRINPLUP
+	db EMPOLEON
 	db PIKACHU
 	db RAICHU
 	db CLEFAIRY
@@ -39,11 +48,14 @@ AlphabeticalPokedexOrder:
 	db VAPOREON
 	db JOLTEON
 	db FLAREON
+	db ESPEON
+	db UMBREON
+	db UMBREON_RED
+	db LEAFEON
+	db SYLVEON
 	db PORYGON
 	db SENTRET
 	db FURRET
-	db PICHU
-	db CLEFFA
 	db MAREEP
 	db FLAAFFY
 	db AMPHAROS
@@ -57,8 +69,6 @@ AlphabeticalPokedexOrder:
 	db YANMA
 	db WOOPER
 	db QUAGSIRE
-	db ESPEON
-	db UMBREON
 	db SLOWKING
 	db MISDREAVUS
 	db UNOWN
@@ -104,6 +114,7 @@ AlphabeticalPokedexOrder:
 	db GARDEVOIR
 	db SHROOMISH
 	db BRELOOM
+	db SABLEYE
 	db ARON
 	db LAIRON
 	db AGGRON
@@ -115,7 +126,6 @@ AlphabeticalPokedexOrder:
 	db FLYGON
 	db SWABLU
 	db ALTARIA
-	db KECLEON
 	db CHIMECHO
 	db ABSOL
 	db SPHEAL
@@ -125,10 +135,6 @@ AlphabeticalPokedexOrder:
 	db LATIAS
 	db LATIOS
 	db JIRACHI
-	db PIPLUP
-	db PRINPLUP
-	db EMPOLEON
-	db BUDEW
 	db ROSERADE
 	db MISMAGIUS
 	db CHINGLING
@@ -164,9 +170,6 @@ AlphabeticalPokedexOrder:
 	db GOLURK
 	db LARVESTA
 	db VOLCARONA
-	db FENNEKIN
-	db BRAIXEN
-	db DELPHOX
 	db INKAY
 	db MALAMAR
 	db SKRELP
@@ -179,15 +182,11 @@ AlphabeticalPokedexOrder:
 	db AURORUS
 	db HAWLUCHA
 	db DEDENNE
-	db SYLVEON
 	db PHANTUMP
 	db TREVENANT
 	db ZYGARDE10
 	db ZYGARDE50
 	db ZYGARDE100
-	db ROWLET
-	db DARTRIX
-	db DECIDUEYE
 	db GRUBBIN
 	db CHARJABUG
 	db VIKAVOLT
@@ -254,5 +253,6 @@ AlphabeticalPokedexOrder:
 	db CACTRI
 	db SHARPOON
 	db GOROCHU
+	db MISSINGNO
 	db SLITHER_WING
 	assert_table_length NUM_POKEMON

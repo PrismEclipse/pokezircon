@@ -163,7 +163,6 @@ SECTION "Battle Core", ROMX
 INCLUDE "engine/battle/core.asm"
 INCLUDE "data/battle/effect_command_pointers.asm"
 
-
 SECTION "bank10", ROMX
 INCLUDE "data/moves/moves.asm"
 INCLUDE "engine/pokemon/evolve.asm"
@@ -369,34 +368,6 @@ INCLUDE "engine/phone/scripts/unused.asm"
 INCLUDE "engine/phone/scripts/mom.asm"
 INCLUDE "engine/phone/scripts/bill.asm"
 INCLUDE "engine/phone/scripts/elm.asm"
-INCLUDE "engine/phone/scripts/jack.asm"
-INCLUDE "engine/phone/scripts/beverly.asm"
-INCLUDE "engine/phone/scripts/huey.asm"
-INCLUDE "engine/phone/scripts/gaven.asm"
-INCLUDE "engine/phone/scripts/beth.asm"
-INCLUDE "engine/phone/scripts/jose.asm"
-INCLUDE "engine/phone/scripts/reena.asm"
-INCLUDE "engine/phone/scripts/joey.asm"
-INCLUDE "engine/phone/scripts/wade.asm"
-INCLUDE "engine/phone/scripts/ralph.asm"
-INCLUDE "engine/phone/scripts/liz.asm"
-INCLUDE "engine/phone/scripts/anthony.asm"
-INCLUDE "engine/phone/scripts/todd.asm"
-INCLUDE "engine/phone/scripts/gina.asm"
-INCLUDE "engine/phone/scripts/irwin.asm"
-INCLUDE "engine/phone/scripts/arnie.asm"
-INCLUDE "engine/phone/scripts/alan.asm"
-INCLUDE "engine/phone/scripts/dana.asm"
-INCLUDE "engine/phone/scripts/chad.asm"
-INCLUDE "engine/phone/scripts/derek.asm"
-INCLUDE "engine/phone/scripts/tully.asm"
-INCLUDE "engine/phone/scripts/brent.asm"
-INCLUDE "engine/phone/scripts/tiffany.asm"
-INCLUDE "engine/phone/scripts/vance.asm"
-INCLUDE "engine/phone/scripts/wilton.asm"
-INCLUDE "engine/phone/scripts/kenji.asm"
-INCLUDE "engine/phone/scripts/parry.asm"
-INCLUDE "engine/phone/scripts/erin.asm"
 INCLUDE "engine/phone/scripts/generic_callee.asm"
 INCLUDE "engine/events/trainer_scripts.asm"
 
@@ -599,21 +570,6 @@ INCLUDE "data/phone/text/ralph_callee.asm"
 INCLUDE "data/phone/text/liz_callee.asm"
 INCLUDE "data/phone/text/anthony_callee.asm"
 INCLUDE "data/phone/text/todd_callee.asm"
-INCLUDE "data/phone/text/gina_callee.asm"
-INCLUDE "data/phone/text/irwin_callee.asm"
-INCLUDE "data/phone/text/arnie_callee.asm"
-INCLUDE "data/phone/text/alan_callee.asm"
-INCLUDE "data/phone/text/dana_callee.asm"
-INCLUDE "data/phone/text/chad_callee.asm"
-INCLUDE "data/phone/text/derek_callee.asm"
-INCLUDE "data/phone/text/tully_callee.asm"
-INCLUDE "data/phone/text/brent_callee.asm"
-INCLUDE "data/phone/text/tiffany_callee.asm"
-INCLUDE "data/phone/text/vance_callee.asm"
-INCLUDE "data/phone/text/wilton_callee.asm"
-INCLUDE "data/phone/text/kenji_callee.asm"
-INCLUDE "data/phone/text/parry_callee.asm"
-INCLUDE "data/phone/text/erin_callee.asm"
 INCLUDE "data/phone/text/unused.asm"
 
 
@@ -629,6 +585,13 @@ SECTION "Print Party", ROMX
 
 INCLUDE "engine/printer/print_party.asm"
 
+SECTION "Battle Weather Images", ROMX
+
+INCLUDE "gfx/weather_images.asm"
+
+SECTION "Time Of Day Images", ROMX
+
+INCLUDE "gfx/timeofday_images.asm"
 
 SECTION "bank77", ROMX
 
@@ -670,7 +633,6 @@ SECTION "Crystal Events", ROMX
 
 INCLUDE "engine/events/battle_tower/load_trainer.asm"
 INCLUDE "engine/events/odd_egg.asm"
-
 
 SECTION "Newbox", ROMX
 

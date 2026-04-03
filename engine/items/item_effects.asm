@@ -158,7 +158,7 @@ ItemEffects:
 	dw NoEffect            ; ITEM_8E
 	dw NoEffect            ; METAL_COAT
 	dw NoEffect            ; DRAGON_FANG
-	dw NoEffect            ; ITEM_91
+	dw MasterRodEffect     ; MASTER_ROD
 	dw NoEffect            ; LEFTOVERS
 	dw NoEffect            ; ITEM_93
 	dw NoEffect            ; ITEM_94
@@ -2351,6 +2351,10 @@ GoodRodEffect:
 SuperRodEffect:
 	ld e, $2
 	jr UseRod
+
+MasterRodEffect:
+	ld e, $3
+	; fallthrough
 
 UseRod:
 	farcall FishFunction

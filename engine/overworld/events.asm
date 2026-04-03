@@ -1071,13 +1071,22 @@ TryTileCollisionEvent::
 .headbutt
 	ld a, [wFacingTileID]
 	call CheckHeadbuttTreeTile
-	jr nz, .surf
+	jr nz, .rock_climb
 	farcall TryHeadbuttOW
 	jr c, .done
 	jr .noevent
 
+.rock_climb
+	ld a, [wFacingTileID]
+	call CheckRockyWallTile
+	jr nz, .surf
+	farcall TryRockClimbOW
+	jr .done
+	
 .surf
 	farcall TrySurfOW
+	jr c, .done
+	farcall TryDiveOW
 	jr nc, .noevent
 	jr .done
 

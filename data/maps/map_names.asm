@@ -26,6 +26,7 @@ MapGroupNum_Names::
 	dw New_Bark_Map_Names
 	dw Saffron_Map_Names
 	dw Cherrygrove_Map_Names
+	dw Underwater_Map_Names
 	assert_table_length NUM_MAP_GROUPS
 
 GetMapGroupNum_Name::
@@ -553,6 +554,11 @@ Cherrygrove_Map_Names:
 	dw Cherrygrove_Map_Name10 ; map_const MR_POKEMONS_HOUSE ; 10
 	dw Cherrygrove_Map_Name11 ; map_const ROUTE_31_VIOLET_GATE ; 11
 	assert_table_length NUM_CHERRYGROVE_MAPS
+	
+Underwater_Map_Names:
+	table_width 2, Underwater_Map_Names
+	dw Underwater_Map_Name1 ; map_const ROUTE_30         ;  1
+	assert_table_length NUM_UNDERWATER_MAPS	
 
 ; MAX LENGTH: 17
 Olivine_Map_Name1: ; map_const OLIVINE_POKECENTER_1F ;  1
@@ -1283,9 +1289,9 @@ New_Bark_Map_Name2: ; map_const ROUTE_27,  2
 New_Bark_Map_Name3: ; map_const ROUTE_29, ;  3
 	db "ROUTE 29@"
 New_Bark_Map_Name4: ; map_const NEW_BARK_TOWN,;  4
-	db "NEW BARK TOWN@"
+	db "CHALECE TOWN@"
 New_Bark_Map_Name5: ; map_const ELMS_LAB ;  5
-	db "ELM'S LAB@"
+	db "SAKURA'S LAB@"
 New_Bark_Map_Name6: ; map_const PLAYERS_HOUSE_1F ;  6
 	db "PLAYER'S HOUSE 1F@"
 New_Bark_Map_Name7: ; map_const PLAYERS_HOUSE_2F ;  7
@@ -1356,3 +1362,6 @@ Cherrygrove_Map_Name10: ; map_const MR_POKEMONS_HOUSE ; 10
 	db "MR. #MON HOUSE@"
 Cherrygrove_Map_Name11: ; map_const ROUTE_31_VIOLET_GATE ; 11
 	db "ROUTE 31 GATE@"
+	
+Underwater_Map_Name1: ; map_const ROUTE_31_VIOLET_GATE ; 11
+	db "ROUTE 9@"	

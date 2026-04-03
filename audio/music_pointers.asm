@@ -77,7 +77,7 @@ Music:
 	dba Music_Route37
 	dba Music_RocketHideout
 	dba Music_DragonsDen
-	dba Music_JohtoWildBattleNight
+	dba Music_JohtoWildBattle2
 	dba Music_RuinsOfAlphRadio
 	dba Music_SuccessfulCapture
 	dba Music_Route26

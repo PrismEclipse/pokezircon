@@ -46,13 +46,21 @@ KotoraEggMoves:
 	db SPLASH
 	db -1 ; end
 
+PikachuEggMoves:
+	db SPLASH
+	db -1 ; end
+
 SandygastEggMoves:
 	db SPLASH
 	db -1 ; end
 
-BudewEggMoves:
+SableyeEggMoves:
 	db SPLASH
 	db -1 ; end
+	
+RoseliaEggMoves:
+	db SPLASH
+	db -1 ;end
 
 CharcadetEggMoves:
 	db SPLASH
@@ -282,14 +290,6 @@ RaltsEggMoves:
 	db SPLASH
 	db -1 ; end
 
-PichuEggMoves:
-	db SPLASH
-	db -1 ; end
-
-CleffaEggMoves:
-	db SPLASH
-	db -1 ; end
-
 TinkatinkEggMoves:
 	db SPLASH
 	db -1 ; end
@@ -303,10 +303,6 @@ MarillEggMoves:
 	db -1 ; end
 
 HoppipEggMoves:
-	db SPLASH
-	db -1 ; end
-	
-KecleonEggMoves:
 	db SPLASH
 	db -1 ; end
 	

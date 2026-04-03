@@ -4793,6 +4793,14 @@ PrintPlayerHUD:
 	pop hl
 	dec hl
 
+	ld bc, wBattleMonDVs
+	farcall CheckShininess
+	jr nc, .not_own_shiny
+	ld a, '<⁂>'
+	hlcoord 18, 8
+	ld [hl], a
+
+.not_own_shiny
 	ld a, TEMPMON
 	ld [wMonType], a
 	callfar GetGender
@@ -4869,6 +4877,14 @@ DrawEnemyHUD:
 	ld a, [hl]
 	ld [de], a
 
+	ld bc, wEnemyMonDVs
+	farcall CheckShininess
+	jr nc, .not_shiny
+	ld a, '<⁂>'
+	hlcoord 10, 1
+	ld [hl], a
+
+.not_shiny
 	ld a, TEMPMON
 	ld [wMonType], a
 	callfar GetGender
@@ -7746,7 +7762,7 @@ AnimateExpBar:
 	ldh [hBGMapMode], a
 	dec d
 	jr nz, .min_number_of_frames
-	ld d, 1
+	inc d
 .min_number_of_frames
 	pop bc
 	ld a, c
@@ -8078,7 +8094,7 @@ PlaceExpBar:
 	sub $8
 	jr c, .next
 	ld b, a
-	ld a, $6a ; full bar
+	ld a, $5d ; full bar
 	ld [hld], a
 	dec c
 	jr z, .finish
@@ -8087,15 +8103,15 @@ PlaceExpBar:
 .next
 	add $8
 	jr z, .loop2
-	add $54 ; tile to the left of small exp bar tile
+	add $55 ; tile to the left of small exp bar tile
 	jr .skip
 
 .loop2
-	ld a, $62 ; empty bar
+	ld a, $55 ; empty bar
 
 .skip
 	ld [hld], a
-	ld a, $62 ; empty bar
+	ld a, $55 ; empty bar
 	dec c
 	jr nz, .loop2
 
@@ -8188,10 +8204,6 @@ StartBattle:
 	pop af
 	ld [wTimeOfDayPal], a
 	scf
-	ret
-
-CallDoBattle: ; unreferenced
-	call DoBattle
 	ret
 
 BattleIntro:

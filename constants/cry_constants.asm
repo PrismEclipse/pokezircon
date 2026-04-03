@@ -91,5 +91,42 @@
 	const CRY_VIKAVOLT ;BW3
 	const CRY_CORVIKNIGHT ;BW3
 	const CRY_GOROCHU ;The unused one
-
+	const CRY_SHROOMISH
+	const CRY_BRELOOM
+	const CRY_RALTS
+	const CRY_KIRLIA
+	const CRY_GALLADE
+	const CRY_SNEASLER
+	const CRY_DRILBUR
+	const CRY_EXCADRILL
+	const CRY_HOOTHOOT_2CH
+	const CRY_WORFURS
+	const CRY_MOLAMBINO
+	const CRY_MISDREAVUS
+	const CRY_YANMA
+	const CRY_ELEKID
+	const CRY_LARVITAR
+	const CRY_BIPULLA
+	const CRY_AGGROSWINE
+	const CRY_TRICULES
+	const CRY_ARON
+	const CRY_LAIRON
+	const CRY_AGGRON
+	const CRY_SWABLU
+	const CRY_ALTARIA
+	const CRY_SYLVEON
+	const CRY_AMAURA
+	const CRY_CHATOT
+	const CRY_VENIPEDE
+	const CRY_LEAFEON
+	const CRY_GLITCHED
+	const CRY_UMBREON_RED
+	const CRY_LARVESTA
+	const CRY_GOLURK
+	const CRY_KOTORA
+	const CRY_ANCHORAGE
+	const CRY_GROTESS
+	const CRY_DISTURBAN
+	const CRY_STAKATAKA
+	const CRY_NECROZMA
 DEF NUM_CRIES EQU const_value

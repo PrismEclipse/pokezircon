@@ -45,7 +45,7 @@
 	const RAICHU     ; 1a
 	const SANDYGAST ; 1b
 	const PALOSSAND  ; 1c
-	const BUDEW  ; 1d
+	const SABLEYE  ; 1d
 	const ROSELIA   ; 1e
 	const ROSERADE  ; 1f
 	const CHARCADET  ; 20
@@ -196,8 +196,8 @@ DEF JOHTO_POKEMON EQU const_value
 	const KIRLIA    ; b0
 	const GARDEVOIR     ; b1
 	const GALLADE 	 ; b2
-	const PICHU      ; b3
-	const CLEFFA     ; b4
+	const MISSINGNO   ; b3
+	const LEAFEON     ; b4
 	const TINKATINK  ; b5
 	const TINKATUFF  ; b6
 	const TINKATON   ; b7
@@ -209,7 +209,7 @@ DEF JOHTO_POKEMON EQU const_value
 	const HOPPIP     ; bd
 	const SKIPLOOM   ; be
 	const JUMPLUFF   ; bf
-	const KECLEON      ; c0
+	const UMBREON_RED ; c0
 	const SUNKERN    ; c1
 	const SUNFLORA   ; c2
 	const YANMA      ; c3

@@ -97,29 +97,26 @@ MACRO connection
 ENDM
 
 
-	map_attributes NewBarkTown, NEW_BARK_TOWN, $05, WEST | EAST
-	connection west, Route29, ROUTE_29, 0
+	map_attributes NewBarkTown, NEW_BARK_TOWN, $05, SOUTH | EAST
+	connection south, Route29, ROUTE_29, 0
 	connection east, Route27, ROUTE_27, 0
 
-	map_attributes CherrygroveCity, CHERRYGROVE_CITY, $35, NORTH | EAST
-	connection north, Route30, ROUTE_30, 5
-	connection east, Route29, ROUTE_29, 0
+	map_attributes CherrygroveCity, CHERRYGROVE_CITY, $35, NORTH | WEST
+	connection north, Route29, ROUTE_29, -2
+	connection west, Route30, ROUTE_30, -7
 
-	map_attributes VioletCity, VIOLET_CITY, $05, SOUTH | WEST | EAST
-	connection south, Route32, ROUTE_32, 0
-	connection west, Route36, ROUTE_36, 0
-	connection east, Route31, ROUTE_31, 9
+	map_attributes VioletCity, VIOLET_CITY, $05, WEST
+	connection west, Route31, ROUTE_31, 0
 
 	map_attributes AzaleaTown, AZALEA_TOWN, $05, WEST | EAST
-	connection west, Route34, ROUTE_34, -18
-	connection east, Route33, ROUTE_33, 0
+	connection west, Route33, ROUTE_33, 0
+	connection east, Route34, ROUTE_34, -18
 
 	map_attributes CianwoodCity, CIANWOOD_CITY, $35, EAST
 	connection east, Route41, ROUTE_41, 0
 
-	map_attributes GoldenrodCity, GOLDENROD_CITY, $35, NORTH | SOUTH
-	connection north, Route35, ROUTE_35, 5
-	connection south, Route34, ROUTE_34, 5
+	map_attributes GoldenrodCity, GOLDENROD_CITY, $35, WEST
+	connection west, Route34, ROUTE_34, 0
 
 	map_attributes OlivineCity, OLIVINE_CITY, $35, NORTH | WEST
 	connection north, Route39, ROUTE_39, 5
@@ -155,39 +152,35 @@ ENDM
 	map_attributes Route28, ROUTE_28, $2c, WEST
 	connection west, SilverCaveOutside, SILVER_CAVE_OUTSIDE, -9
 
-	map_attributes Route29, ROUTE_29, $05, NORTH | WEST | EAST
-	connection north, Route46, ROUTE_46, 10
-	connection west, CherrygroveCity, CHERRYGROVE_CITY, 0
-	connection east, NewBarkTown, NEW_BARK_TOWN, 0
+	map_attributes Route29, ROUTE_29, $05, NORTH | SOUTH
+	connection north, NewBarkTown, NEW_BARK_TOWN, 0
+	connection south, CherrygroveCity, CHERRYGROVE_CITY, 2
+	
+	map_attributes Route30, ROUTE_30, $05, EAST
+	connection east, CherrygroveCity, CHERRYGROVE_CITY, 7
 
-	map_attributes Route30, ROUTE_30, $05, NORTH | SOUTH
-	connection north, Route31, ROUTE_31, -10
-	connection south, CherrygroveCity, CHERRYGROVE_CITY, -5
+	map_attributes Route31, ROUTE_31, $05, SOUTH | EAST
+	connection south, Route32, ROUTE_32, 10
+	connection east, VioletCity, VIOLET_CITY, 20
 
-	map_attributes Route31, ROUTE_31, $05, SOUTH | WEST
-	connection south, Route30, ROUTE_30, 10
-	connection west, VioletCity, VIOLET_CITY, -9
-
-	map_attributes Route32, ROUTE_32, $05, NORTH | SOUTH
-	connection north, VioletCity, VIOLET_CITY, 0
-	connection south, Route33, ROUTE_33, 0
+	map_attributes Route32, ROUTE_32, $05, NORTH
+	connection north, Route32, ROUTE_32, -10
 
 	map_attributes Route33, ROUTE_33, $05, NORTH | WEST
 	connection north, Route32, ROUTE_32, 0
 	connection west, AzaleaTown, AZALEA_TOWN, 0
 
-	map_attributes Route34, ROUTE_34, $05, NORTH | EAST
-	connection north, GoldenrodCity, GOLDENROD_CITY, -5
-	connection east, AzaleaTown, AZALEA_TOWN, 18
+	map_attributes Route34, ROUTE_34, $05, WEST | EAST
+	connection west, AzaleaTown, AZALEA_TOWN, 18
+	connection east, GoldenrodCity, GOLDENROD_CITY, 0
 
 	map_attributes Route35, ROUTE_35, $05, NORTH | SOUTH
 	connection north, Route36, ROUTE_36, 0
 	connection south, GoldenrodCity, GOLDENROD_CITY, -5
 
-	map_attributes Route36, ROUTE_36, $05, NORTH | SOUTH | EAST
+	map_attributes Route36, ROUTE_36, $05, NORTH | SOUTH
 	connection north, Route37, ROUTE_37, 10
 	connection south, Route35, ROUTE_35, 0
-	connection east, VioletCity, VIOLET_CITY, 0
 
 	map_attributes Route37, ROUTE_37, $05, NORTH | SOUTH
 	connection north, EcruteakCity, ECRUTEAK_CITY, -5
@@ -225,8 +218,7 @@ ENDM
 	connection north, BlackthornCity, BLACKTHORN_CITY, 0
 	connection west, Route46, ROUTE_46, 36
 
-	map_attributes Route46, ROUTE_46, $05, SOUTH | EAST
-	connection south, Route29, ROUTE_29, -10
+	map_attributes Route46, ROUTE_46, $05, EAST
 	connection east, Route45, ROUTE_45, -36
 
 	map_attributes PewterCity, PEWTER_CITY, $0f, SOUTH | EAST
@@ -695,3 +687,4 @@ ENDM
 	map_attributes Route30BerryHouse, ROUTE_30_BERRY_HOUSE, $00, 0
 	map_attributes MrPokemonsHouse, MR_POKEMONS_HOUSE, $00, 0
 	map_attributes Route31VioletGate, ROUTE_31_VIOLET_GATE, $00, 0
+	map_attributes Route41Underwater, ROUTE_41_UNDERWATER, $1d, 0

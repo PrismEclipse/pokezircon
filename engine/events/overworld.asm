@@ -1307,6 +1307,304 @@ AskHeadbuttScript:
 AskHeadbuttText:
 	text_far _AskHeadbuttText
 	text_end
+	
+RockClimbFunction:
+	call FieldMoveJumptableReset
+.loop
+	ld hl, .jumptable
+	call FieldMoveJumptable
+	jr nc, .loop
+	and $7f
+	ld [wFieldMoveSucceeded], a
+	ret
+
+.jumptable:
+	dw .TryRockClimb
+	dw .DoRockClimb
+	dw .FailRockClimb
+
+.TryRockClimb:
+	ld de, ENGINE_EARTHBADGE
+	farcall CheckBadge
+	jr c, .noearthbadge
+	call TryRockClimbMenu
+	jr c, .failed
+	ld a, $1
+	ret
+
+.noearthbadge
+	ld a, $80
+	ret
+
+.failed
+	ld a, $2
+	ret
+
+.DoRockClimb:
+	ld hl, RockClimbFromMenuScript
+	call QueueScript
+	ld a, $81
+	ret
+
+.FailRockClimb:
+	call FieldMoveFailed
+	ld a, $80
+	ret
+
+TryRockClimbMenu:
+	call GetFacingTileCoord
+	ld c, a
+	push de
+	call CheckRockyWallTile
+	pop de
+	jr nz, .failed
+	xor a
+	ret
+
+.failed
+	scf
+	ret
+
+TryRockClimbOW::
+	ld de, ENGINE_EARTHBADGE
+	call CheckEngineFlag
+	jr c, .cant_climb
+
+	ld d, ROCK_CLIMB
+	call CheckPartyMove
+	jr c, .cant_climb
+
+	ld a, BANK(AskRockClimbScript)
+	ld hl, AskRockClimbScript
+	call CallScript
+	scf
+	ret
+
+.cant_climb
+	ld a, BANK(CantRockClimbScript)
+	ld hl, CantRockClimbScript
+	call CallScript
+	scf
+	ret
+
+AskRockClimbScript:
+	opentext
+	writetext AskRockClimbText
+	yesorno
+	iftrue UsedRockClimbScript
+	closetext
+	end
+
+CantRockClimbScript:
+	jumptext CantRockClimbText
+
+RockClimbFromMenuScript:
+	reloadmappart
+	special UpdateTimePals
+
+UsedRockClimbScript:
+	callasm GetPartyNickname
+	writetext UsedRockClimbText
+	closetext
+	loadvar VAR_MOVEMENT, PLAYER_NORMAL
+	special UpdatePlayerSprite
+	waitsfx
+	playsound SFX_STRENGTH
+	readvar VAR_FACING
+	if_equal DOWN, .Down
+.loop_up
+	applymovement PLAYER, .RockClimbUpStep
+	callasm .CheckContinueRockClimb
+	iffalse .loop_up
+	end
+
+.Down:
+	applymovement PLAYER, .RockClimbFixFacing
+.loop_down
+	applymovement PLAYER, .RockClimbDownStep
+	callasm .CheckContinueRockClimb
+	iffalse .loop_down
+	applymovement PLAYER, .RockClimbRemoveFixedFacing
+	end
+
+.CheckContinueRockClimb:
+	xor a
+	ld [wScriptVar], a
+	ld a, [wPlayerTileCollision]
+	call CheckRockyWallTile
+	ret z
+	ld a, $1
+	ld [wScriptVar], a
+	ret
+
+.RockClimbUpStep:
+	step UP
+	step_end
+
+.RockClimbDownStep:
+	step DOWN
+	step_end
+
+.RockClimbFixFacing:
+	turn_head UP
+	fix_facing
+	step_end
+
+.RockClimbRemoveFixedFacing:
+	remove_fixed_facing
+	turn_head DOWN
+	step_end
+
+AskRockClimbText:
+	text_far _AskRockClimbText
+	text_end
+
+UsedRockClimbText:
+	text_far _UsedRockClimbText
+	text_end
+
+CantRockClimbText:
+	text_far _CantRockClimbText
+	text_end	
+	
+DiveFunction:
+	call FieldMoveJumptableReset
+.loop
+	ld hl, .Jumptable
+	call FieldMoveJumptable
+	jr nc, .loop
+	and $7f
+	ld [wFieldMoveSucceeded], a
+	ret
+
+.Jumptable:
+ 	dw .TryDive
+ 	dw .DoDive
+ 	dw .FailDive
+
+.TryDive:
+	ld de, ENGINE_CASCADEBADGE
+	call CheckBadge
+	jr c, .nocascadebadge
+	call CheckMapCanDive
+	jr nz, .cannotdive
+	ld a, $1
+	ret
+.nocascadebadge
+	ld a, $80
+	ret
+.cannotdive
+	ld a, $2
+	ret
+
+.DoDive:
+	callasm GetPartyNickname
+	ld hl, DiveFromMenuScript
+	call QueueScript
+	ld a, $81
+	ret
+
+.FailDive:
+	ld hl, CantDiveText
+	call FieldMoveFailed
+	ld a, $80
+	ret
+
+CantDiveText:
+	text_far _CantDiveText
+	text_end
+
+CheckMapCanDive:
+	ld a, [wDiveMapGroup]
+	and a
+	jr z, .failed
+	ld a, [wDiveMapNumber]
+	and a
+	jr z, .failed
+	ld a, [wPlayerTileCollision]
+	call CheckDiveTile
+	jr nz, .failed
+	xor a
+	ret
+
+.failed
+	scf
+	ret
+
+TryDiveOW::
+	call CheckMapCanDive
+	jr c, .failed
+
+	ld de, ENGINE_CASCADEBADGE
+	call CheckEngineFlag
+	jr c, .cant
+
+	ld d, DIVE
+	call CheckPartyMove
+	jr c, .cant
+
+	callasm GetPartyNickname
+	ld a, BANK(AskDiveScript)
+	ld hl, AskDiveScript
+	call CallScript
+	scf
+	ret
+
+.failed
+	xor a
+	ret
+
+.cant
+	ld a, BANK(CantDiveScript)
+	ld hl, CantDiveScript
+	call CallScript
+	scf
+	ret
+
+CantDiveScript:
+	jumptext CanDiveText
+
+CanDiveText:
+	text_far _CanDiveText
+	text_end
+
+AskDiveScript:
+	opentext
+	copybytetovar wPlayerTileCollision
+	ifequal COLL_DIVE_UP, .up
+	writetext AskDiveDownText
+	jump .continue
+.up
+	writetext AskDiveUpText
+.continue
+	yesorno
+	iftrue UsedDiveScript
+	closetext
+	end
+
+AskDiveDownText:
+	text_far _AskDiveDownText
+	text_end
+
+AskDiveUpText:
+	text_far _AskDiveUpText
+	text_end
+
+DiveFromMenuScript:
+	special UpdateTimePals
+
+UsedDiveScript:
+	writetext UsedDiveText
+	waitbutton
+	closetext
+	special FadeInFromWhite
+	waitsfx
+	divewarp
+	end
+
+UsedDiveText:
+	text_far _UsedDiveText
+	text_end
 
 RockSmashFunction:
 	call TryRockSmashFromMenu

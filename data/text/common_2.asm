@@ -440,6 +440,57 @@ _AskWhirlpoolText::
 	para "Want to use"
 	line "WHIRLPOOL?"
 	done
+	
+_AskRockClimbText::
+	text "The wall is very"
+	line "rocky…"
+
+	para "Want to use"
+	line "ROCK CLIMB?"
+	done
+
+_UsedRockClimbText::
+	text_ram wStringBuffer2
+	text " used"
+	line "ROCK CLIMB!"
+	prompt
+
+_CantRockClimbText::
+	text "The wall is very"
+	line "rocky…"
+
+	para "Will a #MON's"
+	line "move scale it?"
+	done	
+	
+_CantDiveText::
+	text "DIVE can't be"
+	line "used here."
+	prompt
+
+_CanDiveText::
+	text "The sea is deep."
+
+	para "A #MON can"
+	line "DIVE here."
+	done
+
+_AskDiveDownText::
+	text "The sea is deep."
+	line "Want to DIVE?"
+	done
+
+_AskDiveUpText::
+	text "Light is filter-"
+	line "ing from above."
+	cont "Want to DIVE?"
+	done
+
+_UsedDiveText::
+	text_from_ram wStringBuffer2
+	text " used"
+	line "DIVE!"
+	done	
 
 _UseHeadbuttText::
 	text_ram wStringBuffer2
@@ -1593,3 +1644,23 @@ _OakText5::
 	para "That's why I study"
 	line "them for a living."
 	prompt
+
+_AboutText1::
+	text "Welcome to <PKMN>"
+	line "ZIRCON Version!"
+
+	para "There are a lot"
+	line "of additions"
+
+	para "- and changes in"
+	line "  this!"
+
+       prompt
+	   
+_AboutText2::
+	text "There is no PSS"
+	line "But it has"
+
+	para "later-gen moves"
+	line "in the hack."
+       prompt	   

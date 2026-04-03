@@ -14,26 +14,25 @@ CheckShininess:
 
 ; Attack
 	ld a, [hl]
-	and SHINY_ATK_MASK << 4
-	jr z, .not_shiny
+	cp 6 << 4
+	jr c, .not_shiny
 
 ; Defense
 	ld a, [hli]
 	and %1111
-	cp SHINY_DEF_DV
-	jr nz, .not_shiny
+	cp 6
+	jr c, .not_shiny
 
 ; Speed
 	ld a, [hl]
-	and %1111 << 4
-	cp SHINY_SPD_DV << 4
-	jr nz, .not_shiny
+	cp 6 << 4
+	jr c, .not_shiny
 
 ; Special
 	ld a, [hl]
 	and %1111
-	cp SHINY_SPC_DV
-	jr nz, .not_shiny
+	cp 6
+	jr c, .not_shiny
 
 ; shiny
 	scf
@@ -42,7 +41,6 @@ CheckShininess:
 .not_shiny
 	and a
 	ret
-	
 LoadMonBaseTypePal:
 	; destination address of Palette and Slot is passed in 'de'
 	; Type Index (already fixed/adjusted if a Special Type) is passed in 'c'
@@ -373,7 +371,6 @@ LoadStatsScreenPals:
 	ret z
 	ld hl, StatsScreenPals
 	ld b, 0
-	dec c
 	add hl, bc
 	add hl, bc
 	ldh a, [rWBK]
@@ -1263,6 +1260,8 @@ LoadMapPals:
 	ld bc, 8 palettes
 	ld a, BANK(wOBPals1)
 	call FarCopyWRAM
+	
+	farcall LoadSpecialMapObjectPalette	
 
 	ld a, [wEnvironment]
 	cp TOWN

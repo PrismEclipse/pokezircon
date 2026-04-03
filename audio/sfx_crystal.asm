@@ -295,3 +295,14 @@ Sfx_Gravity_Ch8:
 	noise_note 11, 14, -2, 107
 	noise_note 11, 14, 1, 108
 	sound_ret	
+
+Sfx_Puddle:
+	channel_count 1
+	channel 5, Sfx_Puddle_Ch5
+
+Sfx_Puddle_Ch5:
+	duty_cycle $1
+	pitch_sweep 9, 7
+	square_note 15, 9, 8, 1792
+	pitch_sweep 0, 8
+	sound_ret

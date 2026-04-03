@@ -11,7 +11,6 @@ TailWhipUsers:
 	db VAPOREON
 	db JOLTEON
 	db FLAREON
-	db PICHU
 	db MARILL
 	db AZUMARILL
 	db HOPPIP
@@ -24,7 +23,7 @@ TailWhipUsers:
 	db BLISSEY
 	db ZIGZAGOON
 	db LINOONE
-	db KECLEON
+	db UMBREON_RED
 	db RHYPERIOR
 	db FENNEKIN
 	db BRAIXEN

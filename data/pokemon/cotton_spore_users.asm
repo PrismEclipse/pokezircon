@@ -6,7 +6,6 @@ CottonSporeUsers:
 	db HOPPIP
 	db SKIPLOOM
 	db JUMPLUFF
-	db BUDEW
 	db ROSELIA
 	db ROSERADE
 	db -1

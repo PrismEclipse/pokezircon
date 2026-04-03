@@ -1237,85 +1237,85 @@ JohtoGrassWildMons:
 	def_grass_wildmons ROUTE_29
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 50, WALKING_WAKE
-	db 50, GOUGING_FIRE
-	db 50, RAGING_BOLT
-	db 50, WALKING_WAKE
-	db 50, GOUGING_FIRE
-	db 50, RAGING_BOLT
-	db 50, RAGING_BOLT
+	db 2, ROOKIDEE
+	db 2, ROOKIDEE
+	db 3, ZIGZAGOON
+	db 3, ZIGZAGOON
+	db 3, ZIGZAGOON
+	db 4, SENTRET
+	db 4, SENTRET
 	; day
-	db 50, WALKING_WAKE
-	db 50, GOUGING_FIRE
-	db 50, RAGING_BOLT
-	db 50, WALKING_WAKE
-	db 50, GOUGING_FIRE
-	db 50, RAGING_BOLT
-	db 50, RAGING_BOLT
+	db 2, ROOKIDEE
+	db 2, ROOKIDEE
+	db 3, ZIGZAGOON
+	db 3, ZIGZAGOON
+	db 3, ZIGZAGOON
+	db 4, SENTRET
+	db 4, SENTRET
 	; nite
-	db 50, WALKING_WAKE
-	db 50, GOUGING_FIRE
-	db 50, RAGING_BOLT
-	db 50, WALKING_WAKE
-	db 50, GOUGING_FIRE
-	db 50, RAGING_BOLT
-	db 50, RAGING_BOLT
+	db 2, ROOKIDEE
+	db 2, ROOKIDEE
+	db 3, ZIGZAGOON
+	db 3, ZIGZAGOON
+	db 3, ZIGZAGOON
+	db 4, SENTRET
+	db 4, SENTRET
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_30
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 5, ROOKIDEE
-	db 5, ROOKIDEE
-	db 5, ROOKIDEE
-	db 5, ROOKIDEE
-	db 6, TINKATON
-	db 6, TINKATON
-	db 6, TINKATON
+	db 3, ROOKIDEE
+	db 3, ROOKIDEE
+	db 3, ROOKIDEE
+	db 4, TAROUNTULA
+	db 4, TAROUNTULA
+	db 4, SENTRET
+	db 5, SENTRET
 	; day
-	db 5, ROOKIDEE
-	db 5, ROOKIDEE
-	db 5, ROOKIDEE
-	db 5, ROOKIDEE
-	db 6, TINKATON
-	db 6, TINKATON
-	db 6, TINKATON
+	db 3, ROOKIDEE
+	db 3, ROOKIDEE
+	db 3, ROOKIDEE
+	db 4, TAROUNTULA
+	db 4, TAROUNTULA
+	db 4, SENTRET
+	db 5, SENTRET
 	; nite
-	db 5, ROOKIDEE
-	db 5, ROOKIDEE
-	db 5, ROOKIDEE
-	db 5, ROOKIDEE
-	db 6, TINKATON
-	db 6, TINKATON
-	db 6, TINKATON
+	db 3, ROOKIDEE
+	db 3, ROOKIDEE
+	db 3, ROOKIDEE
+	db 4, TAROUNTULA
+	db 4, TAROUNTULA
+	db 4, SENTRET
+	db 5, SENTRET
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_31
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 4, MAGIKARP
-	db 4, JOLTIK
-	db 5, BELLSPROUT
-	db 5, ROOKIDEE
-	db 4, MAGIKARP
-	db 5, HOPPIP
-	db 5, HOPPIP
-	; day
+	db 3, ROOKIDEE
+	db 3, ROOKIDEE
 	db 4, ROOKIDEE
-	db 4, JOLTIK
-	db 5, BELLSPROUT
-	db 5, ROOKIDEE
-	db 4, MAGIKARP
-	db 5, HOPPIP
-	db 5, HOPPIP
+	db 5, GRUBBIN
+	db 5, GRUBBIN
+	db 5, RALTS
+	db 6, RALTS
+	; day
+	db 3, ROOKIDEE
+	db 3, ROOKIDEE
+	db 4, ROOKIDEE
+	db 5, GRUBBIN
+	db 5, GRUBBIN
+	db 5, RALTS
+	db 6, RALTS
 	; nite
-	db 4, GALLADE
-	db 4, MAGIKARP
-	db 5, BELLSPROUT
-	db 5, MAGIKARP
-	db 4, RINRING
-	db 5, GASTLY
-	db 5, GASTLY
+	db 3, ROOKIDEE
+	db 3, ROOKIDEE
+	db 4, ROOKIDEE
+	db 5, GRUBBIN
+	db 5, GRUBBIN
+	db 5, RALTS
+	db 6, RALTS
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_32

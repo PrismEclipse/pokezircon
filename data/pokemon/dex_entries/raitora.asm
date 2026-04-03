@@ -1,10 +1,10 @@
-	db "PROWLER@" ; species name
-	dw 501, 1520 ; height, weight
+	db "ABHORRENCE@" ; species name
+	dw 603, 2460 ; height, weight
 
-	db   "Its golden color"
-	next "and splendidly"
-	next "rotund shape made"
+	db   "Long believed to"
+	next "be myth, this"
+	next "beast is born of"
 
-	page "it a symbol of"
-	next "royal superiority"
-	next "in ancient NIHON.@"
+	page "hatred, and will"
+	next "annihilate all"
+	next "that angers it.@"

@@ -210,4 +210,5 @@
 	const SFX_4_NOTE_DITTY                ; cd
 	const SFX_TWINKLE                     ; ce
 	const SFX_GRAVITY
+	const SFX_PUDDLE
 DEF NUM_SFX EQU const_value

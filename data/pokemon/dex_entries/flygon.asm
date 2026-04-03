@@ -1,10 +1,10 @@
 	db "MYSTIC@" ; species name
 	dw 607, 1808 ; height, weight
 
-	db   "It hides itself"
-	next "by kicking up"
-	next "desert sand with"
+	db   "It hides itself by"
+	next "kicking up desert"
+	next "sand with its"
 
-	page "its wings. Red"
-	next "covers shield its"
-	next "eyes from sand.@"
+	page "wings. Red covers"
+	next "shield its eyes"
+	next "from sand.@"

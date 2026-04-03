@@ -28,7 +28,7 @@ FramesPointers:
 	dw RaichuFrames
 	dw SandygastFrames
 	dw PalossandFrames
-	dw BudewFrames
+	dw SableyeFrames
 	dw RoseliaFrames
 	dw RoseradeFrames
 	dw CharcadetFrames
@@ -178,8 +178,8 @@ FramesPointers:
 	dw KirliaFrames
 	dw GardevoirFrames
 	dw GalladeFrames
-	dw PichuFrames
-	dw CleffaFrames
+	dw MissingNoFrames
+	dw LeafeonFrames
 	dw TinkatinkFrames
 	dw TinkatuffFrames
 	dw TinkatonFrames
@@ -191,7 +191,7 @@ FramesPointers:
 	dw HoppipFrames
 	dw SkiploomFrames
 	dw JumpluffFrames
-	dw KecleonFrames
+	dw UmbreonRedFrames
 	dw SunkernFrames
 	dw SunfloraFrames
 	dw YanmaFrames

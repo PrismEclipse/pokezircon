@@ -25,12 +25,12 @@ SpawnPoints:
 	spawn ROUTE_23,                    9,  6
 
 	spawn NEW_BARK_TOWN,              13,  6
-	spawn CHERRYGROVE_CITY,           29,  4
+	spawn CHERRYGROVE_CITY,           11, 30
 	spawn VIOLET_CITY,                31, 26
 	spawn ROUTE_32,                   11, 74
-	spawn AZALEA_TOWN,                15, 10
+	spawn AZALEA_TOWN,                15, 14
 	spawn CIANWOOD_CITY,              23, 44
-	spawn GOLDENROD_CITY,             15, 28
+	spawn GOLDENROD_CITY,             21, 11
 	spawn OLIVINE_CITY,               13, 22
 	spawn ECRUTEAK_CITY,              23, 28
 	spawn MAHOGANY_TOWN,              15, 14

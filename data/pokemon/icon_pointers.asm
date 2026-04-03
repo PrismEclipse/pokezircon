@@ -30,7 +30,7 @@ IconPointers:
 	dw RaichuIcon
 	dw SandygastIcon
 	dw PalossandIcon
-	dw BudewIcon
+	dw SableyeIcon
 	dw RoseliaIcon
 	dw RoseradeIcon
 	dw CharcadetIcon
@@ -180,8 +180,8 @@ IconPointers:
 	dw KirliaIcon
 	dw GardevoirIcon
 	dw GalladeIcon
-	dw PichuIcon
-	dw CleffaIcon
+	dw MissingNoIcon
+	dw LeafeonIcon
 	dw TinkatinkIcon
 	dw TinkatuffIcon
 	dw TinkatonIcon
@@ -193,7 +193,7 @@ IconPointers:
 	dw HoppipIcon
 	dw SkiploomIcon
 	dw JumpluffIcon
-	dw KecleonIcon
+	dw UmbreonRedIcon
 	dw SunkernIcon
 	dw SunfloraIcon
 	dw YanmaIcon

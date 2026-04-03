@@ -22,4 +22,7 @@ IsHMMove::
 	db FLASH
 	db WATERFALL
 	db WHIRLPOOL
+	db ROCK_SMASH
+	db DIVE
+	db ROCK_CLIMB
 	db -1 ; end

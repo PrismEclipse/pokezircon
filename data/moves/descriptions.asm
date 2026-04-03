@@ -2,16 +2,16 @@ MoveDescriptions::
 ; entries correspond to move ids (see constants/move_constants.asm)
 	table_width 2
 	dw PoundDescription
-	dw KarateChopDescription
-	dw DoubleslapDescription
-	dw CometPunchDescription
-	dw MegaPunchDescription
+	dw FirstImpressionDescription
+	dw PoisonJabDescription
+	dw LeafBladeDescription
+	dw BlazeKickDescription
 	dw PayDayDescription
 	dw FirePunchDescription
 	dw IcePunchDescription
 	dw ThunderpunchDescription
 	dw ScratchDescription
-	dw VicegripDescription
+	dw AquaJetDescription
 	dw GuillotineDescription
 	dw RazorWindDescription
 	dw SwordsDanceDescription
@@ -271,21 +271,21 @@ PoundDescription:
 	db   "Pounds with fore-"
 	next "legs or tail.@"
 
-KarateChopDescription:
+FirstImpressionDescription:
+	db   "If going first"
+	next "causes flinching.@"
+
+PoisonJabDescription:
+	db   "An attack that may"
+	next "poison the foe.@"
+
+LeafBladeDescription:
 	db   "Has a high criti-"
 	next "cal hit ratio.@"
 
-DoubleslapDescription:
-	db   "Repeatedly slaps"
-	next "2-5 times.@"
-
-CometPunchDescription:
-	db   "Repeatedly punches"
-	next "2-5 times.@"
-
-MegaPunchDescription:
-	db   "A powerful punch"
-	next "thrown very hard.@"
+BlazeKickDescription:
+	db   "May cause a burn."
+	next "High crit ratio.@"
 
 PayDayDescription:
 	db   "Throws coins. Gets"
@@ -307,9 +307,9 @@ ScratchDescription:
 	db   "Scratches with"
 	next "sharp claws.@"
 
-VicegripDescription:
-	db   "Grips with power-"
-	next "ful pincers.@"
+AquaJetDescription:
+	db   "An attack that"
+	next "strikes first.@"
 
 GuillotineDescription:
 	db   "A one-hit KO,"

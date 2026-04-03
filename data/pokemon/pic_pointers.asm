@@ -31,7 +31,7 @@ PokemonPicPointers::
 	dbas RaichuFrontpic, RaichuBackpic
 	dbas SandygastFrontpic, SandygastBackpic
 	dbas PalossandFrontpic, PalossandBackpic
-	dbas BudewFrontpic, BudewBackpic
+	dbas SableyeFrontpic, SableyeBackpic
 	dbas RoseliaFrontpic, RoseliaBackpic
 	dbas RoseradeFrontpic, RoseradeBackpic
 	dbas CharcadetFrontpic, CharcadetBackpic
@@ -181,8 +181,8 @@ PokemonPicPointers::
 	dbas KirliaFrontpic, KirliaBackpic
 	dbas GardevoirFrontpic, GardevoirBackpic
 	dbas GalladeFrontpic, GalladeBackpic
-	dbas PichuFrontpic, PichuBackpic
-	dbas CleffaFrontpic, CleffaBackpic
+	dbas MissingNoFrontpic, MissingNoBackpic
+	dbas LeafeonFrontpic, LeafeonBackpic
 	dbas TinkatinkFrontpic, TinkatinkBackpic
 	dbas TinkatuffFrontpic, TinkatuffBackpic
 	dbas TinkatonFrontpic, TinkatonBackpic
@@ -194,7 +194,7 @@ PokemonPicPointers::
 	dbas HoppipFrontpic, HoppipBackpic
 	dbas SkiploomFrontpic, SkiploomBackpic
 	dbas JumpluffFrontpic, JumpluffBackpic
-	dbas KecleonFrontpic, KecleonBackpic
+	dbas UmbreonRedFrontpic, UmbreonRedBackpic
 	dbas SunkernFrontpic, SunkernBackpic
 	dbas SunfloraFrontpic, SunfloraBackpic
 	dbas YanmaFrontpic, YanmaBackpic

@@ -28,7 +28,7 @@ BitmasksPointers:
 	dw RaichuBitmasks
 	dw SandygastBitmasks
 	dw PalossandBitmasks
-	dw BudewBitmasks
+	dw SableyeBitmasks
 	dw RoseliaBitmasks
 	dw RoseradeBitmasks
 	dw CharcadetBitmasks
@@ -178,8 +178,8 @@ BitmasksPointers:
 	dw KirliaBitmasks
 	dw GardevoirBitmasks
 	dw GalladeBitmasks
-	dw PichuBitmasks
-	dw CleffaBitmasks
+	dw MissingNoBitmasks
+	dw LeafeonBitmasks
 	dw TinkatinkBitmasks
 	dw TinkatuffBitmasks
 	dw TinkatonBitmasks
@@ -191,7 +191,7 @@ BitmasksPointers:
 	dw HoppipBitmasks
 	dw SkiploomBitmasks
 	dw JumpluffBitmasks
-	dw KecleonBitmasks
+	dw UmbreonRedBitmasks
 	dw SunkernBitmasks
 	dw SunfloraBitmasks
 	dw YanmaBitmasks

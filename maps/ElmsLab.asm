@@ -51,13 +51,9 @@ ElmsLabWalkUpToElmScript:
 	turnobject ELMSLAB_ELM, RIGHT
 	opentext
 	writetext ElmText_Intro
-.MustSayYes:
-	yesorno
-	iftrue .ElmGetsEmail
-	writetext ElmText_Refused
-	sjump .MustSayYes
-
-.ElmGetsEmail:
+	waitbutton
+	closetext
+	opentext
 	writetext ElmText_Accepted
 	promptbutton
 	writetext ElmText_ResearchAmbitions
@@ -252,10 +248,6 @@ ElmDirectionsScript:
 	turnobject PLAYER, UP
 	opentext
 	writetext ElmDirectionsText1
-	waitbutton
-	closetext
-	opentext
-	waitsfx
 	waitbutton
 	closetext
 	turnobject ELMSLAB_ELM, LEFT
@@ -721,42 +713,34 @@ AfterChikoritaMovement:
 	step_end
 
 ElmText_Intro:
-	text "ELM: <PLAY_G>!"
+	text "SAKURA: <PLAY_G>!"
 	line "There you are!"
 
-	para "I needed to ask"
-	line "you a favor."
+	para "I guess you know"
+	line "why you are here?"
 
-	para "I'm conducting new"
-	line "#MON research"
+	para "Your gonna be"
+	line "choosing your"
 
-	para "right now. I was"
-	line "wondering if you"
+	para "first #MON"
+	line "today!"
 
-	para "could help me with"
-	line "it, <PLAY_G>."
+	para "Isn't that"
+	line "amazing <PLAY_G>?"
 
-	para "You see…"
+	para "Well..."
 
-	para "I'm writing a"
-	line "paper that I want"
+	para "You must be pretty"
+	line "excited to start"
 
-	para "to present at a"
-	line "conference."
+	para "your own journey"
+	line "yeah?"
 
-	para "But there are some"
-	line "things I don't"
+	para "It'll be such"
+	line "a big help with"
 
-	para "quite understand"
-	line "yet."
-
-	para "So!"
-
-	para "I'd like you to"
-	line "raise a #MON"
-
-	para "that I recently"
-	line "caught."
+	para "research for"
+	line "this region!"
 	done
 
 ElmText_Accepted:
@@ -764,11 +748,6 @@ ElmText_Accepted:
 
 	para "You're a great"
 	line "help!"
-	done
-
-ElmText_Refused:
-	text "But… Please, I"
-	line "need your help!"
 	done
 
 ElmText_ResearchAmbitions:
@@ -854,33 +833,33 @@ LabWhereGoingText:
 	done
 
 TakeCyndaquilText:
-	text "ELM: You'll take"
-	line "CYNDAQUIL, the"
-	cont "fire #MON?"
+	text "SAKURA: You"
+	line "wanna take"
+	cont "FENNEKIN?"
 	done
 
 TakeTotodileText:
-	text "ELM: Do you want"
-	line "TOTODILE, the"
-	cont "water #MON?"
+	text "SAKURA: You"
+	line "wanna take"
+	cont "PIPLUP?"
 	done
 
 TakeChikoritaText:
-	text "ELM: So, you like"
-	line "CHIKORITA, the"
-	cont "grass #MON?"
+	text "SAKURA: You"
+	line "wanna take"
+	cont "ROWLET?"
 	done
 
 DidntChooseStarterText:
-	text "ELM: Think it over"
-	line "carefully."
+	text "SAKURA: Think"
+	line "over it more."
 
 	para "Your partner is"
 	line "important."
 	done
 
 ChoseStarterText:
-	text "ELM: I think"
+	text "SAKURA: I think"
 	line "that's a great"
 	cont "#MON too!"
 	done
@@ -928,11 +907,6 @@ ElmDirectionsText3:
 	line "counting on you!"
 	done
 
-GotElmsNumberText:
-	text "<PLAYER> got ELM's"
-	line "phone number."
-	done
-
 ElmDescribesMrPokemonText:
 	text "MR.#MON goes"
 	line "everywhere and"
@@ -946,7 +920,7 @@ ElmDescribesMrPokemonText:
 ElmPokeBallText:
 	text "It contains a"
 	line "#MON caught by"
-	cont "PROF.ELM."
+	cont "PROF.SAKURA."
 	done
 
 ElmsLabHealingMachineText1:
@@ -975,7 +949,7 @@ ElmAfterTheftText2:
 	done
 
 ElmAfterTheftText3:
-	text "ELM: This?"
+	text "SAKURA: This?"
 	done
 
 ElmAfterTheftText4:
@@ -987,7 +961,7 @@ ElmAfterTheftText4:
 	done
 
 ElmAfterTheftText5:
-	text "ELM: What?!?"
+	text "SAKURA: What?!?"
 
 	para "PROF.OAK gave you"
 	line "a #DEX?"
@@ -1037,7 +1011,7 @@ ElmAfterTheftText6:
 	done
 
 ElmStudyingEggText:
-	text "ELM: Don't give"
+	text "SAKURA: Don't give"
 	line "up! I'll call if"
 
 	para "I learn anything"
@@ -1045,7 +1019,7 @@ ElmStudyingEggText:
 	done
 
 ElmAideHasEggText:
-	text "ELM: <PLAY_G>?"
+	text "SAKURA: <PLAY_G>?"
 	line "Didn't you meet my"
 	cont "assistant?"
 
@@ -1061,7 +1035,7 @@ ElmAideHasEggText:
 	done
 
 ElmWaitingEggHatchText:
-	text "ELM: Hey, has that"
+	text "SAKURA: Hey, has that"
 	line "EGG changed any?"
 	done
 
@@ -1074,7 +1048,7 @@ ElmThoughtEggHatchedText:
 	done
 
 ShowElmTogepiText1:
-	text "ELM: <PLAY_G>, you"
+	text "SAKURA: <PLAY_G>, you"
 	line "look great!"
 	done
 
@@ -1128,7 +1102,7 @@ ElmGiveEverstoneText2:
 	done
 
 ElmText_CallYou:
-	text "ELM: <PLAY_G>, I'll"
+	text "SAKURA: <PLAY_G>, I'll"
 	line "call you if any-"
 	cont "thing comes up."
 	done
@@ -1148,7 +1122,7 @@ AideText_AfterTheft:
 	done
 
 ElmGiveMasterBallText1:
-	text "ELM: Hi, <PLAY_G>!"
+	text "SAKURA: Hi, <PLAY_G>!"
 	line "Thanks to you, my"
 
 	para "research is going"
@@ -1181,7 +1155,7 @@ ElmGiveMasterBallText2:
 	done
 
 ElmGiveTicketText1:
-	text "ELM: <PLAY_G>!"
+	text "SAKURA: <PLAY_G>!"
 	line "There you are!"
 
 	para "I called because I"
@@ -1213,7 +1187,7 @@ ElmGiveTicketText2:
 ElmsLabMonEggText: ; unreferenced
 	text "It's the #MON"
 	line "EGG being studied"
-	cont "by PROF.ELM."
+	cont "by PROF.SAKURA."
 	done
 
 AideText_GiveYouPotion:
@@ -1276,7 +1250,7 @@ ElmsLabOfficerText1:
 
 	para "I was just getting"
 	line "some information"
-	cont "from PROF.ELM."
+	cont "from PROF.SAKURA."
 
 	para "Apparently, it was"
 	line "a young male with"
@@ -1357,7 +1331,7 @@ ElmsLabTravelTip4Text:
 
 ElmsLabTrashcanText:
 	text "The wrapper from"
-	line "the snack PROF.ELM"
+	line "the snack PROF.SAKURA"
 	cont "ate is in there…"
 	done
 
@@ -1405,7 +1379,7 @@ ElmsLab_MapEvents:
 	bg_event  3,  5, BGEVENT_DOWN, ElmsLabPC
 
 	def_object_events
-	object_event  5,  2, SPRITE_ELM, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ProfElmScript, -1
+	object_event  5,  2, SPRITE_ELM, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, ProfElmScript, -1
 	object_event  2,  9, SPRITE_SCIENTIST, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ElmsAideScript, EVENT_ELMS_AIDE_IN_LAB
 	object_event  6,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CyndaquilPokeBallScript, EVENT_CYNDAQUIL_POKEBALL_IN_ELMS_LAB
 	object_event  7,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TotodilePokeBallScript, EVENT_TOTODILE_POKEBALL_IN_ELMS_LAB

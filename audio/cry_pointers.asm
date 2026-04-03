@@ -88,4 +88,42 @@ Cries:
 	dba Cry_Vikavolt
 	dba Cry_Corviknight
 	dba Cry_Gorochu
+	dba Cry_Shroomish
+	dba Cry_Breloom
+	dba Cry_Ralts
+	dba Cry_Kirlia
+	dba Cry_Gallade
+	dba Cry_Sneasler
+	dba Cry_Drilbur
+	dba Cry_Excadrill
+	dba Cry_Hoothoot_2ch
+	dba Cry_Worfurs
+	dba Cry_Molambino
+	dba Cry_Misdreavus
+	dba Cry_Yanma
+	dba Cry_Elekid
+	dba Cry_Larvitar
+	dba Cry_Bipulla
+	dba Cry_Aggroswine
+	dba Cry_Tricules
+	dba Cry_Aron
+	dba Cry_Lairon
+	dba Cry_Aggron
+	dba Cry_Swablu
+	dba Cry_Altaria
+	dba Cry_Sylveon
+	dba Cry_Amaura
+	dba Cry_Chatot
+	dba Cry_Venipede
+	dba Cry_Leafeon
+	dba Cry_Glitched
+	dba Cry_UmbreonRed
+	dba Cry_Larvesta
+	dba Cry_Golurk
+	dba Cry_Kotora
+	dba Cry_Anchorage
+	dba Cry_Grotess
+	dba Cry_Disturban
+	dba Cry_Stakataka
+	dba Cry_Necrozma
 	assert_table_length NUM_CRIES

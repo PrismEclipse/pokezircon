@@ -28,7 +28,7 @@ AnimationPointers:
 	dw RaichuAnimation
 	dw SandygastAnimation
 	dw PalossandAnimation
-	dw BudewAnimation
+	dw SableyeAnimation
 	dw RoseliaAnimation
 	dw RoseradeAnimation
 	dw CharcadetAnimation
@@ -178,8 +178,8 @@ AnimationPointers:
 	dw KirliaAnimation
 	dw GardevoirAnimation
 	dw GalladeAnimation
-	dw PichuAnimation
-	dw CleffaAnimation
+	dw MissingNoAnimation
+	dw LeafeonAnimation
 	dw TinkatinkAnimation
 	dw TinkatuffAnimation
 	dw TinkatonAnimation
@@ -191,7 +191,7 @@ AnimationPointers:
 	dw HoppipAnimation
 	dw SkiploomAnimation
 	dw JumpluffAnimation
-	dw KecleonAnimation
+	dw UmbreonRedAnimation
 	dw SunkernAnimation
 	dw SunfloraAnimation
 	dw YanmaAnimation

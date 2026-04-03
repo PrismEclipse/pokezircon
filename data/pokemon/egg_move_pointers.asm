@@ -24,12 +24,12 @@ EggMovePointers::
 	dw NoEggMoves
 	dw KotoraEggMoves
 	dw NoEggMoves
-	dw NoEggMoves
+	dw PikachuEggMoves
 	dw NoEggMoves
 	dw SandygastEggMoves
 	dw NoEggMoves
-	dw BudewEggMoves
-	dw NoEggMoves
+	dw SableyeEggMoves
+	dw RoseliaEggMoves
 	dw NoEggMoves
 	dw CharcadetEggMoves
 	dw NoEggMoves
@@ -178,8 +178,8 @@ EggMovePointers::
 	dw NoEggMoves
 	dw NoEggMoves
 	dw NoEggMoves
-	dw PichuEggMoves
-	dw CleffaEggMoves
+	dw NoEggMoves
+	dw NoEggMoves
 	dw TinkatinkEggMoves
 	dw NoEggMoves
 	dw NoEggMoves
@@ -191,7 +191,7 @@ EggMovePointers::
 	dw HoppipEggMoves
 	dw NoEggMoves
 	dw NoEggMoves
-	dw KecleonEggMoves
+	dw NoEggMoves
 	dw SunkernEggMoves
 	dw NoEggMoves
 	dw YanmaEggMoves

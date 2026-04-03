@@ -42,8 +42,6 @@ OldPokedexOrder:
 	db PORYGON
 	db SENTRET
 	db FURRET
-	db PICHU
-	db CLEFFA
 	db MAREEP
 	db FLAAFFY
 	db AMPHAROS
@@ -59,6 +57,7 @@ OldPokedexOrder:
 	db QUAGSIRE
 	db ESPEON
 	db UMBREON
+	db UMBREON_RED
 	db SLOWKING
 	db MISDREAVUS
 	db UNOWN
@@ -104,6 +103,7 @@ OldPokedexOrder:
 	db GARDEVOIR
 	db SHROOMISH
 	db BRELOOM
+	db SABLEYE
 	db ARON
 	db LAIRON
 	db AGGRON
@@ -115,7 +115,6 @@ OldPokedexOrder:
 	db FLYGON
 	db SWABLU
 	db ALTARIA
-	db KECLEON
 	db CHIMECHO
 	db ABSOL
 	db SPHEAL
@@ -128,7 +127,6 @@ OldPokedexOrder:
 	db PIPLUP
 	db PRINPLUP
 	db EMPOLEON
-	db BUDEW
 	db ROSERADE
 	db MISMAGIUS
 	db CHINGLING
@@ -141,6 +139,7 @@ OldPokedexOrder:
 	db MAGNEZONE
 	db RHYPERIOR
 	db YANMEGA
+	db LEAFEON
 	db MAMOSWINE
 	db PORYGONZ
 	db GALLADE
@@ -254,6 +253,7 @@ OldPokedexOrder:
 	db CACTRI
 	db SHARPOON
 	db GOROCHU
+	db MISSINGNO
 	db SLITHER_WING
 	assert_table_length NUM_POKEMON
 	

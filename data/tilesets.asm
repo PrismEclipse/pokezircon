@@ -45,9 +45,13 @@ Tilesets::
 	tileset TilesetIcePath
 	tileset TilesetDarkCave
 	tileset TilesetForest
-	tileset TilesetBetaWordRoom
 	tileset TilesetHoOhWordRoom
 	tileset TilesetKabutoWordRoom
 	tileset TilesetOmanyteWordRoom
 	tileset TilesetAerodactylWordRoom
+	tileset TilesetForestAlt
+	tileset TilesetUnderwater
+	tileset TilesetGraveyard
+	tileset TilesetMountainside
+	tileset TilesetJohtoBeta
 	assert_table_length NUM_TILESETS + 1

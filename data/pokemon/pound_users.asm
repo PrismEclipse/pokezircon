@@ -3,7 +3,6 @@ PoundUsers:
 	db CLEFAIRY
 	db CLEFABLE
 	db CHANSEY
-	db CLEFFA
 	db SUNFLORA
 	db BLISSEY
 	db TREECKO

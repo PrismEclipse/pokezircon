@@ -29,7 +29,7 @@ PokedexDataPointerTable:
 	dba RaichuPokedexEntry
 	dba SandygastPokedexEntry
 	dba PalossandPokedexEntry
-	dba BudewPokedexEntry
+	dba SableyePokedexEntry
 	dba RoseliaPokedexEntry
 	dba RoseradePokedexEntry
 	dba CharcadetPokedexEntry
@@ -179,8 +179,8 @@ PokedexDataPointerTable:
 	dba KirliaPokedexEntry
 	dba GardevoirPokedexEntry
 	dba GalladePokedexEntry
-	dba PichuPokedexEntry
-	dba CleffaPokedexEntry
+	dba MissingNoPokedexEntry
+	dba LeafeonPokedexEntry
 	dba TinkatinkPokedexEntry
 	dba TinkatuffPokedexEntry
 	dba TinkatonPokedexEntry
@@ -192,7 +192,7 @@ PokedexDataPointerTable:
 	dba HoppipPokedexEntry
 	dba SkiploomPokedexEntry
 	dba JumpluffPokedexEntry
-	dba KecleonPokedexEntry
+	dba UmbreonRedPokedexEntry
 	dba SunkernPokedexEntry
 	dba SunfloraPokedexEntry
 	dba YanmaPokedexEntry

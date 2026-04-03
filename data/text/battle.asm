@@ -1016,6 +1016,16 @@ SandstormBrewedText:
 	text "A SANDSTORM"
 	line "brewed!"
 	prompt
+	
+DownpourText:
+	text "A downpour"
+	line "started!"
+	prompt	
+	
+SunGotBrightText: 
+	text "The sunlight got"
+	line "bright!"
+	prompt	
 
 BracedItselfText:
 	text "<USER>"

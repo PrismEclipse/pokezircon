@@ -28,7 +28,7 @@ AnimationIdlePointers:
 	dw RaichuAnimationIdle
 	dw SandygastAnimationIdle
 	dw PalossandAnimationIdle
-	dw BudewAnimationIdle
+	dw SableyeAnimationIdle
 	dw RoseliaAnimationIdle
 	dw RoseradeAnimationIdle
 	dw CharcadetAnimationIdle
@@ -178,8 +178,8 @@ AnimationIdlePointers:
 	dw KirliaAnimationIdle
 	dw GardevoirAnimationIdle
 	dw GalladeAnimationIdle
-	dw PichuAnimationIdle
-	dw CleffaAnimationIdle
+	dw MissingNoAnimationIdle
+	dw LeafeonAnimationIdle
 	dw TinkatinkAnimationIdle
 	dw TinkatuffAnimationIdle
 	dw TinkatonAnimationIdle
@@ -191,7 +191,7 @@ AnimationIdlePointers:
 	dw HoppipAnimationIdle
 	dw SkiploomAnimationIdle
 	dw JumpluffAnimationIdle
-	dw KecleonAnimationIdle
+	dw UmbreonRedAnimationIdle
 	dw SunkernAnimationIdle
 	dw SunfloraAnimationIdle
 	dw YanmaAnimationIdle

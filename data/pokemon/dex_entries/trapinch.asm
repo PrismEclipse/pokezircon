@@ -1,10 +1,10 @@
-; PinecoPokedexEntry: ; 0x1d04b0
 	db "ANT PIT@" ; species name
-	dw 204, 331 ; height, width
+	dw 204, 331 ; height, weight
 
-	db   "As it digs through"
-	next "the sand, its huge"
-	next "jaws crush any ro-"
-	page "cks that obstruct"
-	next "its path. They are"
-	next "found in deserts.@"
+	db   "It lives in arid"
+	next "deserts. It makes"
+	next "a sloping pit trap"
+
+	page "in sand where it"
+	next "patiently awaits"
+	next "prey.@"

@@ -361,8 +361,12 @@ CorviknightEvosAttacks:
 ZigzagoonEvosAttacks:
 	db EVOLVE_LEVEL, 20, LINOONE
 	db 0 ; no more evolutions
-	db 1, TACKLE
-	db 1, GROWL
+	db 1, ROCK_WRECKER
+	db 1, FLASH_CANNON
+	db 1, BLAST_BURN
+	db 1, HYDRO_CANNON
+	db 5, TACKLE
+	db 5, GROWL
 	db 5, SMOKESCREEN
 	db 8, DISARM
 	db 11, QUICK_ATTACK
@@ -540,20 +544,20 @@ PalossandEvosAttacks:
 	db 68, SANDSTORM
 	db 0 ; no more level-up moves
 
-BudewEvosAttacks:
-	db EVOLVE_HAPPINESS, TR_MORNDAY, ROSELIA
+SableyeEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, ABSORB
-	db 4, GROWTH
-	db 7, POISONPOWDER ; Water Sport
-	db 10, STUN_SPORE
-	db 13, MEGA_DRAIN
-	db 16, SLEEP_POWDER ; Worry Seed
-	; Added Roselia's moves
-	db 19, RAZOR_LEAF
-	db 22, HYPNOTIZE ;GrassWhistle
-	db 25, GIGA_DRAIN 
-	db 31, SWEET_SCENT
+	db 1, DISARM
+	db 1, SCRATCH
+	db 3, ASTONISH
+	db 9, NIGHT_SHADE
+	db 13, FURY_STRIKES
+	db 17, PROTECT
+	db 25, FAINT_ATTACK
+	db 29, THIEF
+	db 33, CONFUSE_RAY
+	db 37, SHADOW_CLAW
+	db 41, SHADOW_BALL
+	db 45, BLOCK
 	db 0 ; no more level-up moves
 
 RoseliaEvosAttacks:
@@ -3339,28 +3343,28 @@ GalladeEvosAttacks:
 	db 70, FUTURE_SIGHT
 	db 0 ; no more level-up moves	
 
-PichuEvosAttacks:
-	db EVOLVE_HAPPINESS, TR_ANYTIME, PIKACHU
+MissingNoEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, DISARM
-	db 1, THUNDERSHOCK
-	db 4, GROWL
-	db 8, SWEET_KISS
-	db 12, THUNDER_WAVE
-	db 16, NASTY_PLOT
-	db 20, CHARM
+	db 1, SPLASH
 	db 0 ; no more level-up moves
 
-CleffaEvosAttacks:
-	db EVOLVE_HAPPINESS, TR_ANYTIME, CLEFAIRY
+LeafeonEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, GROWL
 	db 1, TACKLE
-	db 1, FAIRY_WIND
-	db 4, GROWL
-	db 8, SWEET_KISS
-	db 12, DRAINING_KISS
-	db 16, ENCORE
-	db 20, CHARM
+	db 1, DISARM
+	db 1, RAZOR_LEAF
+	db 5, SMOKESCREEN
+	db 9, DOUBLE_KICK
+	db 13, QUICK_ATTACK
+	db 17, HYPNOTIZE
+	db 20, ENERGY_BALL
+	db 25, GIGA_DRAIN
+	db 29, GROWTH
+	db 33, HEALING_LIGHT
+	db 37, LEAF_BLADE
+	db 41, DOUBLE_EDGE
+	db 45, SUNNY_DAY
 	db 0 ; no more level-up moves
 	
 TinkatinkEvosAttacks:
@@ -3591,22 +3595,23 @@ JumpluffEvosAttacks:
 	db 58, ENERGY_BALL
 	db 0 ; no more level-up moves
 
-KecleonEvosAttacks:
+UmbreonRedEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, LICK
-	db 1, SUBSTITUTE
+	db 1, GROWL
+	db 1, TACKLE
 	db 1, DISARM
-	db 7, BATON_PASS
-	db 10, THIEF
-	db 14, PROTECT
-	db 18, PSYBEAM
-	db 21, ROCK_SLIDE
-	db 25, SLASH
-	db 28, FIRST_IMPRESSION
-	db 33, SHADOW_CLAW
-	db 38, SCREECH
-	db 42, DOUBLE_EDGE
-	db 54, HYPER_BEAM
+	db 1, ACID
+	db 5, SMOKESCREEN
+	db 9, DOUBLE_KICK
+	db 13, QUICK_ATTACK
+	db 17, CONFUSE_RAY
+	db 20, SLUDGE
+	db 25, TOXIC
+	db 29, SCREECH
+	db 33, HEALING_LIGHT
+	db 37, POISON_JAB
+	db 41, DOUBLE_EDGE
+	db 45, SLUDGE_BOMB
 	db 0 ; no more level-up moves
 
 SunkernEvosAttacks:
@@ -3739,20 +3744,20 @@ EspeonEvosAttacks:
 
 UmbreonEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, GROWL
 	db 1, TACKLE
 	db 1, DISARM
-	db 1, SWIFT
-	db 1, TAKE_DOWN
-	db 1, DOUBLE_EDGE
-	db 1, HEALING_LIGHT
+	db 1, PURSUIT
 	db 5, SMOKESCREEN
-	db 10, QUICK_ATTACK
-	db 15, GROWL
-	db 20, PURSUIT
+	db 9, DOUBLE_KICK
+	db 13, QUICK_ATTACK
+	db 17, CONFUSE_RAY
+	db 20, FAINT_ATTACK
 	db 25, BITE
-	db 30, FAINT_ATTACK
-	db 35, BATON_PASS
-	db 40, CHARM
+	db 29, SCREECH
+	db 33, HEALING_LIGHT
+	db 37, CRUNCH
+	db 41, DOUBLE_EDGE
 	db 45, DARK_PULSE
 	db 0 ; no more level-up moves
 	
@@ -4673,21 +4678,21 @@ GorochuEvosAttacks:
 
 SylveonEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, GROWL
 	db 1, TACKLE
 	db 1, DISARM
-	db 1, SWIFT
-	db 1, TAKE_DOWN
-	db 1, DOUBLE_EDGE
-	db 1, HEALING_LIGHT
+	db 1, FAIRY_WIND
 	db 5, SMOKESCREEN
-	db 10, QUICK_ATTACK
-	db 15, GROWL
-	db 20, FAIRY_WIND
-	db 25, BITE
-	db 30, DAZZLING_GLEAM
-	db 35, BATON_PASS
-	db 40, CHARM
-	db 45, MOONBLAST
+	db 9, DOUBLE_KICK
+	db 13, QUICK_ATTACK
+	db 17, SWIFT
+	db 20, DRAINING_KISS
+	db 25, DAZZLING_GLEAM
+	db 29, HEAL_BELL
+	db 33, LIGHT_SCREEN
+	db 37, MOONBLAST
+	db 41, DOUBLE_EDGE
+	db 45, PLAY_ROUGH
 	db 0 ; no more level-up moves
 
 SlitherWingEvosAttacks:
