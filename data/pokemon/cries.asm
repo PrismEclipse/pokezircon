@@ -43,9 +43,9 @@ PokemonCries::
 	mon_cry CRY_CLEFAIRY,    204,  129 ; CLEFAIRY
 	mon_cry CRY_CLEFAIRY,    170,  160 ; CLEFABLE
 	mon_cry CRY_VULPIX,      320,  144 ; GLIMMET
-	mon_cry CRY_VULPIX,      340,  224 ; GLIMMORA
+	mon_cry CRY_CHARMANDER,      303,  224 ; GLIMMORA
 	mon_cry CRY_CLEFFA,      182,  224 ; CUTIEFLY
-	mon_cry CRY_SUNFLORA,    -72,  224 ; RIBOMBEE
+	mon_cry CRY_COMFEY,    100,  128 ; RIBOMBEE
 	mon_cry CRY_AMAURA,       53,  64 ; RINRING
 	mon_cry CRY_AGGRON,       101,  105 ; BELLERUN
 	mon_cry CRY_GOROCHU,     246,  192 ; GAVILLAIN
@@ -54,7 +54,7 @@ PokemonCries::
 	mon_cry CRY_SHROOMISH,   255, 112 ; SHROOMISH
 	mon_cry CRY_BRELOOM,    80,  278 ; BRELOOM
 	mon_cry CRY_LARVESTA,      108,  100 ; LARVESTA
-	mon_cry CRY_AMPHAROS,     12,  420 ; VOLCARONA
+	mon_cry CRY_SCOLIPEDE,     12,  420 ; VOLCARONA
 	mon_cry CRY_DRILBUR,     255,  200 ; DRILBUR
 	mon_cry CRY_EXCADRILL,       88,  264 ; EXCADRILL
 	mon_cry CRY_CLEFAIRY,    119,  144 ; MEOWTH
@@ -65,13 +65,13 @@ PokemonCries::
 	mon_cry CRY_HYDREIGON,   370,  178 ; LILLIGANT
 	mon_cry CRY_HYDREIGON,   370,  178 ; LILLIGANT_H
 	mon_cry CRY_EKANS,       355,  252 ; ORTHWORM
-	mon_cry CRY_CLEFFA,       207,  785 ; MIMIKYU
+	mon_cry CRY_TRUBBISH,     125,  200 ; MIMIKYU
 	mon_cry CRY_SEEL,        304,  96 ; SPHEAL
 	mon_cry CRY_CLEFFA,      3720,  320 ; SEALEO
 	mon_cry CRY_WOOPER,      3784,  800 ; WALREIN
 	mon_cry CRY_CLEFFA,      192,  129 ; HATENNA
 	mon_cry CRY_CLEFAIRY,    -30,  320 ; HATTREM
-	mon_cry CRY_CLEFAIRY,   -202,  512 ; HATTERENE
+	mon_cry CRY_NOIVERN,   -202,  512 ; HATTERENE
 	mon_cry CRY_PICHU,     1600,  320 ; DEDENNE
 	mon_cry CRY_GOLEM,    255,  224 ; GOLETT
 	mon_cry CRY_GOLURK,     -38,  512 ; GOLURK
@@ -123,11 +123,11 @@ PokemonCries::
 	mon_cry CRY_BLASTOISE,       255,  383 ; REVAVROOM
 	mon_cry CRY_CHARMANDER,    0,  256 ; RHYHORN
 	mon_cry CRY_RHYDON,        0,  256 ; RHYDON
-	mon_cry CRY_RHYDON,   3584,  368 ; RHYPERIOR
+	mon_cry CRY_SCOLIPEDE,   255,  368 ; RHYPERIOR
 	mon_cry CRY_PIDGEOTTO,    10,  320 ; CHANSEY
 	mon_cry CRY_SLOWKING,    659,  320 ; BLISSEY
 	mon_cry CRY_GOLEM,         0,  256 ; TANGELA
-	mon_cry CRY_GOLEM,      -140, 383 ; TANGOREST
+	mon_cry CRY_CHANDELURE,    -140, 383 ; TANGOREST
 	mon_cry CRY_SNEASLER,    -100,  352 ; BOMSEEKER
 	mon_cry CRY_MOLAMBINO,    67,  80 ; CORASUN
 	mon_cry CRY_ANCHORAGE,    2288, 256 ; ANCHORAGE
@@ -162,7 +162,7 @@ PokemonCries::
 	mon_cry CRY_MAGCARGO,      3,  400 ; WALKING_WAKE
 	mon_cry CRY_GLIGAR,      42,  144 ; GIBLE
 	mon_cry CRY_NIDORAN_F,     3605,  512 ; GABITE
-	mon_cry CRY_AMPHAROS,     1743,  511 ; GARCHOMP
+	mon_cry CRY_SCOLIPEDE,     743,  511 ; GARCHOMP
 	mon_cry CRY_NECROZMA,  -238,  256 ; NECROZMA
 	mon_cry CRY_CLEFAIRY,  188,  312 ; JIRACHI
 	mon_cry CRY_PIDGEY,   1352,  823 ; ROWLET
@@ -172,7 +172,7 @@ PokemonCries::
 	mon_cry CRY_VULPIX,   3968,  197 ; BRAIXEN
 	mon_cry CRY_VULPIX, 297,  287 ; DELPHOX
 	mon_cry CRY_PSYDUCK,   592,  160 ; PIPLUP
-	mon_cry CRY_RAICHU,   -6,  176 ; PRINPLUP
+	mon_cry CRY_GLACEON,   -6,  176 ; PRINPLUP
 	mon_cry CRY_EMPOLEON,   31,  346 ; EMPOLEON
 	mon_cry CRY_SENTRET,     138,  184 ; SENTRET
 	mon_cry CRY_SENTRET,     107,  258 ; FURRET
@@ -211,9 +211,9 @@ PokemonCries::
 	mon_cry CRY_HOOTHOOT,    354,  256 ; UNOWN
 	mon_cry CRY_HOOTHOOT,    274,  320 ; PHANTUMP
 	mon_cry CRY_SLOWKING,   -659,  320 ; TREVENANT
-	mon_cry CRY_SLOWKING,    128,  256 ; PINECO
-	mon_cry CRY_SLOWKING,      0,  384 ; FORRETRESS
-	mon_cry CRY_WORFURS,   -176,  288 ; WOLFMAN
+	mon_cry CRY_VOLTORB,     163,  256 ; APRICORB
+	mon_cry CRY_VOLTORB,     221,  255 ; CHESTRODE
+	mon_cry CRY_CUBCHOO,   -176,  288 ; WOLFMAN
 	mon_cry CRY_WORFURS,     -475,  336 ; WARWOLF
 	mon_cry CRY_TEDDIURSA,  1984,  47 ; STUFFUL
 	mon_cry CRY_TEDDIURSA,   1700,  232 ; BEWEAR
@@ -223,12 +223,12 @@ PokemonCries::
 	mon_cry CRY_AMPHAROS,     53,  224 ; HERACROSS
 	mon_cry CRY_WOOPER,       83,  175 ; SNEASEL
 	mon_cry CRY_WOOPER,      133,  275 ; WEAVILE
-	mon_cry CRY_MAGCARGO,   -1600,  216 ; RELICANTH
+	mon_cry CRY_GASTRODON,   -600,  216 ; RELICANTH
 	mon_cry CRY_SLUGMA,     -472,  320 ; SLUGMA
 	mon_cry CRY_MAGCARGO,   -525,  448 ; MAGCARGO
 	mon_cry CRY_CYNDAQUIL,   510,  320 ; SWINUB
 	mon_cry CRY_MAGCARGO,   -265,  256 ; PILOSWINE
-	mon_cry CRY_MAGCARGO,   -525,  448 ; MAMOSWINE
+	mon_cry CRY_AGGRON,   -1000,  448 ; MAMOSWINE
 	mon_cry CRY_SUNFLORA,     13,  256 ; REMORAID
 	mon_cry CRY_TOTODILE,      0,  384 ; OCTILLERY
 	mon_cry CRY_MANTINE,    -190,  240 ; MANTINE
@@ -240,19 +240,19 @@ PokemonCries::
 	mon_cry CRY_METAPOD,    -302,  384 ; FLYGON
 	mon_cry CRY_GIRAFARIG,   115,  576 ; PORYGON2
 	mon_cry CRY_TYPHLOSION,  800,  255 ; PORYGONZ
-	mon_cry CRY_PICHU,      -538,  496 ; SMEARGLE
+	mon_cry CRY_CLEFFA,       2208,  400 ; FLOETTE_ETERNAL (ONLY TO TEST)
 	mon_cry CRY_AMPHAROS,    248,  192 ; BLACEPHALON
 	mon_cry CRY_STAKATAKA,       239,  312 ; STAKATAKA
-	mon_cry CRY_MAGCARGO,   171,  272 ; CHINGLING
+	mon_cry CRY_PSYDUCK,   672,  511 ; BLOSSOMOLE
 	mon_cry CRY_CLEFFA,      212,  254 ; CHIMECHO
 	mon_cry CRY_GRIMER,      510,   256 ; CURSTRAW
-	mon_cry CRY_CYNDAQUIL,     73,  128 ; PANGSHI
+	mon_cry CRY_PANGSHI,     2464,  256 ; PANGSHI
 	mon_cry CRY_STOUTLAND,    0,  48   ; ZYGARDE-10%
 	mon_cry CRY_ZYGARDE,   0,  192 	   ; ZYGARDE-50%
 	mon_cry CRY_ZYGARDE,   -74,  384   ; ZYGARDE_COMPLETE
 	mon_cry CRY_LARVITAR,       95,  208 ; LARVITAR
 	mon_cry CRY_SPINARAK,   -475,  336 ; PUPITAR
-	mon_cry CRY_ENTEI,     -256,  384 ; TYRANITAR
+	mon_cry CRY_RAIKOU,     -256,  384 ; TYRANITAR
 	mon_cry CRY_TYPHLOSION,    0,  256 ; LUGIA
 	mon_cry CRY_AIPOM,         0,  384 ; HO_OH
 	mon_cry CRY_ENTEI,       330,  273 ; CELEBI

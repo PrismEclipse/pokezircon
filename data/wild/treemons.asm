@@ -73,8 +73,8 @@ TreeMonSet_Route:
 	db -1
 ; rare
 	db 50, MAGIKARP,   10
-	db 15, PINECO,     10
-	db 15, PINECO,     10
+	db 15, APRICORB,     10
+	db 15, APRICORB,     10
 	db 10, PETILIL,  10
 	db  5, PETILIL,  10
 	db  5, PETILIL,  10
@@ -91,8 +91,8 @@ TreeMonSet_Kanto:
 	db -1
 ; rare
 	db 50, MAGIKARP,   10
-	db 15, PINECO,     10
-	db 15, PINECO,     10
+	db 15, APRICORB,     10
+	db 15, APRICORB,     10
 	db 10, PETILIL,  10
 	db  5, PETILIL,  10
 	db  5, PETILIL,  10
@@ -109,8 +109,8 @@ TreeMonSet_Lake:
 	db -1
 ; rare
 	db 50, MAGIKARP,   10
-	db 15, PINECO,     10
-	db 15, PINECO,     10
+	db 15, APRICORB,     10
+	db 15, APRICORB,     10
 	db 10, PETILIL,  10
 	db  5, PETILIL,  10
 	db  5, PETILIL,  10
@@ -119,8 +119,8 @@ TreeMonSet_Lake:
 TreeMonSet_Forest:
 ; common
 	db 50, MAGIKARP,   10
-	db 15, PINECO,     10
-	db 15, PINECO,     10
+	db 15, APRICORB,     10
+	db 15, APRICORB,     10
 	db 10, MAGIKARP,    10
 	db  5, JOLTIK, 10
 	db  5, MAGIKARP,   10

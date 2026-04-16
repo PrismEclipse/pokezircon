@@ -21,6 +21,8 @@ OldPokedexOrder:
 	db GASTLY
 	db HAUNTER
 	db GENGAR
+	db APRICORB
+	db CHESTRODE
 	db CUBONE
 	db MAROWAK
 	db LICKITUNG
@@ -61,8 +63,6 @@ OldPokedexOrder:
 	db SLOWKING
 	db MISDREAVUS
 	db UNOWN
-	db PINECO
-	db FORRETRESS
 	db QWILFISH
 	db SCIZOR
 	db HERACROSS
@@ -129,7 +129,6 @@ OldPokedexOrder:
 	db EMPOLEON
 	db ROSERADE
 	db MISMAGIUS
-	db CHINGLING
 	db CHATOT
 	db SPIRITOMB
 	db GIBLE
@@ -229,6 +228,7 @@ OldPokedexOrder:
 	db WALKING_WAKE
 	db GOUGING_FIRE
 	db RAGING_BOLT
+	db BLOSSOMOLE
 	db TANGOREST
 	db NUMPUFF
 	db CORASUN

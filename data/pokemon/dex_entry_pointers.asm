@@ -206,8 +206,8 @@ PokedexDataPointerTable:
 	dba UnownPokedexEntry
 	dba PhantumpPokedexEntry
 	dba TrevenantPokedexEntry
-	dba PinecoPokedexEntry
-	dba ForretressPokedexEntry
+	dba ApricorbPokedexEntry
+	dba ChestrodePokedexEntry
 	dba WolfmanPokedexEntry
 	dba WarwolfPokedexEntry
 	dba StuffulPokedexEntry
@@ -238,7 +238,7 @@ PokedexDataPointerTable:
 	dba SmearglePokedexEntry
 	dba BlacephalonPokedexEntry
 	dba StakatakaPokedexEntry
-	dba ChinglingPokedexEntry
+	dba BlossomolePokedexEntry
 	dba ChimechoPokedexEntry
 	dba KurstrawPokedexEntry
 	dba PangshiPokedexEntry

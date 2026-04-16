@@ -207,8 +207,8 @@ IconPointers:
 	dw UnownIcon
 	dw PhantumpIcon
 	dw TrevenantIcon
-	dw PinecoIcon
-	dw ForretressIcon
+	dw ApricorbIcon
+	dw ChestrodeIcon
 	dw WolfmanIcon
 	dw WarwolfIcon
 	dw StuffulIcon
@@ -239,7 +239,7 @@ IconPointers:
 	dw SmeargleIcon
 	dw BlacephalonIcon
 	dw StakatakaIcon
-	dw ChinglingIcon
+	dw BlossomoleIcon
 	dw ChimechoIcon
 	dw KurstrawIcon
 	dw PangshiIcon

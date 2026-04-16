@@ -205,8 +205,8 @@ AnimationPointers:
 	dw UnownAnimation
 	dw PhantumpAnimation
 	dw TrevenantAnimation
-	dw PinecoAnimation
-	dw ForretressAnimation
+	dw ApricorbAnimation
+	dw ChestrodeAnimation
 	dw WolfmanAnimation
 	dw WarwolfAnimation
 	dw StuffulAnimation
@@ -237,7 +237,7 @@ AnimationPointers:
 	dw SmeargleAnimation
 	dw BlacephalonAnimation
 	dw StakatakaAnimation
-	dw ChinglingAnimation
+	dw BlossomoleAnimation
 	dw ChimechoAnimation
 	dw KurstrawAnimation
 	dw PangshiAnimation

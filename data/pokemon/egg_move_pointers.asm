@@ -205,7 +205,7 @@ EggMovePointers::
 	dw NoEggMoves
 	dw PhantumpEggMoves
 	dw NoEggMoves
-	dw PinecoEggMoves
+	dw APRICORBEggMoves
 	dw NoEggMoves
 	dw WolfmanEggMoves
 	dw NoEggMoves
@@ -237,7 +237,7 @@ EggMovePointers::
 	dw NoEggMoves
 	dw NoEggMoves
 	dw NoEggMoves
-	dw ChinglingEggMoves
+	dw BLOSSOMOLEEggMoves
 	dw NoEggMoves
 	dw KurstrawEggMoves
 	dw NoEggMoves

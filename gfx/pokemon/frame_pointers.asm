@@ -205,8 +205,8 @@ FramesPointers:
 	dw UnownFrames
 	dw PhantumpFrames
 	dw TrevenantFrames
-	dw PinecoFrames
-	dw ForretressFrames
+	dw ApricorbFrames
+	dw ChestrodeFrames
 	dw WolfmanFrames
 	dw WarwolfFrames
 	dw StuffulFrames
@@ -237,7 +237,7 @@ FramesPointers:
 	dw SmeargleFrames
 	dw BlacephalonFrames
 	dw StakatakaFrames
-	dw ChinglingFrames
+	dw BlossomoleFrames
 	dw ChimechoFrames
 	dw KurstrawFrames
 	dw PangshiFrames

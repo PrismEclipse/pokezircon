@@ -126,4 +126,43 @@ Cries:
 	dba Cry_Disturban
 	dba Cry_Stakataka
 	dba Cry_Necrozma
+	dba Cry_Pangshi
+	dba Cry_Heliolisk
+	dba Cry_Whirlipede
+	dba Cry_Scolipede
+	dba Cry_Manectric
+	dba Cry_Buneary
+	dba Cry_Goomy
+	dba Cry_Crabrawler
+	dba Cry_Gastrodon
+	dba Cry_Trubbish
+	dba Cry_Cubchoo
+	dba Cry_Scraggy
+	dba Cry_Scrafty
+	dba Cry_Litwick
+	dba Cry_Lampent
+	dba Cry_Chandelure
+	dba Cry_Glaceon
+	dba Cry_Froslass
+	dba Cry_Wingull
+	dba Cry_Pelipper
+	dba Cry_Meditite2
+	dba Cry_Medicham
+	dba Cry_Carvanha
+	dba Cry_Sharpedo
+	dba Cry_Numel
+	dba Cry_Camerupt
+	dba Cry_Snorunt
+	dba Cry_Glalie
+	dba Cry_Cacnea
+	dba Cry_Cacturne
+	dba Cry_Buizel
+	dba Cry_Floatzel
+	dba Cry_Drifloon
+	dba Cry_Drifblim
+	dba Cry_Mienfoo
+	dba Cry_Mienshao
+	dba Cry_Noibat
+	dba Cry_Noivern
+	dba Cry_Comfey
 	assert_table_length NUM_CRIES

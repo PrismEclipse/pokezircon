@@ -208,8 +208,8 @@ PokemonPicPointers::
 	dbas ; Unown pics have their own table (see data/pokemon/unown_pic_pointers.asm)
 	dbas PhantumpFrontpic, PhantumpBackpic
 	dbas TrevenantFrontpic, TrevenantBackpic
-	dbas PinecoFrontpic, PinecoBackpic
-	dbas ForretressFrontpic, ForretressBackpic
+	dbas ApricorbFrontpic, ApricorbBackpic
+	dbas ChestrodeFrontpic, ChestrodeBackpic
 	dbas WolfmanFrontpic, WolfmanBackpic
 	dbas WarwolfFrontpic, WarwolfBackpic
 	dbas StuffulFrontpic, StuffulBackpic
@@ -240,7 +240,7 @@ PokemonPicPointers::
 	dbas SmeargleFrontpic, SmeargleBackpic
 	dbas BlacephalonFrontpic, BlacephalonBackpic
 	dbas StakatakaFrontpic, StakatakaBackpic
-	dbas ChinglingFrontpic, ChinglingBackpic
+	dbas BlossomoleFrontpic, BlossomoleBackpic
 	dbas ChimechoFrontpic, ChimechoBackpic
 	dbas KurstrawFrontpic, KurstrawBackpic
 	dbas PangshiFrontpic, PangshiBackpic

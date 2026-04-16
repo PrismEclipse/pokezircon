@@ -326,7 +326,7 @@ PhantumpEggMoves:
 	db SPLASH
 	db -1 ; end
 	
-PinecoEggMoves:
+APRICORBEggMoves:
 	db SPLASH
 	db -1 ; end
 
@@ -382,7 +382,7 @@ TrapinchEggMoves:
 	db SPLASH
 	db -1 ; end
 
-ChinglingEggMoves:
+BLOSSOMOLEEggMoves:
 	db SPLASH
 	db -1 ; end
 

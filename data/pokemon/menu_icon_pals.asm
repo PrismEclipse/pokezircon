@@ -211,8 +211,8 @@ MonMenuIconPals:
 	icon_pals GRAY,   BLUE   ; UNOWN
 	icon_pals BROWN,   GRAY ; PHANTUMP
 	icon_pals BROWN,    GRAY   ; TREVENANT
-	icon_pals TEAL,   PINK   ; PINECO
-	icon_pals RED,    BROWN  ; FORRETRESS
+	icon_pals TEAL,   PINK   ; APRICORB
+	icon_pals RED,    BROWN  ; CHESTRODE
 	icon_pals BLUE,   PURPLE ; DUNSPARCE
 	icon_pals PURPLE, GRAY   ; GLIGAR
 	icon_pals GRAY,   BROWN  ; STEELIX

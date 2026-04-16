@@ -22,7 +22,6 @@ INCLUDE "audio/music/newbarktown.asm"
 INCLUDE "audio/music/goldenrodcity.asm"
 INCLUDE "audio/music/vermilioncity.asm"
 INCLUDE "audio/music/titlescreen.asm"
-INCLUDE "audio/music/ruinsofalphinterior.asm"
 INCLUDE "audio/music/trainervictory.asm"
 
 
@@ -132,7 +131,7 @@ INCLUDE "audio/music/battletowertheme.asm"
 INCLUDE "audio/music/suicunebattle.asm"
 INCLUDE "audio/music/battletowerlobby.asm"
 INCLUDE "audio/music/mobilecenter.asm"
-
+INCLUDE "audio/music/ruinsofalphinterior.asm"
 
 SECTION "Extra Songs 1", ROMX
 

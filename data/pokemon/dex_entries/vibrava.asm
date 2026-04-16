@@ -1,4 +1,4 @@
-; ForretressPokedexEntry: ; 0x1d0524
+; CHESTRODEPokedexEntry: ; 0x1d0524
 	db "VIBRATION@" ; species name
 	dw 307, 337 ; height, width
 

@@ -207,8 +207,8 @@ EvosAttacksPointers::
 	dw UnownEvosAttacks
 	dw PhantumpEvosAttacks
 	dw TrevenantEvosAttacks
-	dw PinecoEvosAttacks
-	dw ForretressEvosAttacks
+	dw APRICORBEvosAttacks
+	dw CHESTRODEEvosAttacks
 	dw WolfmanEvosAttacks
 	dw WarwolfEvosAttacks
 	dw StuffulEvosAttacks
@@ -239,7 +239,7 @@ EvosAttacksPointers::
 	dw SmeargleEvosAttacks
 	dw BlacephalonEvosAttacks
 	dw StakatakaEvosAttacks
-	dw ChinglingEvosAttacks
+	dw BLOSSOMOLEEvosAttacks
 	dw ChimechoEvosAttacks
 	dw KurstrawEvosAttacks
 	dw PangshiEvosAttacks

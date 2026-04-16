@@ -72,8 +72,8 @@ AlphabeticalPokedexOrder:
 	db SLOWKING
 	db MISDREAVUS
 	db UNOWN
-	db PINECO
-	db FORRETRESS
+	db APRICORB
+	db CHESTRODE
 	db QWILFISH
 	db SCIZOR
 	db HERACROSS
@@ -137,7 +137,7 @@ AlphabeticalPokedexOrder:
 	db JIRACHI
 	db ROSERADE
 	db MISMAGIUS
-	db CHINGLING
+	db BLOSSOMOLE
 	db CHATOT
 	db SPIRITOMB
 	db GIBLE

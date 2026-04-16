@@ -37,7 +37,7 @@ OddEggProbabilities:
 OddEggs:
 	table_width NICKNAMED_MON_STRUCT_LENGTH
 
-	db CHINGLING
+	db MISSINGNO
 	db NO_ITEM
 	db THUNDERSHOCK, CHARM, SPLASH, 0
 	dw 02048 ; OT ID
@@ -63,7 +63,7 @@ OddEggs:
 	bigdw 8 ; SDef
 	dname "EGG", MON_NAME_LENGTH
 
-	db CHINGLING
+	db MISSINGNO
 	db NO_ITEM
 	db THUNDERSHOCK, CHARM, SPLASH, 0
 	dw 00256 ; OT ID

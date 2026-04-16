@@ -205,8 +205,8 @@ BitmasksPointers:
 	dw UnownBitmasks
 	dw PhantumpBitmasks
 	dw TrevenantBitmasks
-	dw PinecoBitmasks
-	dw ForretressBitmasks
+	dw ApricorbBitmasks
+	dw chestrodeBitmasks
 	dw WolfmanBitmasks
 	dw WarwolfBitmasks
 	dw StuffulBitmasks
@@ -237,7 +237,7 @@ BitmasksPointers:
 	dw SmeargleBitmasks
 	dw BlacephalonBitmasks
 	dw StakatakaBitmasks
-	dw ChinglingBitmasks
+	dw BlossomoleBitmasks
 	dw ChimechoBitmasks
 	dw KurstrawBitmasks
 	dw PangshiBitmasks

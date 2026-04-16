@@ -223,8 +223,8 @@ DEF JOHTO_POKEMON EQU const_value
 	const UNOWN      ; cb
 	const PHANTUMP  ; cc
 	const TREVENANT  ; cd
-	const PINECO     ; ce
-	const FORRETRESS ; cf
+	const APRICORB   ; ce
+	const CHESTRODE ; cf
 	const WOLFMAN  ; d0
 	const WARWOLF     ; d1
 	const STUFFUL    ; d2
@@ -255,7 +255,7 @@ DEF JOHTO_POKEMON EQU const_value
 	const SMEARGLE   ; eb
 	const BLACEPHALON ; ec
 	const STAKATAKA  ; ed
-	const CHINGLING   ; ee
+	const BLOSSOMOLE  ; ee
 	const CHIMECHO     ; ef
 	const KURSTRAW      ; f0
 	const PANGSHI    ; f1

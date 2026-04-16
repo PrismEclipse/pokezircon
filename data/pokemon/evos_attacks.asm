@@ -3838,8 +3838,8 @@ TrevenantEvosAttacks:
 	db 48, DESTINY_BOND
 	db 0 ; no more level-up moves	
 
-PinecoEvosAttacks:
-	db EVOLVE_LEVEL, 31, FORRETRESS
+APRICORBEvosAttacks:
+	db EVOLVE_LEVEL, 31, CHESTRODE
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, PROTECT
@@ -3857,7 +3857,7 @@ PinecoEvosAttacks:
 	db 45, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
-ForretressEvosAttacks:
+CHESTRODEEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, PROTECT
@@ -4418,7 +4418,7 @@ StakatakaEvosAttacks:
 	db 61, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
-ChinglingEvosAttacks:
+BLOSSOMOLEEvosAttacks:
 	db EVOLVE_HAPPINESS, TR_NITE, CHIMECHO
 	db 0 ; no more evolutions
 	db 1, WRAP

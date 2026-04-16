@@ -205,8 +205,8 @@ AnimationIdlePointers:
 	dw UnownAnimationIdle
 	dw PhantumpAnimationIdle
 	dw TrevenantAnimationIdle
-	dw PinecoAnimationIdle
-	dw ForretressAnimationIdle
+	dw ApricorbAnimationIdle
+	dw ChestrodeAnimationIdle
 	dw WolfmanAnimationIdle
 	dw WarwolfAnimationIdle
 	dw StuffulAnimationIdle
@@ -237,7 +237,7 @@ AnimationIdlePointers:
 	dw SmeargleAnimationIdle
 	dw BlacephalonAnimationIdle
 	dw StakatakaAnimationIdle
-	dw ChinglingAnimationIdle
+	dw BlossomoleAnimationIdle
 	dw ChimechoAnimationIdle
 	dw KurstrawAnimationIdle
 	dw PangshiAnimationIdle
